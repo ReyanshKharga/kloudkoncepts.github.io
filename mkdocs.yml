@@ -3,6 +3,7 @@ site_name: KubeKoncepts
 # defeine TOC or order of website-
 nav:
   - Home: index.md
+  - Pod: pod.md
 
 site_author: Reyansh Kharga
 site_description: >-
