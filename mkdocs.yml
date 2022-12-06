@@ -1,5 +1,5 @@
 # Project information
-site_name: KubeKoncepts
+site_name: KubeKoncepts - Learn Kubernetes with Examples
 # defeine TOC or order of website-
 nav:
   - Home: index.md
@@ -7,7 +7,7 @@ nav:
 
 site_author: Reyansh Kharga
 site_description: >-
-  Learn Kubernetes With Examples.
+  Learn Kubernetes with Examples.
 
 # Repository
 repo_name: ReyanshKharga/eks-kubernetes-masterclass
