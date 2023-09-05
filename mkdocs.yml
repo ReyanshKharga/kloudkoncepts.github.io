@@ -1,5 +1,5 @@
 # Project information
-site_name: KubeKoncepts - Learn Kubernetes with Examples
+site_name: kloudkoncepts - Learn Kubernetes with Examples
 # defeine TOC or order of website-
 nav:
   - Home: index.md

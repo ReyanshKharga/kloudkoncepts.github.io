@@ -1,2 +1,22 @@
-# kubekoncepts.com
-This repository is used to host kubekoncepts.com
+# kloudkoncepts.com
+This repository is used to host kloudkoncepts.com
+
+## How to Build?
+
+### Step 1: Create a Python3 Virtual Environment
+
+```
+python3 -m venv env
+```
+
+### Step 2: Activate the Virtual Environment
+
+```
+source env/bin/activate
+```
+
+### Step 3: Install Packages
+
+```
+pip3 install -r requirements.txt
+```
