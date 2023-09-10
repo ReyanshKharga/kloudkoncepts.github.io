@@ -1,5 +1,5 @@
-# kloudkoncepts.com
-This repository is used to host kloudkoncepts.com
+# KloudKoncepts.com
+This repository is used to host KloudKoncepts.com
 
 ## How to Build?
 

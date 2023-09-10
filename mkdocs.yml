@@ -1,26 +1,36 @@
-# Project information
-site_name: kloudkoncepts - Learn Kubernetes with Examples
-# defeine TOC or order of website-
-nav:
-  - Home: index.md
-  - Pod: pod.md
-
-site_author: Reyansh Kharga
+site_name: Kloud Koncepts
 site_description: >-
-  Learn Kubernetes with Examples.
-
-# Repository
+  Learn DevOps on Cloud
+site_author: Reyansh Kharga
 repo_name: ReyanshKharga/eks-kubernetes-masterclass
 repo_url: https://github.com/ReyanshKharga/eks-kubernetes-masterclass
+strict: true
 
-# Configuration
+# Defeine TOC or order of website
+nav:
+  - Home: index.md
+  - Kubernetes on EKS:
+    - Docker Fundamentals:
+      - Introduction to Docker: ./kubernetes-on-eks/docker-fundamentals/introduction-to-docker.md
+      - Install Docker: ./kubernetes-on-eks/docker-fundamentals/install-docker.md
+    - YAML Fundamentals:
+      - Introduction to YAML: ./kubernetes-on-eks/yaml-fundamentals/index.md
+
+# Plugings
+plugins:
+  - search
+
+# Theme
 theme:
   name: material
   features:
     - navigation.tabs
-    - navigation.sections
-    - toc.integrate
+    # - navigation.sections
+    # - toc.integrate
     - navigation.top
+    - content.code.copy
+    - content.code.annotate
+    - navigation.footer
   language: en
   palette:
     - scheme: default
@@ -38,10 +48,11 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: images/logo_black.png
-  logo: assets/logo.png
+  favicon: assets/images/icons/logo_black.png
+  logo: assets/images/icons/logo.png
 
 extra:
+  generator: false # Removes Made with Material for MkDocs from footer
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/ReyanshKharga
@@ -50,27 +61,36 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/ReyanshKharga
 
+extra_css:
+  - stylesheets/extra.css
+  - https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css
 extra_javascript:
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js #?features=es6
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - admonition
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
-  - footnotes
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.mark
-  
-  
-plugins:
-  - search
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - footnotes
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
 
 copyright: |
-  &copy; 2023 <a href="https://github.com/ReyanshKharga"  target="_blank" rel="noopener">Reyansh Kharga</a>
+  &copy; 2023 <a href="https://github.com/ReyanshKharga"  target="_blank" rel="noopener">Kloud Koncepts</a>

@@ -27,7 +27,6 @@ hello:
 ```
 
 !!! info "Options"
-
     * phone
     * email
     * profile
@@ -42,12 +41,9 @@ hello:
 
 
 !!! note "My note"
-
     This is a note
 
-
 !!! Example "My Example"
-
     Hello this is my example
     ```yaml title="test.yml" linenums="1"
     name: Reyansh
@@ -56,9 +52,7 @@ hello:
         - banana
     ```
 
-
 !!! Example "My Example With Code Highlight"
-
     Hello this is my example
     ```yaml title="test.yml" linenums="1" hl_lines="2 3"
     name: Reyansh
@@ -68,22 +62,15 @@ hello:
     ```
 
 ??? Example "Collapsible example (Default is collapsed)"
-
     This example is collapsed by default
 
-
 ???+ Example "Collapsible example (Default is expanded)"
-
     This example is expanded by default
 
-
 ??? note "Collapsible note (Default is collapsed)"
-
     This note is collapsed by default
 
-
 ???+ note "Collapsible note (Default is expanded)"
-
     This note is expanded by default
 
 
@@ -111,92 +98,3 @@ def bubble_sort(items):
 ```
 
 Done!
-
-=== ":octicons-file-code-16: `deployment.yml`"
-
-    ``` c linenums="1"
-    #include <stdio.h>
-
-    int main(void) {
-      printf("Hello world!\n");
-      return 0;
-    }
-    ```
-
-=== ":octicons-file-code-16: `service.yml`"
-
-    ``` c++
-    #include <iostream>
-
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
-    }
-    ```
-
-=== ":octicons-file-code-16: `ingress.yml`"
-
-    ``` c++
-    #include <iostream>
-
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
-    }
-    ```
-
-=== ":octicons-file-code-16: `gateway.yml`"
-
-    ``` c++
-    #include <iostream>
-
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
-    }
-    ```
-
-=== ":octicons-file-code-16: `pv.yml`"
-
-    ``` c++
-    #include <iostream>
-
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
-    }
-    ```
-
-=== ":octicons-file-code-16: `pvc.yml`"
-
-    ``` c++
-    #include <iostream>
-
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
-    }
-    ```
-..
-
-=== "C"
-
-    ``` c
-    #include <stdio.h>
-
-    int main(void) {
-      printf("Hello world!\n");
-      return 0;
-    }
-    ```
-
-=== "C++"
-
-    ``` c++
-    #include <iostream>
-
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
-    }
-    ```
