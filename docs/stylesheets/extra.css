@@ -6,6 +6,7 @@
     color: #1DA1F2;
 }
 
+/* Heart Animation */
 @keyframes heart {
     0%, 40%, 80%, 100% {
         transform: scale(1);
@@ -19,6 +20,20 @@
 animation: heart 1000ms infinite;
 color: red
 }
+/* Heart Animation */
+
+
+/* Tabbed Content Styling */
+.md-typeset .tabbed-labels>label code {
+    color: var(--md-typeset-a-color);
+}
+
+.md-typeset .tabbed-labels>label code:hover {
+    background-color: var(--md-accent-fg-color--transparent);
+    color: var(--md-accent-fg-color);
+}
+/* Tabbed Content Styling */
+
 
 /* Restore Admonitions Style */
 /* .md-typeset .admonition,
@@ -26,5 +41,4 @@ color: red
   border-width: 0;
   border-left-width: 4px;
 } */
-
-
+/* Restore Admonitions Style */

@@ -1,5 +1,13 @@
 # Install Docker
 
+Docker is an open platform for developing, shipping, and running applications.
+
+You can download and install Docker on the platform of your choice, including Mac, Linux, or Windows by following the platform-specific instructions provided below.
+
+!!! warning
+    Given the ever-changing nature of the installation process, it is advisable to rely on the official documentation when installing Docker.
+
+
 ## Docker Engine vs Docker Desktop
 
 `Docker Engine` is the core software that allows you to create and run Docker containers, while `Docker Desktop` is a complete development environment that includes Docker Engine and several other tools and services for building and testing Docker applications on your local machine.
@@ -7,9 +15,6 @@
 Docker Desktop is the only way to install the Docker Engine on `Windows` and `macOS` operating systems.
 
 Docker Desktop is also available for `Linux`, although Linux users are free to install the Docker Engine separately.
-
-!!! warning
-    Given the ever-changing nature of the installation process, it is advisable to rely on the official documentation when installing Docker.
 
 
 ## Install Docker on Mac
