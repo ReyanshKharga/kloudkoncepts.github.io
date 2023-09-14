@@ -157,7 +157,7 @@ Here's what your folder structure should look like at this point:
 |   |-- Dockerfile
 ```
 
-## Build the Docker Image
+## Step 4: Build the Docker Image
 
 With the application code and `Dockerfile` prepared, we are now ready to build the Docker image for our application.
 
