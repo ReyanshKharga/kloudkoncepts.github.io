@@ -13,7 +13,9 @@ nav:
     - Docker Fundamentals:
       - Introduction to Docker: ./kubernetes-on-eks/docker-fundamentals/introduction-to-docker.md
       - Install Docker: ./kubernetes-on-eks/docker-fundamentals/install-docker.md
-      - Run Container From a Public Docker Image: ./kubernetes-on-eks/docker-fundamentals/run-container-from-public-image.md
+      - Running Container From a Public Docker Image: ./kubernetes-on-eks/docker-fundamentals/run-container-from-public-image.md
+      - Creating Docker Image: 
+        - Customized Nginx Docker Image: ./kubernetes-on-eks/docker-fundamentals/customized-nginx-docker-image.md
     - YAML Fundamentals:
       - Introduction to YAML: ./kubernetes-on-eks/yaml-fundamentals/index.md
 

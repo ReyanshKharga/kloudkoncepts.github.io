@@ -1,4 +1,4 @@
-# Run Container From a Public Docker Image
+# Running Container From a Public Docker Image
 
 Before we create our own Docker image, let's see how we can use publicly available Docker images to run containers. 
 
@@ -115,18 +115,6 @@ docker start <container-id>
 docker start <container-name>
 ```
 
-## Delete a Container
-
-```
-# Delete container using ID
-docker rm <container-id>
-
-{OR}
-
-# Delete container using name
-docker rm <container-name>
-```
-
 !!! note
     Deleting a container permanently removes it from your system. This action deletes all the data and configuration associated with that container.
 
@@ -189,6 +177,30 @@ In the above command, we are creating the `nginx` container in detached mode and
 Once the container is up and running, you can open any browser on your local machine and access the Nginx application running in the container by visiting `localhost:81`.
 
 
+## View Container Logs
+
+```
+docker logs -f <container-id/container-name>
+```
+
+!!! info
+    The `-f` flag in the `docker logs` command stands for "follow". It allows you to continuously stream the logs of the specified Docker container in real-time.
+
+## Delete a Container
+
+```
+# Delete container using ID
+docker rm <container-id>
+
+{OR}
+
+# Delete container using name
+docker rm <container-name>
+```
+
+!!! note
+    A container needs to be stopped before it can be deleted. You can't delete a running container.
+
 ## Delete All Stopped Containers
 
 What if you have multiple stopped containers and you want to delete all of them in a single command?
@@ -197,6 +209,7 @@ You can use the following command to delete all stopped containers:
 ```
 docker container prune
 ```
+
 
 ## Delete an Image
 
@@ -218,7 +231,7 @@ You can use the following command to remove all images on your Docker host that 
 docker image prune -a
 ```
 
-## Remove Everything
+## Clean Up
 
 You can use the following command to perform a comprehensive cleanup of your Docker system. It removes not only unused containers and images but also associated volumes:
 ```
