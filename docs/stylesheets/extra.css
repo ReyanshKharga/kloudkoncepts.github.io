@@ -1,10 +1,16 @@
+/* Code Highlight Colour */
 :root > * {
     --md-code-hl-color: #E4EAF6;
 }
-  
+/* Code Highlight Colour */
+
+
+/* Twitter Icon Colour */
 .twitter {
     color: #1DA1F2;
 }
+/* Twitter Icon Colour */
+
 
 /* Heart Animation */
 @keyframes heart {

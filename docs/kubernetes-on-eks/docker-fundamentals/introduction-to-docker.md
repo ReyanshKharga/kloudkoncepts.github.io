@@ -51,7 +51,8 @@ And that, folks, is just another day in the life of software adventures.
 
 ### Reasons Behind the Probelm
 
-Why did that happen? How come the exact same code worked on one machine but failed to run on the other?
+!!! question "Why did that happen?"
+    How come the exact same code worked on one machine but failed to run on the other?
 
 Let’s look into the possible reasons:
 
@@ -65,7 +66,8 @@ Let’s look into the possible reasons:
 
 ### The Catastrophe
 
-What if Bob used the same operating system and dependencies as Adam, and the code worked on his computer? 
+!!! warning
+    What if Bob used the same operating system and dependencies as Adam, and the code worked on his computer?
 
 He would likely send it for production deployment. However, here's the challenge: We cannot ensure that the code will function properly on the production machine unless it is running the same operating system and has the required dependencies and libraries correctly installed.
 
@@ -172,7 +174,8 @@ Think of [Docker]{:target="_blank"} as a super handy toolbox for containers. It 
 
 Docker takes care of all the hard work, like setting up containers and making sure they play nice with your computer. It's like having a container wizard by your side.
 
-So, if containers are the cool kids, Docker is the captain of the cool kids - making everything easy and awesome.
+!!! tip
+    So, if containers are the cool kids, Docker is the captain of the cool kids - making everything easy and awesome.
 
 
 ## Compatibility of Docker Across Operating Systems
@@ -181,7 +184,7 @@ In the beginning, Docker was all about Linux. It had a close bond with Linux. Fo
 
 But Docker had a grand vision: they wanted to spread the container magic to Windows and Mac users.
 
-That's where Docker Desktop stepped in. It functions as an intelligent mediator, introducing a portion of Linux functionality to both Windows and Mac environments. This unique component, referred to as a lightweight Linux kernel, serves as an intermediary, facilitating the seamless operation of containers across these distinct systems.
+That's where `Docker Desktop` stepped in. It functions as an intelligent mediator, introducing a portion of Linux functionality to both Windows and Mac environments. This unique component, referred to as a lightweight Linux kernel, serves as an intermediary, facilitating the seamless operation of containers across these distinct systems.
 
 With Docker Desktop, it's not just about Linux anymore. Windows and Mac users also get to share the container's goodness. It's like a universal language that these systems understand, making containers accessible and practical for everyone.
 
@@ -190,9 +193,9 @@ With Docker Desktop, it's not just about Linux anymore. Windows and Mac users al
 
 Now that we've got a handle on Docker and containers, let's dive into the nuts and bolts of how Docker actually works behind the scenes.
 
-Docker uses a client-server architecture. Think of the Docker client as your control center. It's what you use to tell Docker what you want to do – like create, start, or stop containers. You talk to it directly. 
+Docker uses a client-server architecture. Think of the `Docker Client` as your control center. It's what you use to tell Docker what you want to do – like create, start, or stop containers. You talk to it directly. 
 
-The Docker daemon which is the server part, is like the backstage crew. When you give a command to the client, the daemon springs into action, doing the heavy lifting of building, running, and distributing your Docker containers.
+The `Docker Daemon` which is the server part, is like the backstage crew. When you give a command to the client, the daemon springs into action, doing the heavy lifting of building, running, and distributing your Docker containers.
 
 These two components – the Docker client and the Docker daemon – communicate using a REST API. This API functions as their communication bridge. When you send a request from the Docker client, it travels via this API to the Docker daemon, which then processes it and sends back the necessary response.
 
@@ -219,13 +222,14 @@ Once you have the Docker image ready, you can use it to run a container. Imagine
 
 Remember, an image is a read-only template with instructions for creating a container while a container is a runnable instance of an image. 
 
-It's like using a recipe to cook a dish - the image is the recipe, and the container is the cooked meal.
+!!! tip
+    It's like using a recipe to cook a dish - the image is the recipe, and the container is the cooked meal.
 
 ## How Does Docker Know What to Include in an Image?
 
-Well, Docker uses a special recipe called a "Dockerfile" to create your image just the way you want it. 
+Well, Docker uses a special recipe called a `Dockerfile` to create your image just the way you want it. 
 
-A Dockerfile is like a step-by-step instruction manual for creating a Docker image. It's a plain text file that contains a series of commands and settings that define how to construct a container image. With a Dockerfile, you outline everything needed to set up your application or environment inside a container.
+A `Dockerfile` is like a step-by-step instruction manual for creating a Docker image. It's a plain text file that contains a series of commands and settings that define how to construct a container image. With a Dockerfile, you outline everything needed to set up your application or environment inside a container.
 
 !!! example "Dockerfile Example"
 
@@ -247,20 +251,21 @@ A Dockerfile is like a step-by-step instruction manual for creating a Docker ima
     CMD [ "node", "server.js" ]
     ```
 
-Each line in a Dockerfile represents a specific action, like installing software, copying files, or configuring settings. When you build a Docker image using a Dockerfile, Docker reads and executes these instructions sequentially to create a consistent and reproducible image.
+Each line in a `Dockerfile` represents a specific action, like installing software, copying files, or configuring settings. When you build a Docker image using a `Dockerfile`, Docker reads and executes these instructions sequentially to create a consistent and reproducible image.
 
-In essence, a Dockerfile captures your application's requirements and the steps to get it up and running within a container. It's a powerful tool for automating the process of building and deploying containers, making your development and deployment workflows smoother and more reliable.
+In essence, a `Dockerfile` captures your application's requirements and the steps to get it up and running within a container. It's a powerful tool for automating the process of building and deploying containers, making your development and deployment workflows smoother and more reliable.
 
 ## Docker Registry and Repository?
 
 When you run the `docker build` command on your host to build a Docker image from a Dockerfile, Docker stores the resulting image on the host machine where you executed the `docker build` command.
 
-What if you wish to securely store an image and have the ability to share it with others? This is where the Docker registry comes into play. The Docker registry acts as a centralized location where you can store images, making them accessible to both your team members and the public. 
+What if you wish to securely store an image and have the ability to share it with others? This is where the Docker `registry` comes into play. The Docker registry acts as a centralized location where you can store images, making them accessible to both your team members and the public. 
 
-To put it simply, think of the registry as a storage account for holding your images, while the repository within that storage account acts as a folder to neatly organize these images.
+To put it simply, think of the `registry` as a storage account for holding your images, while the `repository` within that storage account acts as a folder to neatly organize these images.
 
-Docker Hub is one of the most popular and widely used public Docker registries. It hosts a rich variety of ready-to-use Docker images customized for popular applications like MySQL, Nginx, Node.js, and others.
+[Docker Hub]{:target="_blank"} is one of the most popular and widely used public Docker registries. It hosts a rich variety of ready-to-use Docker images customized for popular applications like `MySQL`, `Nginx`, `Node.js`, and others.
 
+You can create your own repository on Docker Hub, store images, and share them with others, or even maintain private repositories for internal use.
 
 ## Summary
 
@@ -270,7 +275,8 @@ In summary, Docker solves the problem of inconsistent application behavior acros
     <img src="../../../assets/screenshots/docker-fundamentals/traditional-machine-vs-vm-vs-docker.png" alt="Comparison Between Traditional Machine, VMs, and Docker" />
 </p>
 
-!!! note "References"
+## References
+!!! note ""
     !!! quote ""
         * [Docker Overview]{:target="_blank"}
         * [Virtual Machines]{:target="_blank"}
@@ -282,3 +288,4 @@ In summary, Docker solves the problem of inconsistent application behavior acros
 [Docker]: https://docs.docker.com/get-started/overview/
 [Virtual Machines]: https://en.wikipedia.org/wiki/Virtual_machine
 [Docker Overview]: https://docs.docker.com/get-started/overview/
+[Docker Hub]: https://hub.docker.com/search?q=

@@ -13,10 +13,11 @@ nav:
     - Docker Fundamentals:
       - Introduction to Docker: ./kubernetes-on-eks/docker-fundamentals/introduction-to-docker.md
       - Install Docker: ./kubernetes-on-eks/docker-fundamentals/install-docker.md
+      - Run Container From a Public Docker Image: ./kubernetes-on-eks/docker-fundamentals/run-container-from-public-image.md
     - YAML Fundamentals:
       - Introduction to YAML: ./kubernetes-on-eks/yaml-fundamentals/index.md
 
-# Plugings
+# Plugins
 plugins:
   - search
 
@@ -91,6 +92,11 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 
 copyright: |
   &copy; 2023 <a href="https://github.com/ReyanshKharga"  target="_blank" rel="noopener">Kloud Koncepts</a>
