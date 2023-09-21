@@ -1,4 +1,4 @@
-# Containerizing a Node.js and Express Application
+# Containerizing a Node.js and Express App
 
 Let's see how we can containerize a `Node.js` and `Express` application.
 
