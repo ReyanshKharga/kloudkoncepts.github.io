@@ -11,7 +11,7 @@ Create `server.js` and `package.json` files as follows:
 
 === ":octicons-file-code-16: `server.js`"
 
-    ```js
+    ```js linenums="1"
     const express = require('express')
     const app = express()
     var os = require('os');
@@ -45,7 +45,7 @@ Create `server.js` and `package.json` files as follows:
 
 === ":octicons-file-code-16: `package.json`"
 
-    ```json
+    ```json linenums="1"
     {
         "dependencies": {
             "express": "^4.18.2"
@@ -69,10 +69,11 @@ GET /health
 GET /random
 ```
 
-!!! info "What does each route return?"
+!!! question "What does each route return?"
     * `GET /` returns a JSON object containing Host and Version.
     * `GET /health` returns the health status.
     * `GET /random` returns a random integer between 1 and 10
+
 
 ## Step 2: Test the Application Locally
 
@@ -86,7 +87,7 @@ npm install
 node server.js
 ```
 
-!!! warning
+!!! note
     You must have `Node.js` installed on your local machine to run the above commands.
 
 If there are no errors, your Express application will begin serving requests on the specified port, which in our case is `5000`.
@@ -103,6 +104,7 @@ You can also access the endpoints mentioned above directly from your browser.
 !!! note
     When you run `npm install`, it generates a `package-lock.json` file to record and lock down the specific versions of installed packages and their dependencies. This ensures consistency in package versions across different environments and collaborations.
 
+
 ## Step 3: Create Dockerfile
 
 Now, let's containerize our application. To do that, we first need to create a `Dockerfile` with instructions on how to build the image.
@@ -111,7 +113,7 @@ Create the `Dockerfile` as follows:
 
 === ":octicons-file-code-16: `Dockerfile`"
 
-    ```Dockerfile
+    ```Dockerfile linenums="1"
     FROM node:18
 
     # Create app directory
@@ -157,6 +159,7 @@ Here's what your folder structure should look like at this point:
 |   |-- Dockerfile
 ```
 
+
 ## Step 4: Build the Docker Image
 
 With the application code and `Dockerfile` prepared, we are now ready to build the Docker image for our application.
@@ -168,4 +171,84 @@ docker build -t <image-name>:<image-tag> <path-to-Dockerfile>
 
 # Actual command
 docker build -t my-node-express-image:v1 .
+```
+
+The above command will build an image named `my-node-express-image` with tag `v1`.
+
+
+## Step 5: Verify the Image
+
+List images and verify if the newly created image is present:
+
+```
+docker images
+```
+
+Look for the image `name` and the `tag` we specified while building the image.
+
+
+## Step 6: Run a Container From the Image
+
+Now that we have the image ready, let's create a container from it and test the application.
+
+```
+docker run -d --name my-node-express-container -p 5001:5000 my-node-express-image:v1
+```
+
+!!! question "What does the above command do?"
+
+    1. It runs a container named `my-node-express-container` in detached mode, using the image `my-node-express-image:v1`. 
+    2. Additionally, it exposes port `5000` of the container to port `5001` on the host
+
+
+
+
+## Step 7: Test the Application
+
+1. Test the application from within the container:
+
+    - Start a shell session inside the container
+
+        ```
+        docker exec -it my-node-express-container bash
+        ```
+
+    - Access the endpoints
+
+        ```
+        curl localhost:5000
+        curl localhost:5000/health
+        curl localhost:5000/random
+        ```
+
+2. Test the application from host computer (Outside the container):
+
+    Open any browser on your host computer and hit the following endpoints to verify if port mapping is working as expected.
+
+    ```
+    localhost:5001
+    localhost:5001/health
+    localhost:5001/random
+    ```
+
+
+## Step 8: View Container Logs
+
+```
+# Command template
+docker logs -f <container-id/container-name>
+
+# Actual command
+docker logs -f my-node-express-container
+```
+
+
+## Step 9: Clean Up
+
+```
+# Stop the container
+docker stop my-node-express-container
+
+# Remove the container
+docker rm my-node-express-container
 ```

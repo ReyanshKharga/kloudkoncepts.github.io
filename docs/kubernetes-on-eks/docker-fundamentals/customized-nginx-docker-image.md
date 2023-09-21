@@ -12,7 +12,7 @@ Let's create the customized `index.html` file as follows:
 
 === ":octicons-file-code-16: `index.html`"
 
-    ```html
+    ```html linenums="1"
     <!doctype html>
     <html>
         <head>
@@ -32,7 +32,7 @@ Create the `Dockerfile` as follows:
 
 === ":octicons-file-code-16: `Dockerfile`"
 
-    ```Dockerfile
+    ```Dockerfile linenums="1"
     FROM nginx:latest
     COPY ./index.html /usr/share/nginx/html/index.html
     ```
