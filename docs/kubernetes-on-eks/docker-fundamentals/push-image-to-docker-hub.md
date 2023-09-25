@@ -41,7 +41,7 @@ Let's create a public repository named `node-express`.
 
     ```
     # Command template
-    docker push <hub-user>/<repo-name>:<tag>
+    docker push <docker-hub-username>/<repository-name>:<tag>
 
     # Actual command
     docker push reyanshkharga/node-express:v1
