@@ -22,6 +22,7 @@ nav:
       - Introduction to YAML: ./kubernetes-on-eks/yaml-fundamentals/introduction-to-yaml.md
       - YAML Syntax and Structure: ./kubernetes-on-eks/yaml-fundamentals/yaml-syntax-and-structure.md
       - Data Types in YAML: ./kubernetes-on-eks/yaml-fundamentals/data-types-in-yaml.md
+      - YAML Tools and Resources: ./kubernetes-on-eks/yaml-fundamentals/yaml-tools-and-resources.md
 
 # Plugins
 plugins:

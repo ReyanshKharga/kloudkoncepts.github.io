@@ -1,0 +1,8 @@
+Student:
+  name:
+    firstName: Adam
+    lastName: Smith
+  friends:
+    - John
+    - Max
+    - Bob
