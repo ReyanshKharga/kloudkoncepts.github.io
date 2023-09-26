@@ -275,8 +275,7 @@ In summary, Docker solves the problem of inconsistent application behavior acros
     <img src="../../../assets/screenshots/docker-fundamentals/traditional-machine-vs-vm-vs-docker.png" alt="Comparison Between Traditional Machine, VMs, and Docker" />
 </p>
 
-## References
-!!! note ""
+!!! note "References:"
     !!! quote ""
         * [Docker Overview]{:target="_blank"}
         * [Virtual Machines]{:target="_blank"}

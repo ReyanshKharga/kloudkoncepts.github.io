@@ -118,8 +118,7 @@ Let's install Docker Engine using the repository.
     sudo docker run hello-world
     ```
 
-## References
-!!! note ""
+!!! note "References:"
     !!! quote ""
         * [Install Docker Desktop on Mac]{:target="_blank"}
         * [Install Docker Desktop on Windows]{:target="_blank"}

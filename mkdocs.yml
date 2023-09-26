@@ -29,7 +29,10 @@ nav:
     - Amazon EKS Overview and Architecture:
       - Introduction to Amazon EKS: ./kubernetes-on-eks/amazon-eks-overview-and-architecture/introduction-to-amazon-eks.md
       - Architecture of Amazon EKS: ./kubernetes-on-eks/amazon-eks-overview-and-architecture/eks-architecture.md
-    # - Install CLI Tools:
+    - Install CLI Tools:
+      - Introduction to CLI Tools: ./kubernetes-on-eks/install-cli-tools/introduction-to-cli-tools.md
+      - Install and Configure AWS CLI: ./kubernetes-on-eks/install-cli-tools/install-and-configure-aws-cli.md
+      - Install Kubectl: ./kubernetes-on-eks/install-cli-tools/install-kubectl.md
 
 # Plugins
 plugins:
