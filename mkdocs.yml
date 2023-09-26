@@ -28,6 +28,8 @@ nav:
       - Architecture of Kubernetes: ./kubernetes-on-eks/kubernetes-overview-and-architecture/kubernetes-architecture.md
     - Amazon EKS Overview and Architecture:
       - Introduction to Amazon EKS: ./kubernetes-on-eks/amazon-eks-overview-and-architecture/introduction-to-amazon-eks.md
+      - Architecture of Amazon EKS: ./kubernetes-on-eks/amazon-eks-overview-and-architecture/eks-architecture.md
+    # - Install CLI Tools:
 
 # Plugins
 plugins:
