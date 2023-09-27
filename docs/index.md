@@ -2,7 +2,7 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-Deployment test : v7
+Deployment test : v8
 
 ## Commands
 
