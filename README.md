@@ -20,3 +20,8 @@ source env/bin/activate
 ```
 pip3 install -r requirements.txt
 ```
+
+
+## Deploying to GitHub Pages
+
+Make sure `gh-pages` branch has a file created called `CNAME` that contains the domain name you want. In my case it is www.kloudkoncepts.com.
