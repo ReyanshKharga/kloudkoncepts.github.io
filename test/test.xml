@@ -1,9 +1,0 @@
-<Student>
-  <name>
-    <firstName>Adam</firstName>
-    <lastName>Smith</lastName>
-  </name>
-  <friends>John</friends>
-  <friends>Max</friends>
-  <friends>Bob</friends>
-</Student>
