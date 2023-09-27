@@ -38,6 +38,11 @@ nav:
 plugins:
   - search
 
+extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+
 # Theme
 theme:
   name: material
