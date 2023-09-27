@@ -40,10 +40,10 @@ plugins:
 
 extra:
   analytics:
-    provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
     feedback:
       title: Was this page helpful?
+      provider: google
+      property: !ENV GOOGLE_ANALYTICS_KEY
       ratings:
         - icon: material/emoticon-happy-outline
           name: This page was helpful
