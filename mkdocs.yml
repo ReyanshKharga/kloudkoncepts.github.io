@@ -8,7 +8,7 @@ strict: true
 
 # Defeine TOC or order of website
 nav:
-  - Home: index.md
+  # - Home: index.md
   - Kubernetes on EKS:
     - Docker Fundamentals:
       - Introduction to Docker: ./kubernetes-on-eks/docker-fundamentals/introduction-to-docker.md
