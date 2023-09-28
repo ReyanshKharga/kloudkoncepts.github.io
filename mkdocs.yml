@@ -38,6 +38,7 @@ nav:
 plugins:
   - search
 
+# Extra
 extra:
   consent:
     title: Cookie consent
@@ -53,7 +54,7 @@ extra:
       - manage
   analytics:
     provider: google
-    property: G-76C119CVCJ
+    property: !ENV GOOGLE_ANALYTICS_KEY
     feedback:
       title: Was this page helpful?
       ratings:
@@ -147,4 +148,4 @@ markdown_extensions:
   - pymdownx.tilde
 
 copyright: |
-  &copy; 2024 <a href="https://github.com/ReyanshKharga"  target="_blank" rel="noopener">Kloud Koncepts</a>
+  Copyright &copy; 2023-2024 <a href="https://github.com/ReyanshKharga"  target="_blank" rel="noopener">Kloud Koncepts</a>
