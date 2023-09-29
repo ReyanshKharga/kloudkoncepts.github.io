@@ -10,6 +10,7 @@ strict: true
 nav:
   - Home: index.md
   - Kubernetes on EKS:
+    - ./kubernetes-on-eks/index.md
     - Docker Fundamentals:
       - Introduction to Docker: ./kubernetes-on-eks/docker-fundamentals/introduction-to-docker.md
       - Install Docker: ./kubernetes-on-eks/docker-fundamentals/install-docker.md
