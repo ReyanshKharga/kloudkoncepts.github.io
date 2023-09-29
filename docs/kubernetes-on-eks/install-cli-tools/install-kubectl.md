@@ -1,4 +1,4 @@
-# Install Kubectl
+# Install kubectl
 
 The Kubernetes command-line tool, `kubectl`, allows you to run commands against Kubernetes clusters.
 
@@ -14,7 +14,7 @@ Let's see how you can install `kubectl` on your operating system.
 
 ## Step 1: Install Kubectl
 
-### Install kubectl on Mac
+### Install kubectl on MacOS
 
 You can install kubectl with homebrew as follows:
 

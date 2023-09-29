@@ -34,6 +34,14 @@ nav:
       - Introduction to CLI Tools: ./kubernetes-on-eks/install-cli-tools/introduction-to-cli-tools.md
       - Install and Configure AWS CLI: ./kubernetes-on-eks/install-cli-tools/install-and-configure-aws-cli.md
       - Install Kubectl: ./kubernetes-on-eks/install-cli-tools/install-kubectl.md
+      - Install Eksctl: ./kubernetes-on-eks/install-cli-tools/install-eksctl.md
+      - Install Helm CLI: ./kubernetes-on-eks/install-cli-tools/install-helm-cli.md
+    - Create EKS Cluster:
+      - Create EKS Cluster Using eksctl: ./kubernetes-on-eks/create-eks-cluster/create-eks-cluster.md
+      - Verify Worker Nodes: ./kubernetes-on-eks/create-eks-cluster/verify-worker-nodes.md
+      - VPC Resources Created by EKS: ./kubernetes-on-eks/create-eks-cluster/vpc-resources-created-by-eks.md
+      # - 
+      # -
 
 # Plugins
 plugins:
