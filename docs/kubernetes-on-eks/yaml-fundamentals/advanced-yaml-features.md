@@ -1,8 +1,5 @@
 # Advanced Features in YAML
 
-Now that we have a good understanding of YAML, Data types in YAML, syntax etc.. let's look at some of the advanced features in YAML like multiline strings, anchor and aliases, extenstion and override.
-
-
 Now that we're familiar with the basics of YAML, let's explore some advanced features like multiline strings, anchors and aliases, etc.
 
 
