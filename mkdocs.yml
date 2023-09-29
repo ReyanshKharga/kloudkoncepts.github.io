@@ -37,24 +37,13 @@ nav:
 # Plugins
 plugins:
   - search
+  # - privacy
 
 # Extra
 extra:
-  consent:
-    title: Cookie consent
-    cookies:
-      analytics: Google Analytics
-    description: >- 
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
-    actions:
-      - accept
-      - manage
   analytics:
     provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
+    property: G-76C119CVCJ
     feedback:
       title: Was this page helpful?
       ratings:
