@@ -1,6 +1,7 @@
 /* Code Highlight Colour */
 :root > * {
     --md-code-hl-color: #E4EAF6;
+    /* --md-default-fg-color: #E4EAF6; */
 }
 /* Code Highlight Colour */
 
@@ -37,6 +38,10 @@ color: red
 .md-typeset .tabbed-labels>label code:hover {
     background-color: var(--md-accent-fg-color--transparent);
     color: var(--md-accent-fg-color);
+}
+
+.js .md-typeset .tabbed-labels:before {
+    background:  var(--md-accent-fg-color);
 }
 /* Tabbed Content Styling */
 

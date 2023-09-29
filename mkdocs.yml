@@ -24,6 +24,7 @@ nav:
       - YAML Syntax and Structure: ./kubernetes-on-eks/yaml-fundamentals/yaml-syntax-and-structure.md
       - Data Types in YAML: ./kubernetes-on-eks/yaml-fundamentals/data-types-in-yaml.md
       - YAML Tools and Resources: ./kubernetes-on-eks/yaml-fundamentals/yaml-tools-and-resources.md
+      - Advanced Features in YAML: ./kubernetes-on-eks/yaml-fundamentals/advanced-yaml-features.md
     - Kubernetes Overview and Architecture: 
       - Introduction to Kubernetes: ./kubernetes-on-eks/kubernetes-overview-and-architecture/introduction-to-kubernetes.md
       - Architecture of Kubernetes: ./kubernetes-on-eks/kubernetes-overview-and-architecture/kubernetes-architecture.md
@@ -46,7 +47,6 @@ nav:
 # Plugins
 plugins:
   - search
-  # - privacy
 
 # Extra
 extra:
