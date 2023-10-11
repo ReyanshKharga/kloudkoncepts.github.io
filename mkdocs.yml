@@ -43,6 +43,9 @@ nav:
       - VPC Resources Created by EKS: ./kubernetes-on-eks/create-eks-cluster/vpc-resources-created-by-eks.md
       # - 
       # -
+  - DevOps & SRE Interview Questions:
+      - ./devops-and-sre-interview-questions/index.md
+      - Networking: ./devops-and-sre-interview-questions/networking.md
 
 # Plugins
 plugins:

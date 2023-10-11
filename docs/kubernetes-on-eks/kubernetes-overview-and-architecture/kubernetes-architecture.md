@@ -13,11 +13,11 @@ It consists of several key components, including the Kubernetes `API server`, `e
 
 Control Plane Components:
 
-1. **API server**: API server exposes the Kubernetes API which is used to interact with the cluster
-2. **Etcd**: The `etcd` is a distributed key-value store that stores the state and configuration data
-3. **Controller manager**: The controller manager monitors the state and of the cluster and makes changes
-4. **Scheduler**: The `scheduler` schedules the containers to run on the worker nodes
-5. **Cloud controller manager**: The `cloud controller manager` manages the underlying cloud infrastructure
+1. **API server:** API server exposes the Kubernetes API which is used to interact with the cluster
+2. **Etcd:** The `etcd` is a distributed key-value store that stores the state and configuration data
+3. **Controller manager:** The controller manager monitors the state and of the cluster and makes changes
+4. **Scheduler:** The `scheduler` schedules the containers to run on the worker nodes
+5. **Cloud controller manager:** The `cloud controller manager` manages the underlying cloud infrastructure
 
 
 ### 2. Nodes
@@ -28,11 +28,11 @@ Nodes communicate with the control plane via the Kubernetes API and are responsi
 
 Node Components:
 
-1. **Kubelet**: The `kubelet` is an agent that runs on each node in the cluster and is responsible for managing the state of the pods running on that node. Its main responsibility is to ensure that containers are running and healthy.
+1. **Kubelet:** The `kubelet` is an agent that runs on each node in the cluster and is responsible for managing the state of the pods running on that node. Its main responsibility is to ensure that containers are running and healthy.
 
-2. **Kube proxy**: The `kube-proxy` is responsible for managing the network connectivity between the pods and services in the cluster.
+2. **Kube proxy:** The `kube-proxy` is responsible for managing the network connectivity between the pods and services in the cluster.
 
-3. **Container runtime**: The `container runtime` is responsible for starting and stopping containers on the node. Kubernetes supports multiple container runtimes, including Docker, containerd, and CRI-O.
+3. **Container runtime:** The `container runtime` is responsible for starting and stopping containers on the node. Kubernetes supports multiple container runtimes, including Docker, containerd, and CRI-O.
 
 
 ### 3. Cloud Provider API

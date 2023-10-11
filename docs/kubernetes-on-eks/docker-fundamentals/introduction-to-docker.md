@@ -133,13 +133,13 @@ So, now Adam and Bob each have a copy of this special image. They can use it to 
 
 Although hypervisors and Virtual Machines offer numerous advantages, there are also some disadvantages to consider:
 
-1. **Performance overhead**: Running a full-fledged operating system inside a virtual machine requires additional processing overhead. This can lead to reduced performance compared to running the same operating system directly on the host hardware.
+1. **Performance overhead:** Running a full-fledged operating system inside a virtual machine requires additional processing overhead. This can lead to reduced performance compared to running the same operating system directly on the host hardware.
 
-2. **Resource limitations**: Each virtual machine requires a portion of the host system resources, such as CPU, memory, and storage. This can limit the number of virtual machines that can be run simultaneously on a given hardware.
+2. **Resource limitations:** Each virtual machine requires a portion of the host system resources, such as CPU, memory, and storage. This can limit the number of virtual machines that can be run simultaneously on a given hardware.
 
-3. **Complexity**: The setup and management of virtual machines can be more complex than managing physical machines, and may require specialized knowledge and tools.
+3. **Complexity:** The setup and management of virtual machines can be more complex than managing physical machines, and may require specialized knowledge and tools.
 
-4. **Licensing costs**: Each virtual machine needs a full-fledged operating system and may need a license. This increases the overall cost of running an application.
+4. **Licensing costs:** Each virtual machine needs a full-fledged operating system and may need a license. This increases the overall cost of running an application.
 
 
 ## What are Containers?
