@@ -1,4 +1,4 @@
-# Networking
+# Questions on Networking
 
 ## Question 1: Explain the OSI model and its layers. How do these layers relate to networking?
 
