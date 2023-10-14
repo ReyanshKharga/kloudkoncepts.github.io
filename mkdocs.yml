@@ -102,8 +102,7 @@ extra:
           name: This page could be improved
           data: 0
           note: >- 
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            Thanks for your feedback!
   generator: false # Removes Made with Material for MkDocs from footer
   social:
     - icon: fontawesome/brands/github-alt
@@ -122,7 +121,6 @@ extra_css:
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - javascripts/feedback.js
 
 
 markdown_extensions:
