@@ -1,3 +1,4 @@
+# Site Details
 site_name: Kloud Koncepts
 site_description: >-
   Learn DevOps on Cloud
@@ -62,8 +63,6 @@ theme:
   name: material
   features:
     - navigation.tabs
-    # - navigation.sections
-    # - toc.integrate
     - navigation.top
     - content.code.copy
     - content.code.annotate
