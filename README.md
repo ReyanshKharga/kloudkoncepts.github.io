@@ -6,7 +6,9 @@ This repository is used to host KloudKoncepts.com
 ### Step 1: Create a Python3 Virtual Environment
 
 ```
-python3 -m venv env
+python3 -m venv venv
+{OR}
+virtualenv venv
 ```
 
 ### Step 2: Activate the Virtual Environment

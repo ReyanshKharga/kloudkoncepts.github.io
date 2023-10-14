@@ -7,6 +7,7 @@ repo_name: ReyanshKharga/eks-kubernetes-masterclass
 repo_url: https://github.com/ReyanshKharga/eks-kubernetes-masterclass
 strict: true
 
+
 # Defeine TOC or order of website
 nav:
   - Home: index.md
@@ -127,6 +128,20 @@ extra_javascript:
 
 
 markdown_extensions:
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - admonition
+  - footnotes
+  - attr_list
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -136,24 +151,11 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.mark
   - pymdownx.tabbed:
       alternate_style: true
-  - admonition
-  - footnotes
-  - attr_list
-  - tables
   - toc:
       permalink: true
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
+  
 
 
 copyright: |
