@@ -3,7 +3,11 @@
 Kubernetes has a master-slave architecture. The "master" controls and manages the cluster, while the "slaves" (also known as nodes) are the worker machines where applications run. The master ensures that applications are deployed, scaled, and maintained as per your specifications, making it a powerful system for container management.
 
 
-## Kubernetes Components
+## Components of Kubernetes
+
+<p align="center">
+    <img src="../../../assets/eks-course-images/kubernetes-overview-and-architecture/components-of-kubernetes.svg" alt="Components of Kubernetes" />
+</p>
 
 ### 1. Control Plane
 

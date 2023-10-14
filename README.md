@@ -14,7 +14,7 @@ virtualenv venv
 ### Step 2: Activate the Virtual Environment
 
 ```
-source env/bin/activate
+source venv/bin/activate
 ```
 
 ### Step 3: Install Packages

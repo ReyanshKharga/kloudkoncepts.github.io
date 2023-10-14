@@ -8,8 +8,9 @@ The control plane consists of at least two `API server` instances and three `etc
 
 It is the responsibility of AWS to maintain high availability, high performance and scalability of the EKS control plane.
 
-// Insert image here
-
+<p align="left">
+    <img src="../../../assets/eks-course-images/eks-overview-and-architecture/eks-architecture.png" alt="Architecture of Amazon EKS" />
+</p>
 
 ## How Does Amazon EKS Work?
 
@@ -21,8 +22,9 @@ It is the responsibility of AWS to maintain high availability, high performance 
 
 4. Deploy and manage workloads on your Amazon EKS cluster the same way that you would with any other Kubernetes environment. You can also view information about your workloads using the AWS Management Console.
 
-// Insert image here
-
+<p align="center">
+    <img src="../../../assets/eks-course-images/eks-overview-and-architecture/how-does-eks-work.png" alt="Architecture of Amazon EKS" />
+</p>
 
 ## Node Groups in Amazon EKS
 
