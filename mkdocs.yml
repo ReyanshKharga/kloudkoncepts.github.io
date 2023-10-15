@@ -42,8 +42,8 @@ nav:
     - Create EKS Cluster:
       - Create EKS Cluster Using eksctl: ./kubernetes-on-eks/create-eks-cluster/create-eks-cluster.md
       - Verify Worker Nodes: ./kubernetes-on-eks/create-eks-cluster/verify-worker-nodes.md
-      - VPC Resources Created by EKS: ./kubernetes-on-eks/create-eks-cluster/vpc-resources-created-by-eks.md
-      # - 
+      - VPC Resources Created by EKS: ./kubernetes-on-eks/create-eks-cluster/vpc-resources-created-by-eksctl.md
+      - Delete EKS Cluster: ./kubernetes-on-eks/create-eks-cluster/delete-eks-cluster.md
       # -
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
