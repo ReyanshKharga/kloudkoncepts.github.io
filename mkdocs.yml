@@ -50,6 +50,10 @@ nav:
         - Imperative vs Declarative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/pod/imperative-vs-declarative-approach.md
         - Pod Using Imperative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/pod/pod-using-imperative-approach.md
         - Pod Using Declarative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/pod/pod-using-declarative-approach.md
+        - Busybox Pod: ./kubernetes-on-eks/kubernetes-fundamentals/pod/busybox-pod.md
+        - Pod With Labels: ./kubernetes-on-eks/kubernetes-fundamentals/pod/pod-with-labels.md
+      - ReplicaSet:
+        - Introduction to ReplicaSet: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/introduction-to-replicaset.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md

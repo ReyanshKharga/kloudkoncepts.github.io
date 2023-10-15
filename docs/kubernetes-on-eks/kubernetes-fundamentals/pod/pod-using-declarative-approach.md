@@ -19,10 +19,10 @@ First, we need to write the Pod manifest as follows:
     spec:
     containers:
     - name: my-container
-        image: reyanshkharga/nginx:v1
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
+      image: reyanshkharga/nginx:v1
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 80
     ```
 
 Required fields:
@@ -50,9 +50,9 @@ List pods and verify that the pod we created is up and running.
 kubectl get pods
 ```
 
-## Step 4: Verify Pod
+## Step 4: Verify Application
 
-Verify that the application in the container inside pod is running properly.
+Verify that the application in the container inside the pod is running properly.
 
 ```
 # Start shell session inside the container
@@ -80,18 +80,18 @@ kubectl delete -f my-pod.yml
 
 !!! note "References:"
     !!! quote ""
+        * [Pods Concept]{:target="_blank"}
         * [Pod v1 core]{:target="_blank"}
         * [Workload Resources - Pod]{:target="_blank"}
         * [ObjectMeta]{:target="_blank"}
         * [PodSpec]{:target="_blank"}
-        * [Pods Concept]{:target="_blank"}
 
 
 
 <!-- Hyperlinks -->
 [reyanshkharga/nginx]: https://hub.docker.com/r/reyanshkharga/nginx
+[Pods Concept]: https://kubernetes.io/docs/concepts/workloads/pods/
 [Pod v1 core]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core
 [Workload Resources - Pod]: https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/
 [ObjectMeta]: https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/object-meta/#ObjectMeta
 [PodSpec]: https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodSpec
-[Pods Concept]: https://kubernetes.io/docs/concepts/workloads/pods/
