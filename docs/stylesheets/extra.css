@@ -53,3 +53,11 @@ color: red
   border-left-width: 4px;
 } */
 /* Restore Admonitions Style */
+
+
+@media (max-width: 768px) {
+    .language-text.highlight {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+}

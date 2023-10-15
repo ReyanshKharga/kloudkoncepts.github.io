@@ -44,7 +44,12 @@ nav:
       - Verify Worker Nodes: ./kubernetes-on-eks/create-eks-cluster/verify-worker-nodes.md
       - VPC Resources Created by EKS: ./kubernetes-on-eks/create-eks-cluster/vpc-resources-created-by-eksctl.md
       - Delete EKS Cluster: ./kubernetes-on-eks/create-eks-cluster/delete-eks-cluster.md
-      # -
+    - Kubernetes Fundamentals:
+      - Pod:
+        - Introduction to Pod: ./kubernetes-on-eks/kubernetes-fundamentals/pod/introduction-to-pod.md
+        - Imperative vs Declarative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/pod/imperative-vs-declarative-approach.md
+        - Pod Using Imperative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/pod/pod-using-imperative-approach.md
+        - Pod Using Declarative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/pod/pod-using-declarative-approach.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
