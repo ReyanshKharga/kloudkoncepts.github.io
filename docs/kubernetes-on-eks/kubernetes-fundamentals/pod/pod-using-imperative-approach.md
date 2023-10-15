@@ -5,7 +5,7 @@ Let's look at the imperative commands that you can use to create and manage Kube
 Here is the Docker Image used in this tutorial: [reyanshkharga/nginx]{:target="_blank"}
 
 
-## 1. Create a Pod
+## Step 1: Create a Pod
 
 ```
 # Command template
@@ -16,7 +16,7 @@ kubectl run my-pod --image=reyanshkharga/nginx:v1
 ```
 
 
-## 2. List Pods
+## Step 2: List Pods
 
 ```
 # List all pods
@@ -40,7 +40,7 @@ kubectl get pods
     `pod` is abbreviated as `po`.
 
 
-## 3. Describe a Pod
+## Step 3: Describe a Pod
 
 ```
 # Command template
@@ -55,7 +55,7 @@ kubectl describe pod/my-pod
 ```
 
 
-## 4. Interact With a Pod
+## Step 4: Interact With a Pod
 
 Let's start a shell session inside the container:
 
@@ -84,7 +84,7 @@ curl localhost
     kubectl exec -it my-pod --container <container-name> -- bash
     ```
 
-## 5. Interact With Pods From Outside the Container
+## Step 5: Interact With Pods From Outside the Container
 
 You can also run commands inside the container without starting a seperate shell session.
 
@@ -99,7 +99,7 @@ kubectl exec -it my-pod --container <container-name> -- <command>
 ```
 
 
-## 6. Use Port Forwarding to Access Application
+## Step 6: Use Port Forwarding to Access Application
 
 `kubectl port forward` is a command that allows you to access an application or a service running on a Kubernetes cluster from your local machine.
 
@@ -123,7 +123,7 @@ curl localhost:5000/
 Or you can open any browser and visit `localhost:5000`.
 
 
-## 7. View Logs of a Pod
+## Step 7: View Logs of a Pod
 
 ```
 # Command template
@@ -136,7 +136,7 @@ kubectl logs my-pod
 kubectl logs my-pod -f
 ```
 
-## 8. Delete a Pod
+## Step 8: Delete a Pod
 
 ```
 # Command template

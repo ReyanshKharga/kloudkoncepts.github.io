@@ -54,6 +54,8 @@ nav:
         - Pod With Labels: ./kubernetes-on-eks/kubernetes-fundamentals/pod/pod-with-labels.md
       - ReplicaSet:
         - Introduction to ReplicaSet: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/introduction-to-replicaset.md
+        - Create ReplicaSet: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/create-replicaset.md
+        - How Does ReplicaSet Manage Pods?: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/how-does-replicaset-manage-pods.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
