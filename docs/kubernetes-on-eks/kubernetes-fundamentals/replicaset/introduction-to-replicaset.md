@@ -1,4 +1,4 @@
-# Introduction to ReplicaSet
+# Introduction to Kubernetes ReplicaSet
 
 In Kubernetes, a `ReplicaSet` is a controller whose purpose is to maintain a stable set of replica pods running at any given time.
 
