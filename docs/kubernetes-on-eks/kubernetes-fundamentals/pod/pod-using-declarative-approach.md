@@ -7,7 +7,7 @@ Here is the Docker Image used in this tutorial: [reyanshkharga/nginx]{:target="_
 
 ## Step 1: Create Pod Manifest
 
-First, we need to write the Pod manifest as follows:
+First, we need to write the pod manifest as follows:
 
 === ":octicons-file-code-16: `my-pod.yml`"
 

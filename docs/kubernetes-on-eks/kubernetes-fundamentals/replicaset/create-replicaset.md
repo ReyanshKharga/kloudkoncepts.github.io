@@ -131,7 +131,7 @@ Let's delete a pod in the `ReplicaSet` and notice what happens.
 kubectl delete pod <pod-name>
 ```
 
-You will notice that as soon as the Pod terminates, the `ReplicaSet` will spawn a new Pod using the template to ensure that the desired number of Pods is always running.
+You will notice that as soon as the pod terminates, the `ReplicaSet` will spawn a new pod using the template to ensure that the desired number of pods is always running.
 
 ```
 # Watch and continuously update the status of pods in real-time

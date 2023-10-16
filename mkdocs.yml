@@ -56,6 +56,7 @@ nav:
         - Introduction to ReplicaSet: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/introduction-to-replicaset.md
         - Create ReplicaSet: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/create-replicaset.md
         - How Does ReplicaSet Manage Pods?: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/how-does-replicaset-manage-pods.md
+        - Challenges With ReplicaSets: ./kubernetes-on-eks/kubernetes-fundamentals/replicaset/challenges-with-replicasets.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md

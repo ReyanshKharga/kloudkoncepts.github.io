@@ -38,7 +38,7 @@ kubectl apply -f busybox.yml
 - The busybox container has an entrypoint `/bin/sh` and it has no running tasks. The process comes to an end.
 - In order to keep the container alive we are making it sleep for 3600 seconds.
 
-You can also use the following imperative command to create a busybox Pod:
+You can also use the following imperative command to create a busybox pod:
 
 ```
 kubectl run busybox --image=busybox --restart=Never -- /bin/sh -c "sleep 3600"
