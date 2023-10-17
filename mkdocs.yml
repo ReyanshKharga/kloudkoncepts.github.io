@@ -129,6 +129,8 @@ extra:
           note: >- 
             Thanks for your feedback!
   generator: false # Removes Made with Material for MkDocs from footer
+  status:
+    new: Recently added
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/ReyanshKharga
