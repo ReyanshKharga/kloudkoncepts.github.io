@@ -1,4 +1,8 @@
-# Running Container From a Public Docker Image
+---
+description: Deploy containers from public Docker images with ease. Explore our guide on running applications using readily available Docker images.
+---
+
+# Run Container From a Public Docker Image
 
 Before we create our own Docker image, let's see how we can use publicly available Docker images to run containers. 
 

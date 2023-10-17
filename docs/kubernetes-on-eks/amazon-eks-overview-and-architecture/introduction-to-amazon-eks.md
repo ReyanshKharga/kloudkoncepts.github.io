@@ -1,3 +1,7 @@
+---
+description: Unlock the power of Kubernetes with our comprehensive introduction to Amazon EKS. Dive into managed container orchestration, scaling, and high availability with expert insights.
+---
+
 # Introduction to Amazon EKS
 
 ## What is Amazon EKS?

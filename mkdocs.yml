@@ -16,11 +16,11 @@ nav:
     - Docker Fundamentals:
       - Introduction to Docker: ./kubernetes-on-eks/docker-fundamentals/introduction-to-docker.md
       - Install Docker: ./kubernetes-on-eks/docker-fundamentals/install-docker.md
-      - Running Container From a Public Docker Image: ./kubernetes-on-eks/docker-fundamentals/run-container-from-public-image.md
-      - Creating Docker Image: 
+      - Run Container From a Public Docker Image: ./kubernetes-on-eks/docker-fundamentals/run-container-from-public-image.md
+      - Create Docker Image: 
         - Customized Nginx Docker Image: ./kubernetes-on-eks/docker-fundamentals/customized-nginx-docker-image.md
         - Containerizing Node.js and Express App: ./kubernetes-on-eks/docker-fundamentals/nodejs-express-docker-image.md
-      - Pushing Image to Docker Hub: ./kubernetes-on-eks/docker-fundamentals/push-image-to-docker-hub.md
+      - Push Image to Docker Hub: ./kubernetes-on-eks/docker-fundamentals/push-image-to-docker-hub.md
     - YAML Fundamentals:
       - Introduction to YAML: ./kubernetes-on-eks/yaml-fundamentals/introduction-to-yaml.md
       - YAML Syntax and Structure: ./kubernetes-on-eks/yaml-fundamentals/yaml-syntax-and-structure.md

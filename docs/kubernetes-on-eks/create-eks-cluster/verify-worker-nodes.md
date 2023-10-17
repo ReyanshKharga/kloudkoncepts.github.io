@@ -1,3 +1,7 @@
+---
+description: Ensure the status of worker nodes in your Amazon EKS cluster. Learn how to verify and manage worker nodes effectively for a robust EKS environment.
+---
+
 # Verify Worker Nodes
 
 Let's verify if worker nodes were created.

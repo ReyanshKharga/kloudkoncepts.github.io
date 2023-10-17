@@ -1,3 +1,8 @@
+---
+description: Get started with Docker through our beginner's guide. Explore the basics of Docker and kickstart your containerization journey.
+---
+
+
 # Introduction to Docker
 
 Have you ever been curious about Docker and why it's such a big deal? Well, you're in the right place. In this tutorial, we'll break it down step by step and figure out what Docker is and why it's important.

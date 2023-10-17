@@ -1,3 +1,8 @@
+---
+description: Learn how to containerize a Node.js and Express app. Step-by-step guide for running your web application in Docker containers.
+---
+
+
 # Containerizing a Node.js and Express App
 
 Let's see how we can containerize a `Node.js` and `Express` application.

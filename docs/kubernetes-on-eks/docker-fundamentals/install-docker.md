@@ -1,3 +1,8 @@
+---
+description: Learn how to install Docker on your operating system. A step-by-step guide for seamless Docker setup.
+---
+
+
 # Install Docker
 
 Docker is an open platform for developing, shipping, and running applications.

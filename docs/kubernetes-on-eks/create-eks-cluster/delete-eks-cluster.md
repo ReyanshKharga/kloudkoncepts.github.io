@@ -1,3 +1,8 @@
+---
+description: Effortlessly delete an Amazon EKS cluster with our step-by-step guide using eksctl. Seamlessly manage cluster removal for a hassle-free experience.
+---
+
+
 # Delete EKS Cluster
 
 We won't delete the cluster we created since we will be using it for further demos and tutorials. But if you need to delete the cluster, you can follow the instructions below.

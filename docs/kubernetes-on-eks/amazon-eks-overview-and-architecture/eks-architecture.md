@@ -1,3 +1,7 @@
+---
+description: Learn how Amazon EKS works and understand its architecture and components.
+---
+
 # Architecture of Amazon EKS
 
 Amazon EKS runs a single tenant Kubernetes control plane for each cluster.

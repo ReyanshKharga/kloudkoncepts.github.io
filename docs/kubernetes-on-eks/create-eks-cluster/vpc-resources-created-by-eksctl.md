@@ -1,3 +1,7 @@
+---
+description: Discover and understand VPC resources created by eksctl in your Amazon EKS environment.
+---
+
 # VPC Resources Created by eksctl
 
 Based on the `ClusterConfig` we provided, Amazon EKS will create the following AWS VPC resources:

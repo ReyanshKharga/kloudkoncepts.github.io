@@ -1,4 +1,8 @@
-# Creating a Customized Nginx Docker Image
+---
+description: Craft your own tailored Nginx Docker image with our step-by-step guide. Learn the art of customization for Nginx container deployment.
+---
+
+# Create a Customized Nginx Docker Image
 
 Let's see how you can create your own Docker image based on your requirements. In this tutorial, we will create a customized version of the Nginx image that serves an HTML page we want.
 

@@ -1,3 +1,7 @@
+---
+description: Learn how to create an Amazon EKS cluster effortlessly using eksctl. Step-by-step guide for quick, hassle-free cluster setup and management.
+---
+
 # Create EKS Cluster eksctl
 
 ## Prerequisites

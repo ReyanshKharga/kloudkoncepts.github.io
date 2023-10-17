@@ -1,4 +1,9 @@
-# Pushing Image to Docker Hub
+---
+description: Publish your Docker image to Docker Hub effortlessly with our step-by-step guide. Share your containerized applications with the world.
+---
+
+
+# Publish Image to Docker Hub
 
 To share your image with your team or the public, you should store it in a Docker registry. Docker Hub serves as a registry that enables you to either privately share your images with your team or make them accessible to the public.
 
