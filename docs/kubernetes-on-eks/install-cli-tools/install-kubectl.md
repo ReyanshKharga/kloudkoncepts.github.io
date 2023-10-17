@@ -1,3 +1,7 @@
+---
+description: Learn how to install kubectl, the Kubernetes command-line tool, with our step-by-step guide for hassle-free setup.
+---
+
 # Install kubectl
 
 The Kubernetes command-line tool, `kubectl`, allows you to run commands against Kubernetes clusters.

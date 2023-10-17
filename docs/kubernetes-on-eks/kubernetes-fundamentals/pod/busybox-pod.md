@@ -1,8 +1,13 @@
-# Busybox Pod
+---
+description: Discover the fundamentals of Busybox Pods in Kubernetes with our beginner's guide. Get started with understanding the purpose and functionality of Busybox Pods.
+---
+
+
+# Introduction to Busybox Pod
 
 Let's learn about a pod called `busybox` that we will use a lot in this course for various purposes.
 
-## Introduction to Busybox Docker Image
+## Busybox Docker Image
 
 - BusyBox image is a `Linux-based` image containing many handy utilities.
 - The BusyBox container image is incredibly `lightweight`.

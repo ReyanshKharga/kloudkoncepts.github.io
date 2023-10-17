@@ -1,3 +1,7 @@
+---
+description: Learn how ReplicaSets manage pods in Kubernetes with our insightful guide. Gain a clear understanding of the orchestration and control of pods using ReplicaSets.
+---
+
 # How Does ReplicaSet Manage Pods?
 
 Standalone pods are like orphans. Nobody cares even if they die. Your application will be unavailable if the pod dies.

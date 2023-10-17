@@ -1,3 +1,7 @@
+---
+description: Explore the creation and management of kubernetes pods using imperative commands. Learn hands-on techniques for effective control and manipulation of your containerized applications.
+---
+
 # Create and Manage Kubernetes Pods Using Imperative Commands
 
 Let's look at the imperative commands that you can use to create and manage Kubernetes Pods.

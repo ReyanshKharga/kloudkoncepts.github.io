@@ -1,3 +1,8 @@
+---
+description: Learn how to install eksctl for easy Amazon EKS management with our step-by-step guide.
+---
+
+
 # Install eksctl
 
 `eksctl` is a simple command line tool for creating and managing Kubernetes clusters on Amazon EKS.

@@ -1,3 +1,7 @@
+---
+description: Learn how to create and manage kubernetes ReplicaSets with our comprehensive guide. Master the art of efficient replication in containerized applications.
+---
+
 # Create and Manage Kubernetes ReplicaSets
 
 Let's see how you can create and manage `ReplicaSets`.

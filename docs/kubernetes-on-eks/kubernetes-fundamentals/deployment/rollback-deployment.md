@@ -1,3 +1,7 @@
+---
+description: Learn how to rollback a Kubernetes deployment with our step-by-step guide. Master the art of reversing changes in your application deployments.
+---
+
 # Rollback a Kubernetes Deployment
 
 In Kubernetes, a rollback is the process of reverting a `Deployment` to a previous revision.

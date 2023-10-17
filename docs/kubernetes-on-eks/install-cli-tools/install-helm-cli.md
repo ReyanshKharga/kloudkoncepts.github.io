@@ -1,3 +1,8 @@
+---
+description: Learn how to install the Helm CLI with our simple guide. Get started with Helm for efficient Kubernetes package management.
+---
+
+
 ## Install Helm CLI
 
 `Helm CLI` is a command-line tool that is used to interact with Helm, the package manager for Kubernetes.

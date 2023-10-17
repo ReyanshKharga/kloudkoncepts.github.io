@@ -1,3 +1,7 @@
+---
+description: Discover the use of labels with kubernetes pods in our guide. Learn how labels enhance organization and management in containerized applications.
+---
+
 # Kubernetes Pod With Labels
 
 Labels are key/value pairs that are attached to Kubernetes objects, such as pods.

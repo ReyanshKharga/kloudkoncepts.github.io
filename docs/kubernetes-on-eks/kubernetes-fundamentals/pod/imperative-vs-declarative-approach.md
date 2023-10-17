@@ -1,3 +1,7 @@
+---
+description: Explore the differences between imperative and declarative approaches with our comprehensive guide.
+---
+
 # Imperative vs Declarative Approach
 
 Imperative approach describes `HOW` the program executes, while the declarative approach describes `WHAT` programs to be executed.

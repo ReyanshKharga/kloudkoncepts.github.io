@@ -1,3 +1,8 @@
+---
+description: Learn how to install and configure AWS CLI for seamless cloud management. Step-by-step guide to getting started with Amazon Web Services.
+---
+
+
 # Install and Configure AWS CLI
 
 The `AWS CLI` is a command-line tool that enables users to manage AWS services directly from the command line, offering a flexible and efficient way to create, configure, and interact with AWS resources.

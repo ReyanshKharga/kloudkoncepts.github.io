@@ -1,3 +1,7 @@
+---
+description: Explore the creation and management of deployments using imperative commands. Learn the art of hands-on control for effective application management.
+---
+
 # Create and Manage Deployment Using Imperative Commands
 
 Let's look at the imperative commands that you can use to create and manage Kubernetes `Deployments`.

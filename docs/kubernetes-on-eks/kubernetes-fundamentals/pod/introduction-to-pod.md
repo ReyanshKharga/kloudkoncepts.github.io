@@ -1,3 +1,7 @@
+---
+description: Get started with the basics of Kubernetes Pods in our beginner's guide. Understand the fundamental building blocks of Kubernetes container orchestration.
+---
+
 # Introduction to Kubernetes Pod
 
 <p align="center">

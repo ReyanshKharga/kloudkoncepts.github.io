@@ -1,3 +1,7 @@
+---
+description: Learn how to create and manage kubernetes pods using a declarative approach. Discover the power of declarative configurations for efficient management of your containerized applications.
+---
+
 # Create and Manage Kubernetes Pods Using Declarative Approach
 
 Let's see how you can create and manage Kubernetes Pods declaratively.

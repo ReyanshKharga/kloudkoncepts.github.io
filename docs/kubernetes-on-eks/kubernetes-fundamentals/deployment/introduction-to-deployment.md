@@ -1,3 +1,8 @@
+---
+description: Discover Kubernetes deployment basics with our beginner's guide. Get started with understanding how Kubernetes handles application deployments.
+---
+
+
 # Introduction to Kubernetes Deployment
 
 A Kubernetes `Deployment` tells Kubernetes how to create or modify instances of the pods.

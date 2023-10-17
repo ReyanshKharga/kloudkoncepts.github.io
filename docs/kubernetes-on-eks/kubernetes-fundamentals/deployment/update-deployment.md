@@ -1,3 +1,7 @@
+---
+description: Learn how to update a Kubernetes deployment with our step-by-step guide. Master the process of making changes to your application deployments.
+---
+
 # Update a Kubernetes Deployment
 
 By default, Kubernetes performs rolling updates when you update a `Deployment`. It does so by creating a new `ReplicaSet`.

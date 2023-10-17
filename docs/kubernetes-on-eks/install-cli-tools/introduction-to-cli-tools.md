@@ -1,3 +1,7 @@
+---
+description: Explore AWS, EKS, and Kubernetes CLI tools in our beginner's guide. Learn how to use command-line interfaces for Amazon Web Services, Amazon EKS, and Kubernetes.
+---
+
 # Introduction to CLI Tools
 
 To effectively operate within the Kubernetes and EKS environments, we require specific command-line interface (CLI) tools that facilitate the configuration and administration of resources in both EKS and Kubernetes. 

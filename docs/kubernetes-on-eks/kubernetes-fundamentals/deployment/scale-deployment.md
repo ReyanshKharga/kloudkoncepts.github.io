@@ -1,3 +1,7 @@
+---
+description: Explore how to scale a Kubernetes deployment with our practical guide. Learn to efficiently adjust the size of your application deployments.
+---
+
 # Scale a Kubernetes Deployment
 
 You can use `kubectl scale` command to scale a Kubernetes `Deployment` to a desired value.
