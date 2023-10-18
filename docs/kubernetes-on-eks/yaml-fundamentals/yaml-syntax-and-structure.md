@@ -1,3 +1,7 @@
+---
+description: Learn the syntax and structure of YAML with our comprehensive guide. Master the fundamentals of YAML for effective configuration and data representation.
+---
+
 # YAML Syntax and Structure
 
 In YAML, indentation is used to indicate the structure of a document. 

@@ -1,3 +1,8 @@
+---
+description: Explore the basics of Kubernetes with our beginner's guide. Begin your journey into the world of container orchestration and management.
+---
+
+
 # Introduction to Kubernetes
 
 Before we jump into Kubernetes, it's essential to know what Container Orchestration is and why it's beneficial. Once we've got that down, understanding Kubernetes and why it matters will be a breeze.

@@ -1,3 +1,7 @@
+---
+description: Get introduced to YAML with our beginner's guide. Learn the basics of YAML and how it's used for configuration and data representation.
+---
+
 # Introduction to YAML
 
 YAML stands for "YAML Ain't Markup Language" (a playful name). It's a human-readable data serialization format.

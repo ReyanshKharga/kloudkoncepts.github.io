@@ -1,3 +1,7 @@
+---
+description: Discover advanced YAML features in our guide, including multiline strings, anchors, and aliases. Unlock powerful techniques for enhancing your YAML files.
+---
+
 # Advanced Features in YAML
 
 Now that we're familiar with the basics of YAML, let's explore some advanced features like multiline strings, anchors and aliases, etc.

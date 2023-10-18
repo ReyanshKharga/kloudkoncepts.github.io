@@ -1,3 +1,7 @@
+---
+description: Dive into the architecture of Kubernetes with our informative guide. Understand the inner workings and components that power container orchestration.
+---
+
 # Architecture of Kubernetes
 
 Kubernetes has a master-slave architecture. The "master" controls and manages the cluster, while the "slaves" (also known as nodes) are the worker machines where applications run. The master ensures that applications are deployed, scaled, and maintained as per your specifications, making it a powerful system for container management.

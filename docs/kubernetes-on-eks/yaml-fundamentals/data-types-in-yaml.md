@@ -1,3 +1,7 @@
+---
+description: Explore YAML data types in our guide. Learn how YAML handles different data structures, making it a versatile choice for configuration and data serialization.
+---
+
 # Data Types in YAML
 
 In YAML, data types refer to the different kinds of data that can be represented within a YAML document. YAML is a human-readable data serialization format often used for configuration files and data exchange between different programming languages. 
