@@ -3,7 +3,7 @@ site_name: Kloud Koncepts
 site_description: >-
   Master Kubernetes and DevOps on Cloud
 site_author: Reyansh Kharga
-site_url: https://kloudkoncepts.com
+site_url: https://kloudkoncepts.com/
 repo_name: ReyanshKharga/eks-kubernetes-masterclass
 repo_url: https://github.com/ReyanshKharga/eks-kubernetes-masterclass
 strict: true
