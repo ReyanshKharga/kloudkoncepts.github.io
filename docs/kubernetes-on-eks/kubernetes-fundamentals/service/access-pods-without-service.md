@@ -6,7 +6,7 @@ description: Learn how you can access pods without kubernetes service. simplify 
 
 Consider a deployment with 2 replicas of a pod. Now, let's assume there is no Kubernetes Service. How does other pods in the cluster access these pods?
 
-They do so through IP addresses of these pods. Let's see this in action.
+They do so through IP addresses of these pods. Let's see this in action!
 
 ## Docker Images
 
@@ -114,7 +114,7 @@ kubectl get deployments
 kubectl get pods
 ```
 
-Also, let's list out the pods with wide option to view the IP addresses of the Pods.
+Also, let's list out the pods with wide option to view the IP addresses of the pods.
 
 ```
 kubectl get pods -o wide

@@ -8,7 +8,7 @@ By default, Kubernetes performs rolling updates when you update a `Deployment`. 
 
 The old `ReplicaSets` are not deleted. By default, Kubernetes `Deployment` controller stores up to 10 revisions of a `Deployment`. This means that when you update a `Deployment`, the controller will keep up to 10 previous versions of the Deployment's configuration and the `ReplicaSets` it created.
 
-Let's see this in action.
+Let's see this in action!
 
 
 ## Step 1: Update a Deployment

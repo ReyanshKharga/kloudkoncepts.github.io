@@ -56,7 +56,7 @@ Here's a visual representation of the flow described above:
     <img src="../../../..//assets/eks-course-images/replicaset/how-does-replicaset-manage-pods.gif" alt="How Does ReplicaSet Mange Pods?" width="500" />
 </p>
 
-Let's see this in action.
+Let's see this in action!
 
 Here is the Docker Image used in this tutorial: [reyanshkharga/nginx]{:target="_blank"}
 
