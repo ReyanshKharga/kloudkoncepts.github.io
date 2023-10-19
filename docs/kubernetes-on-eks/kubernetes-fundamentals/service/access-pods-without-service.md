@@ -83,8 +83,8 @@ Here's what your folder structure should look like:
 
 ```
 |-- manifests
-│   |-- backend-deployment.yml
 │   |-- frontend-deployment.yml
+│   |-- backend-deployment.yml
 ```
 
 Apply the manifest to create the deployments:
