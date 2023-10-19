@@ -34,7 +34,7 @@ Master Kubernetes, Microservices, Logging, Monitoring, Service Mesh, DevOps, CI/
 
 
 
-## What are the requirements or prerequisites for taking your course?
+## What are the requirements or prerequisites for taking this course?
 
 - This course is designed to be a hands-on and practical experience. To fully participate and follow along, it is recommended to have an active AWS account but it is not mandatory.
 
