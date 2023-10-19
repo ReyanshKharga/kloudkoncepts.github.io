@@ -39,7 +39,7 @@ Required fields:
 
 ## Step 2: Create Pod
 
-Let's use `kubectl apply` to apply the manifest and create the Pod.
+Let's use `kubectl apply` to apply the manifest and create the Pod:
 
 ```
 # Create pod
@@ -48,7 +48,7 @@ kubectl apply -f my-pod.yml
 
 ## Step 3: List Pods
 
-List pods and verify that the pod we created is up and running.
+List pods and verify that the pod we created is up and running:
 
 ```
 kubectl get pods
@@ -56,7 +56,7 @@ kubectl get pods
 
 ## Step 4: Verify Application
 
-Verify that the application in the container inside the pod is running properly.
+Verify that the application in the container inside the pod is running properly:
 
 ```
 # Start shell session inside the container
@@ -66,7 +66,7 @@ kubectl exec -it my-pod -- curl localhost
 curl localhost
 ```
 
-Also, let's use `kubectl port-forward` to access the application locally.
+Also, let's use `kubectl port-forward` to access the application locally:
 
 ```
 kubectl port-forward my-pod 5000:80
