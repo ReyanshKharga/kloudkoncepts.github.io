@@ -63,7 +63,7 @@ version.BuildInfo{Version:"v3.12.3", GitCommit:"3a31588ad33fe3b89af5a2a54ee1d25b
 ```
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Install Helm CLI on MacOS]{:target="_blank"}
         * [Install Helm CLI on Windows]{:target="_blank"}

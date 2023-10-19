@@ -251,7 +251,7 @@ When you use `eksctl` to create an Amazon EKS cluster, it sets up a CloudFormati
 Go to AWS Console and verify the stack set created by `eksctl`.
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Getting started with eksctl]{:target="_blank"}
         * [Creating and managing clusters using eksctl]{:target="_blank"}

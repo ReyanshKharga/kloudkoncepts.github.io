@@ -17,7 +17,7 @@ You can use the [YAML Validator Tool]{:target="_blank"} by simply inputting your
 You can use the [YAML to JSON Converter Tool]{:target="_blank"} to convert your YAML to JSON by simply inputting your YAML in the input box on the left and you'll immediately get JSON in the output box on the right
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [YAML Validator Tool]{:target="_blank"}
         * [YAML to JSON Converter Tool]{:target="_blank"}

@@ -82,7 +82,7 @@ clientVersion:
 ```
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Install and Set Up kubectl on Linux]{:target="_blank"}
         * [Install and Set Up kubectl on Windows]{:target="_blank"}

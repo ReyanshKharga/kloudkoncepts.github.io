@@ -91,7 +91,7 @@ Disadvantages of Fargate Node Groups:
 - AWS controls the underlying infrastructure
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [What is Amazon EKS?]{:target="_blank"}
         * [Amazon EKS architecture]{:target="_blank"}

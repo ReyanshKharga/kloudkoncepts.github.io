@@ -65,7 +65,7 @@ Add-ons can be installed using various tools, such as `kubectl` or `Helm` charts
 While add-ons are optional, they may be necessary for certain Kubernetes configurations or workloads. For example, all Kubernetes clusters should have cluster DNS Addon.
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Kubernetes Components]{:target="_blank"}
 

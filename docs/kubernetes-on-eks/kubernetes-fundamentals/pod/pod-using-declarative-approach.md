@@ -82,7 +82,7 @@ Open any browser and visit `localhost:5000`.
 kubectl delete -f my-pod.yml
 ```
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Pods Concept]{:target="_blank"}
         * [Pod v1 core]{:target="_blank"}

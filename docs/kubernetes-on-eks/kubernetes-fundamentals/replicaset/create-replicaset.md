@@ -158,7 +158,7 @@ kubectl delete rs/my-replicaset
 
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [ReplicaSet Concept]{:target="_blank"}
         * [ReplicaSet v1 apps]{:target="_blank"}

@@ -69,7 +69,7 @@ The above command should print the version of the eksctl installed on your syste
 
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Install eksctl on Unix]{:target="_blank"}
         * [Install eksctl on Windows]{:target="_blank"}

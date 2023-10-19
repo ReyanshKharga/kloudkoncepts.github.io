@@ -173,7 +173,7 @@ You can also export the `AWS_PROFILE` environment variable and then call `aws` c
 
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Install or update the latest version of the AWS CLI]{:target="_blank"}
         * [Configure the AWS CLI]{:target="_blank"}

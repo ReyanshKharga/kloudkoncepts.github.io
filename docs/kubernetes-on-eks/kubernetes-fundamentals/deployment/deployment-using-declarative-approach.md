@@ -265,7 +265,7 @@ kubectl delete deployment/my-deployment
 kubectl delete -f my-deployment.yml
 ```
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [Deployment v1 apps]{:target="_blank"}
         * [Workload Resources - Deployment]{:target="_blank"}

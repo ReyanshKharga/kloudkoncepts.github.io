@@ -166,7 +166,7 @@ The above YAML is equivalent to the following YAML document:
     You can covert the first document to JSON and then convert the resulting JSON back to YAML to see if they are actually equivalent.
 
 
-!!! note "References:"
+!!! quote "References:"
     !!! quote ""
         * [YAML to JSON Converter Tool]{:target="_blank"}
         * [JSON to YAML Converter Tool]{:target="_blank"}
