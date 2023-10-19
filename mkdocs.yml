@@ -66,6 +66,9 @@ nav:
         - Rollback a Deployment: ./kubernetes-on-eks/kubernetes-fundamentals/deployment/rollback-deployment.md
         - Deployment Using Declarative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/deployment/deployment-using-declarative-approach.md
         - Pause and Resume a Deployment: ./kubernetes-on-eks/kubernetes-fundamentals/deployment/pause-and-resume-deployment.md
+      - Service:
+        - Access Pods Without Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/access-pods-without-service.md
+        # - 
         # -
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
