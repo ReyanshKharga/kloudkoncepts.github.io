@@ -78,8 +78,8 @@ nav:
         - AWS Load Balancer Types: ./kubernetes-on-eks/kubernetes-fundamentals/service/aws-load-balancer-types.md
         - Create LoadBalancer Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-loadbalancer-service.md
         - Create LoadBalancer Service With NLB: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-loadbalancer-service-with-nlb.md
+        - LoadBalancer Service With ALB: ./kubernetes-on-eks/kubernetes-fundamentals/service/loadbalancer-service-with-alb.md
         - Create ExternalName Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-externalname-service.md
-        # - 
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
