@@ -148,7 +148,7 @@ First, we need to get the LoadBalancer DNS.
 The load balancer DNS can be obtained using either of the following methods:
 
 1. Via the AWS Console
-2. Through the kubernetes service.
+2. Through the kubernetes service
 
 Let's get the load balancer DNS using kubernetes service:
 
