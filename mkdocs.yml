@@ -73,7 +73,7 @@ nav:
         - Exposure Level of Different Service Types: ./kubernetes-on-eks/kubernetes-fundamentals/service/exposure-level-of-service-types.md
         - Create Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-service.md
         - Role of Selector in Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/role-of-selector-in-service.md
-        # -
+        - Create NodePort Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-nodeport-service.md
         # -
         # -
         # -

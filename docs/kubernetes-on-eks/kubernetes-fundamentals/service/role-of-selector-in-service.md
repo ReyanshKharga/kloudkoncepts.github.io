@@ -205,6 +205,15 @@ This time you'll notice that the traffic is being served only from the `second-p
 
 ## Clean Up
 
+Assuming your folder structure looks like the one below:
+
+```
+|-- manifests
+│   |-- my-service.yml
+│   |-- first-pod.yml
+|   |-- second-pod.yml
+```
+
 Delete all the kubernetes objects we created:
 
 ```
