@@ -30,10 +30,6 @@ Master Kubernetes, Microservices, Logging, Monitoring, Service Mesh, DevOps, CI/
 | 31. You will learn about Helm Charts, and some other advanced Kubernetes concepts. | 32. You will learn about EKS fargate profiles, Amazon VPC CNI and many other topics. |
 
 
-
-
-
-
 ## What are the requirements or prerequisites for taking this course?
 
 - This course is designed to be a hands-on and practical experience. To fully participate and follow along, it is recommended to have an active AWS account but it is not mandatory.
