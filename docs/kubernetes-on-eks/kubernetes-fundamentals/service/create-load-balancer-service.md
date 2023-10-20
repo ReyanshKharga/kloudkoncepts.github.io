@@ -116,7 +116,7 @@ kubectl apply -f my-loadbalancer-service.yml
 kubectl get svc
 ```
 
-Notice the `PORT(S)` field. You'll see the values of service port as well as `nodePort` mentioned there. (e.g. `80:32124`)
+Notice the `PORT(S)` field in the output. You'll see the values of service port as well as `nodePort` mentioned there. (e.g. `80:32124`)
 
 You'll also observe that the `EXTERNAL-IP` field is set to the value of the DNS name of the classic load balancer that was created.
 
