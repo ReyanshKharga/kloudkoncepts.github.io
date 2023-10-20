@@ -68,7 +68,11 @@ nav:
         - Pause and Resume a Deployment: ./kubernetes-on-eks/kubernetes-fundamentals/deployment/pause-and-resume-deployment.md
       - Service:
         - Access Pods Without Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/access-pods-without-service.md
-        # - 
+        - Introduction to Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/introduction-to-service.md
+        - Kubernetes Service Types: ./kubernetes-on-eks/kubernetes-fundamentals/service/service-types.md
+        - Exposure Level of Different Service Types: ./kubernetes-on-eks/kubernetes-fundamentals/service/exposure-level-of-service-types.md
+        - Create Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-service.md
+        # -
         # -
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md

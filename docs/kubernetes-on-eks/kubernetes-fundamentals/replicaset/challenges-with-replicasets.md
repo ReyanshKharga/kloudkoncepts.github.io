@@ -39,7 +39,7 @@ With `ReplicaSet`, you don't have an easy option. You must perform the following
 Here's a visual representation of the rolling update flow using `ReplicaSet`:
 
 <p align="left">
-    <img src="../../../..//assets/eks-course-images/replicaset/rolling-update-using-replicaset.gif" alt="Rolling Update Using ReplicaSet" width="500" />
+    <img src="../../../../assets/eks-course-images/replicaset/rolling-update-using-replicaset.gif" alt="Rolling Update Using ReplicaSet" width="500" />
 </p>
 
 You might say why not create `ReplicaSet-B` with 2 pods at once and then delete the `ReplicaSet-A`?
@@ -76,7 +76,7 @@ With `ReplicaSet`, you don't have an easy option. You must perform a manual roll
 Here's a visual representation of the rollback flow using `ReplicaSet`:
 
 <p align="left">
-    <img src="../../../..//assets/eks-course-images/replicaset/rollback-using-replicaset.gif" alt="Rollback Using ReplicaSet" width="500" />
+    <img src="../../../../assets/eks-course-images/replicaset/rollback-using-replicaset.gif" alt="Rollback Using ReplicaSet" width="500" />
 </p>
 
 Again, this is a manual and tedious process that is error-prone. You shouldn't do this in production.

@@ -5,7 +5,7 @@ description: Get started with the basics of Kubernetes Pods in our beginner's gu
 # Introduction to Kubernetes Pod
 
 <p align="center">
-    <img src="../../../..//assets/eks-course-images/pods/pod.png" alt="Pod Overview" />
+    <img src="../../../../assets/eks-course-images/pod/pod.png" alt="Pod Overview" />
 </p>
 
 A Kubernetes pod (as in a pod of whales or pea pod) is the smallest deployable unit in the Kubernetes system.
