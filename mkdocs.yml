@@ -76,7 +76,7 @@ nav:
         - Create NodePort Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-nodeport-service.md
         - port vs targetPort vs nodePort: ./kubernetes-on-eks/kubernetes-fundamentals/service/port-vs-targetport-vs-nodeport.md
         - AWS Load Balancer Types: ./kubernetes-on-eks/kubernetes-fundamentals/service/aws-load-balancer-types.md
-        # -
+        - Create LoadBalancer Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-load-balancer-service.md
         # -
         # -
   - DevOps & SRE Interview Questions:
