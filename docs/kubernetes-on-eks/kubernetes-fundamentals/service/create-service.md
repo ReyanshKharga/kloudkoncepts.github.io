@@ -236,12 +236,6 @@ kubectl delete svc my-service
 
 ## Clean Up
 
-Delete all the Kubernetes objects we created in one go:
-
-```
-kubectl delete -f manifests/
-```
-
 Assuming your folder structure looks like the one below:
 
 ```
@@ -249,6 +243,14 @@ Assuming your folder structure looks like the one below:
 │   |-- my-deployment.yml
 │   |-- my-service.yml
 ```
+
+You can delete all the kubernetes objects we created in one go:
+
+```
+kubectl delete -f manifests/
+```
+
+
 
 
 !!! quote "References:"

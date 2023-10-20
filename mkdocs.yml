@@ -72,6 +72,11 @@ nav:
         - Kubernetes Service Types: ./kubernetes-on-eks/kubernetes-fundamentals/service/service-types.md
         - Exposure Level of Different Service Types: ./kubernetes-on-eks/kubernetes-fundamentals/service/exposure-level-of-service-types.md
         - Create Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/create-service.md
+        - Role of Selector in Service: ./kubernetes-on-eks/kubernetes-fundamentals/service/role-of-selector-in-service.md
+        # -
+        # -
+        # -
+        # -
         # -
         # -
   - DevOps & SRE Interview Questions:
