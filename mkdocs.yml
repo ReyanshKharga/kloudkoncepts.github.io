@@ -83,6 +83,10 @@ nav:
       - Init Container:
         - Introduction to Init Containers: ./kubernetes-on-eks/kubernetes-fundamentals/init-containers/introduction-to-init-containers.md
         - Init Containers Demo: ./kubernetes-on-eks/kubernetes-fundamentals/init-containers/init-containers-demo.md
+      - Probes:
+        - Introduction to Probes: ./kubernetes-on-eks/kubernetes-fundamentals/probes/introduction-to-probes.md
+        - Types of Probes: ./kubernetes-on-eks/kubernetes-fundamentals/probes/types-of-probes.md
+        # - 
         # - 
         # - 
         # - 

@@ -82,7 +82,7 @@ You'll notice that the pods haven't finished their initialization and are curren
 
 ## Step 3: Create Services
 
-Let's start creating services that init containers are waiting for.
+Let's start creating services that init containers are waiting for:
 
 === ":octicons-file-code-16: `my-database-service.yml`"
 
