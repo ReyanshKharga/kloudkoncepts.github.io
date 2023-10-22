@@ -104,6 +104,7 @@ plugins:
 # Theme
 theme:
   name: material
+  custom_dir: docs/overrides
   features:
     - navigation.tabs
     - navigation.top
