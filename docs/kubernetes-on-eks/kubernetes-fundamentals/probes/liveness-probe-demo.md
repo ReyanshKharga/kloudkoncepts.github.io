@@ -219,7 +219,7 @@ curl <load-balancer-dns>/health
 
 Hit the root endpoint again and again until you get an error. At this point the app will become unhealthy.
 
-But this time we have liveness probe set up. Kubernetes knows when the app becomes unhealthy and restarts the container.
+This time, we have a liveness probe set up. Kubernetes can detect when the application becomes unhealthy and will stop sending traffic to unhealthy pods. Kubernetes will also automatically restart the container.
 
 You can see the events by describing the pod:
 
