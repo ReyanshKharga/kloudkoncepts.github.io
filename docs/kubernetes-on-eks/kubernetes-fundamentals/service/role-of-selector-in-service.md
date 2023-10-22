@@ -214,7 +214,7 @@ Assuming your folder structure looks like the one below:
 |   |-- second-pod.yml
 ```
 
-Delete all the kubernetes objects we created:
+Let's delete all the resources we created:
 
 ```
 # Delete deployment and service

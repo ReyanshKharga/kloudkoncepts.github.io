@@ -25,7 +25,7 @@ Master Kubernetes, Microservices, Logging, Monitoring, Service Mesh, DevOps, CI/
 | 21. You will learn how to set up Monitoring for your EKS cluster and applications using Prometheus and Grafana open-source tools. | 22. You will learn about Istio Service Mesh and its architecture. |
 | 23. You will learn about Gateways, Virtual services, and Destination rules in Istio traffic management. | 24. You will deploy Kiali and Jaegar monitoring tools for observability and distributed tracing. |
 | 25. You will deploy a meshed microservices architecture consisting of 3 microservices. | 26. You will reconfigure Istio to deploy Application Load Balancer instead of Classic Load Balancer. |
-| 27. You lean about Istio traffic routing features (Traffic Splitting, Canary Deployment, Fault Injection, Circuit Breaker, Retry Strategy). | 28. You will set up CI/CD using AWS CodePipeline and CodeDeploy. |
+| 27. You will learn about Istio traffic routing features (Traffic Splitting, Canary Deployment, Fault Injection, Circuit Breaker, Retry Strategy). | 28. You will set up CI/CD using AWS CodePipeline and CodeDeploy. |
 | 29. You will set up Argo CD, a declarative, GitOps continuous delivery tool for Kubernetes. | 30. You will set up continuous deployment using Argo CD. |
 | 31. You will learn about Helm Charts, and some other advanced Kubernetes concepts. | 32. You will learn about EKS fargate profiles, Amazon VPC CNI and many other topics. |
 
