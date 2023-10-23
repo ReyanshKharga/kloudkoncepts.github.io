@@ -77,9 +77,9 @@ First, let's create a deployment without any readinesss probe and observe the be
     kubectl get pods
     ```
 
-    Once the Pod starts running, you will observe that the container is marked as `READY (1/1)`. At this point, the service will start routing traffic to the pod as all the containers in the pod are ready.
+Once the pod starts running, you will observe that the container is marked as `READY (1/1)`. At this point, the service will start routing traffic to the pod as all the containers in the pod are ready.
 
-    This situation is undesirable since the application experiences a delay of 60 seconds and cannot provide a prompt response.
+This situation is undesirable since the application experiences a delay of 60 seconds and cannot provide a prompt response.
 
 
 ## Step 2: Expose Application Using a Service
