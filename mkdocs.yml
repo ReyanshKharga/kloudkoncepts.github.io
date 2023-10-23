@@ -88,7 +88,7 @@ nav:
         - Types of Probes: ./kubernetes-on-eks/kubernetes-fundamentals/probes/types-of-probes.md
         - Liveness Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/liveness-probe-demo.md
         - Readiness Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/readiness-probe-demo.md
-        # - 
+        - Startup Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/startup-probe-demo.md
         # - 
         # - 
   - DevOps & SRE Interview Questions:

@@ -1,17 +1,17 @@
 ---
-description: Experience the power of Readiness Probes in Kubernetes with our hands-on demo. Ensure container health and reliability. 
+description: Experience the power of Startup Probes in Kubernetes with our hands-on demo. Ensure container health and reliability. 
 ---
 
-# Readiness Probe Demo
+# Startup Probe Demo
 
 Keep in mind the following:
 
-- Readiness probe indicates whether the container is ready to start accepting traffic.
-- The probe is performed periodically until the container is terminated or the pod is deleted.
-- If readiness probe fails, the service won't send traffic to the pod until the readiness probe indicates that the container is ready again.
+- Startup probe indicates whether the application within the container is started.
+- Once the container has started successfully, the startup probe is no longer used until the pod is restarted.
+- If startup probe fails, container is restarted.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/probes/readiness-probe.gif" alt="Readiness Probe" width="450" />
+    <img src="../../../../assets/eks-course-images/probes/startup-probe.gif" alt="Startup Probe" width="450" />
 </p>
 
 Let's see this in action!
@@ -30,7 +30,6 @@ We'll be using the `delayed` tag of the image. [reyanshkharga/nodeapp:delayed]{:
     - `GET /` Returns a JSON object containing `Host` and `Version`
     - `GET /health` Returns the health status of the application
     - `GET /random` returns a randomly generated number in `[1, 10]`
-
 
 ## Step 1: Expose Application Using a Service
 
@@ -65,7 +64,7 @@ Let's create a LoadBalancer service to expose our application we'll create in th
     ```
 
 
-## Step 2: Create Deployment Without Readiness Probe
+## Step 2: Create Deployment Without Startup Probe
 
 First, let's create a deployment without any readinesss probe and observe the behaviour of the app:
 
@@ -143,9 +142,9 @@ Open two seperate terminals to monitor the following:
     - It takes 60 seconds before we start receiving a successful response.
 
 
-## Step 4: Update the Deployment By Adding a Readiness Probe
+## Step 4: Update the Deployment By Adding a Startup Probe
 
-Let's update the deployment by adding a readiness probe to the container.
+Let's update the deployment by adding a startup probe to the container.
 
 The updated deployment should look like the following:
 
@@ -172,24 +171,26 @@ The updated deployment should look like the following:
             imagePullPolicy: Always
             ports:
               - containerPort: 5000
-            readinessProbe:
-              httpGet:
-                path: /health
+            startupProbe:
+              tcpSocket:
                 port: 5000
-              initialDelaySeconds: 0
+              initialDelaySeconds: 70
               periodSeconds: 5
               timeoutSeconds: 1
               successThreshold: 1
               failureThreshold: 1
     ```
 
-Fields for readiness probes:
+Fields for startup probes:
 
-- `initialDelaySeconds`: Number of seconds after the container has started before readiness probe is initiated. Defaults to 0 seconds. Minimum value is 0.
+- `initialDelaySeconds`: Number of seconds after the container has started before startup probe is initiated. Defaults to 0 seconds. Minimum value is 0.
 - `periodSeconds`: How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 - `timeoutSeconds`: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1.
 - `successThreshold`: Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup probes because the container is restarted after the probe is failed. Minimum value is 1.
 - `failureThreshold`: After a probe fails `failureThreshold` times in a row, kubernetes considers that the overall check has failed and the container is not ready, healthy, or live.
+
+!!! note "Important Note"
+    Note that we have set the `initialDelaySeconds` to 70 seconds because we know that the app has a startup delay of 60 seconds. If we keep `initialDelaySeconds` value to a lower value (say 10 seconds) the container will keep restarting again and again because the startup probe would fail again and again.
 
 ```
 # Update deployment
@@ -199,7 +200,7 @@ kubectl apply -f my-deployment.yml
 The deployment will be rolled out.
 
 !!! note "Observation"
-    This time, even though the pod is in running state, the container is not `READY` because the readiness probe has not succeded yet.
+    This time, even though the pod is in running state, the container is not `READY` because the startup probe has not succeded yet.
 
     You can see the events by describing the pod:
 
@@ -230,6 +231,7 @@ This situation is desirable because we don't want to send traffic to a pod that 
 But once all the containers in the pod are ready, you will notice that the service starts sending traffic to the pods and you get a successful response.
 
 
+
 ## Clean Up
 
 Assuming your folder structure looks like the one below:
@@ -245,7 +247,6 @@ Let's delete all the resources we created:
 ```
 kubectl delete -f manifests/
 ```
-
 
 
 <!-- Hyperlinks -->
