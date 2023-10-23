@@ -229,6 +229,9 @@ This situation is desirable because we don't want to send traffic to a pod that 
 
 But once all the containers in the pod are ready, you will notice that the service starts sending traffic to the pods and you get a successful response.
 
+!!! note
+    We currently have just a single replica in this deployment because my intention was to illustrate how a service behaves when it encounters an unhealthy pod. In a production environment, multiple pods will be available. The healthy pods will continue to handle traffic while any pods that do not pass the health probes will be taken out of the serving pool.
+
 
 ## Clean Up
 

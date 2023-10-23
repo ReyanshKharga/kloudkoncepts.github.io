@@ -89,7 +89,7 @@ nav:
         - Liveness Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/liveness-probe-demo.md
         - Readiness Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/readiness-probe-demo.md
         - Startup Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/startup-probe-demo.md
-        # - 
+        - Probes in Combination: ./kubernetes-on-eks/kubernetes-fundamentals/probes/probes-in-combination.md
         # - 
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md

@@ -235,6 +235,9 @@ kubectl describe pod <pod-name>
 Play with it multiple times to gain a good understanding of how liveness probe works.
 
 
+!!! note
+    We currently have just a single replica in this deployment because my intention was to illustrate how a service behaves when it encounters an unhealthy pod. In a production environment, multiple pods will be available. The healthy pods will continue to handle traffic while any pods that do not pass the health probes will be taken out of the serving pool.
+
 
 ## Clean Up
 
