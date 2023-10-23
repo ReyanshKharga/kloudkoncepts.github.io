@@ -30,6 +30,8 @@ Let's create two namespaces `dev` and `prod` as follows:
       name: prod
     ```
 
+Apply the manifest files to create namespaces:
+
 ```
 # Create dev namespace
 kubectl apply -f dev-namespace.yml
@@ -100,6 +102,8 @@ Let's create two pods. One in `dev` namespace and another in `prod` namespace.
         ports:
         - containerPort: 80
     ```
+
+Apply the manifest files to create pods:
 
 ```
 # Create dev-pod
