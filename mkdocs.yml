@@ -87,7 +87,7 @@ nav:
         - Introduction to Probes: ./kubernetes-on-eks/kubernetes-fundamentals/probes/introduction-to-probes.md
         - Types of Probes: ./kubernetes-on-eks/kubernetes-fundamentals/probes/types-of-probes.md
         - Liveness Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/liveness-probe-demo.md
-        # - 
+        - Readiness Probe Demo: ./kubernetes-on-eks/kubernetes-fundamentals/probes/readiness-probe-demo.md
         # - 
         # - 
         # - 

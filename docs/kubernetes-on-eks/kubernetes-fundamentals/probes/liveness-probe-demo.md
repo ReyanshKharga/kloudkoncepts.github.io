@@ -10,15 +10,17 @@ Keep in mind the following:
 - The probe is performed periodically until the container is terminated or the pod is deleted.
 - If liveness probe fails, container is restarted.
 
+<p align="center">
+    <img src="../../../../assets/eks-course-images/probes/liveness-probe.gif" alt="Liveness Probe" width="450" />
+</p>
+
 Let's see this in action!
 
 
 
 ## Docker Image
 
-Here is the Docker Image used in this tutorial:
-
-- [reyanshkharga/nodeapp:liveness]{:target="_blank"}
+Here is the Docker Image used in this tutorial: [reyanshkharga/nodeapp]{:target="_blank"}
 
 We'll be using the `liveness` tag of the image. [reyanshkharga/nodeapp:liveness]{:target="_blank"} is a node.js application that has a 10% chance of failure.
 
@@ -194,7 +196,7 @@ Fields for liveness probes:
 - `initialDelaySeconds`: Number of seconds after the container has started before liveness probe is initiated. Defaults to 0 seconds. Minimum value is 0.
 - `periodSeconds`: How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 - `timeoutSeconds`: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1.
-- `successThreshold`: Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup Probes. Minimum value is 1.
+- `successThreshold`: Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup probes because the container is restarted after the probe is failed. Minimum value is 1.
 - `failureThreshold`: After a probe fails `failureThreshold` times in a row, kubernetes considers that the overall check has failed and the container is not ready, healthy, or live.
 
 ```
@@ -202,7 +204,7 @@ Fields for liveness probes:
 kubectl apply -f my-deployment.yml
 ```
 
-The Deployment will be rolled out.
+The deployment will be rolled out.
 
 
 ## Step 5: Access Application Again
@@ -253,3 +255,4 @@ kubectl delete -f manifests/
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:liveness]: https://hub.docker.com/r/reyanshkharga/nodeapp
+[reyanshkharga/nodeapp]: https://hub.docker.com/r/reyanshkharga/nodeapp
