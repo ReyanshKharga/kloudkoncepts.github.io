@@ -92,8 +92,8 @@ nav:
         - Probes in Combination: ./kubernetes-on-eks/kubernetes-fundamentals/probes/probes-in-combination.md
       - Namespace:
         - Introduction to Namespace: ./kubernetes-on-eks/kubernetes-fundamentals/namespace/introduction-to-namespace.md
-        # - 
-        # - 
+        - Namespace Using Imperative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/namespace/namespace-using-imperative-approach.md
+        - Namespace Using Declarative Approach: ./kubernetes-on-eks/kubernetes-fundamentals/namespace/namespace-using-declarative-approach.md
         # - 
         # - 
   - DevOps & SRE Interview Questions:
