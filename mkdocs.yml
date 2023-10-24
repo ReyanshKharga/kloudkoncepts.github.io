@@ -100,7 +100,6 @@ nav:
           - Introduction to emptyDir Volume: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/emptydir-volume/introduction-to-emptydir-volume.md
           - emptyDir Volume Demo: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/emptydir-volume/emptydir-volume-demo.md
           - emptyDir Volume to Share Data Between Containers: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/emptydir-volume/using-emptydir-volume-to-share-data-between-containers.md
-          # -
         - hostPath Volume:
           - Introduction to hostPath Volume: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/hostpath-volume/introduction-to-hostpath-volume.md
           # - 
