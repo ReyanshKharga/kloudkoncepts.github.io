@@ -12,7 +12,7 @@ strict: true
 # Defeine TOC or order of website
 nav:
   - Home: index.md
-  - Kubernetes on EKS:
+  - Kubernetes on Amazon EKS:
     - Course Introduction: ./kubernetes-on-eks/index.md
     - Docker Fundamentals:
       - Introduction to Docker: ./kubernetes-on-eks/docker-fundamentals/introduction-to-docker.md
@@ -98,8 +98,8 @@ nav:
         - Introduction to Storage in Kubernetes: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/introduction-to-storage-in-kubernetes.md
         - emptyDir Volume:
           - Introduction to emptyDir Volume: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/emptydir-volume/introduction-to-emptydir-volume.md
-          # -
-          # -
+          - emptyDir Volume Demo: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/emptydir-volume/emptydir-volume-demo.md
+          - emptyDir Volume to Share Data Between Containers: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/emptydir-volume/using-emptydir-volume-to-share-data-between-containers.md
           # -
         - hostPath Volume:
           - Introduction to hostPath Volume: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/hostpath-volume/introduction-to-hostpath-volume.md
@@ -231,8 +231,7 @@ markdown_extensions:
       custom_checkbox: true
       clickable_checkbox: true
   - toc:
-      permalink: true
-  
+      permalink: true  
 
 
 copyright: |

@@ -38,15 +38,15 @@ Persistent storage, on the other hand, is used to store data that needs to persi
 
 Kubernetes provides several options for persistent storage, including local storage, network-attached storage, and cloud-based storage solutions, such as Amazon EBS or Google Persistent Disks.
 
-1. Local Storage
+1. **Local Storage**
 
     Local storage is storage that is directly attached to a node in the cluster. This can be a physical disk or a virtual disk created using a local volume. Local storage is often used for applications that require high-performance storage or for applications that need to store data that is not shared between containers.
 
-2. Network Attached Storage
+2. **Network Attached Storage**
 
     Network attached storage, or NAS, is a type of storage that is accessed over a network. Kubernetes supports several types of `NAS`, including `NFS`, `GlusterFS`, and `CephFS`. `NAS` is often used for applications that require shared storage, such as databases or file servers.
 
-3. Cloud Based Storage
+3. **Cloud Based Storage**
 
     Cloud based storage solutions, such as `Amazon EBS` or `Google Persistent Disks`, provide scalable and highly available storage that can be used to support stateful applications or to provide shared storage for multiple containers running in a kubernetes environment.
 
