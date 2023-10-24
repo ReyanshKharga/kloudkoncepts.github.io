@@ -6,6 +6,10 @@ description: Learn Kubernetes on Amazon EKS, along with DevOps practices, Micros
 
 Master Kubernetes, Microservices, Logging, Monitoring, Service Mesh, DevOps, CI/CD, GitOps, and Go From Zero to Hero!
 
+This course on kubernetes and microservices is all about getting your hands dirty with practical learning – no nonsense, no jargon, just pure, actionable tutorials and demos with real code and manifest files.
+
+Dive in and get your hands dirty with real-world skills!
+
 
 ## What Will You Learn in This Course?
 
