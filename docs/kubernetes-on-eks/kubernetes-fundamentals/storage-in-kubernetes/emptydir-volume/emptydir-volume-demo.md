@@ -104,3 +104,6 @@ Let's delete all the resources we created:
 ```
 kubectl delete -f manifests/
 ```
+
+<!-- Hyperlinks -->
+[reyanshkharga/nginx]: https://hub.docker.com/r/reyanshkharga/nginx
