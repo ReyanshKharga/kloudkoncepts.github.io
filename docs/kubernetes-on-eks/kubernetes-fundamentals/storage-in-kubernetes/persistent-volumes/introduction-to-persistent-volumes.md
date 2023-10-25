@@ -147,3 +147,43 @@ There are three access modes available:
 - `ReadWriteMany (RWX)`: The volume can be mounted as read-write by many nodes in the cluster.
 
 
+## Persistent Volume Reclaim Policy
+
+The reclaim policy for a `PersistentVolume` tells the cluster what to do with the volume after it has been released of its claim.
+
+Currently, volumes can either be `Retained`, `Recycled`, or `Deleted`.
+
+- `Retain` - The volume will not be automatically deleted or scrubbed, and it will remain available for use.
+- `Recycle` - Basic scrub (`rm -rf /thevolume/*`) is performed on the volume and is made available again for a new claim.
+- `Delete` - Associated storage asset such as AWS EBS, GCE PD, Azure Disk, or OpenStack Cinder volume is deleted
+
+Currently, only `NFS` and `hostPath` volumes support recycling.
+
+The supported `Persistent Volume` (PV) reclaim policies for AWS EBS, GCE PD, Azure Disk, and Cinder volumes are limited to `Retain` and `Delete`, meaning that the underlying storage asset can either be kept for future use or permanently deleted when the PV is released.
+
+
+
+## Use Cases of Persistent Volumes
+
+1. **Storage for Database applications**
+
+    `Persistent Volumes` provide a reliable and scalable storage solution for stateful database applications running in kubernetes, ensuring data persistence even during node failures or pod restarts.
+
+2. **Storage for application logs**
+
+    By storing application logs on `Persistent Volumes`, kubernetes enables centralized log management, improves troubleshooting and debugging, and ensures that logs persist even after a pod restart or scaling event.
+
+3. **Storage for stateful applications**
+
+    Stateful applications, which require persistent storage can benefit from `Persistent Volumes` to ensure data durability, consistency, and availability throughout the application lifecycle in kubernetes.
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [Persistent Volumes]{:target="_blank"}
+        * [Storage Classes]{:target="_blank"}
+
+
+<!-- Hyperlinks -->
+[Persistent Volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[Storage Classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
