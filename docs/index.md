@@ -1,5 +1,5 @@
 ---
-description: Learn AWS, Kubernetes, DevOps, Microservices, Service Mesh, CI/CD, Logging, Monitoring, and more all in one place.
+description: Master Kubernetes and Microservices on the cloud. Learn how to deploy applications on Kubernetes, including Service Mesh, CI/CD, logging, and monitoring, all while following the best DevOps practices.
 template: home.html
 ---
 
