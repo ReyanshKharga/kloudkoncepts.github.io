@@ -102,7 +102,7 @@ nav:
           - emptyDir Volume to Share Data Between Containers: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/emptydir-volume/using-emptydir-volume-to-share-data-between-containers.md
         - hostPath Volume:
           - Introduction to hostPath Volume: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/hostpath-volume/introduction-to-hostpath-volume.md
-          # - 
+          - hostPath Volume Demo: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/hostpath-volume/hostpath-volume-demo.md
           # - 
           # - 
         - Persistent Volumes:
@@ -188,6 +188,8 @@ extra:
       link: https://twitter.com/ReyanshKharga
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/ReyanshKharga
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/reyanshkharga
 
 
 extra_css:
