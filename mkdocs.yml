@@ -103,11 +103,9 @@ nav:
         - hostPath Volume:
           - Introduction to hostPath Volume: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/hostpath-volume/introduction-to-hostpath-volume.md
           - hostPath Volume Demo: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/hostpath-volume/hostpath-volume-demo.md
-          # - 
-          # - 
         - Persistent Volumes:
           - Introduction to Persistent Volumes: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volumes/introduction-to-persistent-volumes.md
-          # -
+          - Persistent Volume Demo: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volumes/persistent-volume-demo-using-local-storage.md
           # -
           # -
         - Persistent Volume Using Amazon EBS:
