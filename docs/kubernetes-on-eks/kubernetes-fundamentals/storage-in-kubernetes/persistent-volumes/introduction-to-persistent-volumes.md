@@ -69,7 +69,7 @@ With dynamic provisioning, you don't need to pre-create PVs, which can be helpfu
 
 Dynamic provisioning is made possible by the use of `Storage Classes`, which define the type and configuration of storage that will be used to create the PV.
 
-A `Persistent Volume Provisioner` in Kubernetes is a component that dynamically creates and manages `Persistent Volumes` (PVs) in response to the creation of `Persistent Volume Claims` (PVCs) by users.
+A `Persistent Volume Provisioner` in kubernetes is a component that dynamically creates and manages `Persistent Volumes` (PVs) in response to the creation of `Persistent Volume Claims` (PVCs) by users.
 
 The provisioner acts as a plugin to the kubernetes API server, intercepting PVC creation events and responding by dynamically creating or deleting the requested volumes.
 

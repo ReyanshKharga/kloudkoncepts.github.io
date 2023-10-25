@@ -159,4 +159,4 @@ In this example we have multiple level of nesting and includes values which are 
           image: busybox:latest
     ```
 
-Note that the item containers is a list of maps.
+Note that the item `containers` is a list of maps.

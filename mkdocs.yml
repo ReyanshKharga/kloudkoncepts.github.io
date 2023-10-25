@@ -106,11 +106,9 @@ nav:
         - Persistent Volumes:
           - Introduction to Persistent Volumes: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volumes/introduction-to-persistent-volumes.md
           - Persistent Volume Demo: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volumes/persistent-volume-demo-using-local-storage.md
-          # -
-          # -
         - Persistent Volume Using Amazon EBS:
           - Introduction to EBS CSI Driver: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/introduction-to-ebs-csi-driver.md
-          # -
+          - Install EBS CSI Driver: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/install-ebs-csi-driver.md
           # -
           # -
   - DevOps & SRE Interview Questions:
