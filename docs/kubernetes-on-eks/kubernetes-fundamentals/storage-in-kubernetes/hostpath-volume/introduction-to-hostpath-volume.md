@@ -28,15 +28,15 @@ Here are a few use cases of hostPath volume:
 
 1. **Development and testing**
 
-    hostPath volumes can be used during development and testing to mount source code, configuration files, or other development assets that are stored on the host node's filesystem into the Pod. This can help speed up the development process and reduce the time required for containerization.
+    `hostPath` volumes can be used during development and testing to mount source code, configuration files, or other development assets that are stored on the host node's filesystem into the pod. This can help speed up the development process and reduce the time required for containerization.
 
 2. **Data persistence**
 
-    hostPath volumes can be used to store data that needs to persist across Pod restarts, such as databases or log files. This can be particularly useful in stateful applications where data needs to be stored and accessed across multiple containers or Pods.
+    `hostPath` volumes can be used to store data that needs to persist across pod restarts, such as databases or log files. This can be particularly useful in stateful applications where data needs to be stored and accessed across multiple containers or pods.
 
 3. **System-level access**
 
-    hostPath volumes can be used to provide system-level access to the Pod, allowing it to access and modify files on the host node's filesystem.
+    `hostPath` volumes can be used to provide system-level access to the pod, allowing it to access and modify files on the host node's filesystem.
 
 
 
