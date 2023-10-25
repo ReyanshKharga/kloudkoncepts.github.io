@@ -112,6 +112,8 @@ nav:
           - Install EBS CSI Driver: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/install-ebs-csi-driver.md
           - Static Provisioning of PV Using EBS: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/static-provisioning-of-pv-using-ebs.md
           - Dynamic Provisioning of PV Using EBS: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/dynamic-provisioning-of-pv-using-ebs.md
+      - ConfigMap:
+        - Introduction to ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/introduction-to-configmap.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
