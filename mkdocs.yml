@@ -110,7 +110,7 @@ nav:
         - Persistent Volume Using Amazon EBS:
           - Introduction to EBS CSI Driver: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/introduction-to-ebs-csi-driver.md
           - Install EBS CSI Driver: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/install-ebs-csi-driver.md
-          # -
+          - Static Provisioning of PV Using EBS: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/static-provisioning-of-pv-using-ebs.md
           # -
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
