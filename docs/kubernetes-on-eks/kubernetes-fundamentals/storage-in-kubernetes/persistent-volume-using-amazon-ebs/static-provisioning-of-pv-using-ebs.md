@@ -1,5 +1,5 @@
 ---
-description: 
+description: Master the art of static provisioning for Persistent Volumes using EBS with our comprehensive guide. Learn how to configure and manage storage resources in Kubernetes proactively.
 ---
 
 # Static Provisioning of Persistent Volume Using EBS
