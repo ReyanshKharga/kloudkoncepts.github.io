@@ -1,7 +1,8 @@
 # Site Details
 site_name: Kloud Koncepts
 site_description: >-
-  Master Kubernetes and DevOps on Cloud
+  Master Kubernetes and Microservices on the cloud. Learn how to deploy applications on Kubernetes,
+  including Service Mesh, CI/CD, logging, and monitoring, all while following the best DevOps practices.
 site_author: Reyansh Kharga
 site_url: https://kloudkoncepts.com/
 repo_name: ReyanshKharga/eks-kubernetes-masterclass
