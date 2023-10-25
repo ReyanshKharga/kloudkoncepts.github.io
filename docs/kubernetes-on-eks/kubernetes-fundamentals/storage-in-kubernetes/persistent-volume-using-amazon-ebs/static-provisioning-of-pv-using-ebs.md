@@ -211,7 +211,7 @@ kubectl apply -f my-deployment.yml
 
 Verify the EBS volume state in AWS console. You'll observe that as soon as the pod is scheduled on a node, the EBS volume is mounted on that node and the state changes from `Available` to `in-use`.
 
-You can see the Attached instances field in the EBS details section in the AWS console.
+You can see the `Attached instances` field in the EBS details section in the AWS console.
 
 
 !!! note "Important Note"
