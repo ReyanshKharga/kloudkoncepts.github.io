@@ -115,7 +115,8 @@ nav:
       - ConfigMap:
         - Introduction to ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/introduction-to-configmap.md
         - Create ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/create-and-manage-configmaps.md
-        # -
+        - Using ConfigMap for Environment Variables:
+          - Conventional Approach of Supplying Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/conventional-approach-of-supplying-environment-variables.md
         # -
         # -
   - DevOps & SRE Interview Questions:
