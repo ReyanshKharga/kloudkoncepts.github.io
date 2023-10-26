@@ -9,7 +9,7 @@ Let's look at the conventional approach of supplying environment variables to co
 
 ## Step 1: Create Pods That Uses Environment Variables
 
-Let's create Pods that uses environment variables. We'll use a deployment to create pods:
+Let's create pods that uses environment variables. We'll use a deployment to create pods:
 
 === ":octicons-file-code-16: `my-deployment.yml`"
 

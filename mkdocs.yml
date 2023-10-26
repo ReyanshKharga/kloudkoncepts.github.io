@@ -117,8 +117,8 @@ nav:
         - Create ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/create-and-manage-configmaps.md
         - Using ConfigMap for Environment Variables:
           - Conventional Approach of Supplying Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/conventional-approach-of-supplying-environment-variables.md
-        # -
-        # -
+          - Using ConfigMap to Supply Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/using-configmap-to-supply-environment-variables.md
+          - Supply Environment Variables From Multiple Sources: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/supplying-environment-variables-from-multiple-sources.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
