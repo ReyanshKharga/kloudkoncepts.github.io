@@ -4,7 +4,7 @@ description: Explore the conventional approach for supplying environment variabl
 
 # Conventional Approach of Supplying Environment Variables
 
-Let's look at the conventional approach of supplying environment variables to containers running inside a pod. In the following section, we'll explore how you can use `ConfigMap` to achieve the same goal more efficiently.
+Let's look at the conventional approach of supplying environment variables to containers running inside a pod.
 
 
 ## Step 1: Create Pods That Uses Environment Variables
