@@ -9,7 +9,7 @@ Let's see how we can create and manage `ConfigMaps`.
 
 ## Step 1: Create a ConfigMap
 
-=== ":octicons-file-code-16: `my-deployment.yml`"
+=== ":octicons-file-code-16: `my-configmap.yml`"
 
     ```yaml linenums="1"
     apiVersion: v1
