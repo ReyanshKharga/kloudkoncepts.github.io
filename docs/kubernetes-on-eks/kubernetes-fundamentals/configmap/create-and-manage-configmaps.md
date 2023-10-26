@@ -13,40 +13,40 @@ Let's see how we can create and manage `ConfigMaps`.
 
     ```yaml linenums="1"
     apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: my-configmap
-data:
-  # property-like keys; each key maps to a simple value
-  foo1: bar1
-  foo2: bar2
+    kind: ConfigMap
+    metadata:
+      name: my-configmap
+    data:
+      # property-like keys; each key maps to a simple value
+      foo1: bar1
+      foo2: bar2
 
-  # file-like keys; each key maps to a file content
-  game.properties: |
-    enemy.types=aliens,monsters
-    player.maximum-lives=5    
-  default.conf: |
-    server {
-      listen       8080;
-      listen  [::]:8080;
-      server_name  localhost;
+      # file-like keys; each key maps to a file content
+      game.properties: |
+        enemy.types=aliens,monsters
+        player.maximum-lives=5    
+      default.conf: |
+        server {
+          listen       8080;
+          listen  [::]:8080;
+          server_name  localhost;
 
-      #access_log  /var/log/nginx/host.access.log  main;
+          #access_log  /var/log/nginx/host.access.log  main;
 
-      location / {
-          root   /usr/share/nginx/html;
-          index  index.html index.htm;
-      }
+          location / {
+              root   /usr/share/nginx/html;
+              index  index.html index.htm;
+          }
 
-      #error_page  404              /404.html;
+          #error_page  404              /404.html;
 
-      # redirect server error pages to the static page /50x.html
-      #
-      error_page   500 502 503 504  /50x.html;
-      location = /50x.html {
-          root   /usr/share/nginx/html;
-      }
-    }
+          # redirect server error pages to the static page /50x.html
+          #
+          error_page   500 502 503 504  /50x.html;
+          location = /50x.html {
+              root   /usr/share/nginx/html;
+          }
+        }
     ```
 
 
