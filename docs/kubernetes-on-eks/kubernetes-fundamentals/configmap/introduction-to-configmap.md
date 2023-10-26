@@ -1,5 +1,5 @@
 ---
-description: 
+description: Discover the fundamentals of ConfigMap with our straightforward introduction. Learn how to manage configuration data in Kubernetes and simplify application settings.
 ---
 
 # Introduction to ConfigMap

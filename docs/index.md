@@ -1,5 +1,5 @@
 ---
-description: Master Kubernetes and Microservices on the cloud. Learn how to deploy applications on Kubernetes, including Service Mesh, CI/CD, logging, and monitoring, all while following the best DevOps practices.
+description: Master Kubernetes and Microservices on the cloud. Learn how to deploy applications on Kubernetes, including Service Mesh, CI/CD, logging, and monitoring, while following the best DevOps practices.
 template: home.html
 ---
 

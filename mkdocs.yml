@@ -2,7 +2,7 @@
 site_name: Kloud Koncepts
 site_description: >-
   Master Kubernetes and Microservices on the cloud. Learn how to deploy applications on Kubernetes,
-  including Service Mesh, CI/CD, logging, and monitoring, all while following the best DevOps practices.
+  including Service Mesh, CI/CD, logging, and monitoring, while following the best DevOps practices.
 site_author: Reyansh Kharga
 site_url: https://kloudkoncepts.com/
 repo_name: ReyanshKharga/eks-kubernetes-masterclass
@@ -114,6 +114,10 @@ nav:
           - Dynamic Provisioning of PV Using EBS: ./kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/dynamic-provisioning-of-pv-using-ebs.md
       - ConfigMap:
         - Introduction to ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/introduction-to-configmap.md
+        - Create ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/create-and-manage-configmaps.md
+        # -
+        # -
+        # -
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
