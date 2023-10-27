@@ -8,6 +8,8 @@ Master Kubernetes, Microservices, Logging, Monitoring, Service Mesh, DevOps, CI/
 
 This course on kubernetes and microservices is all about getting your hands dirty with practical learning – no nonsense, no jargon, just pure, actionable tutorials and demos with real code and manifest files.
 
+This course takes you on a journey from the fundamentals, perfect for beginners, and smoothly transitions to advanced topics. You'll not only get a solid start but also gain insights into how real-world production systems apply these concepts to create robust, fault-tolerant solutions.
+
 Dive in and get your hands dirty with real-world skills!
 
 

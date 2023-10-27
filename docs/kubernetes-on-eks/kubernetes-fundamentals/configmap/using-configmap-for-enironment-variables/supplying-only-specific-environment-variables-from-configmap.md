@@ -1,10 +1,10 @@
 ---
-description: Learn to seamlessly supply environment variables from various sources, including ConfigMap and direct key-value pairs. Discover how to manage and combine multiple sources for effective environment variable provisioning in Kubernetes.
+description: Efficiently select and supply specific environment variables from a ConfigMap in your Kubernetes environment. Learn how to fine-tune your configuration data for precise variable provisioning with our step-by-step guide. Enhance your environment variable management now!
 ---
 
-# Supply Environment Variables From Multiple Sources
+# Supplying Only Specific Environment Variables From ConfigMap
 
-What if you want to use `ConfigMap` for the environemnt variables but also want to supply additional environment variables directly in the pod definition?
+Consider a case where you want to use only a specific items from `ConfigMap` as environment variables instead of supplying entire `ConfigMap` as environment variables.
 
 Let's see how we can do that.
 
@@ -43,7 +43,7 @@ kubectl describe cm my-configmap
 
 ## Step 3: Create Pods That Uses Environment Variables
 
-Let's create pods that uses `ConfigMap` as well as the conventional approach to set environment variables for the container. We'll use a deployment to create pods.
+Let's create pods that uses specific items from the `ConfigMap` as environment variables for the container. We'll use a deployment to create pods:
 
 === ":octicons-file-code-16: `my-deployment.yml`"
 
@@ -70,15 +70,17 @@ Let's create pods that uses `ConfigMap` as well as the conventional approach to 
               value: value1
             - name: key2
               value: value2
-            envFrom:
-            - configMapRef:
-                name: my-configmap
+            - name: foo1
+              valueFrom:
+                configMapKeyRef:
+                  name: my-configmap
+                  key: foo1
     ```
 
 Observe the following:
 
-- We are using `env` keyword to supply a list of environment variables
-- We are also using `envFrom` keyword to supply a list of environment variables from the ConfigMap `my-configmap`
+- We are using `env` keyword to supply a list of environment variables.
+- We are also using `valueFrom` keyword to get the value of the key `foo1` in the ConfigMap `my-configmap` and then setting it as the value of an environment variable named `foo1`.
 
 Apply the manifest to create deployment:
 
@@ -112,8 +114,8 @@ List environment variables available to the container:
 env
 ```
 
+You'll see a list of environment variables available to the container. This includes both `system-provided` as well as `user-provided` (using env and `valueFrom` keyword) environment variables.
 
-You'll see a list of environment variables available to the container. This includes both `system-provided` as well as `user-provided` (using `env` and `envFrom` keyword) environment variables.
 
 Print values of the environment variables we set:
 
@@ -126,15 +128,12 @@ echo $key2
 
 # Print value of the environment variable foo1
 echo $foo1
-
-# Print value of the environment variable foo2
-echo $foo2
 ```
 
 You'll notice the following:
 
 - Environment variables `key1` and `key2` are set to `value1` and `value2` respectively.
-- Environment variables `foo1` and `foo2` are set to `bar1` and `bar2` respectively.
+- Environment variables `foo1` is set to `bar1`.
 
 
 ## Clean Up
