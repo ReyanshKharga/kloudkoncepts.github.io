@@ -2,9 +2,9 @@
 description: Simplify Nginx configuration by supplying files through ConfigMap in Kubernetes. Discover how to streamline your web server setup with our step-by-step guide. Enhance your Nginx configuration management now!
 ---
 
-# Supply Nginx Configuration Files Using ConfigMap
+# Supply Nginx Configuration Using ConfigMap
 
-Now, let's see how you can use `ConfigMap` to supply configuration files to applications. In this example, we will use `ConfigMap` to provide configuration files to the nginx application.
+Now, let's see how you can use `ConfigMap` to supply configuration to applications. In this example, we will use `ConfigMap` to provide configuration to the nginx application.
 
 
 ## Nginx Deployment Without ConfigMap
