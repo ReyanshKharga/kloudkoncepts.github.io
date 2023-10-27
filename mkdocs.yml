@@ -115,10 +115,13 @@ nav:
       - ConfigMap:
         - Introduction to ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/introduction-to-configmap.md
         - Create ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/create-and-manage-configmaps.md
-        - Using ConfigMap for Environment Variables:
+        - Use ConfigMap for Environment Variables:
           - Conventional Approach of Supplying Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/conventional-approach-of-supplying-environment-variables.md
-          - Using ConfigMap to Supply Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/using-configmap-to-supply-environment-variables.md
-          - Supply Environment Variables From Multiple Sources: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/supplying-environment-variables-from-multiple-sources.md
+          - Use ConfigMap to Supply Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/use-configmap-to-supply-environment-variables.md
+          - Supply Environment Variables From Multiple Sources: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/supply-environment-variables-from-multiple-sources.md
+          - Supply Only Specific Environment Variables From ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/using-configmap-for-enironment-variables/supply-only-specific-environment-variables-from-configmap.md
+        - Use ConfigMap as Volume: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/use-configmap-as-volume.md
+        - Supply Nginx Configuration Files Using ConfigMap: ./kubernetes-on-eks/kubernetes-fundamentals/configmap/supply-nginx-configuration-using-configmap.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md

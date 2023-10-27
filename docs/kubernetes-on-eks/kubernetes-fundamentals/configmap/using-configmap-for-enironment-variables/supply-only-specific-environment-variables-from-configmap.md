@@ -2,7 +2,7 @@
 description: Efficiently select and supply specific environment variables from a ConfigMap in your Kubernetes environment. Learn how to fine-tune your configuration data for precise variable provisioning with our step-by-step guide. Enhance your environment variable management now!
 ---
 
-# Supplying Only Specific Environment Variables From ConfigMap
+# Supply Only Specific Environment Variables From ConfigMap
 
 Consider a case where you want to use only a specific items from `ConfigMap` as environment variables instead of supplying entire `ConfigMap` as environment variables.
 

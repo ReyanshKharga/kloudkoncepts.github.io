@@ -2,7 +2,7 @@
 description: Leverage the power of ConfigMap to efficiently supply environment variables to your Kubernetes containers. Discover how to simplify and manage environment variables with our practical guide.
 ---
 
-# Using ConfigMap to Supply Environment Variables
+# Use ConfigMap to Supply Environment Variables
 
 Let's see how we can use ConfigMap to supply environment variables to containers running inside in a pod.
 
