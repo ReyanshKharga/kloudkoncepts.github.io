@@ -24,7 +24,7 @@ However, the `hostPath` volume will be deleted when the node itself is deleted, 
 
 ## Use Cases of hostPath Volume
 
-Here are a few use cases of hostPath volume:
+Here are a few use cases of `hostPath` volume:
 
 1. **Development and testing**
 

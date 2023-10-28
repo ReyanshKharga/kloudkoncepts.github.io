@@ -15,11 +15,11 @@ A `ConfigMap` is not designed to hold large chunks of data. The data stored in a
 
 ## Use Cases of ConfigMap
 
-1. `Environment Variables`: ConfigMaps can be used to set environment variables for containers running in a pod.
+1. **Environment Variables:** ConfigMaps can be used to set environment variables for containers running in a pod.
 
-2. `Application Configuration`: ConfigMaps are frequently used to store application configuration data, such as database connection strings and API endpoints.
+2. **Application Configuration:** ConfigMaps are frequently used to store application configuration data, such as database connection strings and API endpoints.
 
-3. `File Mounts`: ConfigMaps can be used to mount configuration files as volumes in Kubernetes pods. This allows applications to read configuration files without having to include them in the container image.
+3. **File Mounts:** ConfigMaps can be used to mount configuration files as volumes in Kubernetes pods. This allows applications to read configuration files without having to include them in the container image.
 
 
 !!! quote "References:"

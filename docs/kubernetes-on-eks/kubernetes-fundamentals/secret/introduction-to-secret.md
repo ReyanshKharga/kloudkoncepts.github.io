@@ -35,17 +35,11 @@ echo "cmV5YW5zaAo=" | base64 --decode
 
 ## Use Cases of Secret
 
-1. **Sensitive Data Storage**
+1. **Sensitive Data Storage:** `Secrets` securely store sensitive information like passwords, API keys, and certificates.
 
-    `Secrets` securely store sensitive information like passwords, API keys, and certificates.
+2. **Database Credentials:** `Secrets` manage and provide access to credentials required for connecting to databases securely.
 
-2. **Database Credentials**
-
-    `Secrets` manage and provide access to credentials required for connecting to databases securely.
-
-3. **File Mounts**
-
-    `Secrets` can be used to mount confidential configuration files as volumes in pods, allowing applications to access sensitive data without including them in the container image.
+3. **File Mounts:** `Secrets` can be used to mount confidential configuration files as volumes in pods, allowing applications to access sensitive data without including them in the container image.
 
 
 !!! quote "References:"

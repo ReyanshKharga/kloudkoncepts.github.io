@@ -128,6 +128,9 @@ nav:
         - Create Secret: ./kubernetes-on-eks/kubernetes-fundamentals/secret/create-secret.md
         - Use Secret to Supply Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/secret/use-secret-to-supply-environment-variables.md
         - Use Secret as Volume: ./kubernetes-on-eks/kubernetes-fundamentals/secret/use-secret-as-volume.md
+      - Requests and Limits:
+        - Introduction to Requests and Limits: ./kubernetes-on-eks/kubernetes-fundamentals/requests-and-limits/introduction-to-requests-and-limits.md
+        # -
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
