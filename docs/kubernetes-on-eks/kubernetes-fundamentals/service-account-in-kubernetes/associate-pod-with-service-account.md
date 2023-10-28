@@ -458,6 +458,11 @@ Let's delete all the resources we created:
 kubectl delete -f manifests/
 ```
 
+!!! quote "References:"
+    !!! quote ""
+        * [SSL Certificate Decoder]{:target="_blank"}
+        * [jwt.io]{:target="_blank"}
+
 
 <!-- Hyperlinks -->
 [SSL Certificate Decoder]: https://www.sslchecker.com/certdecoder
