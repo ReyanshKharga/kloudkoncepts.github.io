@@ -141,6 +141,8 @@ nav:
     - Service Account in Kubernetes:
       - Introduction to Service Account: ./kubernetes-on-eks/kubernetes-fundamentals/service-account-in-kubernetes/introduction-to-service-account.md
       - Default Service Account: ./kubernetes-on-eks/kubernetes-fundamentals/service-account-in-kubernetes/the-default-service-account.md
+      - Create Service Account: ./kubernetes-on-eks/kubernetes-fundamentals/service-account-in-kubernetes/create-service-account.md
+      - Associate Pod With Service Account: ./kubernetes-on-eks/kubernetes-fundamentals/service-account-in-kubernetes/associate-pod-with-service-account.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
