@@ -20,7 +20,7 @@ kubectl get serviceaccounts
 You'll see a service account named `default`.
 
 
-## Create a Namespace and Verify the Default Service Account
+## Step 2: Create a Namespace and Verify the Default Service Account
 
 Now, let's create a namespace called `dev` and list service accounts in that namespace:
 
