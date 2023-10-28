@@ -11,8 +11,6 @@ Let's see how we can use `Secret` as a Volume and mount it in a container.
 
 Let's create a `Secret` that stores a certificate:
 
-## Step 1: Create a Secret
-
 === ":octicons-file-code-16: `my-secret.yml`"
 
     ```yaml linenums="1"
