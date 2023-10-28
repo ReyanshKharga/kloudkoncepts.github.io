@@ -67,7 +67,6 @@ Here are three common use cases for init containers in kubernetes:
 3. **Flexibility:** By allowing you to set up your dependencies before your main application container starts, init containers help reduce resource waste. Instead of having your application container sit idle while it waits for dependencies to be installed, you can use an init container to ensure that everything is in place before the main container starts.
 
 
-
 !!! quote "References:"
     !!! quote ""
         * [Init Containers]{:target="_blank"}

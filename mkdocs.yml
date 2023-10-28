@@ -132,6 +132,8 @@ nav:
         - Introduction to Requests and Limits: ./kubernetes-on-eks/kubernetes-fundamentals/requests-and-limits/introduction-to-requests-and-limits.md
         - Install Metrics Server: ./kubernetes-on-eks/kubernetes-fundamentals/requests-and-limits/install-metrics-server.md
         - Configure Pods With Requests and Limits: ./kubernetes-on-eks/kubernetes-fundamentals/requests-and-limits/configure-pods-with-requests-and-limits.md
+      - LimitRange:
+        - Introduction to LimitRange: ./kubernetes-on-eks/kubernetes-fundamentals/limitrange/introduction-to-limitrange.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
