@@ -126,6 +126,7 @@ nav:
       - Secret:
         - Introduction to Secret: ./kubernetes-on-eks/kubernetes-fundamentals/secret/introduction-to-secret.md
         - Create Secret: ./kubernetes-on-eks/kubernetes-fundamentals/secret/create-secret.md
+        - Use Secret to Supply Environment Variables: ./kubernetes-on-eks/kubernetes-fundamentals/secret/use-secret-to-supply-environment-variables.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
