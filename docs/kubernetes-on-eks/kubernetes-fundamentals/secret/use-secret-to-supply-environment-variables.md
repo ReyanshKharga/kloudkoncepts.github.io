@@ -1,5 +1,5 @@
 ---
-description: 
+description: Safely supply environment variables using Kubernetes Secrets. Learn how to securely manage sensitive data for your application configurations with our practical guide.
 ---
 
 # Use Secret to Supply Environment Variables
