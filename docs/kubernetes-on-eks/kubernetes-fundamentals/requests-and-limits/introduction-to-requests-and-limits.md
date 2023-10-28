@@ -49,7 +49,7 @@ However, if you set a memory `limit` of `4GiB` for the same container, the `kube
 For instance, if a process within the container attempts to consume more memory than the allowed `limit`, the system kernel terminates that process, triggering an out of memory `(OOM)` error.
 
 !!! tip
-    You can use `kubectl top` command to view memory and CPU usage of a pod. But you need to install metrics server before you can use the `kubectl top` command.
+    You can use `kubectl top` command to view memory and CPU usage of a pod. But you need to install `metrics server` before you can use the `kubectl top` command.
 
 
 
@@ -74,3 +74,12 @@ To determine the appropriate amount of CPU and Memory `requests` and `limits` fo
     Conduct testing and performance profiling to validate the chosen CPU and memory settings, ensuring they meet the desired performance and stability requirements.
 
 By considering these factors and regularly assessing the pod's resource utilization, you can determine the correct amount of CPU and Memory `requests` and `limits` to optimize performance and resource allocation.
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [Requests and Limits]{:target="_blank"}
+
+
+<!-- Hyperlinks -->
+[Requests and Limits]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
