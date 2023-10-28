@@ -236,9 +236,11 @@ Well, Docker uses a special recipe called a `Dockerfile` to create your image ju
 
 A `Dockerfile` is like a step-by-step instruction manual for creating a Docker image. It's a plain text file that contains a series of commands and settings that define how to construct a container image. With a Dockerfile, you outline everything needed to set up your application or environment inside a container.
 
-!!! example "Dockerfile Example"
+Here's an example Dockerfile:
 
-    ```Dockerfile title="Dockerfile" linenums="1"
+=== ":octicons-file-code-16: `Dockerfile`"
+
+    ```Dockerfile linenums="1"
     FROM node:18
 
     # Create app directory

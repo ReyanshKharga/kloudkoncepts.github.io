@@ -1,5 +1,5 @@
 ---
-description: 
+description: Simplify your Nginx configuration management in Kubernetes by supplying multiple configurations using ConfigMap. Learn how to efficiently organize and optimize your web server settings with our comprehensive guide. 
 ---
 
 # Supply Multiple Nginx Configuration Using ConfigMap
