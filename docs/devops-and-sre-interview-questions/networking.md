@@ -606,3 +606,188 @@ In networking, ARP does something similar:
 So, ARP is like the phone book that helps devices on a local network find each other by translating IP addresses to MAC addresses, making communication between devices possible.
 
 ---
+
+
+## Question 21: Why is data divided into segments for transmission over a network?
+
+Data is divided into segments for several important reasons:
+
+1. **Efficient Transmission:** Large amounts of data can be more efficiently transmitted in smaller, manageable chunks. Smaller segments are less likely to get lost or corrupted during transmission.
+
+2. **Error Handling:** Dividing data into segments allows for better error handling. If a segment is lost or corrupted during transmission, only that segment needs to be retransmitted, rather than the entire large file.
+
+3. **Optimizing Network Resources:** Segmenting data helps in optimizing network resources. It allows multiple applications and devices to share the same network connection. Segmentation ensures fairness, so no single application monopolizes the network.
+
+4. **Support for Different Types of Data:** Different types of data require different treatment. Segmentation allows data to be prepared for specific handling and processing at different network layers.
+
+5. **Flow Control:** Segmentation helps with flow control, ensuring that the sender doesn't overwhelm the receiver with data. It allows for a more balanced and controlled transfer of information.
+
+6. **Congestion Management:** Segmenting data helps network devices manage congestion. If too much data is sent at once, it can lead to network congestion. Segmentation can prevent this from happening.
+
+So, while it might seem more straightforward to send all the data at once, segmenting it into smaller pieces has numerous advantages in terms of efficiency, reliability, and the effective use of network resources. This is why protocols like TCP (Transmission Control Protocol) segment data for transmission over the internet.
+
+---
+
+
+## Question 22: What is the difference between Segments and Frame?
+
+Segments and Frames are like containers for data when it's sent over a network.
+
+Segments are used when data needs to travel a long distance over the internet. They're like pieces of a puzzle. Imagine you're mailing a jigsaw puzzle to a friend. You might put each piece in a separate envelope, so they reach your friend safely. These separate envelopes are like segments.
+
+Frames, on the other hand, are used in your local network, like your Wi-Fi or Ethernet connection at home. Think of frames as individual packages within an envelope. Each package (frame) contains a part of the jigsaw puzzle (your data) and also some information on the outside of the package to make sure it gets to the right place.
+
+So, when you're sending data over the internet, you use segments to break it into manageable pieces. When that data reaches your local network, those segments are placed into frames, like putting jigsaw puzzle pieces into smaller packages. This helps your data get to its destination safely and in the right order.
+
+Let's break down what happens when you send a "hello world" message on WhatsApp to your friend. We'll go through each step in the process and see how segments and frames play a role.
+
+1. **Message Creation (Application Layer):**
+
+    - You open your WhatsApp application, type and send the message "hello world."
+    - WhatsApp at the application layer has this message ready for transmission.
+
+2. **Segmentation (Transport Layer):**
+
+    - The "hello world" message from WhatsApp is relatively large compared to the network's maximum transmission unit (MTU), which is the largest frame size that can be sent over the network.
+
+    - The transport layer, in this case, might use the Transmission Control Protocol (TCP) to break the message into smaller, manageable segments. For example, it could divide it into two segments: "hello" and " world."
+
+    - These segments are like dividing a long message into separate parts for easier handling.
+
+3. **Packetization (Network Layer):**
+
+    - Before the segments are turned into frames, they are further divided into packets at the network layer.
+    - Each packet includes the segment and an IP (Internet Protocol) header, which contains:
+        - Source IP address: Your device's public or private IP address.
+        - Destination IP address: Your friend's device's public or private IP address.
+        - Other information like Time-to-Live (TTL) and protocol information.
+
+4. **Frame Creation (Data Link Layer):**
+
+    - The packets, now with IP headers, are passed to the data link layer for further processing.
+
+    - The data link layer, which in the case of your Wi-Fi or Ethernet connection, uses frames for transmission, will add control information to each packet to create frames.
+
+    - Each frame typically includes:
+
+        - Source MAC address: The MAC address of your device.
+        - Destination MAC address: The MAC address of your friend's device.
+        - Error-checking information.
+        - The packet itself: Including the IP header and the segment ("hello" or " world").
+        
+    - These frames are like putting your packet into envelopes. Each envelope has a sender address, a recipient address, and the data packet, which includes the IP information and your segment.
+
+5. **Transmission (Physical Layer):**
+
+    - The frames are then sent over your network connection, like Wi-Fi or Ethernet. Each frame is individually transmitted from your device to the network infrastructure (routers and switches).
+
+6. **Receiving (Data Link Layer):**
+
+    - On the recipient's side, their device receives these frames.
+    - The data link layer checks the MAC addresses to ensure that the frames are meant for the recipient's device.
+
+7. **Deframing (Network Layer):**
+
+    - Once the frames are validated, they are passed to the network layer, which extracts the packets.
+    - The network layer reads the IP header to determine the source and destination IP addresses and forwards the packets to the appropriate network.
+
+8. **Segment Reassembly (Transport Layer):**
+
+    - At the transport layer on the recipient's device, the segments "hello" and " world" are reassembled from the packets.
+
+9. **Message Delivery (Application Layer):**
+
+    - Finally, the reassembled message "hello world" is handed over to the WhatsApp application on your friend's device for display.
+
+
+In this scenario, segments were used to break down the message into smaller units, making it more manageable for the network. Frames were used to add necessary information for local network communication (like addresses) and ensure data integrity during transmission.
+
+Remember, these processes happen at different layers of the OSI model to ensure that your message gets from your device to your friend's device while maintaining data integrity and efficient transmission.
+
+---
+
+
+## Question 23: Explain how does data travel between two networks using 'hello world' message?
+
+Here's a detailed explanation of how data travels between a sender in Network A and a receiver in Network B when sending a "hello world" message, for example, over WhatsApp.
+
+1. **Message Creation (Application Layer):**
+
+    You compose the "hello world" message in your WhatsApp application.
+
+2. **Segmentation (Transport Layer):**
+
+    The "hello world" message is too large to be sent in one piece over the network. So, it's divided into two segments: "hello" and " world."
+
+3. **Packetization (Network Layer):**
+
+    Each segment, "hello" and " world," is further divided into packets at the network layer. These packets include IP addresses.
+
+    Your device (in Network A) adds the source IP address, which could be your public or private IP address, to each packet.
+
+    The destination IP address is set to your friend's public or private IP address.
+
+    So, at this stage, you have packets like this:
+
+    Packet 1 (for "hello"):
+
+    - Source IP: Your IP (Network A)
+    - Destination IP: Friend's IP (Network B)
+    - Data: "hello"
+        
+    Packet 2 (for " world"):
+
+    - Source IP: Your IP (Network A)
+    - Destination IP: Friend's IP (Network B)
+    - Data: " world"
+
+4. **Frame Creation (Data Link Layer - Network A):**
+
+    Before these packets can be sent over your local network (Network A), they need to be enclosed in frames.
+
+    Each packet, along with its IP header and data, is transformed into frames.
+
+    The Data Link Layer adds information such as the source MAC address (your device's MAC address) and a destination MAC address.
+
+    Frame 1 (for Packet 1 - "hello"):
+
+    - Source MAC: Your MAC (in Network A)
+    - Destination MAC: Address of your Network A router/switch
+    - The packet ("hello" data and IP header)
+
+    Frame 2 (for Packet 2 - " world"):
+
+    - Source MAC: Your MAC (in Network A)
+    - Destination MAC: Address of your Network A router/switch
+    - The packet (" world" data and IP header)
+
+5. **Transmission (Physical Layer - Network A):**
+
+    These frames are then sent over your local network in Network A, which could be Wi-Fi or Ethernet. Each frame is transmitted from your device to the network infrastructure (like your router or switch).
+
+6. **Routing to Network B:**
+
+    Your network infrastructure (router) in Network A examines the destination IP address in the packets.
+    It realizes that the destination IP address belongs to Network B.
+    It routes the packets towards the gateway or router that connects Network A to Network B.
+
+7. **Frame Reception (Data Link Layer - Network B):**
+
+    At the border router or gateway of Network B (where your friend's device is located), the frames are received.
+
+8. **Frame Forwarding (Data Link Layer - Network B):**
+
+    The destination MAC address is checked to ensure that the frames are meant for your friend's device in Network B.
+    If the destination MAC matches your friend's device, the frames are forwarded to their device.
+
+9. **Frame to Packet Conversion (Network Layer - Network B):**
+
+    The frames are converted back into packets at the Data Link Layer in Network B.
+
+10. **Segment Reassembly (Transport Layer - Network B):**
+
+    At the Transport Layer, the packets are used to reassemble the original segments. The "hello" and " world" segments are reconstructed.
+
+11. **Message Delivery (Application Layer - Network B):**
+
+    Finally, the reassembled message "hello world" is delivered to your friend's WhatsApp application in Network B for display.
