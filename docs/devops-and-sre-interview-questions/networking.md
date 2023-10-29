@@ -824,7 +824,9 @@ In summary, a network switch is a key component in local area networks, enabling
 
 ## Question 25: What is Border Gateway in networking?
 
-In networking, a "Border Gateway" typically refers to a "Border Gateway Router" or simply "Border Router." These are specialized routers that play a crucial role in connecting different networks, such as your local network to the internet or two separate networks. Here's what you need to know about border gateways:
+In networking, a "Border Gateway" typically refers to a "Border Gateway Router" or simply "Border Router." These are specialized routers that play a crucial role in connecting different networks, such as your local network to the internet or two separate networks.
+
+Here's what you need to know about border gateways:
 
 1. **Network Boundary:** A border gateway serves as the boundary or border between two distinct networks. It's often positioned at the edge of a network and connects it to an external network, such as the global internet or another organization's network.
 
