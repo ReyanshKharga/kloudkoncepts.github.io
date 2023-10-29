@@ -8,63 +8,85 @@ description: Commonly asked interview questions on networking for DevOps and Sit
 
 Imagine the OSI (Open Systems Interconnection) model as a way to understand how computers and devices communicate with each other over a network. It's like a recipe with different layers, and each layer has a specific job.
 
-Here are the seven layers of the OSI model, from the bottom up:
+Here are the seven layers of the OSI model, presented top-down, starting with the application layer (layer 7) that directly interacts with the end user and moving downward to the physical layer (layer 1).
 
-1. **Physical Layer:** This is the lowest layer. It deals with the actual physical connection between devices. Think of it like the wires, cables, and the hardware that make your devices connect to the network. 
 
-    !!! note "Physical Layer"
-        It's all about sending and receiving raw bits (0s and 1s).
+**7. Application Layer** 
 
-2. **Data Link Layer:** This layer manages how data is packaged and sent over a network. It divides data into frames for clear transmission, assigns unique MAC addresses for source and destination, performs error checking, regulates data flow, controls access to the network medium, and plays a key role in technologies like Ethernet and Wi-Fi.
+This layer is where you directly interact with network services and software applications. It includes web browsers, email clients, and more. This layer enables you to perform various tasks and services over the network, making it your gateway to everything you do online.
 
-    !!! note "Data Link Layer"
-        It's like the organizer of data packages, ensuring they are correctly addressed, free from errors, and sent efficiently in local network segments while preventing collisions.
+!!! note "Application Layer"
+    Think of it as the user interface, where you access services like email, web browsing, or file sharing.
 
-3. **Network Layer:** This layer is like the postal service of computer networks. It's responsible for routing data across larger networks, deciding the best path for data to travel, and ensuring it reaches its destination. This layer handles tasks such as addressing devices with logical IP addresses, maintaining a routing table for efficient data movement, and using protocols like IP to manage the delivery of data packets.
 
-    !!! note "Network Layer"
-        It's essentially the traffic director of the network, guiding data packets to their intended locations.
+**6. Presentation Layer**
 
-4. **Transport Layer:** This layer manages data's smooth and reliable transfer between devices. This layer handles tasks such as breaking data into smaller segments, numbering them for proper sequencing, and error-checking to guarantee the integrity of data. It relies on protocols like TCP (Transmission Control Protocol) for connection-oriented, error-reliable communication and UDP (User Datagram Protocol) for faster, connectionless data transfer. It's responsible for making sure your online activities like web browsing and video streaming happen seamlessly.
+This layer acts as a translator and protector of data. It's like the language interpreter, responsible for translating data into a format that both the sender and receiver can understand. Additionally, it handles data compression and encryption, safeguarding data during transmission. In essence, it ensures that data is presented in a way that both the sender and receiver can comprehend and keeps it secure by encoding it, similar to how you might encrypt sensitive information before sending it online.
 
-    !!! note "Transport Layer"
-        It's like the organizer of a conversation, ensuring that data gets to the right place in the correct order.
+Let's use an example to illustrate how the Presentation Layer works to translate and decode data.
 
-5. **Session Layer:** This layer is like a conversation manager in the digital world. It initiates, maintains, and ends communication sessions between devices, ensuring orderly and secure data exchange. It handles tasks such as session establishment, maintenance, and termination, as well as synchronization between devices, error recovery, and checkpointing. Essentially, it's the manager overseeing communication between devices, making sure data flows smoothly and securely during tasks like online gaming or video conferencing.
+**Translation at the Sender's Device:**
 
-    !!! note "Session Layer"
-        It's like keeping track of a phone call. It starts when you call someone, continues while you talk, and ends when you hang up.
+Suppose you're sending a message with an emoji, let's say a "smiling face" emoji 😊, from your smartphone to your friend's smartphone. Your message goes through the following process:
 
-6. **Presentation Layer:** This layer acts as a translator and protector of data. It's like the language interpreter, responsible for translating data into a format that both the sender and receiver can understand. Additionally, it handles data compression and encryption, safeguarding data during transmission. In essence, it ensures that data is presented in a way that both the sender and receiver can comprehend and keeps it secure by encoding it, similar to how you might encrypt sensitive information before sending it online.
+1. You select the "smiling face" emoji in your messaging app.
+2. The Presentation Layer on your device translates the emoji into a standardized code or encoding, such as Unicode. In the case of the "smiling face" emoji, it might be represented as "U+1F60A" in Unicode.
 
-    Let's use an example to illustrate how the Presentation Layer works to translate and decode data.
+**Transmission over the Network:**
 
-    **Translation at the Sender's Device:**
+Your device then sends this encoded data, "U+1F60A," over the network using the HTTP (Hypertext Transfer Protocol) to your friend's device.
 
-    Suppose you're sending a message with an emoji, let's say a "smiling face" emoji 😊, from your smartphone to your friend's smartphone. Your message goes through the following process:
+**Decoding at the Receiver's Device:**
 
-    1. You select the "smiling face" emoji in your messaging app.
-    2. The Presentation Layer on your device translates the emoji into a standardized code or encoding, such as Unicode. In the case of the "smiling face" emoji, it might be represented as "U+1F60A" in Unicode.
+1. Your friend's device receives the data, which includes "U+1F60A."
 
-    **Transmission over the Network:**
+2. The Presentation Layer on your friend's device decodes the "U+1F60A" Unicode representation back into the "smiling face" emoji 😊 that your friend can understand and see in their messaging app.
 
-    Your device then sends this encoded data, "U+1F60A," over the network using the HTTP (Hypertext Transfer Protocol) to your friend's device.
+So, the Presentation Layer translates the emoji from its visual representation into a standardized encoding for transmission, and then, at the receiving end, it decodes the encoded data back into the original emoji, ensuring that both sender and receiver can see the same "smiling face" emoji in their messaging apps.
 
-    **Decoding at the Receiver's Device:**
+!!! note "Presentation Layer"
+    It's like translating a letter from one language to another so that both the sender and receiver can understand it, and it also keeps your data secure by encoding it.
 
-    1. Your friend's device receives the data, which includes "U+1F60A."
 
-    2. The Presentation Layer on your friend's device decodes the "U+1F60A" Unicode representation back into the "smiling face" emoji 😊 that your friend can understand and see in their messaging app.
+**5. Session Layer**
 
-    So, the Presentation Layer translates the emoji from its visual representation into a standardized encoding for transmission, and then, at the receiving end, it decodes the encoded data back into the original emoji, ensuring that both sender and receiver can see the same "smiling face" emoji in their messaging apps.
+This layer is like a conversation manager in the digital world. It initiates, maintains, and ends communication sessions between devices, ensuring orderly and secure data exchange. It handles tasks such as session establishment, maintenance, and termination, as well as synchronization between devices, error recovery, and checkpointing. Essentially, it's the manager overseeing communication between devices, making sure data flows smoothly and securely during tasks like online gaming or video conferencing.
 
-    !!! note "Presentation Layer"
-        It's like translating a letter from one language to another so that both the sender and receiver can understand it, and it also keeps your data secure by encoding it.
+!!! note "Session Layer"
+    It's like keeping track of a phone call. It starts when you call someone, continues while you talk, and ends when you hang up.
 
-7. **Application Layer:** This layer is where you directly interact with network services and software applications. It includes web browsers, email clients, and more. This layer enables you to perform various tasks and services over the network, making it your gateway to everything you do online.
 
-    !!! note "Application Layer"
-        Think of it as the user interface, where you access services like email, web browsing, or file sharing.
+**4. Transport Layer**
+
+This layer manages data's smooth and reliable transfer between devices. This layer handles tasks such as breaking data into smaller segments, numbering them for proper sequencing, and error-checking to guarantee the integrity of data. It relies on protocols like TCP (Transmission Control Protocol) for connection-oriented, error-reliable communication and UDP (User Datagram Protocol) for faster, connectionless data transfer. It's responsible for making sure your online activities like web browsing and video streaming happen seamlessly.
+
+!!! note "Transport Layer"
+    It's like the organizer of a conversation, ensuring that data gets to the right place in the correct order.
+
+
+**3. Network Layer**
+
+This layer is like the postal service of computer networks. It's responsible for routing data across larger networks, deciding the best path for data to travel, and ensuring it reaches its destination. This layer handles tasks such as addressing devices with logical IP addresses, maintaining a routing table for efficient data movement, and using protocols like IP to manage the delivery of data packets.
+
+!!! note "Network Layer"
+    It's essentially the traffic director of the network, guiding data packets to their intended locations.
+
+
+**2. Data Link Layer**
+
+This layer manages how data is packaged and sent over a network. It divides data into frames for clear transmission, assigns unique MAC addresses for source and destination, performs error checking, regulates data flow, controls access to the network medium, and plays a key role in technologies like Ethernet and Wi-Fi.
+
+!!! note "Data Link Layer"
+    It's like the organizer of data packages, ensuring they are correctly addressed, free from errors, and sent efficiently in local network segments while preventing collisions.
+
+
+**1. Physical Layer**
+
+This is the lowest layer. It deals with the actual physical connection between devices. Think of it like the wires, cables, and the hardware that make your devices connect to the network. 
+
+!!! note "Physical Layer"
+    It's all about sending and receiving raw bits (0s and 1s).
+
 
 These layers work together to ensure that data can be sent and received across a network. Each layer has its specific job, and they rely on each other to get the data where it needs to go, whether it's browsing the internet, sending an email, or any other network-related task.
 
