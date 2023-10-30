@@ -1243,3 +1243,23 @@ The process of routing allows routers to make intelligent decisions about how to
 
 ---
 
+
+## Question 35: What is a WAN port?
+
+A WAN port (Wide Area Network port) on a network device, typically a router or gateway, is a special port used to connect to a Wide Area Network. It is designed to connect the local network to an external network, usually the internet or a service provider's network. The WAN port serves as the gateway between the local network (LAN) and the broader network.
+
+**What is connected to a WAN port:**
+
+1. **Internet Service Provider (ISP):** The primary device connected to the WAN port is the ISP's equipment, which provides the connection to the internet or the external network. This connection may involve various technologies, such as DSL, cable, fiber optics, or other dedicated lines.
+
+2. **Router or Gateway:** In a typical home or small office network setup, a router or gateway connects to the ISP's equipment via the WAN port. This device is responsible for managing the connection, performing Network Address Translation (NAT), and providing security features like firewall capabilities.
+
+3. **Modem (in some cases):** In situations where the ISP's connection is purely a physical medium like DSL or cable, a separate modem may be connected to the WAN port. The modem translates the ISP's signal into a form that the router can understand, allowing it to establish the internet connection.
+
+4. **Network Devices:** Beyond the router or gateway, all the devices on the local network are connected to the LAN ports of the router. These devices include computers, smartphones, printers, and other networked devices. The router manages the communication between the LAN devices and the external network through the WAN port.
+
+The WAN port plays a crucial role in establishing the connection between your local network and the internet or another external network. It's the point where your network interacts with the broader world, enabling you to access online resources and communicate with other networks and devices beyond your local environment.
+
+---
+
+
