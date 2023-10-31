@@ -145,6 +145,7 @@ nav:
       - Associate Pod With Service Account: ./kubernetes-on-eks/service-account-in-kubernetes/associate-pod-with-service-account.md
     - IAM Roles for Service Accounts (IRSA):
       - Introduction to IRSA: ./kubernetes-on-eks/iam-roles-for-service-accounts/introduction-to-iam-roles-for-service-accounts.md
+      - How Does IRSA Work: ./kubernetes-on-eks/iam-roles-for-service-accounts/how-does-irsa-work.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
