@@ -1263,3 +1263,57 @@ The WAN port plays a crucial role in establishing the connection between your lo
 ---
 
 
+## Question 36: How does NAT on a router handle multiple devices in a home network sharing a single public IP?
+
+Let's walk through an example of how a router uses Network Address Translation (NAT) to manage multiple devices in a home network, all sharing a single public IP address.
+
+In this example, we have a home network with three devices: a desktop computer, a laptop, and a smartphone. The home network's public IP address is 203.0.113.1.
+
+1. **Device IP Addresses:**
+
+    - Desktop Computer: 192.168.0.2
+    - Laptop: 192.168.0.3
+    - Smartphone: 192.168.0.4
+
+2. **Device Connections:**
+
+    - The desktop computer wants to access a website with the IP address 198.51.100.10 on the internet. It initiates an HTTP request.
+
+3. **NAT Translation:**
+
+    - The router assigns a unique port number to this outbound connection. Let's say it assigns port 5001 for the desktop computer's request.
+
+    - The router creates a NAT translation entry in its mapping table, recording the source IP (192.168.0.2), the source port (5001), the destination IP (198.51.100.10), and the destination port (80 for HTTP).
+
+4. **Outbound Packet:**
+
+    - The desktop computer's request is sent out to the internet from the router's public IP address (203.0.113.1) with the source port 5001.
+
+    - It looks like this:
+        - Source IP: 192.168.0.2, Source Port: 5001
+        - Destination IP: 198.51.100.10, Destination Port: 80
+
+5. **Incoming Response:**
+
+    - The website (198.51.100.10) processes the request and sends back the response.
+    - The response arrives at the router, which examines the destination port, which is 5001 in this case.
+
+6. **NAT Table Lookup:**
+
+    - The router checks its NAT mapping table for an entry that matches destination port 5001.
+
+7. **Translation to Local Device:**
+
+    - The router finds the corresponding NAT entry for the desktop computer with the source IP 192.168.0.2 and port 5001.
+    - It knows that this data packet is for the desktop computer.
+    The router forwards the response to the desktop computer's internal IP address (192.168.0.2) with port 5001.
+
+8. **Delivery to Desktop:**
+
+    - The response arrives at the desktop computer, which recognizes it as the reply to its earlier request.
+
+This process repeats for each device in the home network as they initiate connections. The router keeps track of the port numbers and devices using its NAT mapping table, ensuring that data packets are correctly delivered to the intended recipients within the network.
+
+NAT allows multiple devices to share the single public IP address (203.0.113.1), making efficient use of available IP addresses and enabling communication with external devices on the internet.
+
+---
