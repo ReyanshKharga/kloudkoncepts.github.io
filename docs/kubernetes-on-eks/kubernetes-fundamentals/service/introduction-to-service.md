@@ -4,11 +4,11 @@ description: Explore the fundamentals of Kubernetes Service with our comprehensi
 
 # Introduction to Kubernetes Service
 
+Kubernetes `Service` is an abstract way to expose an application running on a set of pods as a network service.
+
 <p align="center">
     <img src="../../../../assets/eks-course-images/service/service.png" alt="Service Overview" width="500" />
 </p>
-
-Kubernetes `Service` is an abstract way to expose an application running on a set of pods as a network service.
 
 In plain and simple language, it's a way to make a group of containers accessible to other applications or users outside of the kubernetes cluster.
 
