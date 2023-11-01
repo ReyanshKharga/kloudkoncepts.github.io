@@ -20,13 +20,13 @@ Let's create a ordinary service account in the default namespace.
       name: my-ordinary-service-account
     ```
 
-Apply the manifest to create the Service Account:
+Apply the manifest to create the service account:
 
 ```
 kubectl apply -f my-ordinary-service-account.yml
 ```
 
-Verify the Service Account:
+Verify the service account:
 
 ```
 kubectl get sa
@@ -104,7 +104,7 @@ This is because the pod doesn't have permission to access S3 buckets.
 
 ## Step 4: Create IAM Role for Service Account
 
-We will use `eksctl` to create an IAM Role for the Service Account.
+We will use `eksctl` to create an IAM Role for the service account.
 
 You have the flexibility to either provide all the parameters directly in the command line or use the `--config-file` option to supply the parameters in the `eksctl` command.
 
@@ -155,8 +155,8 @@ You have the flexibility to either provide all the parameters directly in the co
 This will do the following for you:
 
 1. Create an IAM Role in AWS
-2. Create a Service Account in your Kubernetes cluster
-3. Annotate the Service Account with the IAM Role ARN
+2. Create a service account in your Kubernetes cluster
+3. Annotate the service account with the IAM Role ARN
 
 Visit the AWS console and verify the IAM Role. Pay close attention to the trust policy associated with the IAM Role.
 
@@ -265,4 +265,4 @@ eksctl delete iamserviceaccount --name service-account-for-s3-access --cluster m
 eksctl delete iamserviceaccount --config-file=irsa.yml --approve
 ```
 
-This will delete both the IAM Role and the Service Account that were created.
+This will delete both the IAM Role and the service account that were created.
