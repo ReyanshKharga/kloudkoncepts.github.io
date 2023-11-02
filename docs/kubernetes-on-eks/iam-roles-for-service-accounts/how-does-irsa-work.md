@@ -82,15 +82,15 @@ Here's a visual representation of how OpenID Connect (OIDC) works:
 
 4. The third-party website uses the Access Token to access user's Google profile data from Google's resource server.
 
-5. Google's resource server provides user's Google profile data to the shopping website, enabling her to log in and personalize her shopping experience.
+5. Google's resource server provides user's Google profile data to the shopping website, enabling the user to log in and personalize his shopping experience.
 
-!!! tip "Note"
+!!! note
     In OIDC, the primary focus is on providing a secure and standardized way for users to log in and obtain identity-related information in addition to OAuth 2.0 features for resource access.
 
 
 ### OpenID Connect (OIDC) Example
 
-Here's an example of OIDC where you log in to a client application (such as Upwork) using your Google account.
+Here's an example of OIDC where you log in to a client application (such as Upwork) using your Google or Apple account.
 
 <p align="center">
     <img src="../../../../assets/eks-course-images/irsa/upwork-sso.png" alt="Upwork SSL OIDC Example" width="300" />
