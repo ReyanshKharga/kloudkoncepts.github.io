@@ -26,6 +26,8 @@ In simple terms, `OAuth 2.0` allows users to grant access to their data to third
 
 ### OAuth 2.0 Flow
 
+Here's a visual representation of how OAuth 2.0 works:
+
 <p align="center">
     <img src="../../../../assets/eks-course-images/irsa/oauth-flow.png" alt="OAuth 2.0 Flow" />
 </p>
@@ -62,7 +64,26 @@ When an authorization server supports OIDC, it is called an identity provider. S
 
 ### OpenID Connect (OIDC) Flow
 
-<Image here>
+Here's a visual representation of how OpenID Connect (OIDC) works:
+
+<p align="center">
+    <img src="../../../../assets/eks-course-images/irsa/oidc-flow.png" alt="OIDC Flow" />
+</p>
+
+1. The end-user (resource owner) wants to log in to a third-party shopping website (e.g., Amazon) using their Google account.
+
+2. The shopping website redirects the user to Google's OpenID Connect Provider (OP) for authentication. After successful authentication, Google's OP issues an ID Token and an Access Token.
+
+3. The user's browser receives the ID Token and Access Token.
+
+4. The third-party website uses the Access Token to access user's Google profile data from Google's resource server.
+
+5. Google's resource server provides user's Google profile data to the shopping website, enabling her to log in and personalize her shopping experience.
+
+!!! tip "Note"
+    In OIDC, the primary focus is on providing a secure and standardized way for users to log in and obtain identity-related information in addition to OAuth 2.0 features for resource access.
+
+
 
 
 ### OpenID Connect (OIDC) Example
