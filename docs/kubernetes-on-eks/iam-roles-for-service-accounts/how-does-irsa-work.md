@@ -4,7 +4,7 @@ description: Explore the inner workings of IRSA (IAM Roles for Service Accounts)
 
 # How Does IRSA Work?
 
-Before diving into how IRSA operates, it's crucial to have a basic understanding of concepts like `OAuth 2.0`, `OIDC`, and identity providers.
+Before diving into how IRSA works, it's crucial to have a basic understanding of concepts like `OAuth 2.0`, `OIDC`, and identity providers.
 
 
 
