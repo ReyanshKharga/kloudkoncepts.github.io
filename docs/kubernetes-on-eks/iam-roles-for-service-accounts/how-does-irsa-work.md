@@ -44,7 +44,11 @@ Here's a visual representation of how OAuth 2.0 works:
 
 ### OAuth 2.0 Example
 
-<Image here>
+Here's an example of OAuth 2.0 in which a client application requests access to emails from your Gmail account.
+
+<p align="center">
+    <img src="../../../../assets/eks-course-images/irsa/oauth-gmail.png" alt="OAuth 2.0 Gmail Example" width="350" />
+</p>
 
 
 ## What is OpenID Connect (OIDC)?
@@ -84,13 +88,13 @@ Here's a visual representation of how OpenID Connect (OIDC) works:
     In OIDC, the primary focus is on providing a secure and standardized way for users to log in and obtain identity-related information in addition to OAuth 2.0 features for resource access.
 
 
-
-
 ### OpenID Connect (OIDC) Example
 
-<Image here>
+Here's an example of OIDC where you log in to a client application (such as Upwork) using your Google account.
 
-
+<p align="center">
+    <img src="../../../../assets/eks-course-images/irsa/upwork-sso.png" alt="Upwork SSL OIDC Example" width="300" />
+</p>
 
 
 ## What is IAM OIDC Provider
@@ -109,19 +113,24 @@ To solve this problem, EKS allows you to associate a kubernetes service account 
 
 ## How Does IRSA Work?
 
-<Image here>
+Here's a visual representation of how IRSA works:
 
-**Step 1:** The AWS SDK in the Pod requests the AWS Security Token Service (AWS STS) service for a temproray credentials. The Pod provides the JWT Token and the IAM Role ARN to STS for validation.
+<p align="center">
+    <img src="../../../../assets/eks-course-images/irsa/irsa-flow-with-iam-oidc-provider.png" alt="IRSA With IAM OIDC Provider" />
+</p>
 
-**Step 2:** The AWS STS service sends a request to the IAM service to validate whether it can issue temporary credentials to the Pod. The STS includes the JWT token and IAM Role ARN in the request to the IAM service for validation.
 
-**Step 3:** The AWS IAM service, which trusts the IAM OIDC provider, retrieves the public keys from the JWKS (JSON Web Key Set) URL by accessing the /.well-known/OpenId-configuration endpoint. It then uses these keys to verify the authenticity and integrity of the received JWT token.
+1. The AWS SDK in the Pod requests the AWS Security Token Service (AWS STS) service for a temproray credentials. The Pod provides the JWT Token and the IAM Role ARN to STS for validation.
 
-**Step 4:** The AWS IAM service validates the request and notifies the AWS STS service, indicating that the request is valid and authorized.
+2. The AWS STS service sends a request to the IAM service to validate whether it can issue temporary credentials to the Pod. The STS includes the JWT token and IAM Role ARN in the request to the IAM service for validation.
 
-**Step 5:** The AWS STS service issues the temporary credentials to the POD. These temporary credentials grant the Pod access to the specified IAM role and associated AWS resources for a limited duration.
+3. The AWS IAM service, which trusts the IAM OIDC provider, retrieves the public keys from the JWKS (JSON Web Key Set) URL by accessing the /.well-known/OpenId-configuration endpoint. It then uses these keys to verify the authenticity and integrity of the received JWT token.
 
-**Step 6:** The Pod can now access the desired AWS service, such as S3, within the boundaries set by the IAM policies associated with the IAM role.
+4. The AWS IAM service validates the request and notifies the AWS STS service, indicating that the request is valid and authorized.
+
+5. The AWS STS service issues the temporary credentials to the POD. These temporary credentials grant the Pod access to the specified IAM role and associated AWS resources for a limited duration.
+
+6. The Pod can now access the desired AWS service, such as S3, within the boundaries set by the IAM policies associated with the IAM role.
 
 
 
