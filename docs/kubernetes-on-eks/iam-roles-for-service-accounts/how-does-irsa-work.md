@@ -16,14 +16,29 @@ It allows third-party applications to access resources, such as user data, from 
 
 In simple terms, `OAuth 2.0` allows users to grant access to their data to third-party applications without giving away their usernames and passwords.
 
+<p align="center">
+    <img src="../../../../assets/eks-course-images/irsa/oauth-overview.png" alt="OAuth 2.0 Overview" />
+</p>
+
 `OAuth 2.0` is widely used by many popular web services, such as Facebook, Google, and Twitter, to allow third-party applications to access their users' data.
 
 
-<Image here>
 
 ### OAuth 2.0 Flow
 
-<Image here>
+<p align="center">
+    <img src="../../../../assets/eks-course-images/irsa/oauth-flow.png" alt="OAuth 2.0 Flow" />
+</p>
+
+1. The end-user (resource owner) expresses their intent to access protected resources (e.g., emails from Gmail) through the client application (e.g., [CRED]{:target="_blank"}).
+
+2. The client redirects the user to the authorization server's authentication endpoint, which corresponds to the resource they want to access (e.g., Gmail for emails). At the authorization server, the user may be prompted to log in, and if consent is granted, the authorization server redirects the user back to the client with an authorization code.
+
+3. The client application exchanges the received authorization code and its credentials with the authorization server to obtain an access token.
+
+4. The client utilizes the access token to request protected resources on the user's behalf.
+
+5. Finally, the end-user (resource owner) is provided with their protected resources, such as a credit card statement from Gmail, which are made available through the client application.
 
 ### OAuth 2.0 Example
 
@@ -96,3 +111,4 @@ To solve this problem, EKS allows you to associate a kubernetes service account 
 
 <!-- Hyperlinks -->
 [How Does IRSA Work?]: https://aws.amazon.com/blogs/containers/diving-into-iam-roles-for-service-accounts/
+[CRED]: https://cred.club/
