@@ -2,7 +2,7 @@
 description: Commonly asked interview questions on networking for DevOps and Site Reliability Engineering (SRE) positions.
 ---
 
-# Questions on Networking
+# Questions on Computer Networking
 
 ## Question 1: Explain the OSI model and its layers. How do these layers relate to networking?
 
