@@ -155,7 +155,7 @@ You can verify the same with other backend pod.
 
 3. What if you want to enable load balancing for these pods? How do you do that? Implementing load balancing could be a tedious job.
 
-And that's where Kubernetes `Service` comes into the picture. It solves all of the above problems.
+And that's where kubernetes `Service` comes into the picture. It solves all of the above problems.
 
 
 ## Clean Up
