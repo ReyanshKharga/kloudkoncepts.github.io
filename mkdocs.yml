@@ -147,6 +147,8 @@ nav:
       - Introduction to IRSA: ./kubernetes-on-eks/iam-roles-for-service-accounts/introduction-to-iam-roles-for-service-accounts.md
       - How Does IRSA Work: ./kubernetes-on-eks/iam-roles-for-service-accounts/how-does-irsa-work.md
       - Create IAM Roles for Service Accounts: ./kubernetes-on-eks/iam-roles-for-service-accounts/create-iam-roles-for-service-accounts.md
+    - Private EKS NodeGroup:
+      - Create Private EKS NodeGroup: ./kubernetes-on-eks/private-eks-nodegroup/create-private-eks-nodegroup.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
