@@ -149,7 +149,7 @@ nav:
       - Create IAM Roles for Service Accounts: ./kubernetes-on-eks/iam-roles-for-service-accounts/create-iam-roles-for-service-accounts.md
     - Private EKS NodeGroup:
       - Create Private EKS NodeGroup: ./kubernetes-on-eks/private-eks-nodegroup/create-private-eks-nodegroup.md
-    - Ingress:
+    - Ingress and Ingress Controller:
       - Introduction to Ingress: ./kubernetes-on-eks/Ingress/introduction-to-ingress.md
       - AWS Load Balancer Controller:
         - Introduction to AWS Load Balancer Controller: ./kubernetes-on-eks/Ingress/aws-load-balancer-controller/introduction-to-aws-load-balancer-controller.md
