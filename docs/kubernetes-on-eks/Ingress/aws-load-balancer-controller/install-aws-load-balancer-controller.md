@@ -197,7 +197,7 @@ kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-control
 
 ## Uninstall AWS Load Balancer Controller
 
-You need to execute the following commands only when you no longer need the AWS Load Balancer installed in your kubernetes cluster.
+You need to execute the following commands only when you no longer need the AWS Load Balancer installed in your kubernetes cluster:
 
 ```
 # Uninstall AWS Load Balancer Controller
@@ -206,3 +206,16 @@ helm uninstall aws-load-balancer-controller -n aws-load-balancer-controller
 # Delete the service account
 eksctl delete iamserviceaccount --name aws-load-balancer-controller --cluster <cluster-name>
 ```
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [AWS Load Balancer Controller Concepts]{:target="_blank"}
+        * [AWS Load Balancer Controller Installation Guide]{:target="_blank"}
+        * [AWS Load Balancer Controller - Git Repo]{:target="_blank"}
+
+
+<!-- Hyperlinks -->
+[AWS Load Balancer Controller Concepts]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/
+[AWS Load Balancer Controller Installation Guide]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/deploy/installation/
+[AWS Load Balancer Controller - Git Repo]: https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/helm/aws-load-balancer-controller
