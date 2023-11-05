@@ -44,7 +44,7 @@ In summary, IRSA enables you to manage permissions for your pods using familiar 
 To use IRSA, you create an IAM role in AWS with the necessary permissions, and then annotate the kubernetes service account with the IAM role's ARN to allow pods to securely access AWS resources without explicit credentials.
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/irsa/irsa-overview.png" alt="IRSA Overview" width="550" />
+    <img src="../../../assets/eks-course-images/irsa/irsa-overview.png" alt="IRSA Overview" width="550" />
 </p>
 
 
