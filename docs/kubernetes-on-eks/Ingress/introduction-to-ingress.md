@@ -29,7 +29,7 @@ In summary, `Ingress` in kubernetes is like a smart traffic controller or recept
 Here's an example of how ingress controls network traffic in kubernetes:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/ingress/traffic-routing-with-ingress.png" alt="Traffic Routing With Ingress" />
+    <img src="../../../assets/eks-course-images/ingress/traffic-routing-with-ingress.png" alt="Traffic Routing With Ingress" />
 </p>
 
 1. Client hits the ingress-managed load balancer

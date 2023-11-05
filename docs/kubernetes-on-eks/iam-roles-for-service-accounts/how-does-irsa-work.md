@@ -17,7 +17,7 @@ It allows third-party applications to access resources, such as user data, from 
 In simple terms, `OAuth 2.0` allows users to grant access to their data to third-party applications without giving away their usernames and passwords.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/irsa/oauth-overview.png" alt="OAuth 2.0 Overview" />
+    <img src="../../../assets/eks-course-images/irsa/oauth-overview.png" alt="OAuth 2.0 Overview" />
 </p>
 
 `OAuth 2.0` is widely used by many popular web services, such as Facebook, Google, and Twitter, to allow third-party applications to access their users' data.
@@ -29,7 +29,7 @@ In simple terms, `OAuth 2.0` allows users to grant access to their data to third
 Here's a visual representation of how OAuth 2.0 works:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/irsa/oauth-flow.png" alt="OAuth 2.0 Flow" />
+    <img src="../../../assets/eks-course-images/irsa/oauth-flow.png" alt="OAuth 2.0 Flow" />
 </p>
 
 1. The end-user (resource owner) expresses their intent to access protected resources (e.g., emails from Gmail) through the client application (e.g., [CRED]{:target="_blank"}).
@@ -47,7 +47,7 @@ Here's a visual representation of how OAuth 2.0 works:
 Here's an example of OAuth 2.0 in which a client application requests access to emails from your Gmail account.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/irsa/oauth-gmail.png" alt="OAuth 2.0 Gmail Example" width="350" />
+    <img src="../../../assets/eks-course-images/irsa/oauth-gmail.png" alt="OAuth 2.0 Gmail Example" width="350" />
 </p>
 
 
@@ -71,7 +71,7 @@ When an authorization server supports OIDC, it is called an identity provider. S
 Here's a visual representation of how OpenID Connect (OIDC) works:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/irsa/oidc-flow.png" alt="OIDC Flow" />
+    <img src="../../../assets/eks-course-images/irsa/oidc-flow.png" alt="OIDC Flow" />
 </p>
 
 1. The end-user (resource owner) wants to log in to a third-party shopping website (e.g., Amazon) using their Google account.
@@ -93,7 +93,7 @@ Here's a visual representation of how OpenID Connect (OIDC) works:
 Here's an example of OIDC where you log in to a client application (such as Upwork) using your Google or Apple account.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/irsa/upwork-sso.png" alt="Upwork SSL OIDC Example" width="300" />
+    <img src="../../../assets/eks-course-images/irsa/upwork-sso.png" alt="Upwork SSL OIDC Example" width="300" />
 </p>
 
 
@@ -116,7 +116,7 @@ To solve this problem, EKS allows you to associate a kubernetes service account 
 Here's a visual representation of how IRSA works:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/irsa/irsa-flow-with-iam-oidc-provider.png" alt="IRSA With IAM OIDC Provider" />
+    <img src="../../../assets/eks-course-images/irsa/irsa-flow-with-iam-oidc-provider.png" alt="IRSA With IAM OIDC Provider" />
 </p>
 
 
