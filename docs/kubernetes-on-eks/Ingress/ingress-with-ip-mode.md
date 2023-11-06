@@ -1,14 +1,13 @@
 ---
-description: Unlock the potential of Kubernetes Ingress in Instance Mode with our step-by-step guide. Create and configure Ingress to efficiently manage traffic routing for your containerized applications.
+description: Maximize Kubernetes Ingress capabilities with our comprehensive guide on creating Ingress in IP Mode. Take control of IP-based traffic management for your containerized applications. Learn how to create Ingress with IP Mode and optimize your Kubernetes infrastructure
 ---
 
-# Create Ingress With Instance Mode
+# Create Ingress With IP Mode
 
 You can use `alb.ingress.kubernetes.io/target-type` annotation in the Ingress object to specify how to route traffic to pods. You can choose between `instance` and `ip`.
 
-The kubernetes service must be of type `NodePort` to use `instance` mode. This is because worker nodes (EC2 instances) are registered as targets in the target group that will be created by the AWS Load Balancer Controller.
+The default value for `alb.ingress.kubernetes.io/target-type` is `instance`. So, you must define this explicitly if you want to use `ip` mode.
 
-The default value for `alb.ingress.kubernetes.io/target-type` is `instance`. So you don't have to define this explicitly unless you want to use `ip` mode.
 
 ## Docker Images
 
@@ -51,7 +50,7 @@ First, let's create a deployment as follows:
               - containerPort: 5000
     ```
 
-Apply the manifest to create the deployment:
+Apply the manifest to create the Deployment:
 
 ```
 kubectl apply -f my-deployment.yml
@@ -68,19 +67,19 @@ kubectl get pods
 ```
 
 
-## Step 2: Create a NodePort Service
+## Step 2: Create a Service
 
-The kubernetes service must be of type `NodePort` to use `instance` mode. So, let's create a `NodePort` service as follows:
+The kubernetes service can be `NodePort` or `ClusterIP` to use `ip` mode. So, let's create a `ClusterIP` service since it is more secure:
 
-=== ":octicons-file-code-16: `my-nodeport-service.yml`"
+=== ":octicons-file-code-16: `my-service.yml`"
 
     ```yaml linenums="1"
     apiVersion: v1
     kind: Service
     metadata:
-      name: my-nodeport-service
+      name: my-service
     spec:
-      type: NodePort
+      type: ClusterIP
       selector:
         app: nodeapp
       ports:
@@ -88,10 +87,10 @@ The kubernetes service must be of type `NodePort` to use `instance` mode. So, le
           targetPort: 5000
     ```
 
-Apply the manifest to create the NodePort service:
+Apply the manifest to create the service:
 
 ```
-kubectl apply -f my-nodeport-service.yml
+kubectl apply -f my-service.yml
 ```
 
 Verify service:
@@ -99,9 +98,6 @@ Verify service:
 ```
 kubectl get svc
 ```
-
-If you don't explicitly provide a `nodePort`, you'll observe that the service is automatically assigned one. However, if desired, you can specify a specific `nodePort`.
-
 
 
 ## Step 3: Create Ingress
@@ -119,7 +115,7 @@ Now that we have the service ready, let's create an Ingress object:
         alb.ingress.kubernetes.io/scheme: internet-facing # Default value is internal
         alb.ingress.kubernetes.io/tags: Project=eks-masterclass,Team=DevOps # Optional
         alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer # Optional
-        alb.ingress.kubernetes.io/target-type: instance # Default is instance
+        alb.ingress.kubernetes.io/target-type: ip # Default is instance
     spec:
       ingressClassName: alb
       rules:
@@ -129,7 +125,7 @@ Now that we have the service ready, let's create an Ingress object:
             pathType: Prefix
             backend:
               service:
-                name: my-nodeport-service
+                name: my-service
                 port:
                   number: 80
     ```
@@ -137,10 +133,7 @@ Now that we have the service ready, let's create an Ingress object:
 Observe the following:
 
 1. We have used annotations to specify load balancer and target group attributes
-2. We have one rule that matches `/` path and then routes traffic to `my-nodeport-service`
-
-!!! note
-    Before the `IngressClass` resource and `ingressClassName` field were added in Kubernetes 1.18, Ingress classes were specified with a `kubernetes.io/ingress.class` annotation on the Ingress. This annotation was never formally defined, but was widely supported by Ingress controllers.
+2. We have one rule that matches `/` path and then routes traffic to `my-service`
 
 Apply the manifest to create ingress:
 
@@ -156,21 +149,6 @@ kubectl get ingress
 kubectl get ing
 ```
 
-Here's what happens when you create an ingress:
-
-1. An ALB (ELBv2) is created in AWS for the new ingress resource.
-2. Target Groups are created in AWS for each unique kubernetes service described in the ingress resource.
-3. Listeners are created for every port detailed the ingress resource annotations.
-4. Listener rules are created for each path specified in the ingress resource. This ensures traffic to a specific path is routed to the correct kubernetes service.
-
-This is all done by the `AWS Load Balancer Controller`. You can check the events in the logs as follows:
-
-```
-kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
-```
-
-You can see the events such as `creating securityGroup`, `created securityGroup`, `creating loadBalancer`, `created loadBalancer`, `created listener`, `created listener rule`, `creating targetGroupBinding`, `created targetGroupBinding`, `successfully deployed model`, etc in the logs.
-
 
 ## Step 4: Verify AWS Resources in AWS Console
 
@@ -178,16 +156,14 @@ Visit the AWS console and verify the resources created by AWS Load Balancer Cont
 
 Pay close attention to the `Listeners`, `Rules` and `TargetGroups`.
 
-You will observe that in the Target Group, instances are registered as targets because we chose `instance` as target type.
-
-Note that the Load Balancer takes some time to become `Active`.
+You will observe that in the Target Group, IPs are registered as targets because we chose `ip` as target type. These IPs are associated with pods that `my-service` is configured to serve the traffic from.
 
 
 ## Step 5: Access App Via Load Balancer DNS
 
 Once the load balancer is in `Active` state, you can hit the load balancer DNS and verify if everything is working properly.
 
-Access the load balancer DNS by entering it in your browser. You can get the load balancer DNS either from the AWS console or the Ingress configuration.
+Access the load balancer DNS by entering it in your browser. You can obtain the load balancer DNS either from the AWS console or the Ingress configuration.
 
 Try accessing the following paths:
 
@@ -202,6 +178,7 @@ Try accessing the following paths:
 <load-balancer-dns>/random
 ```
 
+
 ## Troubleshooting
 
 If you don't see the load balancer in the AWS console, this means the ingress has some issue. To identify the underlying issue, you can examine the logs of the controller as follows:
@@ -214,6 +191,7 @@ kubectl describe ing my-ingress
 kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
 ```
 
+
 ## Clean Up
 
 Assuming your folder structure looks like the one below:
@@ -221,7 +199,7 @@ Assuming your folder structure looks like the one below:
 ```
 |-- manifests
 │   |-- my-deployment.yml
-│   |-- my-nodeport-service.yml
+│   |-- my-service.yml
 │   |-- my-ingress.yml
 ```
 
@@ -230,7 +208,6 @@ Let's delete all the resources we created:
 ```
 kubectl delete -f manifests/
 ```
-
 
 
 <!-- Hyperlinks -->

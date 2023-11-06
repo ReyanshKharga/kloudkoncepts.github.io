@@ -155,6 +155,7 @@ nav:
         - Introduction to AWS Load Balancer Controller: ./kubernetes-on-eks/Ingress/aws-load-balancer-controller/introduction-to-aws-load-balancer-controller.md
         - Install AWS Load Balancer Controller: ./kubernetes-on-eks/Ingress/aws-load-balancer-controller/install-aws-load-balancer-controller.md
       - Ingress With Instance Mode: ./kubernetes-on-eks/Ingress/ingress-with-instance-mode.md
+      - Ingress With IP Mode: ./kubernetes-on-eks/Ingress/ingress-with-ip-mode.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
