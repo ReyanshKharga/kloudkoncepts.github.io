@@ -60,11 +60,11 @@ The following resource types can be specified in the `.spec.hard` field:
 
 | <div style="width:120px">Resource Name</div>     | Description |
 | ----------------- | ----------- |
-| `limits.cpu`      | Across all pods in a non-terminal state, the sum of CPU limits cannot exceed this value. |
-| `limits.memory`   | Across all pods in a non-terminal state, the sum of memory limits cannot exceed this value. |
-| `requests.cpu	`   | Across all pods in a non-terminal state, the sum of CPU requests cannot exceed this value |
-| `requests.memory` | Across all pods in a non-terminal state, the sum of memory requests cannot exceed this value. |
-| `pods`            | The total number of pods in a non-terminal state that can exist in the namespace. A pod is in a terminal state if `.status.phase` in (`Failed`, `Succeeded`) is true. |
+| <a>`limits.cpu`</a>      | Across all pods in a non-terminal state, the sum of CPU limits cannot exceed this value. |
+| <a>`limits.memory`</a>   | Across all pods in a non-terminal state, the sum of memory limits cannot exceed this value. |
+| <a>`requests.cpu`</a>   | Across all pods in a non-terminal state, the sum of CPU requests cannot exceed this value |
+| <a>`requests.memory`</a> | Across all pods in a non-terminal state, the sum of memory requests cannot exceed this value. |
+| <a>`pods`</a>            | The total number of pods in a non-terminal state that can exist in the namespace. A pod is in a terminal state if `.status.phase` in (`Failed`, `Succeeded`) is true. |
 
 Apply the manifest to create the Resource Quota:
 
