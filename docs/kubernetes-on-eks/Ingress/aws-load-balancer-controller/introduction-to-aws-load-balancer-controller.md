@@ -25,7 +25,7 @@ This section describes each step (circle) above. This example demonstrates satis
 
 2. An ALB (ELBv2) is created in AWS for the new ingress resource. This ALB can be internet-facing or internal. You can also specify the subnets it's created in using annotations.
 
-3. Target Groups are created in AWS for each unique Kubernetes service described in the ingress resource.
+3. Target Groups are created in AWS for each unique kubernetes service described in the ingress resource.
 
 4. Listeners are created for every port detailed in your ingress resource annotations. When no port is specified, sensible defaults (80 or 443) are used. Certificates may also be attached via annotations.
 
