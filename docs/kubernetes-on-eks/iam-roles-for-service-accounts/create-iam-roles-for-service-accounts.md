@@ -244,7 +244,7 @@ Assuming your folder structure looks like the one below:
 ```
 |-- manifests
 │   |-- my-deployment.yml
-│   |-- my-ordinary-service-account.yml.yml
+│   |-- my-ordinary-service-account.yml
 ```
 
 Let's delete all the resources we created:

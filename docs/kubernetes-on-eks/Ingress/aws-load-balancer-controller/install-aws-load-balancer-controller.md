@@ -197,7 +197,7 @@ kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-control
 
 ## Uninstall AWS Load Balancer Controller
 
-You need to execute the following commands only when you no longer need the AWS Load Balancer installed in your kubernetes cluster:
+You need to execute the following commands only when you no longer need the AWS Load Balancer Controller installed in your kubernetes cluster:
 
 ```
 # Uninstall AWS Load Balancer Controller
