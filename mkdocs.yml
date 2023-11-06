@@ -158,6 +158,7 @@ nav:
       - Ingress With IP Mode: ./kubernetes-on-eks/Ingress/ingress-with-ip-mode.md
       - Ingress With Default Backend: ./kubernetes-on-eks/Ingress/ingress-with-default-backend.md
       - Ingress With Health Check: ./kubernetes-on-eks/Ingress/ingress-with-health-check.md
+      - Ingress With Path Based Routing: ./kubernetes-on-eks/Ingress/ingress-with-path-based-routing.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
