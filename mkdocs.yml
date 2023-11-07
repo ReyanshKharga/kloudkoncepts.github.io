@@ -161,6 +161,9 @@ nav:
       - Ingress With Path Based Routing: ./kubernetes-on-eks/ingress/ingress-with-path-based-routing.md
       - Ingress With SSL: ./kubernetes-on-eks/ingress/ingress-with-ssl.md
       - Ingress With SSL Redirect: ./kubernetes-on-eks/ingress/ingress-with-ssl-redirect.md
+      - Ingress With SSL Discovery:
+        - SSL Discovery Via Host: ./kubernetes-on-eks/ingress/ingress-with-ssl-discovery/ingress-with-ssl-discovery-via-host.md
+        - SSL Discovery Via TLS: ./kubernetes-on-eks/ingress/ingress-with-ssl-discovery/ingress-with-ssl-discovery-via-tls.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
