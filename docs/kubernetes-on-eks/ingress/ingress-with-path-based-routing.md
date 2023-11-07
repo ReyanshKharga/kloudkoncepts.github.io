@@ -251,9 +251,9 @@ kubectl apply -f manifests/
 
 This will create the following resources:
 
-- Deployment and Service for `profile` microservice.
-- Deployment and Service for `notifications` microservice.
-- Deployment and Service for `feed` microservice.
+- Deployment and service for `profile` microservice.
+- Deployment and service for `notifications` microservice.
+- Deployment and service for `feed` microservice.
 - Ingress with three rules.
 
 
@@ -289,7 +289,7 @@ If everything is fine, the `<alb-dns>/profile`, `<alb-dns>/notifications`, and `
 
 ## Ordering of Load Balancer Listener Rules
 
-Rules are evaluated in priority order, from the lowest value to the highest value. The default rule is evaluated last. You can change the priority of a non-default rule at any time. You cannot change the priority of the default rule.
+Rules are evaluated in priority order, from the lowest value to the highest value. The default rule is evaluated last. You can change the priority of a non-default rule at any time but you cannot change the priority of the default rule.
 
 In later sections, we'll explore how to use the `IngressGroup` feature of the AWS Load Balancer Controller to specify the desired ordering of listener rules.
 
