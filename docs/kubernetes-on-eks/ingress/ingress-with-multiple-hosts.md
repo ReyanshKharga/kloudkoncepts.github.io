@@ -1,10 +1,17 @@
 ---
-description: Ensure data security and a seamless user experience. Explore our guide on creating Kubernetes Ingress with SSL Redirect. Learn how to set up SSL redirection to enforce secure connections for your services. Elevate your application's security and user satisfaction with SSL Redirect-enabled Ingress.
+description: Optimize your Kubernetes application deployment. Discover how to create Ingress with Multiple Hosts in our comprehensive guide. Learn how to efficiently route traffic to multiple hostnames and enhance your application's flexibility. Streamline your Kubernetes Ingress configuration for diverse hosts.
 ---
 
-# Create Ingress With SSL Redirect
+# Create Ingress With Multiple Hosts
 
-The `alb.ingress.kubernetes.io/ssl-redirect` annotation enables SSLRedirect and specifies the SSL port that redirects to.
+TLS certificates for ALB Listeners can be automatically discovered with hostnames from Ingress resources if the `alb.ingress.kubernetes.io/certificate-arn` annotation is not specified.
+
+The controller will attempt to discover TLS certificates from the `tls` field in Ingress and `host` field in Ingress rules.
+
+!!! note
+    You need to explicitly specify to use `HTTPS` listener with `alb.ingress.kubernetes.io/listen-ports` annotation.
+
+The Certificate Discovery can be either via Ingress rule `host` or Ingress `tls`. In this tutorial, we'll explore certificate discovery using the `tls` field in Ingress.
 
 
 ## Prerequisite
@@ -129,7 +136,7 @@ kubectl get svc
 
 ## Step 3: Create Ingress
 
-Now that we have the service ready, let's create an Ingress object with SSL redirect:
+Now that we have the service ready, let's create an Ingress object with SSL discovery via `tls` field in Ingress:
 
 === ":octicons-file-code-16: `my-ingress.yml`"
 
@@ -153,7 +160,6 @@ Now that we have the service ready, let's create an Ingress object with SSL redi
         alb.ingress.kubernetes.io/healthy-threshold-count: '2'
         alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
         # SSL Annotations
-        alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:170476043077:certificate/2d88e035-cde7-472a-9cd3-6b6ce6ece961
         alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-2016-08 # Optional
         # Listerner Ports Annotation
         alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
@@ -161,6 +167,9 @@ Now that we have the service ready, let's create an Ingress object with SSL redi
         alb.ingress.kubernetes.io/ssl-redirect: '443'
     spec:
       ingressClassName: alb
+      tls:
+      - hosts:
+        - api.example.com
       rules:
       - http:
           paths:
@@ -173,9 +182,7 @@ Now that we have the service ready, let's create an Ingress object with SSL redi
                   number: 5000
     ```
 
-Be sure to replace the value of `alb.ingress.kubernetes.io/certificate-arn` with the `ARN` of the SSL certificate you created.
-
-Observe that we have added the `alb.ingress.kubernetes.io/ssl-redirect` annotation with value `443`. With this annotation in place, every `HTTP` listener will be configured with a default action which redirects to `HTTPS`, and other rules will be ignored.
+Observe that we have added the `tls` field in the Ingress spec. SSL certificate discovery will be based on this field. The AWS Load Balancer Controller will examine the `tls` field and search for available certificates that can be used for the specified hosts.
 
 Apply the manifest to create ingress:
 
@@ -196,9 +203,7 @@ kubectl get ing
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
-Pay close attention to the default listener rule and certificate attached to the `HTTPS (443)` listener in the load balancer.
-
-You'll notice that the `HTTP` is being redirected to `HTTPS`.
+You'll notice that the certificate is attached to the load balancer created by the ingress. We didn't specify the certificate `ARN` in the ingress manifest, yet it was attached to the load balancer due to SSL discovery via the `tls` field in the ingress.
 
 
 ## Step 5: Add Record in Route53
@@ -251,10 +256,10 @@ Also, go to Route53 and delete the `A` record that you created.
 
 !!! quote "References:"
     !!! quote ""
-        * [SSL Redirect]{:target="_blank"}
+        * [Certificate Discovery Via TLS]{:target="_blank"}
 
 
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[SSL Redirect]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/#traffic-listening
+[Certificate Discovery Via TLS]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/cert_discovery/#discover-via-ingress-tls

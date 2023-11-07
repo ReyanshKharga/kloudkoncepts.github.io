@@ -25,7 +25,7 @@ To follow this tutorial, you'll require a domain and, additionally, an SSL certi
 
 2. Request a Public Certificate
 
-    Visit AWS Certificate Manager in AWS Console and request a public certificate for your domain and all the subdomains. For example, if you registered for a domain `xyz.com` then request certificate for `xyz.com` and `*.xyz.com`
+    Visit AWS Certificate Manager in AWS Console and request a public certificate for your domain and all the subdomains. For example, if you registered for a domain `example.com` then request certificate for `example.com` and `*.example.com`
 
     !!! note
         Make sure you request the certificate in the region where your EKS cluster is in.
@@ -207,7 +207,7 @@ Pay close attention to the certificate attached to the `HTTPS (443)` listener in
 
 ## Step 5: Add Record in Route53
 
-Go to AWS Route53 and add an `A` record (e.g `api.xyz.com`) for your domain that points to the Load Balancer. You can use alias to point the subdomain to the load balancer that was created.
+Go to AWS Route53 and add an `A` record (e.g `api.example.com`) for your domain that points to the Load Balancer. You can use alias to point the subdomain to the load balancer that was created.
 
 
 ## Step 6: Access App Using Route53 DNS
@@ -218,13 +218,13 @@ Try accessing the following paths:
 
 ```
 # Root path
-https://api.xyz.com/
+https://api.example.com/
 
 # Health path
-https://api.xyz.com/health
+https://api.example.com/health
 
 # Random generator path
-https://api.xyz.com/random
+https://api.example.com/random
 ```
 
 Verify that both `HTTP` and `HTTPS` works.
