@@ -1,10 +1,23 @@
 ---
-description: Optimize your Kubernetes application deployment. Discover how to create Ingress with Multiple Hosts in our comprehensive guide. Learn how to efficiently route traffic to multiple hostnames and enhance your application's flexibility. Streamline your Kubernetes Ingress configuration for diverse hosts.
+description: 
 ---
 
-# Create Ingress With Multiple Hosts
+# Create Ingress With IngressGroup
 
-You can use the `host` field to match the host in the rules. A listener rule will be created for each of the hosts defined in ingress rules.
+`IngressGroup` feature enables you to group multiple Ingress resources together. The controller will automatically merge Ingress rules for all Ingresses within `IngressGroup` and support them with a single ALB.
+
+The <a>`alb.ingress.kubernetes.io/group.name`</a> annotation specifies the group name that this Ingress belongs to.
+
+The <a>`alb.ingress.kubernetes.io/group.order`</a> annotation specifies the order across all Ingresses within `IngressGroup`.
+
+By default, Ingresses don't belong to any `IngressGroup`, and we treat it as a "implicit IngressGroup" consisting of the Ingress itself.
+
+Ingresses with same `group.name` annotation will form an "explicit IngressGroup".
+
+Rules with the same order are sorted lexicographically by the Ingress’s namespace/name.
+
+!!! warning
+    If you turn your Ingress to belong a "explicit IngressGroup" by adding `group.name` annotation, other kubernetes users may create/modify their Ingresses to belong to the same `IngressGroup`, and can thus add more rules or overwrite existing rules with higher priority to the ALB for your Ingress.
 
 
 ## Prerequisite
@@ -64,8 +77,8 @@ We'll do the following:
 
 1. Create a deployment and service for `backend` microservice.
 2. Create a deployment and service for `frontend` microservice.
-3. Create a ingress that sends traffic to one of the microservices based on the host.
-4. We'll also provide separate health check path for each microservie using `alb.ingress.kubernetes.io/healthcheck-path` annotation in the service definition of each microservice.
+3. Create a ingress with ingress group and order for `backend` microservice.
+4. Create a ingress with ingress group and order for `frontend` microservice.
 
 
 ## Step 1: Create Kubernetes Objects
@@ -154,13 +167,13 @@ Let's create the kubernetes objects as discussed above:
           targetPort: 3000
     ```
 
-=== ":octicons-file-code-16: `ingress.yml`"
+=== ":octicons-file-code-16: `backend-ingress.yml`"
 
     ```yaml linenums="1"
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
-      name: my-ingress
+      name: backend-ingress
       annotations:
         # Load Balancer Annotations
         alb.ingress.kubernetes.io/scheme: internet-facing # Default value is internal
@@ -181,6 +194,9 @@ Let's create the kubernetes objects as discussed above:
         alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
         # SSL Redicrect Annotation
         alb.ingress.kubernetes.io/ssl-redirect: '443'
+        # IngressGroup
+        alb.ingress.kubernetes.io/group.name: my-group
+        alb.ingress.kubernetes.io/group.order: '1'
     spec:
       ingressClassName: alb
       rules:
@@ -194,6 +210,42 @@ Let's create the kubernetes objects as discussed above:
                 name: backend-nodeport-service
                 port:
                   number: 5000
+    ```
+
+
+=== ":octicons-file-code-16: `frontend-ingress.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: frontend-ingress
+      annotations:
+        # Load Balancer Annotations
+        alb.ingress.kubernetes.io/scheme: internet-facing # Default value is internal
+        alb.ingress.kubernetes.io/tags: Environment=dev,Team=DevOps # Optional
+        alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer # Optional
+        # Health Check Annotations
+        alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+        alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+        alb.ingress.kubernetes.io/healthcheck-path: /health
+        alb.ingress.kubernetes.io/healthcheck-interval-seconds: '5'
+        alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '2'
+        alb.ingress.kubernetes.io/success-codes: '200'
+        alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+        alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+        # SSL Annotations
+        alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-2016-08 # Optional
+        # Listerner Ports Annotation
+        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+        # SSL Redicrect Annotation
+        alb.ingress.kubernetes.io/ssl-redirect: '443'
+        # IngressGroup
+        alb.ingress.kubernetes.io/group.name: my-group
+        alb.ingress.kubernetes.io/group.order: '0'
+    spec:
+      ingressClassName: alb
+      rules:
       - host: app.example.com
         http:
           paths:
@@ -206,11 +258,7 @@ Let's create the kubernetes objects as discussed above:
                   number: 3000
     ```
 
-Observe the following:
-
-1. We've provided the health check paths for each of the microservices using the `alb.ingress.kubernetes.io/healthcheck-path` annotation.
-2. In the ingress, we have used `host` in the rules to route traffic to a particular microservice based on matching host.
-3. We haven't provided `certificate-arn` because SSL discovery would work via host.
+Notice that we have defined the `group.name` and `group.order` annotations for both the ingress. Having same `group.name` will ensure that a single load balancer is created and shared by both the ingress.
 
 Assuming your folder structure looks like the one below:
 
@@ -218,7 +266,8 @@ Assuming your folder structure looks like the one below:
 |-- manifests
 │   |-- backend.yml
 │   |-- frontend.yml
-│   |-- ingress.yml
+│   |-- backend-ingress.yml
+│   |-- frontend-ingress.yml
 ```
 
 Let's apply the manifests to create the kubernetes objects:
@@ -231,7 +280,7 @@ This will create the following resources:
 
 - Deployment and service for `backend` microservice.
 - Deployment and service for `frontend` microservice.
-- Ingress with two rules.
+- Ingress for `backend` and `frontend` microservices.
 
 
 ## Step 2: Verify Kubernetes Objects
@@ -252,7 +301,7 @@ kubectl get ingress
 
 Also, go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
 
-Pay close attention to the listener rules that were created. You will notice that, based on the host header, traffic is directed to a particular microservice.
+You will observe that only one load balancer has been created with two rules, following the ordering defined by the `group.order` annotation in the ingress.
 
 
 ## Step 3: Add Records in Route53
@@ -286,7 +335,8 @@ Assuming your folder structure looks like the one below:
 |-- manifests
 │   |-- backend.yml
 │   |-- frontend.yml
-│   |-- ingress.yml
+│   |-- backend-ingress.yml
+│   |-- frontend-ingress.yml
 ```
 
 Let's delete all the resources we created:
@@ -296,6 +346,13 @@ kubectl delete -f manifests/
 ```
 
 
+!!! quote "References:"
+    !!! quote ""
+        * [IngressGroup]{:target="_blank"}
+
+
+
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
 [reyanshkharga/reactapp:v1]: https://hub.docker.com/r/reyanshkharga/reactapp
+[IngressGroup]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/#ingressgroup

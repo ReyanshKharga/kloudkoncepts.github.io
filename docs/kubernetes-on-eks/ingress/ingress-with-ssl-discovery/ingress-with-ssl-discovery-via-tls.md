@@ -262,4 +262,4 @@ Also, go to Route53 and delete the `A` record that you created.
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[Certificate Discovery Via TLS]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/cert_discovery/#discover-via-ingress-tls
+[Certificate Discovery Via TLS]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/cert_discovery/#discover-via-ingress-tls

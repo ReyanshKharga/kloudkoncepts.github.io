@@ -48,7 +48,7 @@ We'll do the following:
 
 
 
-## Create Kubernetes Objects
+## Step 1: Create Kubernetes Objects
 
 Let's create the kubernetes objects as discussed above:
 

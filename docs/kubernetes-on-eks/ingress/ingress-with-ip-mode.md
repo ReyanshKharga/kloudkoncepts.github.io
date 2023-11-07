@@ -4,7 +4,7 @@ description: Maximize Kubernetes Ingress capabilities with our comprehensive gui
 
 # Create Ingress With IP Mode
 
-You can use `alb.ingress.kubernetes.io/target-type` annotation in the Ingress object to specify how to route traffic to pods. You can choose between `instance` and `ip`.
+You can use <a>`alb.ingress.kubernetes.io/target-type`</a> annotation in the Ingress object to specify how to route traffic to pods. You can choose between `instance` and `ip`.
 
 The default value for `alb.ingress.kubernetes.io/target-type` is `instance`. So, you must define this explicitly if you want to use `ip` mode.
 

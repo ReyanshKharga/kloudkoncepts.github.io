@@ -4,7 +4,7 @@ description: Unlock the potential of Kubernetes Ingress in Instance Mode with ou
 
 # Create Ingress With Instance Mode
 
-You can use `alb.ingress.kubernetes.io/target-type` annotation in the Ingress object to specify how to route traffic to pods. You can choose between `instance` and `ip`.
+You can use <a>`alb.ingress.kubernetes.io/target-type`</a> annotation in the Ingress object to specify how to route traffic to pods. You can choose between `instance` and `ip`.
 
 The kubernetes service must be of type `NodePort` to use `instance` mode. This is because worker nodes (EC2 instances) are registered as targets in the target group that will be created by the AWS Load Balancer Controller.
 

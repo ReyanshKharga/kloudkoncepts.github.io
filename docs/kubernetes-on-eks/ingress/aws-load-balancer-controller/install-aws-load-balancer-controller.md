@@ -216,6 +216,6 @@ eksctl delete iamserviceaccount --name aws-load-balancer-controller --cluster <c
 
 
 <!-- Hyperlinks -->
-[AWS Load Balancer Controller Concepts]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/
-[AWS Load Balancer Controller Installation Guide]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/deploy/installation/
+[AWS Load Balancer Controller Concepts]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/
+[AWS Load Balancer Controller Installation Guide]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/deploy/installation/
 [AWS Load Balancer Controller - Git Repo]: https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/helm/aws-load-balancer-controller

@@ -225,5 +225,5 @@ kubectl delete -f manifests/
 
 
 <!-- Hyperlinks -->
-[Health Check Annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/#health-check
+[Health Check Annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/#health-check
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp

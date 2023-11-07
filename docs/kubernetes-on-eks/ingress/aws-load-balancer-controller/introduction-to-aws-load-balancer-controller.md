@@ -66,6 +66,6 @@ By adding annotations to kubernetes resources, you can configure advanced featur
 
 
 <!-- Hyperlinks -->
-[annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/guide/ingress/annotations/
-[AWS Load Balancer Controller]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/
-[Ingress Annotations - AWS Load Balancer Controller]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/guide/ingress/annotations/
+[annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/
+[AWS Load Balancer Controller]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/
+[Ingress Annotations - AWS Load Balancer Controller]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/

@@ -4,7 +4,7 @@ description: Ensure data security and a seamless user experience. Explore our gu
 
 # Create Ingress With SSL Redirect
 
-The `alb.ingress.kubernetes.io/ssl-redirect` annotation enables SSLRedirect and specifies the SSL port that redirects to.
+The <a>`alb.ingress.kubernetes.io/ssl-redirect`</a> annotation enables SSLRedirect and specifies the SSL port that redirects to.
 
 
 ## Prerequisite
@@ -257,4 +257,4 @@ Also, go to Route53 and delete the `A` record that you created.
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[SSL Redirect]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/#traffic-listening
+[SSL Redirect]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/#traffic-listening

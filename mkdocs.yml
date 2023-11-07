@@ -166,6 +166,7 @@ nav:
         - SSL Discovery Via Host: ./kubernetes-on-eks/ingress/ingress-with-ssl-discovery/ingress-with-ssl-discovery-via-host.md
         - SSL Discovery Via TLS: ./kubernetes-on-eks/ingress/ingress-with-ssl-discovery/ingress-with-ssl-discovery-via-tls.md
       - Ingress With Multiple Hosts: ./kubernetes-on-eks/ingress/ingress-with-multiple-hosts.md
+      - Ingress With IngressGroup: ./kubernetes-on-eks/ingress/ingress-with-ingressgroup.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
