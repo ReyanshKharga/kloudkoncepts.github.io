@@ -4,14 +4,7 @@ description: Optimize your Kubernetes application deployment. Discover how to cr
 
 # Create Ingress With Multiple Hosts
 
-TLS certificates for ALB Listeners can be automatically discovered with hostnames from Ingress resources if the `alb.ingress.kubernetes.io/certificate-arn` annotation is not specified.
-
-The controller will attempt to discover TLS certificates from the `tls` field in Ingress and `host` field in Ingress rules.
-
-!!! note
-    You need to explicitly specify to use `HTTPS` listener with `alb.ingress.kubernetes.io/listen-ports` annotation.
-
-The Certificate Discovery can be either via Ingress rule `host` or Ingress `tls`. In this tutorial, we'll explore certificate discovery using the `tls` field in Ingress.
+You can use the `host` field to match the host in the rules. A listener rule will be created for each of the hosts defined in ingress rules.
 
 
 ## Prerequisite
@@ -45,7 +38,10 @@ Now that you have everything you need, let's move on to the demonstration.
 
 ## Docker Images
 
-Here is the Docker Image used in this tutorial: [reyanshkharga/nodeapp:v1]{:target="_blank"}
+Here are the Docker Images used in this tutorial:
+
+- [reyanshkharga/reactapp:v1]{:target="_blank"}
+- [reyanshkharga/nodeapp:v1]{:target="_blank"}
 
 !!! note
     [reyanshkharga/nodeapp:v1]{:target="_blank"} runs on port `5000` and has the following routes:
@@ -54,91 +50,111 @@ Here is the Docker Image used in this tutorial: [reyanshkharga/nodeapp:v1]{:targ
     - `GET /health` Returns health status of the app
     - `GET /random` Returns a randomly generated number between 1 and 10
 
+    [reyanshkharga/reactapp:v1]{:target="_blank"} is a frontend app that runs on port `3000`.
 
-## Step 1: Create a Deployment
 
-First, let's create a deployment as follows:
+## Objective
 
-=== ":octicons-file-code-16: `my-deployment.yml`"
+In this example we will have 2 microservices:
+
+1. `backend`: uses docker image `reyanshkharga/nodeapp:v1`
+2. `frontend`: uses docker image `reyanshkharga/reactapp:v1`
+
+We'll do the following:
+
+1. Create a deployment and service for `backend` microservice.
+2. Create a deployment and service for `frontend` microservice.
+3. Create a ingress that sends traffic to one of the microservices based on the host.
+4. We'll also provide separate health check path for each microservie using `alb.ingress.kubernetes.io/healthcheck-path` annotation in the service definition of each microservice.
+
+
+## Create Kubernetes Objects
+
+Let's create the kubernetes objects as discussed above:
+
+=== ":octicons-file-code-16: `backend.yml`"
 
     ```yaml linenums="1"
+    # Deployment
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: my-deployment
+      name: backend-deployment
     spec:
       replicas: 1
       selector:
         matchLabels:
-          app: demo
+          app: backend
       template:
         metadata:
           labels:
-            app: demo
+            app: backend
         spec:
           containers:
-          - name: nodeapp
+          - name: backend-container
             image: reyanshkharga/nodeapp:v1
             imagePullPolicy: Always
             ports:
               - containerPort: 5000
-    ```
-
-Apply the manifest to create the deployment:
-
-```
-kubectl apply -f my-deployment.yml
-```
-
-Verify deployment and pods:
-
-```
-# List deployments
-kubectl get deployments
-
-# List pods
-kubectl get pods
-```
-
-
-## Step 2: Create a Service
-
-Next, let's create a service as follows:
-
-=== ":octicons-file-code-16: `my-service.yml`"
-
-    ```yaml linenums="1"
+    # Service
+    ---
     apiVersion: v1
     kind: Service
     metadata:
-      name: my-nodeport-service
+      name: backend-nodeport-service
+      annotations:
+        alb.ingress.kubernetes.io/healthcheck-path: /health
     spec:
       type: NodePort
       selector:
-        app: demo
+        app: backend
       ports:
         - port: 5000
           targetPort: 5000
     ```
 
-Apply the manifest to create the service:
+=== ":octicons-file-code-16: `frontend.yml`"
 
-```
-kubectl apply -f my-service.yml
-```
+    ```yaml linenums="1"
+    # Deployment
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: frontend-deployment
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: frontend
+      template:
+        metadata:
+          labels:
+            app: frontend
+        spec:
+          containers:
+          - name: frontend-container
+            image: reyanshkharga/reactapp:v1
+            imagePullPolicy: Always
+            ports:
+              - containerPort: 3000
+    # Service
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: frontend-nodeport-service
+      annotations:
+        alb.ingress.kubernetes.io/healthcheck-path: /
+    spec:
+      type: NodePort
+      selector:
+        app: frontend
+      ports:
+        - port: 3000
+          targetPort: 3000
+    ```
 
-Verify service:
-
-```
-kubectl get svc
-```
-
-
-## Step 3: Create Ingress
-
-Now that we have the service ready, let's create an Ingress object with SSL discovery via `tls` field in Ingress:
-
-=== ":octicons-file-code-16: `my-ingress.yml`"
+=== ":octicons-file-code-16: `ingress.yml`"
 
     ```yaml linenums="1"
     apiVersion: networking.k8s.io/v1
@@ -167,65 +183,95 @@ Now that we have the service ready, let's create an Ingress object with SSL disc
         alb.ingress.kubernetes.io/ssl-redirect: '443'
     spec:
       ingressClassName: alb
-      tls:
-      - hosts:
-        - api.example.com
       rules:
-      - http:
+      - host: api.example.com
+        http:
           paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: my-nodeport-service
+                name: backend-nodeport-service
                 port:
                   number: 5000
+      - host: app.example.com
+        http:
+          paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-nodeport-service
+                port:
+                  number: 3000
     ```
 
-Observe that we have added the `tls` field in the Ingress spec. SSL certificate discovery will be based on this field. The AWS Load Balancer Controller will examine the `tls` field and search for available certificates that can be used for the specified hosts.
+Observe the following:
 
-Apply the manifest to create ingress:
+1. We've provided the health check paths for each of the microservices using the `alb.ingress.kubernetes.io/healthcheck-path` annotation.
+2. In the ingress, we have used `host` in the rules to route traffic to a particular microservice based on matching host.
+3. We haven't provided `certificate-arn` because SSL discovery would work via host.
 
-```
-kubectl apply -f my-ingress.yml
-```
-
-Verify ingress:
+Assuming your folder structure looks like the one below:
 
 ```
+|-- manifests
+│   |-- backend.yml
+│   |-- frontend.yml
+│   |-- ingress.yml
+```
+
+Let's apply the manifests to create the kubernetes objects:
+
+```
+kubectl apply -f manifests/
+```
+
+This will create the following resources:
+
+- Deployment and service for `backend` microservice.
+- Deployment and service for `frontend` microservice.
+- Ingress with two rules.
+
+
+## Step 2: Verify Kubernetes Objects
+
+```
+# List pods
+kubectl get pods
+
+# List deployments
+kubectl get deployments
+
+# List services
+kubectl get svc
+
+# List ingress
 kubectl get ingress
-{OR}
-kubectl get ing
 ```
 
+Also, go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
 
-## Step 4: Verify AWS Resources in AWS Console
-
-Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
-
-You'll notice that the certificate is attached to the load balancer created by the ingress. We didn't specify the certificate `ARN` in the ingress manifest, yet it was attached to the load balancer due to SSL discovery via the `tls` field in the ingress.
+Pay close attention to the listener rules that were created. You will notice that, based on the host header, traffic is directed to a particular microservice.
 
 
-## Step 5: Add Record in Route53
+## Step 3: Add Records in Route53
 
-Go to AWS Route53 and add an `A` record (e.g `api.example.com`) for your domain that points to the Load Balancer. You can use alias to point the subdomain to the load balancer that was created.
+Go to AWS Route53 and add two `A` records (`api.example.com` and `app.example.com`) that points to the load balancer that was created. You can use alias to point the subdomain to the load balancer.
 
 
-## Step 6: Access App Using Route53 DNS
+## Step 4: Access App Using Route53 DNS
 
-Once the load balancer is in `Active` state, you can hit the subdomain you created in Route53 and verify if everything is working properly.
+Once the load balancer is in `Active` state, you can hit the subdomains you created in Route53 and verify if everything is working properly.
 
-Try accessing the following paths:
+Try accessing the following hosts:
 
 ```
-# Root path
-https://api.example.com/
+# Backend
+https://api.example.com
 
-# Health path
-https://api.example.com/health
-
-# Random generator path
-https://api.example.com/random
+# Frontend
+https://app.example.com
 ```
 
 Also, verify that `HTTP` is redirected to `HTTPS`.
@@ -238,9 +284,9 @@ Assuming your folder structure looks like the one below:
 
 ```
 |-- manifests
-│   |-- my-deployment.yml
-│   |-- my-service.yml
-│   |-- my-ingress.yml
+│   |-- backend.yml
+│   |-- frontend.yml
+│   |-- ingress.yml
 ```
 
 Let's delete all the resources we created:
@@ -249,17 +295,7 @@ Let's delete all the resources we created:
 kubectl delete -f manifests/
 ```
 
-Also, go to Route53 and delete the `A` record that you created.
-
-
-
-
-!!! quote "References:"
-    !!! quote ""
-        * [Certificate Discovery Via TLS]{:target="_blank"}
-
-
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[Certificate Discovery Via TLS]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/cert_discovery/#discover-via-ingress-tls
+[reyanshkharga/reactapp:v1]: https://hub.docker.com/r/reyanshkharga/reactapp
