@@ -295,6 +295,8 @@ Let's delete all the resources we created:
 kubectl delete -f manifests/
 ```
 
+Also, go to Route53 and delete the `A` records that you created.
+
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
