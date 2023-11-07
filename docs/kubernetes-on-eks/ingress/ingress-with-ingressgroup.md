@@ -1,5 +1,5 @@
 ---
-description: 
+description: Simplify Kubernetes Ingress. Learn how to create Ingress with IngressGroup to better manage your applications. Organize and streamline your Ingress resources easily. Improve your application's scalability with IngressGroup.
 ---
 
 # Create Ingress With IngressGroup
@@ -301,7 +301,7 @@ kubectl get ingress
 
 Also, go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
 
-You will observe that only one load balancer has been created with two rules, following the ordering defined by the `group.order` annotation in the ingress.
+You will observe that only one load balancer was created with two rules, following the ordering defined by the `group.order` annotation in the ingress.
 
 
 ## Step 3: Add Records in Route53
