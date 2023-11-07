@@ -150,15 +150,16 @@ nav:
     - Private EKS NodeGroup:
       - Create Private EKS NodeGroup: ./kubernetes-on-eks/private-eks-nodegroup/create-private-eks-nodegroup.md
     - Ingress and Ingress Controller:
-      - Introduction to Ingress: ./kubernetes-on-eks/Ingress/introduction-to-ingress.md
+      - Introduction to Ingress: ./kubernetes-on-eks/ingress/introduction-to-ingress.md
       - AWS Load Balancer Controller:
-        - Introduction to AWS Load Balancer Controller: ./kubernetes-on-eks/Ingress/aws-load-balancer-controller/introduction-to-aws-load-balancer-controller.md
-        - Install AWS Load Balancer Controller: ./kubernetes-on-eks/Ingress/aws-load-balancer-controller/install-aws-load-balancer-controller.md
-      - Ingress With Instance Mode: ./kubernetes-on-eks/Ingress/ingress-with-instance-mode.md
-      - Ingress With IP Mode: ./kubernetes-on-eks/Ingress/ingress-with-ip-mode.md
-      - Ingress With Default Backend: ./kubernetes-on-eks/Ingress/ingress-with-default-backend.md
-      - Ingress With Health Check: ./kubernetes-on-eks/Ingress/ingress-with-health-check.md
-      - Ingress With Path Based Routing: ./kubernetes-on-eks/Ingress/ingress-with-path-based-routing.md
+        - Introduction to AWS Load Balancer Controller: ./kubernetes-on-eks/ingress/aws-load-balancer-controller/introduction-to-aws-load-balancer-controller.md
+        - Install AWS Load Balancer Controller: ./kubernetes-on-eks/ingress/aws-load-balancer-controller/install-aws-load-balancer-controller.md
+      - Ingress With Instance Mode: ./kubernetes-on-eks/ingress/ingress-with-instance-mode.md
+      - Ingress With IP Mode: ./kubernetes-on-eks/ingress/ingress-with-ip-mode.md
+      - Ingress With Default Backend: ./kubernetes-on-eks/ingress/ingress-with-default-backend.md
+      - Ingress With Health Check: ./kubernetes-on-eks/ingress/ingress-with-health-check.md
+      - Ingress With Path Based Routing: ./kubernetes-on-eks/ingress/ingress-with-path-based-routing.md
+      - Ingress With SSL: ./kubernetes-on-eks/ingress/ingress-with-ssl.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
