@@ -136,7 +136,7 @@ kubectl get svc
 
 ## Step 3: Create Ingress
 
-Now that we have the service ready, let's create an Ingress object with SSL redirect:
+Now that we have the service ready, let's create an Ingress object with SSL discovery via `host` field in Ingress rules:
 
 === ":octicons-file-code-16: `my-ingress.yml`"
 
@@ -160,7 +160,6 @@ Now that we have the service ready, let's create an Ingress object with SSL redi
         alb.ingress.kubernetes.io/healthy-threshold-count: '2'
         alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
         # SSL Annotations
-        # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:170476043077:certificate/2d88e035-cde7-472a-9cd3-6b6ce6ece961
         alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-2016-08 # Optional
         # Listerner Ports Annotation
         alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
@@ -202,7 +201,7 @@ kubectl get ing
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
-You'll notice that the certificate is attached to the load balancer created by the ingress. We didn't specify the certificate ARN in the ingress manifest, yet it was attached to the load balancer due to SSL discovery via the host field in the ingress.
+You'll notice that the certificate is attached to the load balancer created by the ingress. We didn't specify the certificate `ARN` in the ingress manifest, yet it was attached to the load balancer due to SSL discovery via the `host` field in the ingress rules.
 
 
 ## Step 5: Add Record in Route53
@@ -255,10 +254,10 @@ Also, go to Route53 and delete the `A` record that you created.
 
 !!! quote "References:"
     !!! quote ""
-        * [Certificate Discovery]{:target="_blank"}
+        * [Certificate Discovery Via Host]{:target="_blank"}
 
 
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[Certificate Discovery]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/cert_discovery/
+[Certificate Discovery Via Host]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/cert_discovery/#discover-via-ingress-rule-host
