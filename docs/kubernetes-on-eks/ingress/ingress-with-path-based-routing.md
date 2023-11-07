@@ -273,6 +273,8 @@ kubectl get svc
 kubectl get ingress
 ```
 
+Also, go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
+
 
 ## Step 3: Access App Via Load Balancer DNS
 
