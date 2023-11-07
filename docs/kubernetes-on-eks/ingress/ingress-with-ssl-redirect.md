@@ -1,15 +1,10 @@
 ---
-description: Secure your applications and enhance user trust. Learn how to create Kubernetes Ingress with SSL in our comprehensive guide. Discover the essential steps to enable SSL encryption for your services and protect sensitive data. Elevate your Kubernetes deployment with SSL-enabled Ingress.
+description: Ensure data security and a seamless user experience. Explore our guide on creating Kubernetes Ingress with SSL Redirect. Learn how to set up SSL redirection to enforce secure connections for your services. Elevate your application's security and user satisfaction with SSL Redirect-enabled Ingress.
 ---
 
-# Create Ingress With SSL
+# Create Ingress With SSL Redirect
 
-SSL support can be controlled with the following annotations:
-
-| Annotation | Function |
-|----------------------------------------------|----------|
-| <a>`alb.ingress.kubernetes.io/certificate-arn`</a> |specifies the `ARN` of one or more certificate managed by AWS Certificate Manager. The first certificate in the list will be added as default certificate. And remaining certificate will be added to the optional certificate list. |
-| <a>`alb.ingress.kubernetes.io/ssl-policy`</a> | specifies the Security Policy that should be assigned to the ALB, allowing you to control the protocol and ciphers. This is optional and defaults to `ELBSecurityPolicy-2016-08` |
+The `alb.ingress.kubernetes.io/ssl-redirect` annotation enables SSLRedirect and specifies the SSL port that redirects to.
 
 
 ## Prerequisite
@@ -134,7 +129,7 @@ kubectl get svc
 
 ## Step 3: Create Ingress
 
-Now that we have the service ready, let's create an Ingress object with SSL:
+Now that we have the service ready, let's create an Ingress object with SSL redirect:
 
 === ":octicons-file-code-16: `my-ingress.yml`"
 
@@ -162,6 +157,8 @@ Now that we have the service ready, let's create an Ingress object with SSL:
         alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-2016-08 # Optional
         # Listerner Ports Annotation
         alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+        # SSL Redicrect Annotation
+        alb.ingress.kubernetes.io/ssl-redirect: '443'
     spec:
       ingressClassName: alb
       rules:
@@ -178,10 +175,7 @@ Now that we have the service ready, let's create an Ingress object with SSL:
 
 Be sure to replace the value of `alb.ingress.kubernetes.io/certificate-arn` with the `ARN` of the SSL certificate you created.
 
-!!! note
-    `alb.ingress.kubernetes.io/listen-ports` defaults to `'[{"HTTP": 80}]'` or `'[{"HTTPS": 443}]'` depending on whether `certificate-arn` is specified.
-
-    If you want to serve both `HTTP` and `HTTPS` traffic, you must set `alb.ingress.kubernetes.io/listen-ports` to `'[{"HTTP": 80}, {"HTTPS": 443}]'`.
+Observe that we have added the `alb.ingress.kubernetes.io/ssl-redirect` annotation with value `443`. With this annotation in place, every `HTTP` listener will be configured with a default action which redirects to `HTTPS`, and other rules will be ignored.
 
 Apply the manifest to create ingress:
 
@@ -202,7 +196,9 @@ kubectl get ing
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
-Pay close attention to the certificate attached to the `HTTPS (443)` listener in the load balancer.
+Pay close attention to the default listener rule and certificate attached to the `HTTPS (443)` listener in the load balancer.
+
+You'll notice that the `HTTP` is being redirected to `HTTPS`.
 
 
 ## Step 5: Add Record in Route53
@@ -227,7 +223,7 @@ https://api.xyz.com/health
 https://api.xyz.com/random
 ```
 
-Verify that both `HTTP` and `HTTPS` works.
+Also, verify that `HTTP` is redirected to `HTTPS`.
 
 
 
@@ -255,14 +251,10 @@ Also, go to Route53 and delete the `A` record that you created.
 
 !!! quote "References:"
     !!! quote ""
-        * [Registering a New Domain in Route53]{:target="_blank"}
-        * [SSL Annotations]{:target="_blank"}
-        * [Security Policies]{:target="_blank"}
+        * [SSL Redirect]{:target="_blank"}
 
 
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[Registering a New Domain in Route53]: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html#domain-register-procedure
-[SSL Annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/#ssl
-[Security Policies]: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies
+[SSL Redirect]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/#traffic-listening

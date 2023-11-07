@@ -160,6 +160,7 @@ nav:
       - Ingress With Health Check: ./kubernetes-on-eks/ingress/ingress-with-health-check.md
       - Ingress With Path Based Routing: ./kubernetes-on-eks/ingress/ingress-with-path-based-routing.md
       - Ingress With SSL: ./kubernetes-on-eks/ingress/ingress-with-ssl.md
+      - Ingress With SSL Redirect: ./kubernetes-on-eks/ingress/ingress-with-ssl-redirect.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
