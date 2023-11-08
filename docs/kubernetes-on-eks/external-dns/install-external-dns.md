@@ -7,7 +7,7 @@ description: Simplified installation of ExternalDNS. Learn how to install Extern
 Let's see how you can install `ExternalDNS` in your EKS cluster.
 
 
-## Step 1: Step 1: Get the Required IAM Policy
+## Step 1: Get the Required IAM Policy
 
 First, get the [IAM Policy]{:target="_blank"} from official git repository. It should look something like this:
 
@@ -91,7 +91,7 @@ Also, go to AWS console and verify the IAM role that was created. You can get th
 
 With the service account ready, we can now move forward with the installation of `ExternalDNS`.
 
-1. Download the YAML manifest:
+1. Download the YAML manifest for ExternalDNS:
 
     ```
     # Download external-dns manifest
