@@ -1,41 +1,17 @@
 ---
-description: See ExternalDNS in action. Watch our demo of ExternalDNS with a single host. Learn how this tool helps you make Kubernetes resources discoverable with public DNS servers.
+description: 
 ---
 
-# ExternalDNS Demo With One Host
+# ExternalDNS Demo With Private Hosted Zone
 
-Simply add the `external-dns.alpha.kubernetes.io/hostname` annotation to either the kubernetes Ingress or Service, and ExternalDNS will use this information to create corresponding Route 53 records.
+In Amazon Route 53, a private hosted zone is a DNS (Domain Name System) zone that is used for private internal DNS resolution within a Virtual Private Cloud (VPC) or a set of interconnected VPCs. It is separate from a public hosted zone, which is used for DNS resolution on the public internet.
 
-Let's see this in action!
+Let's see how ExternalDNS works with private hosted zones.
 
 
 ## Prerequisite
 
-To follow this tutorial, you'll require a domain and, additionally, an SSL certificate for the domain and its subdomains.
-
-1. Register a Route 53 Domain
-
-    Go to AWS Console and register a Route 53 domain. You can opt for a cheaper TLD (top level domain) such as `.link`
-
-    !!! note
-        It usually takes about 10 minutes but it might take about an hour for the registered domain to become available.
-
-2. Request a Public Certificate
-
-    Visit AWS Certificate Manager in AWS Console and request a public certificate for your domain and all the subdomains. For example, if you registered for a domain `example.com` then request certificate for `example.com` and `*.example.com`
-
-    !!! note
-        Make sure you request the certificate in the region where your EKS cluster is in.
-
-3. Validate the Certificate
-
-    Validate the requested certificate by adding `CNAME` records in Route 53. It is a very simple process. Go to the certificate you created and click on `Create records in Route 53`. The `CNAMEs` will be automatically added to Route 53.
-
-    !!! note
-        It usually takes about 5 minutes but it might take about an hour for the certificate to be ready for use.
-
-
-Now that you have everything you need, let's move on to the demonstration.
+To follow this tutorial, you'll need to create a private hosted zone in the VPC where EKS cluster was created. For example, you can create a private hosted zone called `example.internal`.
 
 
 ## Docker Images
@@ -141,12 +117,12 @@ Now that we have the service ready, let's create an Ingress object with External
     metadata:
       name: my-ingress
       annotations:
-        alb.ingress.kubernetes.io/scheme: internet-facing # Default value is internal
+        alb.ingress.kubernetes.io/scheme: internal # Default value is internal
         alb.ingress.kubernetes.io/tags: Environment=dev,Team=DevOps # Optional
         alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer # Optional
         alb.ingress.kubernetes.io/target-type: instance # Optional
         # external-dns specific configuration for creating route53 record-set
-        external-dns.alpha.kubernetes.io/hostname: api.example.com # give your domain name here (Optional)
+        external-dns.alpha.kubernetes.io/hostname: api.example.internal # give your domain name here (Optional)
     spec:
       ingressClassName: alb
       rules:
@@ -161,7 +137,7 @@ Now that we have the service ready, let's create an Ingress object with External
                   number: 5000
     ```
 
-Be sure to replace the value of `external-dns.alpha.kubernetes.io/hostname` with your domain.
+Observe that we have set `alb.ingress.kubernetes.io/scheme` to `internal` and therefore the AWS Load Balancer Controller will create an internal load balancer. Also, ExternalDNS will create a Route 53 record record `api.example.internal` in the private hosted zone we created because we have set `external-dns.alpha.kubernetes.io/hostname` to `api.example.internal`.
 
 Apply the manifest to create ingress:
 
@@ -182,7 +158,7 @@ kubectl get ing
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
-Also, go to AWS Route 53 and verify the record (`api.example.com`) that was added by ExternalDNS.
+Also, go to AWS Route 53 and verify the record (`api.example.internal`) that was added by ExternalDNS.
 
 You can also check the events that external-dns pod performs:
 
@@ -191,25 +167,43 @@ kubectl logs -f <external-dns-pod> -n external-dns
 ```
 
 
-## Step 5: Access App Using Route 53 DNS
+## Step 5: Access App Using Internal Load Balancer DNS
 
-Once the load balancer is in `Active` state, you can hit the subdomain you created in Route 53 and verify if everything is working properly.
+Because the load balancer is internal, access to our app from outside the VPC is restricted. To overcome this, let's create a pod that we can use to access the load balancer and, in turn, our app. Since the pod will reside within the same VPC, we will be able to access our app.
 
-Try accessing the following paths:
+First, let's create a pod as follows:
+
+=== ":octicons-file-code-16: `nginx-pod.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+    ```
+
+Apply the manifest to create the pod:
 
 ```
-# Root path
-http://api.example.com/
-
-# Health path
-http://api.example.com/health
-
-# Random generator path
-http://api.example.com/random
+kubectl apply -f nginx-pod.yml
 ```
 
-!!! note
-    For this demo, we have not enabled SSL to maintain the focus on the ExternalDNS annotation. However, you can add SSL-specific annotations to enable SSL if needed.
+Now, let's start a shell session inside the nginx container and hit the private Route 53 DNS:
+
+```
+# Start a shell session inside the nginx container
+kubectl exec -it nginx -- bash
+
+# Hit the url using CURL
+curl api.example.internal
+```
+
+You'll see the response from the app.
+
 
 
 ## Clean Up
@@ -221,6 +215,7 @@ Assuming your folder structure looks like the one below:
 │   |-- my-deployment.yml
 │   |-- my-service.yml
 │   |-- my-ingress.yml
+│   |-- nginx-pod.yml
 ```
 
 Let's delete all the resources we created:

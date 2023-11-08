@@ -242,6 +242,12 @@ Visit the AWS console and verify the resources created by AWS Load Balancer Cont
 
 Also, go to AWS Route 53 and verify the records (`api.example.com` and `app.example.com`) that were added by ExternalDNS.
 
+You can also check the events that external-dns pod performs:
+
+```
+kubectl logs -f <external-dns-pod> -n external-dns
+```
+
 
 ## Step 4: Access App Using Route 53 DNS
 
@@ -251,10 +257,10 @@ Try accessing the following hosts:
 
 ```
 # Backend
-https://api.example.com
+http://api.example.com
 
 # Frontend
-https://app.example.com
+http://app.example.com
 ```
 
 !!! note
