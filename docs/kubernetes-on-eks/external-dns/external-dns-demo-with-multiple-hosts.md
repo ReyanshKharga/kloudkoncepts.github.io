@@ -285,7 +285,7 @@ Let's delete all the resources we created:
 kubectl delete -f manifests/
 ```
 
-The Route 53 records will also be deleted when the ingress is deleted.
+The Route 53 records will also be deleted when the ingress or service is deleted.
 
 
 <!-- Hyperlinks -->
