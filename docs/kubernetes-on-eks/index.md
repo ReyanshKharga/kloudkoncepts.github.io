@@ -56,3 +56,17 @@ Dive in and get your hands dirty with real-world skills!
 - This course covers both fundamental and advanced topics in Kubernetes, Logging, Monitoring, Service Mesh, and CI/CD technologies. As such, it is suitable for individuals who wish to expand their knowledge and grasp more complex concepts.
 
 
+## About the Instructor
+
+Greetings, I'm [Reyansh Kharga]{:target="_blank"}, your instructor for the course "Amazon EKS Masterclass: Kubernetes and Microservices on EKS". As a Solutions Architect, I bring a wealth of experience and a deep passion for crafting, designing, and implementing highly available architectures on public cloud platforms.
+
+My expertise primarily revolves around the dynamic realm of cloud computing, where I've cultivated a strong affinity for AWS, Azure, GCP, Kubernetes, Microservices, Service Mesh, and the intricate world of Monitoring Tools, including Prometheus, Grafana, and Kiali.
+
+Over the years, I've had the privilege of assisting a diverse array of startups and clients in the deployment of resilient, secure, and highly available infrastructures across industry-leading cloud platforms such as AWS, Azure, and Google Cloud Platform. My approach combines a harmonious blend of cloud-native solutions, third-party software, and open-source technologies, all geared towards delivering cost-effective and efficient results.
+
+Join me on this learning journey, and let's explore the intricacies of Amazon EKS and the fascinating universe of microservices in the cloud together. I'm excited to share my knowledge and experiences with you.
+
+
+
+<!-- Hyperlinks -->
+[Reyansh Kharga]: https://www.linkedin.com/in/reyanshkharga/
