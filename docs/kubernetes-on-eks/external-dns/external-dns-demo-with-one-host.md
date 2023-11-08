@@ -1,15 +1,12 @@
 ---
-description: Secure your applications and enhance user trust. Learn how to create Kubernetes Ingress with SSL in our comprehensive guide. Discover the essential steps to enable SSL encryption for your services and protect sensitive data. Elevate your Kubernetes deployment with SSL-enabled Ingress.
+description: See ExternalDNS in action. Watch our demo of ExternalDNS with a single host. Learn how this tool helps you make Kubernetes resources discoverable with public DNS servers.
 ---
 
-# Create Ingress With SSL
+# ExternalDNS Demo With One Host
 
-SSL support can be controlled with the following annotations:
+Simply add the `external-dns.alpha.kubernetes.io/hostname` annotation to either the kubernetes Ingress or Service, and ExternalDNS will use this information to create corresponding Route 53 records.
 
-| Annotation | Function |
-|----------------------------------------------|----------|
-| <a>`alb.ingress.kubernetes.io/certificate-arn`</a> |specifies the `ARN` of one or more certificate managed by AWS Certificate Manager. The first certificate in the list will be added as default certificate. And remaining certificate will be added to the optional certificate list. |
-| <a>`alb.ingress.kubernetes.io/ssl-policy`</a> | specifies the Security Policy that should be assigned to the ALB, allowing you to control the protocol and ciphers. This is optional and defaults to `ELBSecurityPolicy-2016-08` |
+Let's see this in action!
 
 
 ## Prerequisite
@@ -65,7 +62,7 @@ First, let's create a deployment as follows:
     metadata:
       name: my-deployment
     spec:
-      replicas: 1
+      replicas: 2
       selector:
         matchLabels:
           app: demo
@@ -134,7 +131,7 @@ kubectl get svc
 
 ## Step 3: Create Ingress
 
-Now that we have the service ready, let's create an Ingress object with SSL:
+Now that we have the service ready, let's create an Ingress object with ExternalDNS annotation:
 
 === ":octicons-file-code-16: `my-ingress.yml`"
 
@@ -144,24 +141,12 @@ Now that we have the service ready, let's create an Ingress object with SSL:
     metadata:
       name: my-ingress
       annotations:
-        # Load Balancer Annotations
         alb.ingress.kubernetes.io/scheme: internet-facing # Default value is internal
         alb.ingress.kubernetes.io/tags: Environment=dev,Team=DevOps # Optional
         alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer # Optional
-        # Health Check Annotations
-        alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-        alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-        alb.ingress.kubernetes.io/healthcheck-path: /health
-        alb.ingress.kubernetes.io/healthcheck-interval-seconds: '5'
-        alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '2'
-        alb.ingress.kubernetes.io/success-codes: '200'
-        alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-        alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-        # SSL Annotations
-        alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:170476043077:certificate/2d88e035-cde7-472a-9cd3-6b6ce6ece961
-        alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-2016-08 # Optional
-        # Listerner Ports Annotation
-        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+        alb.ingress.kubernetes.io/target-type: instance # Optional
+        # external-dns specific configuration for creating route53 record-set
+        external-dns.alpha.kubernetes.io/hostname: api.example.com # give your domain name here (Optional)
     spec:
       ingressClassName: alb
       rules:
@@ -176,12 +161,7 @@ Now that we have the service ready, let's create an Ingress object with SSL:
                   number: 5000
     ```
 
-Be sure to replace the value of `alb.ingress.kubernetes.io/certificate-arn` with the `ARN` of the SSL certificate you created.
-
-!!! note
-    `alb.ingress.kubernetes.io/listen-ports` defaults to `'[{"HTTP": 80}]'` or `'[{"HTTPS": 443}]'` depending on whether `certificate-arn` is specified.
-
-    If you want to serve both `HTTP` and `HTTPS` traffic, you must set `alb.ingress.kubernetes.io/listen-ports` to `'[{"HTTP": 80}, {"HTTPS": 443}]'`.
+Be sure to replace the value of `external-dns.alpha.kubernetes.io/hostname` with your domain.
 
 Apply the manifest to create ingress:
 
@@ -202,15 +182,10 @@ kubectl get ing
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
-Pay close attention to the certificate attached to the `HTTPS (443)` listener in the load balancer.
+Also, go to AWS Route 53 and verify the record (`api.example.com`) that was added by ExternalDNS.
 
 
-## Step 5: Add Record in Route 53
-
-Go to AWS Route 53 and add an `A` record (e.g `api.example.com`) for your domain that points to the Load Balancer. You can use alias to point the subdomain to the load balancer that was created.
-
-
-## Step 6: Access App Using Route 53 DNS
+## Step 5: Access App Using Route 53 DNS
 
 Once the load balancer is in `Active` state, you can hit the subdomain you created in Route 53 and verify if everything is working properly.
 
@@ -218,17 +193,14 @@ Try accessing the following paths:
 
 ```
 # Root path
-https://api.example.com/
+http://api.example.com/
 
 # Health path
-https://api.example.com/health
+http://api.example.com/health
 
 # Random generator path
-https://api.example.com/random
+http://api.example.com/random
 ```
-
-Verify that both `HTTP` and `HTTPS` works.
-
 
 
 ## Clean Up
@@ -248,21 +220,9 @@ Let's delete all the resources we created:
 kubectl delete -f manifests/
 ```
 
-Also, go to Route 53 and delete the `A` record that you created.
-
-
-
-
-!!! quote "References:"
-    !!! quote ""
-        * [Registering a New Domain in Route 53]{:target="_blank"}
-        * [SSL Annotations]{:target="_blank"}
-        * [Security Policies]{:target="_blank"}
+The Route 53 record will also be deleted when the ingress is deleted.
 
 
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[Registering a New Domain in Route 53]: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html#domain-register-procedure
-[SSL Annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/#ssl
-[Security Policies]: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies
