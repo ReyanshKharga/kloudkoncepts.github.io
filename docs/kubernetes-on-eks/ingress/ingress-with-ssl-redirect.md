@@ -11,9 +11,9 @@ The <a>`alb.ingress.kubernetes.io/ssl-redirect`</a> annotation enables SSLRedire
 
 To follow this tutorial, you'll require a domain and, additionally, an SSL certificate for the domain and its subdomains.
 
-1. Register a Route53 Domain
+1. Register a Route 53 Domain
 
-    Go to AWS Console and register a Route53 domain. You can opt for a cheaper TLD (top level domain) such as `.link`
+    Go to AWS Console and register a Route 53 domain. You can opt for a cheaper TLD (top level domain) such as `.link`
 
     !!! note
         It usually takes about 10 minutes but it might take about an hour for the registered domain to become available.
@@ -27,7 +27,7 @@ To follow this tutorial, you'll require a domain and, additionally, an SSL certi
 
 3. Validate the Certificate
 
-    Validate the requested certificate by adding `CNAME` records in Route53. It is a very simple process. Go to the certificate you created and click on `Create records in Route53`. The `CNAMEs` will be automatically added to Route53.
+    Validate the requested certificate by adding `CNAME` records in Route 53. It is a very simple process. Go to the certificate you created and click on `Create records in Route 53`. The `CNAMEs` will be automatically added to Route 53.
 
     !!! note
         It usually takes about 5 minutes but it might take about an hour for the certificate to be ready for use.
@@ -201,14 +201,14 @@ Pay close attention to the default listener rule and certificate attached to the
 You'll notice that the `HTTP` is being redirected to `HTTPS`.
 
 
-## Step 5: Add Record in Route53
+## Step 5: Add Record in Route 53
 
-Go to AWS Route53 and add an `A` record (e.g `api.example.com`) for your domain that points to the Load Balancer. You can use alias to point the subdomain to the load balancer that was created.
+Go to AWS Route 53 and add an `A` record (e.g `api.example.com`) for your domain that points to the Load Balancer. You can use alias to point the subdomain to the load balancer that was created.
 
 
-## Step 6: Access App Using Route53 DNS
+## Step 6: Access App Using Route 53 DNS
 
-Once the load balancer is in `Active` state, you can hit the subdomain you created in Route53 and verify if everything is working properly.
+Once the load balancer is in `Active` state, you can hit the subdomain you created in Route 53 and verify if everything is working properly.
 
 Try accessing the following paths:
 
@@ -244,7 +244,7 @@ Let's delete all the resources we created:
 kubectl delete -f manifests/
 ```
 
-Also, go to Route53 and delete the `A` record that you created.
+Also, go to Route 53 and delete the `A` record that you created.
 
 
 

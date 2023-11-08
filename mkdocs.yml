@@ -168,6 +168,8 @@ nav:
       - Ingress With Multiple Hosts: ./kubernetes-on-eks/ingress/ingress-with-multiple-hosts.md
       - Ingress With IngressGroup: ./kubernetes-on-eks/ingress/ingress-with-ingressgroup.md
       - Ingress With Internal Load Balancer: ./kubernetes-on-eks/ingress/ingress-with-internal-load-balancer.md
+    - ExternalDNS:
+      - Introduction to ExternalDNS: ./kubernetes-on-eks/external-dns/introduction-to-external-dns.md
   - DevOps & SRE Interview Questions:
       - ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
