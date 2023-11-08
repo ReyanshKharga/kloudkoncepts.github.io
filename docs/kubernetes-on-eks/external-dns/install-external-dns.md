@@ -205,10 +205,10 @@ With the service account ready, we can now move forward with the installation of
 !!! quote "References:"
     !!! quote ""
         * [Required IAM Policy for External-DNS]{:target="_blank"}
-        * [External-DNS Manifest]{:target="_blank"}
+        * [ExternalDNS Manifest]{:target="_blank"}
 
 
 <!-- Hyperlinks -->
 [IAM Policy]: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#iam-policy
 [Required IAM Policy for External-DNS]: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#iam-policy
-[External-DNS Manifest]: https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/docs/examples/external-dns.yaml
+[ExternalDNS Manifest]: https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/docs/examples/external-dns.yaml
