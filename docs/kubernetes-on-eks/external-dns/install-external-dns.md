@@ -205,7 +205,7 @@ With the service account ready, we can now move forward with the installation of
 !!! quote "References:"
     !!! quote ""
         * [Required IAM Policy for External-DNS]{:target="_blank"}
-        * External-DNS Manifest{:target="_blank"}
+        * [External-DNS Manifest]{:target="_blank"}
 
 
 <!-- Hyperlinks -->
