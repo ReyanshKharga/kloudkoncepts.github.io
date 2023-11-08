@@ -202,6 +202,9 @@ http://api.example.com/health
 http://api.example.com/random
 ```
 
+!!! note
+    For this demo, we have not enabled SSL to maintain the focus on the ExternalDNS annotation. However, you can add SSL-specific annotations to enable SSL if needed.
+
 
 ## Clean Up
 

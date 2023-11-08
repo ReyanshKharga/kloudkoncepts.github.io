@@ -172,6 +172,7 @@ nav:
       - Introduction to ExternalDNS: ./kubernetes-on-eks/external-dns/introduction-to-external-dns.md
       - Install ExternalDNS: ./kubernetes-on-eks/external-dns/install-external-dns.md
       - ExternalDNS Demo With One Host: ./kubernetes-on-eks/external-dns/external-dns-demo-with-one-host.md
+      - ExternalDNS Demo With Multiple Hosts: ./kubernetes-on-eks/external-dns/external-dns-demo-with-multiple-hosts.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md

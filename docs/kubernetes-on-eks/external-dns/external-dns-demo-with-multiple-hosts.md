@@ -1,10 +1,12 @@
 ---
-description: Optimize your Kubernetes application deployment. Discover how to create Ingress with Multiple Hosts in our comprehensive guide. Learn how to efficiently route traffic to multiple hostnames and enhance your application's flexibility. Streamline your Kubernetes Ingress configuration for diverse hosts.
+description: See ExternalDNS in action. Watch our demo of ExternalDNS with multiple hosts. Learn how this tool helps you make Kubernetes resources discoverable with public DNS servers.
 ---
 
-# Create Ingress With Multiple Hosts
+# ExternalDNS Demo With Multiple Hosts
 
-You can use the `host` field to match the host in the rules. A listener rule will be created for each of the hosts defined in ingress rules.
+Simply add the `external-dns.alpha.kubernetes.io/hostname` annotation to either the kubernetes Ingress or Service, and ExternalDNS will use this information to create corresponding Route 53 records.
+
+Let's see this in action!
 
 
 ## Prerequisite
@@ -65,7 +67,7 @@ We'll do the following:
 1. Create a deployment and service for `backend` microservice.
 2. Create a deployment and service for `frontend` microservice.
 3. Create a ingress that sends traffic to one of the microservices based on the host.
-4. We'll also provide separate health check path for each microservice using `alb.ingress.kubernetes.io/healthcheck-path` annotation in the service definition of each microservice.
+4. We'll also provide separate ExternalDNS configuration for each microservice using `external-dns.alpha.kubernetes.io/hostname` annotation in the service definition of each microservice.
 
 
 ## Step 1: Create Kubernetes Objects
@@ -104,6 +106,7 @@ Let's create the kubernetes objects as discussed above:
       name: backend-nodeport-service
       annotations:
         alb.ingress.kubernetes.io/healthcheck-path: /health
+        external-dns.alpha.kubernetes.io/hostname: api.example.com # Optional
     spec:
       type: NodePort
       selector:
@@ -145,6 +148,7 @@ Let's create the kubernetes objects as discussed above:
       name: frontend-nodeport-service
       annotations:
         alb.ingress.kubernetes.io/healthcheck-path: /
+        external-dns.alpha.kubernetes.io/hostname: app.example.com # Optional
     spec:
       type: NodePort
       selector:
@@ -166,21 +170,6 @@ Let's create the kubernetes objects as discussed above:
         alb.ingress.kubernetes.io/scheme: internet-facing # Default value is internal
         alb.ingress.kubernetes.io/tags: Environment=dev,Team=DevOps # Optional
         alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer # Optional
-        # Health Check Annotations
-        alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-        alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-        alb.ingress.kubernetes.io/healthcheck-path: /health
-        alb.ingress.kubernetes.io/healthcheck-interval-seconds: '5'
-        alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '2'
-        alb.ingress.kubernetes.io/success-codes: '200'
-        alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-        alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-        # SSL Annotations
-        alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-2016-08 # Optional
-        # Listerner Ports Annotation
-        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-        # SSL Redicrect Annotation
-        alb.ingress.kubernetes.io/ssl-redirect: '443'
     spec:
       ingressClassName: alb
       rules:
@@ -206,11 +195,7 @@ Let's create the kubernetes objects as discussed above:
                   number: 3000
     ```
 
-Observe the following:
-
-1. We've provided the health check paths for each of the microservices using the `alb.ingress.kubernetes.io/healthcheck-path` annotation.
-2. In the ingress, we have used `host` in the rules to route traffic to a particular microservice based on matching host.
-3. We haven't provided `certificate-arn` because SSL discovery would work via host.
+Observe that we have provided the ExternalDNS configuration for each of the microservices using the `external-dns.alpha.kubernetes.io/hostname` annotation.
 
 Assuming your folder structure looks like the one below:
 
@@ -250,14 +235,12 @@ kubectl get svc
 kubectl get ingress
 ```
 
-Also, go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
 
-Pay close attention to the listener rules that were created. You will notice that, based on the host header, traffic is directed to a particular microservice.
+## Step 3: Verify AWS Resources in AWS Console
 
+Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
-## Step 3: Add Records in Route 53
-
-Go to AWS Route 53 and add two `A` records (`api.example.com` and `app.example.com`) that points to the load balancer that was created. You can use alias to point the subdomain to the load balancer.
+Also, go to AWS Route 53 and verify the records (`api.example.com` and `app.example.com`) that were added by ExternalDNS.
 
 
 ## Step 4: Access App Using Route 53 DNS
@@ -274,7 +257,8 @@ https://api.example.com
 https://app.example.com
 ```
 
-Also, verify that `HTTP` is redirected to `HTTPS`.
+!!! note
+    For this demo, we have not enabled SSL to maintain the focus on the ExternalDNS annotation. However, you can add SSL-specific annotations to enable SSL if needed.
 
 
 
@@ -295,7 +279,7 @@ Let's delete all the resources we created:
 kubectl delete -f manifests/
 ```
 
-Also, go to Route 53 and delete the `A` records that you created.
+The Route 53 records will also be deleted when the ingress is deleted.
 
 
 <!-- Hyperlinks -->

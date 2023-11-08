@@ -44,7 +44,7 @@ We'll do the following:
 2. Create a deployment and service for `notifications` microservice.
 3. Create a deployment and service for `feed` microservice.
 4. Create a ingress that sends traffic to one of the microservices based on the path.
-5. We'll also provide separate health check path for each microservie using `alb.ingress.kubernetes.io/healthcheck-path` annotation in the service definition of each microservice.
+5. We'll also provide separate health check path for each microservice using `alb.ingress.kubernetes.io/healthcheck-path` annotation in the service definition of each microservice.
 
 
 
