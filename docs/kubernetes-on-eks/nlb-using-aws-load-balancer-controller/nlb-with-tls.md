@@ -1,24 +1,44 @@
 ---
-description: Enhance Network Load Balancer (NLB) performance with Health Check. Learn how to optimize NLB for reliable and efficient load balancing.
+description: Secure your Network Load Balancer (NLB) with TLS. Discover how to add an extra layer of encryption to your NLB for enhanced security. 
 ---
 
-# Network Load Balancer With Health Check
+# Network Load Balancer With TLS
 
-Health check on target groups can be controlled with following annotations:
+SSL support can be controlled with the following annotations:
 
 | Annotation | Function |
-|------------|------------|
-| <a>`alb.ingress.kubernetes.io/healthcheck-protocol`</a> |specifies the protocol used when performing health check on targets. |
-| <a>`alb.ingress.kubernetes.io/healthcheck-port`</a> | specifies the port used when performing health check on targets. When using `target-type: instance` with a service of type `NodePort`, the healthcheck port can be set to `traffic-port` to automatically point to the correct port. |
-| <a>`alb.ingress.kubernetes.io/healthcheck-path`</a> | specifies the HTTP path when performing health check on targets. |
-| <a>`alb.ingress.kubernetes.io/healthcheck-interval-seconds`</a> | specifies the interval(in seconds) between health check of an individual target. |
-| <a>`alb.ingress.kubernetes.io/healthcheck-timeout-seconds`</a> | specifies the timeout(in seconds) during which no response from a target means a failed health check. |
-| <a>`alb.ingress.kubernetes.io/success-codes`</a> | specifies the HTTP or gRPC status code that should be expected when doing health checks against the specified health check path. |
-| <a>`alb.ingress.kubernetes.io/healthy-threshold-count`</a> | specifies the consecutive health checks successes required before considering an unhealthy target healthy. |
-| <a>`alb.ingress.kubernetes.io/unhealthy-threshold-count`</a> | specifies the consecutive health check failures required before considering a target unhealthy. |
+|----------------------------------------------|----------|
+| <a>`alb.ingress.kubernetes.io/certificate-arn`</a> |specifies the `ARN` of one or more certificate managed by AWS Certificate Manager. The first certificate in the list will be added as default certificate. And remaining certificate will be added to the optional certificate list. |
+| <a>`alb.ingress.kubernetes.io/ssl-policy`</a> | specifies the Security Policy that should be assigned to the ALB, allowing you to control the protocol and ciphers. This is optional and defaults to `ELBSecurityPolicy-2016-08` |
 
-The Load Balancer Controller currently ignores the `timeout` configuration due to the limitations on the AWS NLB. The default `timeout` for `TCP` is 10s and `HTTP` is 6s.
 
+## Prerequisite
+
+To follow this tutorial, you'll require a domain and, additionally, an SSL certificate for the domain and its subdomains.
+
+1. Register a Route 53 Domain
+
+    Go to AWS Console and register a Route 53 domain. You can opt for a cheaper TLD (top level domain) such as `.link`
+
+    !!! note
+        It usually takes about 10 minutes but it might take about an hour for the registered domain to become available.
+
+2. Request a Public Certificate
+
+    Visit AWS Certificate Manager in AWS Console and request a public certificate for your domain and all the subdomains. For example, if you registered for a domain `example.com` then request certificate for `example.com` and `*.example.com`
+
+    !!! note
+        Make sure you request the certificate in the region where your EKS cluster is in.
+
+3. Validate the Certificate
+
+    Validate the requested certificate by adding `CNAME` records in Route 53. It is a very simple process. Go to the certificate you created and click on `Create records in Route 53`. The `CNAMEs` will be automatically added to Route 53.
+
+    !!! note
+        It usually takes about 5 minutes but it might take about an hour for the certificate to be ready for use.
+
+
+Now that you have everything you need, let's move on to the demonstration.
 
 
 ## Docker Images
@@ -102,14 +122,20 @@ Let's create a `LoadBalancer` service as follows:
         service.beta.kubernetes.io/aws-load-balancer-healthcheck-timeout: '2' # ignored
         service.beta.kubernetes.io/aws-load-balancer-healthcheck-healthy-threshold: '2'
         service.beta.kubernetes.io/aws-load-balancer-healthcheck-unhealthy-threshold: '2'
+        # TLS
+        service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:ap-south-1:170476043077:certificate/2d88e035-cde7-472a-9cd3-6b6ce6ece961
+        service.beta.kubernetes.io/aws-load-balancer-ssl-ports: '443'
+        service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
     spec:
       type: LoadBalancer
       selector:
         app: demo
       ports:
-        - port: 80
+        - port: 443 # Creates a listener with port 443
           targetPort: 5000
     ```
+
+Be sure to replace the value of `alb.ingress.kubernetes.io/certificate-arn` with the `ARN` of the SSL certificate you created.
 
 Apply the manifest to create the service:
 
@@ -141,25 +167,27 @@ kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-control
 ```
 
 
-## Step 5: Access App Via Network Load Balancer DNS
+## Step 5: Add Record in Route 53
 
-Once the load balancer is in `Active` state, you can hit the load balancer DNS and verify if everything is working properly.
+Go to AWS Route 53 and add an `A` record (e.g `api.example.com`) for your domain that points to the Network Load Balancer. You can use alias to point the subdomain to the network load balancer that was created.
 
-Access the load balancer DNS by entering it in your browser. You can get the load balancer DNS either from the AWS console or the Ingress configuration.
+
+## Step 6: Access App Using Route 53 DNS
+
+Once the load balancer is in `Active` state, you can hit the subdomain you created in Route 53 and verify if everything is working properly.
 
 Try accessing the following paths:
 
 ```
 # Root path
-<nlb-dns>/
+https://api.example.com/
 
 # Health path
-<nlb-dns>/health
+https://api.example.com/health
 
 # Random generator path
-<nlb-dns>/random
+https://api.example.com/random
 ```
-
 
 
 ## Clean Up
@@ -179,13 +207,12 @@ kubectl delete -f manifests/
 ```
 
 
-
 !!! quote "References:"
     !!! quote ""
-        * [Health Check Annotations]{:target="_blank"}
+        * [SSL Annotations]{:target="_blank"}
 
 
 
 <!-- Hyperlinks -->
-[Health Check Annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/#health-check
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
+[SSL Annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/#ssl
