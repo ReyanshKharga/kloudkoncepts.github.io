@@ -126,17 +126,41 @@ kubectl get svc
 Note that we are offloading the reconciliation to AWS Load Balancer Controller using the `service.beta.kubernetes.io/aws-load-balancer-type: external` annotation.
 
 
-## Troubleshooting
+## Step 4: Verify AWS Resources in AWS Console
 
-If you don't see the load balancer in the AWS console, this means the ingress has some issue. To identify the underlying issue, you can examine the logs of the controller as follows:
+Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
+
+Pay close attention to the health check configuration of the target group that ingress created.
+
+Note that the Load Balancer takes some time to become `Active`.
+
+Also, verify that the NLB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
 
 ```
-# Describe the ingress
-kubectl describe ing my-ingress
-
-# View aws load balancer controller logs
 kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
 ```
+
+
+## Step 5: Access App Via Network Load Balancer DNS
+
+Once the load balancer is in `Active` state, you can hit the load balancer DNS and verify if everything is working properly.
+
+Access the load balancer DNS by entering it in your browser. You can get the load balancer DNS either from the AWS console or the Ingress configuration.
+
+Try accessing the following paths:
+
+```
+# Root path
+<nlb-dns>/
+
+# Health path
+<nlb-dns>/health
+
+# Random generator path
+<nlb-dns>/random
+```
+
+
 
 ## Clean Up
 
@@ -145,8 +169,7 @@ Assuming your folder structure looks like the one below:
 ```
 |-- manifests
 │   |-- my-deployment.yml
-│   |-- my-nodeport-service.yml
-│   |-- my-ingress.yml
+│   |-- my-service.yml
 ```
 
 Let's delete all the resources we created:
@@ -160,7 +183,6 @@ kubectl delete -f manifests/
 !!! quote "References:"
     !!! quote ""
         * [Health Check Annotations]{:target="_blank"}
-
 
 
 
