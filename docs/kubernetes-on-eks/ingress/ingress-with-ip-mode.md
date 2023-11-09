@@ -50,7 +50,7 @@ First, let's create a deployment as follows:
               - containerPort: 5000
     ```
 
-Apply the manifest to create the Deployment:
+Apply the manifest to create the deployment:
 
 ```
 kubectl apply -f my-deployment.yml
