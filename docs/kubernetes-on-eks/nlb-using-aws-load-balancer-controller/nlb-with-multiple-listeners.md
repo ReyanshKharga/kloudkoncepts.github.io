@@ -1,15 +1,12 @@
 ---
-description: Secure your Network Load Balancer (NLB) with TLS. Discover how to add an extra layer of encryption to your NLB for enhanced security. 
+description: Maximize Network Load Balancer (NLB) capabilities with Multiple Listeners. Learn how to efficiently configure and manage multiple listeners for optimized load balancing. Elevate your NLB performance now!
 ---
 
-# Network Load Balancer With TLS
+# Network Load Balancer With Multiple Listeners
 
-SSL support can be controlled with the following annotations:
+You can create multiple listener rules in NLB by specifying multiple `ports` in the kubernetes service definition.
 
-| Annotation | Function |
-|----------------------------------------------|----------|
-| <a>`alb.ingress.kubernetes.io/certificate-arn`</a> |specifies the `ARN` of one or more certificate managed by AWS Certificate Manager. The first certificate in the list will be added as default certificate. And remaining certificate will be added to the optional certificate list. |
-| <a>`alb.ingress.kubernetes.io/ssl-policy`</a> | specifies the Security Policy that should be assigned to the ALB, allowing you to control the protocol and ciphers. This is optional and defaults to `ELBSecurityPolicy-2016-08` |
+For each listener, one target group will be created.
 
 
 ## Prerequisite
@@ -131,7 +128,11 @@ Let's create a `LoadBalancer` service as follows:
       selector:
         app: demo
       ports:
-        - port: 443 # Creates a listener with port 443
+        - name: http
+          port: 443 # Creates a listener with port 443
+          targetPort: 5000
+        - name: https
+          port: 80 # Creates a listener with port 80
           targetPort: 5000
     ```
 
@@ -151,12 +152,14 @@ kubectl get svc
 
 Note that we are offloading the reconciliation to AWS Load Balancer Controller using the `service.beta.kubernetes.io/aws-load-balancer-type: external` annotation.
 
+For each item in the `.spec.ports` a listener rule and corresponding target group will be created.
+
 
 ## Step 3: Verify AWS Resources in AWS Console
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
-Pay close attention to the health check configuration of the target group.
+Pay close attention to the listener rules and target groups that were created.
 
 Note that the Load Balancer takes some time to become `Active`.
 
@@ -180,14 +183,21 @@ Try accessing the following paths:
 
 ```
 # Root path
+http://api.example.com/
 https://api.example.com/
 
 # Health path
+http://api.example.com/health
 https://api.example.com/health
 
 # Random generator path
+http://api.example.com/random
 https://api.example.com/random
 ```
+
+!!! note "How about redirecting HTTP to HTTPS?"
+    AWS Network Load Balancer cannot handle layer 7 thus cannot redirect `HTTP` to `HTTPS`.
+
 
 
 ## Clean Up
@@ -207,12 +217,5 @@ kubectl delete -f manifests/
 ```
 
 
-!!! quote "References:"
-    !!! quote ""
-        * [SSL Annotations]{:target="_blank"}
-
-
-
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
-[SSL Annotations]: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/ingress/annotations/#ssl
