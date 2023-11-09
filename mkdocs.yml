@@ -174,6 +174,9 @@ nav:
       - ExternalDNS Demo With One Host: ./kubernetes-on-eks/external-dns/external-dns-demo-with-one-host.md
       - ExternalDNS Demo With Multiple Hosts: ./kubernetes-on-eks/external-dns/external-dns-demo-with-multiple-hosts.md
       - ExternalDNS Demo With Private Hosted Zone: ./kubernetes-on-eks/external-dns/external-dns-demo-with-private-hosted-zone.md
+    - NLB Using AWS Load Balancer Controller:
+      - Introduction to NLB Using AWS Load Balancer Controller: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/introduction-to-nlb-using-aws-load-balancer-controller.md
+      - Offload Reconciliation of NLB to LBC Using loadBalancerClass: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/offload-reconciliation-of-nlb-to-lbc-using-loadbalancerclass.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Networking: ./devops-and-sre-interview-questions/networking.md
