@@ -152,7 +152,7 @@ kubectl get svc
 Note that we are offloading the reconciliation to AWS Load Balancer Controller using the `service.beta.kubernetes.io/aws-load-balancer-type: external` annotation.
 
 
-## Step 4: Verify AWS Resources in AWS Console
+## Step 3: Verify AWS Resources in AWS Console
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
@@ -167,12 +167,12 @@ kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-control
 ```
 
 
-## Step 5: Add Record in Route 53
+## Step 4: Add Record in Route 53
 
 Go to AWS Route 53 and add an `A` record (e.g `api.example.com`) for your domain that points to the Network Load Balancer. You can use alias to point the subdomain to the network load balancer that was created.
 
 
-## Step 6: Access App Using Route 53 DNS
+## Step 5: Access App Using Route 53 DNS
 
 Once the load balancer is in `Active` state, you can hit the subdomain you created in Route 53 and verify if everything is working properly.
 
