@@ -2,7 +2,7 @@
 description: Boost application reliability and performance. Explore our guide on creating Kubernetes Ingress with Health Check. Discover how to configure proactive health checks for your services and streamline traffic management. Elevate your Kubernetes deployment with Ingress and Health Check configuration.
 ---
 
-# Create Ingress With Health Check
+# Network Load Balancer With Health Check
 
 Health check on target groups can be controlled with following annotations:
 
@@ -17,18 +17,8 @@ Health check on target groups can be controlled with following annotations:
 | <a>`alb.ingress.kubernetes.io/healthy-threshold-count`</a> | specifies the consecutive health checks successes required before considering an unhealthy target healthy. |
 | <a>`alb.ingress.kubernetes.io/unhealthy-threshold-count`</a> | specifies the consecutive health check failures required before considering a target unhealthy. |
 
+The Load Balancer Controller currently ignores the `timeout` configuration due to the limitations on the AWS NLB. The default `timeout` for `TCP` is 10s and `HTTP` is 6s.
 
-## Annotation Format
-
-Annotation keys and values can only be strings. Advanced format should be encoded as below:
-
-```yaml
-boolean: 'true' # Must be quoted
-integer: '42' # Must be quoted
-stringList: s1,s2,s3
-stringMap: k1=v1,k2=v2
-json: 'jsonContent' # Must be quoted
-```
 
 
 ## Docker Images
@@ -67,7 +57,6 @@ First, let's create a deployment as follows:
           containers:
           - name: nodeapp
             image: reyanshkharga/nodeapp:v1
-            imagePullPolicy: Always
             ports:
               - containerPort: 5000
     ```
@@ -89,30 +78,43 @@ kubectl get pods
 ```
 
 
-## Step 2: Create a NodePort Service
+## Step 2: Create a LoadBalancer Service
 
-Let's create a `NodePort` service as follows:
+Let's create a `LoadBalancer` service as follows:
 
-=== ":octicons-file-code-16: `my-nodeport-service.yml`"
+=== ":octicons-file-code-16: `my-service.yml`"
 
     ```yaml linenums="1"
     apiVersion: v1
     kind: Service
     metadata:
-      name: my-nodeport-service
+      name: nlb-service
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-name: my-nlb
+        service.beta.kubernetes.io/aws-load-balancer-type: external
+        service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: instance # Must specify this annotation
+        service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing # Default is internal
+        # Health Check
+        service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: http
+        service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: traffic-port
+        service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: /health
+        service.beta.kubernetes.io/aws-load-balancer-healthcheck-interval: '10'
+        service.beta.kubernetes.io/aws-load-balancer-healthcheck-timeout: '2' # ignored
+        service.beta.kubernetes.io/aws-load-balancer-healthcheck-healthy-threshold: '2'
+        service.beta.kubernetes.io/aws-load-balancer-healthcheck-unhealthy-threshold: '2'
     spec:
-      type: NodePort
+      type: LoadBalancer
       selector:
         app: demo
       ports:
-        - port: 5000
+        - port: 80
           targetPort: 5000
     ```
 
-Apply the manifest to create the NodePort service:
+Apply the manifest to create the service:
 
 ```
-kubectl apply -f my-nodeport-service.yml
+kubectl apply -f my-service.yml
 ```
 
 Verify service:
@@ -121,102 +123,7 @@ Verify service:
 kubectl get svc
 ```
 
-If you don't explicitly provide a `nodePort`, you'll observe that the service is automatically assigned one. However, if desired, you can specify a specific `nodePort`.
-
-
-## Step 3: Create Ingress
-
-Now that we have the service ready, let's create an Ingress object with health check:
-
-=== ":octicons-file-code-16: `my-ingress.yml`"
-
-    ```yaml linenums="1"
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
-    metadata:
-      name: my-ingress
-      annotations:
-        # Load Balancer Annotations
-        alb.ingress.kubernetes.io/scheme: internet-facing # Default value is internal
-        alb.ingress.kubernetes.io/tags: Environment=dev,Team=DevOps # Optional
-        alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer # Optional
-        # Health Check Annotations
-        alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-        alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-        alb.ingress.kubernetes.io/healthcheck-path: /health
-        alb.ingress.kubernetes.io/healthcheck-interval-seconds: '5'
-        alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '2'
-        alb.ingress.kubernetes.io/success-codes: '200'
-        alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-        alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-    spec:
-      ingressClassName: alb
-      rules:
-      - http:
-          paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: my-nodeport-service
-                port:
-                  number: 5000
-    ```
-
-Observe the following:
-
-1. We have used annotations to specify load balancer and target group attributes
-2. We have one rule that matches `/` path and then routes traffic to `my-nodeport-service`
-3. We have specified health check parameters for the target group
-
-Apply the manifest to create ingress:
-
-```
-kubectl apply -f my-ingress.yml
-```
-
-Verify ingress:
-
-```
-kubectl get ingress
-{OR}
-kubectl get ing
-```
-
-
-## Step 4: Verify AWS Resources in AWS Console
-
-Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
-
-Pay close attention to the health check configuration of the target group that ingress created.
-
-Note that the Load Balancer takes some time to become `Active`.
-
-Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
-
-```
-kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
-```
-
-
-## Step 5: Access App Via Load Balancer DNS
-
-Once the load balancer is in `Active` state, you can hit the load balancer DNS and verify if everything is working properly.
-
-Access the load balancer DNS by entering it in your browser. You can get the load balancer DNS either from the AWS console or the Ingress configuration.
-
-Try accessing the following paths:
-
-```
-# Root path
-<load-balancer-dns>/
-
-# Health path
-<load-balancer-dns>/health
-
-# Random generator path
-<load-balancer-dns>/random
-```
+Note that we are offloading the reconciliation to AWS Load Balancer Controller using the `service.beta.kubernetes.io/aws-load-balancer-type: external` annotation.
 
 
 ## Troubleshooting

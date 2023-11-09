@@ -160,6 +160,12 @@ Visit the AWS console and verify the resources created by AWS Load Balancer Cont
 
 Pay close attention to the listener rules. You will observe a default listener rule that was set using `defaultBackend`.
 
+Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
+
+```
+kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
+```
+
 
 ## Troubleshooting
 

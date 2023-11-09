@@ -203,6 +203,12 @@ Visit the AWS console and verify the resources created by AWS Load Balancer Cont
 
 You'll notice that the certificate is attached to the load balancer created by the ingress. We didn't specify the certificate `ARN` in the ingress manifest, yet it was attached to the load balancer due to SSL discovery via the `host` field in the ingress rules.
 
+Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
+
+```
+kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
+```
+
 
 ## Step 5: Add Record in Route 53
 

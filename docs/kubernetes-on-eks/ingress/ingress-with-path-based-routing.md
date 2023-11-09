@@ -275,6 +275,12 @@ kubectl get ingress
 
 Also, go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
 
+Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
+
+```
+kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
+```
+
 
 ## Step 3: Access App Via Load Balancer DNS
 

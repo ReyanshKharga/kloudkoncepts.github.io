@@ -254,6 +254,12 @@ Also, go to the AWS Console and verify the resources created by the AWS Load Bal
 
 Pay close attention to the listener rules that were created. You will notice that, based on the host header, traffic is directed to a particular microservice.
 
+Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
+
+```
+kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
+```
+
 
 ## Step 3: Add Records in Route 53
 

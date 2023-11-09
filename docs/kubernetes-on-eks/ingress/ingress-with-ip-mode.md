@@ -158,6 +158,12 @@ Pay close attention to the `Listeners`, `Rules` and `TargetGroups`.
 
 You will observe that in the Target Group, IPs are registered as targets because we chose `ip` as target type. These IPs are associated with pods that `my-service` is configured to serve the traffic from.
 
+Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
+
+```
+kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
+```
+
 
 ## Step 5: Access App Via Load Balancer DNS
 

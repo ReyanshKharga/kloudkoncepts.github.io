@@ -200,6 +200,12 @@ Pay close attention to the default listener rule and certificate attached to the
 
 You'll notice that the `HTTP` is being redirected to `HTTPS`.
 
+Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
+
+```
+kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
+```
+
 
 ## Step 5: Add Record in Route 53
 

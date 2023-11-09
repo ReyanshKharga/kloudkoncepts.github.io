@@ -299,9 +299,15 @@ kubectl get svc
 kubectl get ingress
 ```
 
-Also, go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
+Go to the AWS Console and verify the resources created by the AWS Load Balancer Controller, including the load balancer, target groups, listener rules, etc.
 
 You will observe that only one load balancer was created with two rules, following the ordering defined by the `group.order` annotation in the ingress.
+
+Also, verify that the ALB was created by `AWS Load Balancer Controller`. You can check the events in the logs as follows:
+
+```
+kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-controller --all-containers=true
+```
 
 
 ## Step 3: Add Records in Route 53
