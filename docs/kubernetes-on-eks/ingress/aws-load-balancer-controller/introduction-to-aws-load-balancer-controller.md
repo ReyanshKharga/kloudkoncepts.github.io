@@ -4,16 +4,16 @@ description: Discover the power of AWS Load Balancer Controller with our compreh
 
 # Introduction to AWS Load Balancer Controller
 
-AWS Load Balancer Controller (LBC) is an Ingress controller to help manage AWS Elastic Load Balancers for a Kubernetes cluster.
+AWS Load Balancer Controller (LBC) is an Ingress controller to help manage AWS Elastic Load Balancers for a kubernetes cluster.
 
-The AWS Load Balancer Controller automates the creation and configuration of the load balancers, ensuring that they match the desired state specified in Kubernetes resources such as Services and Ingresses.
+The AWS Load Balancer Controller automates the creation and configuration of the load balancers, ensuring that they match the desired state specified in kubernetes resources such as Services and Ingresses.
 
 AWS Load Balancer Controller was formerly known as AWS ALB Ingress Controller.
 
 
 ## How Does AWS Load Balancer Controller Work?
 
-The following diagram details the AWS components the AWS Load Balancer Controller creates. It also demonstrates the route ingress traffic takes from the ALB to the Kubernetes cluster.
+The following diagram details the AWS components the AWS Load Balancer Controller creates. It also demonstrates the route ingress traffic takes from the ALB to the kubernetes cluster.
 
 <p align="center">
     <img src="../../../../assets/eks-course-images/ingress/aws-load-balancer-controller-design.png" alt="AWS Load Balancer Controller Design" />
@@ -29,7 +29,7 @@ This section describes each step (circle) above. This example demonstrates satis
 
 4. Listeners are created for every port detailed in your ingress resource annotations. When no port is specified, sensible defaults (80 or 443) are used. Certificates may also be attached via annotations.
 
-5. Rules are created for each path specified in your ingress resource. This ensures traffic to a specific path is routed to the correct Kubernetes Service.
+5. Rules are created for each path specified in your ingress resource. This ensures traffic to a specific path is routed to the correct kubernetes Service.
 
 Along with the above, the controller also:
 
@@ -53,7 +53,7 @@ By default, Instance mode is used. Users can explicitly select the mode via `alb
 
 You can add [annotations] to kubernetes Ingress and Service objects to customize their behaviour.
 
-Annotations in the AWS Load Balancer Controller are additional metadata or configuration settings that can be added to Kubernetes resources (such as Services and Ingresses) to provide specific instructions or customizations for the load balancer configuration.
+Annotations in the AWS Load Balancer Controller are additional metadata or configuration settings that can be added to kubernetes resources (such as Services and Ingresses) to provide specific instructions or customizations for the load balancer configuration.
 
 By adding annotations to kubernetes resources, you can configure advanced features like SSL/TLS termination, sticky sessions, health checks, target group attributes, cross-zone load balancing, access logs, security policies, and more.
 

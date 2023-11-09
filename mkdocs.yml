@@ -179,7 +179,7 @@ nav:
       - Offload Reconciliation of NLB to LBC Using loadBalancerClass: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/offload-reconciliation-of-nlb-to-lbc-using-loadbalancerclass.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
-      - Networking: ./devops-and-sre-interview-questions/networking.md
+      - Computer Networking: ./devops-and-sre-interview-questions/networking.md
 
 
 # Plugins

@@ -5,7 +5,7 @@ description: Commonly asked interview questions for DevOps and Site Reliability 
 
 # Introduction
 
-Start here: [Networking Questions]
+Start here: [Computer Networking Questions]
 
 <!-- Hyperlinks -->
-[Networking Questions]: https://kloudkoncepts.com/devops-and-sre-interview-questions/networking/
+[Computer Networking Questions]: https://kloudkoncepts.com/devops-and-sre-interview-questions/networking/
