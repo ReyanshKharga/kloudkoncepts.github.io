@@ -221,7 +221,7 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/images/icons/logo_orange_teal.png
+  favicon: assets/images/icons/logo_teal.png
   logo: assets/images/icons/logo.png
 
 
