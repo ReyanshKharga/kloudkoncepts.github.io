@@ -126,7 +126,7 @@ kubectl get svc
 Note that we are offloading the reconciliation to AWS Load Balancer Controller using the `service.beta.kubernetes.io/aws-load-balancer-type: external` annotation.
 
 
-## Step 4: Verify AWS Resources in AWS Console
+## Step 3: Verify AWS Resources in AWS Console
 
 Visit the AWS console and verify the resources created by AWS Load Balancer Controller.
 
@@ -141,7 +141,7 @@ kubectl logs -f deploy/aws-load-balancer-controller -n aws-load-balancer-control
 ```
 
 
-## Step 5: Access App Via Network Load Balancer DNS
+## Step 4: Access App Via Network Load Balancer DNS
 
 Once the load balancer is in `Active` state, you can hit the load balancer DNS and verify if everything is working properly.
 
