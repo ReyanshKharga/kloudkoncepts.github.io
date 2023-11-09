@@ -178,6 +178,7 @@ nav:
       - Introduction to NLB Using AWS Load Balancer Controller: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/introduction-to-nlb-using-aws-load-balancer-controller.md
       - Offload Reconciliation of NLB to LBC Using loadBalancerClass: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/offload-reconciliation-of-nlb-to-lbc-using-loadbalancerclass.md
       - NLB With Health Check: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-health-check.md
+      - NLB With TLS: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-tls.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
