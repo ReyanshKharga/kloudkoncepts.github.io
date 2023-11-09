@@ -180,6 +180,7 @@ nav:
       - NLB With Health Check: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-health-check.md
       - NLB With TLS: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-tls.md
       - NLB With Multiple Listeners: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-multiple-listeners.md
+      - Configure Internal NLB: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/internal-nlb.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
