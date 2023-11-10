@@ -26,7 +26,7 @@ In summary, `Ingress` in kubernetes is like a smart traffic controller or recept
 
 ## Traffic Routing With Ingress
 
-Here's an example of how ingress controls network traffic in kubernetes:
+Here's how ingress controls network traffic in kubernetes:
 
 <p align="center">
     <img src="../../../assets/eks-course-images/ingress/traffic-routing-with-ingress.png" alt="Traffic Routing With Ingress" />

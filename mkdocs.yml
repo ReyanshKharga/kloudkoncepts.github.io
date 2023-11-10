@@ -183,6 +183,8 @@ nav:
       - NLB With Multiple Listeners: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-multiple-listeners.md
       - Configure Internal NLB: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/internal-nlb.md
       - NLB With External DNS: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-external-dns.md
+    - Autoscaling:
+      - Introduction to Cluster Autoscaling: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/introduction-to-cluster-autoscaling.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md

@@ -6,9 +6,10 @@ description: Discover the power of AWS Load Balancer Controller with our compreh
 
 AWS Load Balancer Controller (LBC) is an Ingress controller to help manage AWS Elastic Load Balancers for a kubernetes cluster.
 
-The AWS Load Balancer Controller automates the creation and configuration of the load balancers, ensuring that they match the desired state specified in kubernetes resources such as Services and Ingresses.
+The `AWS Load Balancer Controller` automates the creation and configuration of the load balancers, ensuring that they match the desired state specified in kubernetes resources such as Services and Ingresses.
 
-AWS Load Balancer Controller was formerly known as AWS ALB Ingress Controller.
+!!! note
+    `AWS Load Balancer Controller` was formerly known as `AWS ALB Ingress Controller`.
 
 
 ## How Does AWS Load Balancer Controller Work?
