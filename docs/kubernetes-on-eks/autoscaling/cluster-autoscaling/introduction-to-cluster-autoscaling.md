@@ -2,7 +2,7 @@
 description: Explore the power of Cluster Autoscaling in Amazon EKS with our introductory guide. Learn how to dynamically scale your Kubernetes clusters to meet changing demand effortlessly. Start optimizing your EKS infrastructure with Cluster Autoscaling.
 ---
 
-# Intoroduction to Cluster Autoscaling in EKS
+# Introduction to Cluster Autoscaling in EKS
 
 Autoscaling is a function that automatically scales your resources up or down to meet changing demands. This is a major kubernetes function that would otherwise require extensive human resources to perform manually.
 

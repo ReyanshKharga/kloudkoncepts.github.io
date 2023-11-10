@@ -184,9 +184,12 @@ nav:
       - Configure Internal NLB: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/internal-nlb.md
       - NLB With External DNS: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-external-dns.md
     - Autoscaling:
-      - Introduction to Cluster Autoscaling: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/introduction-to-cluster-autoscaling.md
-      - Deploy Cluster Autoscaler in EKS: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/deploy-cluster-autoscaler-in-eks.md
-      - Cluster Autoscaler Demo: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/cluster-autoscaler-demo.md
+      - Cluster Autoscaler:
+        - Introduction to Cluster Autoscaling: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/introduction-to-cluster-autoscaling.md
+        - Deploy Cluster Autoscaler in EKS: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/deploy-cluster-autoscaler-in-eks.md
+        - Cluster Autoscaler Demo: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/cluster-autoscaler-demo.md
+      - Horizontal Pod Autoscaler:
+        - Introduction to Horizontal Pod Autoscaler: ./kubernetes-on-eks/autoscaling/horizontal-pod-autoscaling/introduction-to-horizontal-pod-autoscaler.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
