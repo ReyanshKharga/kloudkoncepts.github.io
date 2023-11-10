@@ -138,3 +138,6 @@ You can view the autoscaling events in the `cluster-autoscaler` log:
 ```
 kubectl logs -f deployment.apps/cluster-autoscaler -n kube-system
 ```
+
+<!-- Hyperlinks -->
+[reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
