@@ -134,8 +134,8 @@ Now, before we proceed with the installation of this manifest, we need to make s
 
     The final container command of the `cluster-autoscaler` Deployment should look something like this:
 
-    ```
-    command
+    ```yaml
+    command:
       - ./cluster-autoscaler
       - --v=4
       - --stderrthreshold=info
@@ -348,6 +348,44 @@ kubectl apply -f cluster-autoscaler-autodiscover.yaml
 ```
 
 
+## Step 5: View Cluster Autoscaler logs
+
+After you have deployed the Cluster Autoscaler, you can view the logs and verify that it's monitoring your cluster load.
+
+View your Cluster Autoscaler logs using the following command:
+
+```
+kubectl logs -f deployment.apps/cluster-autoscaler -n kube-system
+```
+
+The output should look something like this:
+
+```yaml
+I1205 06:53:27.855003       1 static_autoscaler.go:230] Starting main loop
+I1205 06:53:27.855390       1 filter_out_schedulable.go:65] Filtering out schedulables
+I1205 06:53:27.855400       1 filter_out_schedulable.go:132] Filtered out 0 pods using hints
+I1205 06:53:27.855405       1 filter_out_schedulable.go:170] 0 pods were kept as unschedulable based on caching
+I1205 06:53:27.855409       1 filter_out_schedulable.go:171] 0 pods marked as unschedulable can be scheduled.
+I1205 06:53:27.855414       1 filter_out_schedulable.go:82] No schedulable pods
+I1205 06:53:27.855423       1 static_autoscaler.go:419] No unschedulable pods
+I1205 06:53:27.855433       1 static_autoscaler.go:466] Calculating unneeded nodes
+I1205 06:53:27.855444       1 pre_filtering_processor.go:66] Skipping ip-192-168-100-52.ap-south-1.compute.internal - node group min size reached
+I1205 06:53:27.855449       1 pre_filtering_processor.go:66] Skipping ip-192-168-71-21.ap-south-1.compute.internal - node group min size reached
+I1205 06:53:27.855467       1 static_autoscaler.go:520] Scale down status: unneededOnly=false lastScaleUpTime=2022-12-05 05:49:57.069585724 +0000 UTC m=-3579.325882549 lastScaleDownDeleteTime=2022-12-05 05:49:57.069585724 +0000 UTC m=-3579.325882549 lastScaleDownFailTime=2022-12-05 05:49:57.069585724 +0000 UTC m=-3579.325882549 scaleDownForbidden=false isDeleteInProgress=false scaleDownInCooldown=false
+I1205 06:53:27.855487       1 static_autoscaler.go:533] Starting scale down
+I1205 06:53:27.855513       1 scale_down.go:918] No candidates for scale down
+```
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [Cluster Autoscaler YAML For AWS]{:target="_blank"}
+        * [Cluster Autoscaler IAM Policy]{:target="_blank"}
+
+
+
 <!-- Hyperlinks -->
 [IAM Policy]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#iam-policy
 [releases]: https://github.com/kubernetes/autoscaler/releases
+[Cluster Autoscaler YAML For AWS]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml
+[Cluster Autoscaler IAM Policy]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#iam-policy
