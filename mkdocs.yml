@@ -176,7 +176,8 @@ nav:
       - ExternalDNS Demo With Private Hosted Zone: ./kubernetes-on-eks/external-dns/external-dns-demo-with-private-hosted-zone.md
     - NLB Using AWS Load Balancer Controller:
       - Introduction to NLB Using AWS Load Balancer Controller: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/introduction-to-nlb-using-aws-load-balancer-controller.md
-      - Offload Reconciliation of NLB to LBC Using loadBalancerClass: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/offload-reconciliation-of-nlb-to-lbc-using-loadbalancerclass.md
+      - Reconciliation of NLB to LBC Using loadBalancerClass: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/offload-reconciliation-of-nlb-to-lbc-using-loadbalancerclass.md
+      - Reconciliation of NLB to LBC Using Annotation: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/offload-reconciliation-of-nlb-to-lbc-using-annotation.md
       - NLB With Health Check: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-health-check.md
       - NLB With TLS: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-tls.md
       - NLB With Multiple Listeners: ./kubernetes-on-eks/nlb-using-aws-load-balancer-controller/nlb-with-multiple-listeners.md
@@ -223,8 +224,8 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/images/icons/logo_black.png
-  logo: assets/images/icons/logo.png
+  favicon: assets/images/icons/logo_teal.png
+  logo: assets/images/icons/logo_white.png
 
 
 # Extra
