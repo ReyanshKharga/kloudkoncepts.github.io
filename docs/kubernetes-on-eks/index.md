@@ -58,7 +58,7 @@ Dive in and get your hands dirty with real-world skills!
 
 ## About the Instructor
 
-Greetings, I'm [Reyansh Kharga]{:target="_blank"}, your instructor for the course `Amazon EKS Masterclass: Kubernetes and Microservices on EKS`.
+Hi, I'm [Reyansh Kharga]{:target="_blank"}, your instructor for the course `Amazon EKS Masterclass: Kubernetes and Microservices on EKS`.
 
 As a Solutions Architect, I bring a wealth of experience and a deep passion for crafting, designing, and implementing highly available architectures on public cloud platforms.
 
