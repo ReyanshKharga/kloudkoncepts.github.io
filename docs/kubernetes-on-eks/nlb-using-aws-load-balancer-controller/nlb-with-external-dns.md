@@ -1,5 +1,5 @@
 ---
-description: 
+description: Unlock the power of Network Load Balancer (NLB) with External DNS. Learn to seamlessly integrate and optimize NLB for public access. Configure External DNS to enhance your NLB capabilities.
 ---
 
 # Network Load Balancer With External DNS
