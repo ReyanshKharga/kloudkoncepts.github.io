@@ -102,7 +102,15 @@ kubectl apply -f deployment.yml
 kubectl get pods
 ```
 
-You might notice the new pods getting stuck in the `Pending` state due to the lack of CPU resources. At this point, the autoscaler will assess the autoscaling needs and launch additional instances in the node group.
+You might notice the new pods getting stuck in the `Pending` state due to the lack of CPU resources.
+
+Describe the pod to determine why it is still in a `Pending` state:
+
+```
+kubectl describe pod <pod-name>
+```
+
+At this point, the autoscaler will assess the autoscaling needs and launch additional instances in the node group.
 
 Once the new nodes are up and running, the new pods can be scheduled.
 
