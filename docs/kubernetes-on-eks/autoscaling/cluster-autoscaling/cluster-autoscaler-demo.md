@@ -110,7 +110,7 @@ Describe the pod to determine why it is still in a `Pending` state:
 kubectl describe pod <pod-name>
 ```
 
-At this point, the autoscaler will assess the autoscaling needs and launch additional instances in the node group.
+At this point, the Cluster Autoscaler will assess the autoscaling needs and launch additional instances in the node group.
 
 Once the new nodes are up and running, the new pods can be scheduled.
 
@@ -146,6 +146,8 @@ You can view the autoscaling events in the `cluster-autoscaler` log:
 ```
 kubectl logs -f deployment.apps/cluster-autoscaler -n kube-system
 ```
+
+
 
 <!-- Hyperlinks -->
 [reyanshkharga/nodeapp:v1]: https://hub.docker.com/r/reyanshkharga/nodeapp
