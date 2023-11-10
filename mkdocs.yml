@@ -186,6 +186,7 @@ nav:
     - Autoscaling:
       - Introduction to Cluster Autoscaling: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/introduction-to-cluster-autoscaling.md
       - Deploy Cluster Autoscaler in EKS: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/deploy-cluster-autoscaler-in-eks.md
+      - Cluster Autoscaler Demo: ./kubernetes-on-eks/autoscaling/cluster-autoscaling/cluster-autoscaler-demo.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
