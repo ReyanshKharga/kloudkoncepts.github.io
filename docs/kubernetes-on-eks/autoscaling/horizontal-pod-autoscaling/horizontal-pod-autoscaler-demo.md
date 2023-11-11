@@ -23,8 +23,8 @@ Here is the Docker Image used in this tutorial: [reyanshkharga/nodeapp:v1]{:targ
 
 We'll follow these steps to test the Horizontal Pod Autoscaler (HPA):
 
-1. We'll create a deployment and a service object.
-2. We'll create hpaHorizontalPodAutoscaler object for the deployment.
+1. We'll create a `Deployment` and a `Service` object.
+2. We'll create `hpaHorizontalPodAutoscaler` object for the deployment.
 3. We'll use a load generator to generate load on pods managed by the deployment.
 3. We'll observe HPA taking autoscaling actions to meet the increased demand.
 
