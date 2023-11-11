@@ -4,8 +4,6 @@ description: Unlock the power of Kubernetes with our comprehensive introduction 
 
 # Introduction to Amazon EKS
 
-## What is Amazon EKS?
-
 Amazon EKS (Elastic Kubernetes Service) is a fully-managed Kubernetes service offered by AWS.
 
 It simplifies the process of deploying, managing, and scaling containerized applications using Kubernetes on AWS infrastructure.
