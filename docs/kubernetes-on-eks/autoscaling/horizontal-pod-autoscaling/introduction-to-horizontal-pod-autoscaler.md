@@ -10,7 +10,7 @@ This can help your applications scale out to meet increased demand or scale in w
 
 The Horizontal Pod Autoscaler is a standard API resource in kubernetes that simply requires that a metrics source (such as the kubernetes metrics server) is installed on your Amazon EKS cluster to work. You do not need to deploy or install the Horizontal Pod Autoscaler on your cluster to begin scaling your applications.
 
-You need to set `pod.spec.container.resources.requests` and/or `pod.spec.container.resources.limits` in order to allow HPA to calculate resource utilization percentage which it can then use to determine autoscaling actions.
+You need to set `requests` and/or `limits` for containers in order to allow HPA to calculate resource utilization percentage which it can then use to determine autoscaling actions.
 
 
 !!! note
