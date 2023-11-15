@@ -50,5 +50,12 @@ Let's deploy the Vertical Pod Autoscaler (VPA) in our EKS cluster.
 
 
 
+!!! quote "References:"
+    !!! quote ""
+        * [Deploy Vertical Pod Autoscaler]{:target="_blank"}
+        * [kubernetes/autoscaler GitHub Repo]{:target="_blank"}
+
 <!-- Hyperlinks -->
+[Deploy Vertical Pod Autoscaler]: https://docs.aws.amazon.com/eks/latest/userguide/vertical-pod-autoscaler.html
+[kubernetes/autoscaler GitHub Repo]: https://github.com/kubernetes/autoscaler/tree/master
 [kubernetes/autoscaler]: https://github.com/kubernetes/autoscaler/tree/master
