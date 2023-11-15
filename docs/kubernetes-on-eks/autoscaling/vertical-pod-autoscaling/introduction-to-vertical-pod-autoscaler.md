@@ -8,7 +8,7 @@ The Kubernetes `Vertical Pod Autoscaler (VPA)` is a resource management componen
 
 In summary, the kubernetes Vertical Pod Autoscaler automatically adjusts the CPU and memory reservations for your pods to help "right size" your applications.
 
-Amazon EKS does not come pre-equipped with the Vertical Pod Autoscaler (VPA). To leverage VPA's capabilities for optimizing pod resource allocations, we need to install it on our EKS cluster.
+Amazon EKS does not come pre-equipped with the Vertical Pod Autoscaler (VPA). To leverage VPA's capabilities for optimizing pod resource allocations, we need to deploy it on our EKS cluster.
 
 !!! note
     You must have a metrics source for example `metrics-server` installed in your kubernetes cluster.

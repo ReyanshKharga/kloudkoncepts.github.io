@@ -193,6 +193,7 @@ nav:
         - Horizontal Pod Autoscaler Demo: ./kubernetes-on-eks/autoscaling/horizontal-pod-autoscaling/horizontal-pod-autoscaler-demo.md
       - Vertical Pod Autoscaler:
         - Introduction to Vertical Pod Autoscaler: ./kubernetes-on-eks/autoscaling/vertical-pod-autoscaling/introduction-to-vertical-pod-autoscaler.md
+        - Deploy Vertical Pod Autoscaler: ./kubernetes-on-eks/autoscaling/vertical-pod-autoscaling/deploy-vertical-pod-autoscaler.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
