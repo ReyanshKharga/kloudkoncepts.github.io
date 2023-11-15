@@ -62,7 +62,9 @@ There are four modes in which VPAs operate:
 !!! quote "References:"
     !!! quote ""
         * [Vertical Pod Autoscaler]{:target="_blank"}
+        * [VPA GitHub Repo]{:target="_blank"}
 
 
 <!-- Hyperlinks -->
 [Vertical Pod Autoscaler]: https://docs.aws.amazon.com/eks/latest/userguide/vertical-pod-autoscaler.html
+[VPA GitHub Repo]: https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
