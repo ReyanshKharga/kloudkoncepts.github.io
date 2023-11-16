@@ -58,6 +58,17 @@ There are four modes in which VPAs operate:
 4. **Off:** VPA does not automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.
 
 
+## Known Limitations of VPA
+
+1. Whenever VPA updates the pod resources, the pod is recreated, which causes all running containers to be recreated. The pod may be recreated on a different node.
+2. Vertical Pod Autoscaler should not be used with the Horizontal Pod Autoscaler (HPA) on CPU or memory at this moment.
+3. VPA performance has not been tested in large clusters.
+4. VPA cannot guarantee that pods it evicts or deletes to apply recommendations (when configured in Auto and Recreate modes) will be successfully recreated. This can be partly addressed by using VPA together with Cluster Autoscaler.
+5. VPA recommendation might exceed available resources (e.g. Node size, available size, available quota) and cause pods to go pending. This can be partly addressed by using VPA together with Cluster Autoscaler.
+6. Multiple VPA resources matching the same pod have undefined behavior.
+
+
+
 
 !!! quote "References:"
     !!! quote ""

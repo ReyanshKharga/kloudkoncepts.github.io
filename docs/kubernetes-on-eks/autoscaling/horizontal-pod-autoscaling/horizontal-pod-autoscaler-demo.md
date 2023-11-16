@@ -24,8 +24,8 @@ Here is the Docker Image used in this tutorial: [reyanshkharga/nodeapp:v1]{:targ
 We'll follow these steps to test the Horizontal Pod Autoscaler (HPA):
 
 1. We'll create a `Deployment` and a `Service` object.
-2. We'll create `hpaHorizontalPodAutoscaler` object for the deployment.
-3. We'll use a load generator to generate load on pods managed by the deployment.
+2. We'll create `HorizontalPodAutoscaler` object for the deployment.
+3. We'll generate load on pods managed by the deployment.
 3. We'll observe HPA taking autoscaling actions to meet the increased demand.
 
 Let's see this in action!
@@ -85,7 +85,7 @@ Note that each pod can consume a maximum of `100m` CPU and `128Mi` memory.
 
 ## Step 2: Create a Service
 
-Next, let's create a service as follows:
+Next, let's create a `LoadBalancer` service as follows:
 
 === ":octicons-file-code-16: `my-service.yml`"
 
@@ -95,6 +95,7 @@ Next, let's create a service as follows:
     metadata:
       name: my-service
     spec:
+      type: LoadBalancer
       selector:
         app: demo
       ports:
@@ -161,39 +162,19 @@ Verify HPA:
 kubectl get hpa
 
 # Describe hpa to view the events
-kubectl descripe hpa <hpa-name>
+kubectl descripe hpa my-hpa
 ```
 
 
-## Step 4: Create a Load Generator
+## Step 4: Generate Load
 
-Let's create a load generator pod that generates load on the pods managed by the deployment:
-
-=== ":octicons-file-code-16: `load-generator.yml`"
-
-    ```yaml linenums="1"
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: load-generator
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
-        args:
-          - /bin/sh
-          - -c
-          - "while sleep 0.001; do curl http://my-service; done"
-      restartPolicy: Never
-    ```
-
-This load generator generates load on `my-deployment` pods by invoking `my-service` every 0.001 seconds.
-
-Apply the manifest to create load generator:
+Let's generate load on the pods managed by the deployment. On your local machine run the following command to generate the load:
 
 ```
-kubectl apply -f load-generator.yml
+while sleep 1; do seq 1000 | xargs -P100 -I{} curl -s <load-balancer-dns> > /dev/null; done
 ```
+
+The above command concurrently sends 1000 requests per second to the LoadBalancer service using 100 parallel processes.
 
 
 ## Step 5: Monitor Pods and HPA Events
@@ -237,7 +218,6 @@ Assuming your folder structure looks like the one below:
 │   |-- my-deployment.yml
 │   |-- my-service.yml
 │   |-- my-hpa.yml
-│   |-- load-generator.yml
 ```
 
 Let's delete all the resources we created:

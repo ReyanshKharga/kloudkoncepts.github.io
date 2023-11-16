@@ -49,7 +49,6 @@ Let's deploy the Vertical Pod Autoscaler (VPA) in our EKS cluster.
     ```
 
 
-
 !!! quote "References:"
     !!! quote ""
         * [Deploy Vertical Pod Autoscaler]{:target="_blank"}
