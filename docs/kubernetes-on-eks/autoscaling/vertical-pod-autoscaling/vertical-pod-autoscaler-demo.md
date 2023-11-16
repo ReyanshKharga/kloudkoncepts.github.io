@@ -163,7 +163,7 @@ Verify VPA:
 # List vpa
 kubectl get vpa
 
-# Describe hpa to view the events
+# Describe vpa to view the events
 kubectl descripe vpa my-vpa
 ```
 
@@ -191,7 +191,7 @@ kubectl get pods -w
 # List vpa in watch mode
 kubectl get vpa -w
 
-# View hpa events
+# View vpa events
 kubectl describe vpa my-vpa
 ```
 
