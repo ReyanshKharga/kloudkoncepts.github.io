@@ -98,6 +98,38 @@ Let's create the kubernetes objects for our MongoDB database microservice as fol
       name: mongodb
     ```
 
+=== ":octicons-file-code-16: `storageclass.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: mongodb-storageclass
+    provisioner: ebs.csi.aws.com
+    parameters:
+      type: gp3
+      tagSpecification_1: "Name=eks-mongodb-storage"
+      tagSpecification_2: "CreatedBy=aws-ebs-csi-driver"
+    reclaimPolicy: Delete
+    ```
+
+=== ":octicons-file-code-16: `pvc.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: mongodb-pvc
+      namespace: mongodb
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: mongodb-storageclass
+      resources:
+        requests:
+          storage: 4Gi
+    ```
+
 === ":octicons-file-code-16: `deployment-and-service.yml`"
 
     ```yaml linenums="1"
@@ -143,38 +175,6 @@ Let's create the kubernetes objects for our MongoDB database microservice as fol
       ports:
         - port: 27017
           targetPort: 27017
-    ```
-
-=== ":octicons-file-code-16: `storageclass.yml`"
-
-    ```yaml linenums="1"
-    apiVersion: storage.k8s.io/v1
-    kind: StorageClass
-    metadata:
-      name: mongodb-storageclass
-    provisioner: ebs.csi.aws.com
-    parameters:
-      type: gp3
-      tagSpecification_1: "Name=eks-mongodb-storage"
-      tagSpecification_2: "CreatedBy=aws-ebs-csi-driver"
-    reclaimPolicy: Delete
-    ```
-
-=== ":octicons-file-code-16: `pvc.yml`"
-
-    ```yaml linenums="1"
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: mongodb-pvc
-      namespace: mongodb
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      storageClassName: mongodb-storageclass
-      resources:
-        requests:
-          storage: 4Gi
     ```
 
 Assuming your folder structure looks like the one below:
