@@ -109,6 +109,15 @@ We are going to deploy the following microservices on our EKS kubernetes cluster
 3. `React Frontend microservice`: uses docker image `reyanshkharga/reactapp:v1`
 
 
+The following diagram illustrates the communication between microservices:
+
+``` mermaid
+graph LR
+  A(Frontend) -..-> B(Backend);
+  B -..-> C[(Database)];
+```
+
+
 !!! note
     We will use the same load balancer for both backend and frontend microservices because using more load balancers will be expensive since load balancers are charged hourly. We can achieve this using [IngressGroup]{:target="_blank"}.
 

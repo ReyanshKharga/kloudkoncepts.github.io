@@ -80,3 +80,9 @@ background-color: rgb(0, 191, 165);
         mask-image: var(--md-admonition-icon--note);
 }
 /* Custom Admonition for Note */
+
+/* Mermaid alignment */
+.mermaid {
+    text-align: center;
+ }
+ /* Mermaid alignment */

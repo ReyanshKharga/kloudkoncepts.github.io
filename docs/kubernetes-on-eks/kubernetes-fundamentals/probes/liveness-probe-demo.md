@@ -34,10 +34,21 @@ We'll be using the `liveness` tag of the image. [reyanshkharga/nodeapp:liveness]
 
 Here's the flowchart to illustrate the working of `reyanshkharga/nodeapp:liveness` app:
 
-<p align="left">
+<!-- <p align="left">
     <img src="../../../../assets/eks-course-images/probes/nodeapp-flow-liveness.png" alt="Nodeapp Flow - Liveness Tag" />
-</p>
+</p> -->
 
+``` mermaid
+graph LR
+  A(Start) --> B{Healthy?};
+  B -->|True| C{{"Generate random 
+  number in [1,10]"}};
+  B -->|False| D(Error Response);
+  C -->|Number is 9| E("Error response and 
+  App becomes 
+  unhealthy");
+  C -->|Number is not 9| F(Successful Response);
+```
 
 
 ## Step 1: Create Deployment Without Liveness Probe
