@@ -207,7 +207,7 @@ This will create the following kubernetes objects:
 
 We are using Amazon EBS to persist the MongoDB data. EBS is provisioned dynamically using AWS EBS-CSI driver.
 
-With [persistent volume] even if the MongoDB pod goes down the data will remain intact. When the new pod comes up we'll have the access to the same data.
+With [persistent volume]{:target="_blank"} even if the MongoDB pod goes down the data will remain intact. When the new pod comes up we'll have the access to the same data.
 
 
 Verify if the resources were created successfully:
