@@ -17,7 +17,7 @@ You can download and install Docker on the platform of your choice, including Ma
 
 `Docker Engine` is the core software that allows you to create and run Docker containers, while `Docker Desktop` is a complete development environment that includes Docker Engine and several other tools and services for building and testing Docker applications on your local machine.
 
-!!! info
+!!! note
     Docker Desktop is the only way to install the Docker Engine on `Windows` and `macOS` operating systems.
 
 Docker Desktop is also available for `Linux`, although Linux users are free to install the Docker Engine separately.

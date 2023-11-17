@@ -8,7 +8,7 @@ Before we create our own Docker image, let's see how we can use publicly availab
 
 `Docker Hub` is one of the public registries you can use to download the official images for many popular services such as `Nginx`, `MySQL`, `MongoDB`, `Redis`, `Node.js`, `Java`, `Python`, etc.. These images are created either by the companies that developed these services or by the Docker community. 
 
-!!! info
+!!! note
     Docker Hub hosts not only the official images but also an extensive collection of public images contributed by developers, serving diverse purposes and use cases.
 
 
@@ -142,7 +142,7 @@ The `docker exec` command runs a new command in a running container. The command
     docker exec -it <container-name/container-id> bash
     ```
 
-    !!! info "Difference between `sh` and `bash`"
+    !!! note "Difference between `sh` and `bash`"
         `bash` and `sh` are two different shells in the Unix operating system. `bash` is an extended version of `sh` with additional features and improved syntax.
 
     Once the shell session is started, you can interact with the container just like you would with your own machine. You can run shell commands like `ls`, `pwd`, or any other desired commands.
@@ -187,7 +187,7 @@ Once the container is up and running, you can open any browser on your local mac
 docker logs -f <container-id/container-name>
 ```
 
-!!! info
+!!! note
     The `-f` flag in the `docker logs` command stands for "follow". It allows you to continuously stream the logs of the specified Docker container in real-time.
 
 ## Delete a Container

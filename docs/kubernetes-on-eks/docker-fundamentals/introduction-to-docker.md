@@ -130,9 +130,8 @@ So, now Adam and Bob each have a copy of this special image. They can use it to 
     <img src="../../../assets/eks-course-images/docker-fundamentals/deployment-with-virtual-machines.png" alt="Deployment with Virtual Machines" />
 </p>
 
-!!! Question "So, with Virtual Machines in place, are things all good now?"
+So, with Virtual Machines in place, are things all good now? No!
 
-    Nope!!
 
 ## Disadvantages of Virtual Machines
 

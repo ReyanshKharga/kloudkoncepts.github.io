@@ -81,7 +81,7 @@ Kubernetes provides automated rollouts and rollbacks, which makes it easy to dep
 
 Kubernetes provides automatic bin packing, which helps to optimize resource utilization by packing containers onto nodes based on available resources and application requirements. This ensures that resources are used efficiently and reduces the need for manual intervention.
 
-!!! info "Bin Packing Problem"
+!!! note "Bin Packing Problem"
     The bin packing problem is a classic optimization problem in computer science and mathematics. It involves packing a set of items, each with a specific size, into a set of bins, each with a limited capacity, in a way that minimizes the number of bins used.
 
     In Kubernetes, you can think of Pods as the items, and the worker nodes as the bins.
