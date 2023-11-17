@@ -290,11 +290,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.details
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.mark
   - admonition
   - footnotes
@@ -320,7 +315,12 @@ markdown_extensions:
       custom_checkbox: true
       clickable_checkbox: true
   - toc:
-      permalink: true  
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 
 copyright: |
