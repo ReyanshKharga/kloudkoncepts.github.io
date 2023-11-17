@@ -197,6 +197,9 @@ kubectl describe vpa my-vpa
 
 You'll notice that vpa recommender recommends a new value for resource requests and then vpa updater updates the resource requests of pods.
 
+!!! note
+    The updater may take some time to apply the recommendation and you might have to wait before you can see the updated resource `requests` in pods. 
+
 You can view the VPA logs as follows:
 
 ```

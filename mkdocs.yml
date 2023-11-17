@@ -197,6 +197,7 @@ nav:
         - Vertical Pod Autoscaler Demo: ./kubernetes-on-eks/autoscaling/vertical-pod-autoscaling/vertical-pod-autoscaler-demo.md
     - Microservices:
       - Introduction to Microservices: ./kubernetes-on-eks/microservices/introduction-to-microservices.md
+      - Deploy Microservices in Kubernetes: ./kubernetes-on-eks/microservices/deploy-microservices-in-kubernetes.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
