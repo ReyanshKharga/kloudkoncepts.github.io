@@ -6,6 +6,8 @@ description: Effortlessly monitor Kubernetes with Prometheus and Grafana. Master
 
 We can use Prometheus and Grafana to monitor kubernetes resources, workloads and other metrics.
 
+Prometheus and Grafana form a powerful duo for monitoring Kubernetes. They aid in tracking resource utilization, workload performance, and diverse metrics critical for maintaining cluster health.
+
 
 ## What is Prometheus?
 
@@ -31,9 +33,41 @@ Kubernetes exposes some basic metrics by default through an endpoint named `/met
 
 the `/metrics` endpoint is accessible on the kubernetes API server and provides valuable insights into the cluster's health and performance. These metrics can be utilized by monitoring tools like Prometheus to gather information and create visualizations for better cluster management.
 
-You can also set up custom exporters in kubernetes to capture precise metrics from your applications or services. These tailored tools expand monitoring capabilities, providing detailed insights beyond the standard metrics, addressing your specific monitoring needs.
-
-
 <p align="center">
     <img src="../../../assets/eks-course-images/monitoring/prometheus-and-grafana.png" alt="Kubernetes Monitoring Using Prometheus and Grafana" width="600" />
 </p>
+
+You can also set up custom exporters in kubernetes to capture precise metrics from your applications or services. These tailored tools expand monitoring capabilities, providing detailed insights beyond the standard metrics, addressing your specific monitoring needs.
+
+
+## Prerequisites
+
+We will use `helm` to install Prometheus and Grafana monitoring tools. So, make sure `helm` is installed on your local machine.
+
+
+## Step 1: Add Prometheus and Grafana Helm Repository
+
+```
+# Add prometheus Helm repo
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+# Add grafana Helm repo
+helm repo add grafana https://grafana.github.io/helm-charts
+```
+
+
+## Step 2: Deploy Prometheus
+
+### 1. Install Prometheus
+
+### 2. Verify Prometheus Components
+
+### 3. Verify EBS Volumes
+
+### 4. Access Prometheus Server
+
+### 5. Create Ingress for Prometheus
+
+
+## Deploy Grafana
+
