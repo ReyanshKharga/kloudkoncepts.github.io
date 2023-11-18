@@ -2,9 +2,9 @@
 description: Learn how to effortlessly set up logging in your Kubernetes cluster with Fluent Bit and Amazon CloudWatch. Our guide simplifies the process, enabling seamless log collection and management for your systems.
 ---
 
-# Set Up Logging Using Fluent Bit and Amazon CloudWatch
+# Kubernetes Logging Using Fluent Bit and Amazon CloudWatch
 
-To send logs from your containers to Amazon CloudWatch Logs, you can use `Fluent Bit` or `Fluentd`.
+To send logs from your containers running in kubernetes to Amazon CloudWatch, you can use `Fluent Bit` or `Fluentd`.
 
 `Fluentd` is a versatile log collector that gathers logs from different places and sends them to databases or other tools like Kafka, Elasticsearch, CloudWatch, InfluxDB, etc. It's highly adaptable and works well in complex setups.
 
@@ -18,7 +18,7 @@ In this course we will use Fluent Bit for logging due to the following reasons:
 Additionally, Amazon CloudWatch will serve as the output for Fluent Bit. This means that Fluent Bit, running as a [DaemonSet]{:target="_blank"}, will collect logs from containers on each node and then send them to CloudWatch.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/logging/fluentbit-cloudwatch.png" alt="Logging Using Fluent Bit and CloudWatch" width="600" />
+    <img src="../../../assets/eks-course-images/logging/fluentbit-cloudwatch.png" alt="Kubernetes Logging Using Fluent Bit and CloudWatch" width="600" />
 </p>
 
 

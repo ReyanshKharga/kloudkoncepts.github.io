@@ -203,6 +203,8 @@ nav:
       - Deploy Microservices in Kubernetes: ./kubernetes-on-eks/microservices/deploy-microservices-in-kubernetes.md
     - Logging:
       - Logging Using FluentD and CloudWatch: ./kubernetes-on-eks/logging/logging-using-fluent-bit-and-cloudwatch.md
+    - Monitoring:
+      - Monitoring Using Prometheus and Grafana: ./kubernetes-on-eks/monitoring/monitoring-using-prometheus-and-grafana.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
