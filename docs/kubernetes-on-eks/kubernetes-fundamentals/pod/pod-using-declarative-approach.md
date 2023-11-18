@@ -4,7 +4,7 @@ description: Learn how to create and manage kubernetes pods using a declarative 
 
 # Create and Manage Kubernetes Pods Using Declarative Approach
 
-Let's see how you can create and manage Kubernetes Pods declaratively.
+Let's see how you can create and manage kubernetes Pods declaratively.
 
 Here is the Docker Image used in this tutorial: [reyanshkharga/nginx]{:target="_blank"}
 
@@ -39,7 +39,7 @@ Required fields:
 
 ## Step 2: Create Pod
 
-Let's use `kubectl apply` to apply the manifest and create the Pod:
+Let's use `kubectl apply` to apply the manifest and create the pod:
 
 ```
 # Create pod
