@@ -114,6 +114,10 @@ In our case the worker nodes already have the required permissions. Remember the
     { $.kubernetes.namespace_name = "backend" }
     ```
 
+!!! tip
+    Make sure the [microservices]{:target="_blank"} from the previous section are up and running in your cluster. These microservices will generate logs that you can subsequently access and view in CloudWatch.
+
+
 ## Filter Log Events From a Multiple Namespaces
 
 1. Navigate to the log group named `/aws/containerinsights/Cluster_Name/application` in CloudWatch console.
@@ -136,3 +140,4 @@ In our case the worker nodes already have the required permissions. Remember the
 [Send logs to CloudWatch Logs]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-EKS-logs.html
 [Set up Fluent Bit as a DaemonSet to send logs to CloudWatch Logs]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html
 [GitHub - aws-samples/amazon-cloudwatch-container-insights]: https://github.com/aws-samples
+[microservices]: https://kloudkoncepts.com/kubernetes-on-eks/microservices/deploy-microservices-in-kubernetes/
