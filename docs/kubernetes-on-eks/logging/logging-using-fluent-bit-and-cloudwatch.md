@@ -15,7 +15,7 @@ In this course we will use Fluent Bit for logging due to the following reasons:
 1. `Fluent Bit` has a smaller resource footprint and is more resource efficient with memory and CPU usage than `FluentD`
 2. The `Fluent Bit` image is developed and maintained by AWS. This gives AWS the ability to adopt new Fluent Bit image features and respond to issues much quicker.
 
-Additionally, Amazon CloudWatch will serve as the output for Fluent Bit. This means that Fluent Bit, running as a DaemonSet, will collect logs from containers on each node and then send them to CloudWatch.
+Additionally, Amazon CloudWatch will serve as the output for Fluent Bit. This means that Fluent Bit, running as a [DaemonSet]{:target="_blank"}, will collect logs from containers on each node and then send them to CloudWatch.
 
 <p align="center">
     <img src="../../../assets/eks-course-images/logging/fluentbit-cloudwatch.png" alt="Logging Using Fluent Bit and CloudWatch" width="600" />
@@ -132,6 +132,7 @@ In our case the worker nodes already have the required permissions. Remember the
 
 
 <!-- Hyperlinks -->
+[DaemonSet]: https://kloudkoncepts.com/kubernetes-on-eks/kubernetes-fundamentals/daemonset/introduction-to-daemonset/
 [Send logs to CloudWatch Logs]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-EKS-logs.html
 [Set up Fluent Bit as a DaemonSet to send logs to CloudWatch Logs]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html
 [GitHub - aws-samples/amazon-cloudwatch-container-insights]: https://github.com/aws-samples
