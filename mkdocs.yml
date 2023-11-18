@@ -201,6 +201,8 @@ nav:
     - Microservices:
       - Introduction to Microservices: ./kubernetes-on-eks/microservices/introduction-to-microservices.md
       - Deploy Microservices in Kubernetes: ./kubernetes-on-eks/microservices/deploy-microservices-in-kubernetes.md
+    - Logging:
+      - Logging Using FluentD and CloudWatch: ./kubernetes-on-eks/logging/logging-using-fluent-bit-and-cloudwatch.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
