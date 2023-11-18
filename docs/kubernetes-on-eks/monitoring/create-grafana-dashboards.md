@@ -4,7 +4,9 @@ description: Learn how to craft effective Grafana dashboards for monitoring Kube
 
 # Create Grafana Dashboards to Monitor Kubernetes
 
-Now that we have Prometheus and Grafana set up properly. Let's create a few dashboards to visualize kubernetes metrics. We will import community created dashboards.
+Now that we have Prometheus and Grafana set up properly. Let's create a few dashboards to visualize kubernetes metrics.
+
+We will import community created dashboards.
 
 
 ## Import Dashboards Using Script

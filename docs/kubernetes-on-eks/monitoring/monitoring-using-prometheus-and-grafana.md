@@ -404,7 +404,7 @@ Now, we can increase the prometheus server persistent volume by upgrading the he
 
 ```
 # Increase prometheus-server persistent volume size
-helm upgrade prometheus prometheus-community/prometheus --namespace prometheus --set server.persistentVolume.size=20Gi
+helm upgrade prometheus prometheus-community/prometheus --namespace prometheus --set server.persistentVolume.size=50Gi
 ```
 
 
