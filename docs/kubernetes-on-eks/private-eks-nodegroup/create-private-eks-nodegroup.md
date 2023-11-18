@@ -55,7 +55,7 @@ The modified file should look similar to the below:
     metadata:
       name: my-cluster
       region: ap-south-1
-      # version: "1.25"
+      # version: "1.28"
 
     availabilityZones:
       - ap-south-1a

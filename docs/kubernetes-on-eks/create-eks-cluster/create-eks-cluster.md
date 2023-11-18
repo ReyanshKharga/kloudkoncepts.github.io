@@ -101,7 +101,7 @@ Prepare configuration file in `YAML` format to specify the desired state of the 
     metadata:
       name: my-cluster
       region: ap-south-1
-      version: "1.25"
+      version: "1.28"
 
     availabilityZones:
       - ap-south-1a
