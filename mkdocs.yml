@@ -205,6 +205,7 @@ nav:
       - Logging Using FluentD and CloudWatch: ./kubernetes-on-eks/logging/logging-using-fluent-bit-and-cloudwatch.md
     - Monitoring:
       - Monitoring Using Prometheus and Grafana: ./kubernetes-on-eks/monitoring/monitoring-using-prometheus-and-grafana.md
+      - Create Grafana Dashboards: ./kubernetes-on-eks/monitoring/create-grafana-dashboards.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
