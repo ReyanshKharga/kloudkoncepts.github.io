@@ -79,7 +79,7 @@ Follow the instructions below to create a grafana dashboard to monitor the kuber
 This will dispaly an overview of the kubernetes cluster. The dashboard should look something like this:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/kubernetes_cluster_overview_grafana_dashboard.png" alt="Kubernetes Cluster Overview Dashboard" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/kubernetes_cluster_overview_grafana_dashboard.png" alt="Kubernetes Cluster Overview Dashboard" />
 </p>
 
 
@@ -99,7 +99,7 @@ Follow the instructions below to create a grafana dashboard to monitor the kuber
 This will dispaly an overview of the kubernetes deployments in the cluster. The dashboard should look something like this:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/kubernetes_deployment_overview_grafana_dashboard.png" alt="Kubernetes Deployment Overview Dashboard" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/kubernetes_deployment_overview_grafana_dashboard.png" alt="Kubernetes Deployment Overview Dashboard" />
 </p>
 
 
@@ -119,7 +119,7 @@ Follow the instructions below to create a grafana dashboard to monitor the kuber
 This will dispaly an overview of the kubernetes pods in the cluster. The dashboard should look something like this:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/kubernetes_pod_overview_grafana_dashboard.png" alt="Kubernetes Pod Overview Dashboard" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/kubernetes_pod_overview_grafana_dashboard.png" alt="Kubernetes Pod Overview Dashboard" />
 </p>
 
 
@@ -139,7 +139,7 @@ Follow the instructions below to create a grafana dashboard to monitor the kuber
 This will dispaly an overview of the kubernetes persistent volumes in the cluster. The dashboard should look something like this:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/kubernetes_persistentvolume_overview_grafana_dashboard.png" alt="Kubernetes PersistentVolume Overview Dashboard" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/kubernetes_persistentvolume_overview_grafana_dashboard.png" alt="Kubernetes PersistentVolume Overview Dashboard" />
 </p>
 
 
@@ -159,7 +159,7 @@ Follow the instructions below to create a grafana dashboard to monitor the kuber
 This will dispaly an overview of the kubernetes nodes in the cluster. The dashboard should look something like this:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/kubernetes_node_overview_grafana_dashboard.png" alt="Kubernetes Node Overview Dashboard" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/kubernetes_node_overview_grafana_dashboard.png" alt="Kubernetes Node Overview Dashboard" />
 </p>
 
 

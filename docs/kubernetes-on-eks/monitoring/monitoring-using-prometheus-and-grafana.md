@@ -75,7 +75,7 @@ helm install prometheus prometheus-community/prometheus --namespace prometheus -
 The output should look something like this:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/prometheus-installation-output.png" alt="Output of Prometheus Installation" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/prometheus-installation-output.png" alt="Output of Prometheus Installation" />
 </p>
 
 Make note of the prometheus endpoint in helm response (you will need this later). It should look similar to below:
@@ -257,7 +257,7 @@ helm install grafana grafana/grafana \
 The output should look something like this:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/grafana-installation-output.png" alt="Output of Grafana Installation" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/grafana-installation-output.png" alt="Output of Grafana Installation" />
 </p>
 
 
