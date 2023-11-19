@@ -37,7 +37,7 @@ the `/metrics` endpoint is accessible on the kubernetes API server and provides 
     <img src="../../../assets/eks-course-images/monitoring/prometheus-and-grafana.png" alt="Kubernetes Monitoring Using Prometheus and Grafana" width="600" />
 </p>
 
-You can also set up custom exporters in kubernetes to capture precise metrics from your applications or services. These tailored tools expand monitoring capabilities, providing detailed insights beyond the standard metrics, addressing your specific monitoring needs.
+You can also set up custom exporters in kubernetes to capture custom metrics from your applications or services. These tailored tools expand monitoring capabilities, providing detailed insights beyond the standard metrics, addressing your specific monitoring needs.
 
 
 ## Prerequisites
