@@ -11,7 +11,7 @@ Deleting a `DaemonSet` will clean up the pods it created.
 Essentially, `DaemonSets` ensure that specific pods are running on all or a subset of nodes within a kubernetes cluster. Unlike other controllers that ensure a specified number of replicas, `DaemonSets` run exactly one instance of a pod on each node in the cluster or a subset defined by node selectors.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/daemonset/daemonset.gif" alt="DaemonSet Overview" width="550" />
+    <img src="../../../../assets/eks-course-images/daemonset/daemonset.gif" alt="DaemonSet Overview" loading="lazy" width="550" />
 </p>
 
 `DaemonSets` are similar to Deployments in that they both create Pods, and those Pods have processes which are not expected to terminate (e.g. web servers, storage servers).

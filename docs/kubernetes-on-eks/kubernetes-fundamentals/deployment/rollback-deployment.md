@@ -57,7 +57,7 @@ kubectl get rs | grep my-deployment
 Here's a visual representation of the rollback the `Deployment` performs:
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/deployment/rollback-using-deployment.gif" alt="Rollback Using Deployment" width="500" />
+    <img src="../../../../assets/eks-course-images/deployment/rollback-using-deployment.gif" alt="Rollback Using Deployment" loading="lazy" width="500" />
 </p>
 
 

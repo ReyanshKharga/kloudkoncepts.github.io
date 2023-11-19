@@ -11,7 +11,7 @@ Keep in mind the following:
 - If readiness probe fails, the service won't send traffic to the pod until the readiness probe indicates that the container is ready again.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/probes/readiness-probe.gif" alt="Readiness Probe" width="450" />
+    <img src="../../../../assets/eks-course-images/probes/readiness-probe.gif" alt="Readiness Probe" loading="lazy" width="450" />
 </p>
 
 Let's see this in action!

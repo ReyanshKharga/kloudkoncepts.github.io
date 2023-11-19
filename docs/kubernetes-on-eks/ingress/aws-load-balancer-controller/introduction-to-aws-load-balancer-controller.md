@@ -17,7 +17,7 @@ The `AWS Load Balancer Controller` automates the creation and configuration of t
 The following diagram details the AWS components the AWS Load Balancer Controller creates. It also demonstrates the route ingress traffic takes from the ALB to the kubernetes cluster.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/ingress/aws-load-balancer-controller-design.png" alt="AWS Load Balancer Controller Design" />
+    <img src="../../../../assets/eks-course-images/ingress/aws-load-balancer-controller-design.png" alt="AWS Load Balancer Controller Design" loading="lazy" />
 </p>
 
 This section describes each step (circle) above. This example demonstrates satisfying 1 ingress resource.

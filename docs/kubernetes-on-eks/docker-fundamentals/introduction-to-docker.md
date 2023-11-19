@@ -39,7 +39,7 @@ Next, you install the necessary libraries and dependencies on the operating syst
 Now, let’s look at the problems in deploying applications on a traditional machine. Let me illustrate this with a story.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/docker-fundamentals/challenges-in-deploying-applications-on-a-traditional-machine.png" alt="Challenges in Deploying Applications on a Traditional Machine" />
+    <img src="../../../assets/eks-course-images/docker-fundamentals/challenges-in-deploying-applications-on-a-traditional-machine.png" alt="Challenges in Deploying Applications on a Traditional Machine" loading="lazy" />
 </p>
 
 Adam and Bob are colleagues at ABC Software Private Limited. Adam is a software developer, and Bob is a QA engineer.
@@ -86,7 +86,7 @@ Additionally, this method of software development is error-prone because develop
 One solution is to bundle everything together including the operating system, binaries, libraries, and dependencies, and then use the same bundle across environments.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/docker-fundamentals/packaing-applications.png" alt="Packaging Applications" />
+    <img src="../../../assets/eks-course-images/docker-fundamentals/packaing-applications.png" alt="Packaging Applications" loading="lazy" />
 </p>
 
 This is exactly what [Virtual Machines]{:target="_blank"} (VMs) do.
@@ -105,7 +105,7 @@ Once the hypervisor is in place, you can install a full-fledged operating system
 With the guest operating system set up, you can start adding the required binaries, libraries, and dependencies and finally run your applications.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/docker-fundamentals/architecture-of-virtual-machine.png" alt="Architecture of a Virtual Machine" width="500" />
+    <img src="../../../assets/eks-course-images/docker-fundamentals/architecture-of-virtual-machine.png" alt="Architecture of a Virtual Machine" loading="lazy" width="500" />
 </p>
 
 The cool thing about this guest operating system is that you can pack it up and share it. It's like making a copy of a game you really like so your friends can play too. In the world of virtual machines, this copy is called an "image".
@@ -127,7 +127,7 @@ Remember Adam and Bob? Here's the update on their story. The smart DevOps team u
 So, now Adam and Bob each have a copy of this special image. They can use it to create their own virtual machines and do their work. When Adam makes something and wants Bob to check it out, he knows that if it works on his virtual machine, it will work on Bob's and the Production machine too!
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/docker-fundamentals/deployment-with-virtual-machines.png" alt="Deployment with Virtual Machines" />
+    <img src="../../../assets/eks-course-images/docker-fundamentals/deployment-with-virtual-machines.png" alt="Deployment with Virtual Machines" loading="lazy" />
 </p>
 
 So, with Virtual Machines in place, are things all good now? No!
@@ -161,7 +161,7 @@ You can think of containers as virtual machines with the following differences:
 4. Containers can be deployed and started quickly, as they do not require the time-consuming process of booting up a complete virtual machine.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/docker-fundamentals/container-architecture.png" alt="Architecture of Docker Containers" width="400" />
+    <img src="../../../assets/eks-course-images/docker-fundamentals/container-architecture.png" alt="Architecture of Docker Containers" loading="lazy" width="400" />
 </p>
 
 !!! note "Architecture of Containers"
@@ -205,7 +205,7 @@ These two components – the Docker client and the Docker daemon – communicate
 
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/docker-fundamentals/docker-architecture.svg" alt="Architecture of Docker" />
+    <img src="../../../assets/eks-course-images/docker-fundamentals/docker-architecture.svg" alt="Architecture of Docker" loading="lazy" />
 </p>
 
 
@@ -278,7 +278,7 @@ You can create your own repository on Docker Hub, store images, and share them w
 In summary, Docker solves the problem of inconsistent application behavior across different machines by providing a way to package applications and their dependencies into portable, self-contained containers that can run consistently on any machine that has Docker installed in it.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/docker-fundamentals/traditional-machine-vs-vm-vs-docker.png" alt="Comparison Between Traditional Machine, VMs, and Docker" />
+    <img src="../../../assets/eks-course-images/docker-fundamentals/traditional-machine-vs-vm-vs-docker.png" alt="Comparison Between Traditional Machine, VMs, and Docker" loading="lazy" />
 </p>
 
 !!! quote "References:"

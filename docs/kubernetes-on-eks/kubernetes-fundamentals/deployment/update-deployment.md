@@ -55,7 +55,7 @@ You'll observe the following:
 Here's a visual representation of the rolling update the `Deployment` performs:
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/deployment/rolling-update-using-deployment.gif" alt="Rolling Update Using Deployment" width="500" />
+    <img src="../../../../assets/eks-course-images/deployment/rolling-update-using-deployment.gif" alt="Rolling Update Using Deployment" loading="lazy" width="500" />
 </p>
 
 

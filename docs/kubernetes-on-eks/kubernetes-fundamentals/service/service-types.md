@@ -17,7 +17,7 @@ Here are the `Service` types available in kubernetes:
 ## 1. ClusterIp Service
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/service/clusterip-service.png" alt="ClusterIp Service Overview" width="450" />
+    <img src="../../../../assets/eks-course-images/service/clusterip-service.png" alt="ClusterIp Service Overview" loading="lazy" width="450" />
 </p>
 
 - `ClusterIP` exposes the service on a cluster-internal IP.
@@ -29,7 +29,7 @@ Here are the `Service` types available in kubernetes:
 ## 2. NodePort Service
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/service/nodeport-service.png" alt="NodePort Service Overview" width="450" />
+    <img src="../../../../assets/eks-course-images/service/nodeport-service.png" alt="NodePort Service Overview" loading="lazy" width="450" />
 </p>
 
 - `NodePort` exposes the service on each Node's IP at a static port (the `NodePort`).
@@ -39,7 +39,7 @@ Here are the `Service` types available in kubernetes:
 ## 3. LoadBalancer Service
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/service/loadbalancer-service.png" alt="LoadBalancer Service Overview" width="450" />
+    <img src="../../../../assets/eks-course-images/service/loadbalancer-service.png" alt="LoadBalancer Service Overview" loading="lazy" width="450" />
 </p>
 
 - `LoadBalancer` exposes the service externally using a cloud provider's load balancer.
@@ -50,7 +50,7 @@ Here are the `Service` types available in kubernetes:
 ## 4. ExternalName Service
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/service/externalname-service.png" alt="ExternalName Service Overview" width="450" />
+    <img src="../../../../assets/eks-course-images/service/externalname-service.png" alt="ExternalName Service Overview" loading="lazy" width="450" />
 </p>
 
 - An `ExternalName` service is a special case of service that does not have `selectors`.

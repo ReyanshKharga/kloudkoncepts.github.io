@@ -18,7 +18,7 @@ In this course we will use Fluent Bit for logging due to the following reasons:
 Additionally, Amazon CloudWatch will serve as the output for Fluent Bit. This means that Fluent Bit, running as a [DaemonSet]{:target="_blank"}, will collect logs from containers on each node and then send them to CloudWatch.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/logging/fluentbit-cloudwatch.png" alt="Kubernetes Logging Using Fluent Bit and CloudWatch" width="600" />
+    <img src="../../../assets/eks-course-images/logging/fluentbit-cloudwatch.png" alt="Kubernetes Logging Using Fluent Bit and CloudWatch" loading="lazy" width="600" />
 </p>
 
 

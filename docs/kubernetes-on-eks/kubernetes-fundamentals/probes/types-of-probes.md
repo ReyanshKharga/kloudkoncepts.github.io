@@ -26,7 +26,7 @@ For instance, you can add a liveness probe to check if `HTTP GET` request to `/h
 Here's a visual representation of how liveness probes work:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/probes/liveness-probe.gif" alt="Liveness Probe" width="450" />
+    <img src="../../../../assets/eks-course-images/probes/liveness-probe.gif" alt="Liveness Probe" loading="lazy" width="450" />
 </p>
 
 
@@ -45,7 +45,7 @@ For instance, you can add a readiness probe to check if `HTTP GET` request to `/
 Here's a visual representation of how readiness probes work:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/probes/readiness-probe.gif" alt="Readiness Probe" width="450" />
+    <img src="../../../../assets/eks-course-images/probes/readiness-probe.gif" alt="Readiness Probe" loading="lazy" width="450" />
 </p>
 
 
@@ -66,7 +66,7 @@ For example, you can add a startup probe to check if `TCP` connection on port `5
 Here's a visual representation of how startup probes work:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/probes/startup-probe.gif" alt="Startup Probe" width="450" />
+    <img src="../../../../assets/eks-course-images/probes/startup-probe.gif" alt="Startup Probe" loading="lazy" width="450" />
 </p>
 
 

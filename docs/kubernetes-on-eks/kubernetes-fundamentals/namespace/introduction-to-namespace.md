@@ -14,7 +14,7 @@ Namespaces provide a way to organize and manage resources in a multi-tenant or m
 Each kubernetes object belongs to a namespace, and objects with the same name can coexist in different namespaces.
 
 <p align="left">
-    <img src="../../../../assets/eks-course-images/namespace/kubernetes-namespaces.png" alt="Kubernetes Namespaces" />
+    <img src="../../../../assets/eks-course-images/namespace/kubernetes-namespaces.png" loading="lazy" alt="Kubernetes Namespaces" />
 </p>
 
 

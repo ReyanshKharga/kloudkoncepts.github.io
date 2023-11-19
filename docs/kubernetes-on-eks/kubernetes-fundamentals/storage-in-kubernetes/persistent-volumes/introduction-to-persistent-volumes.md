@@ -33,7 +33,7 @@ However, you don't want to manage the containers yourself. Instead, you want you
 In summary, a `Persistent Volume` (PV) is a pre-allocated storage resource, while a `Persistent Volume Claim` (PVC) is a request for a specific type and amount of storage. They work together to provide a way for applications to access and manage data storage resources in kubernetes.
 
 <p align="left">
-    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/kitchen-analogy-for-pv-and-pvc.png" alt="Kitchen Analogy to Understand PV and PVC" />
+    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/kitchen-analogy-for-pv-and-pvc.png" loading="lazy" alt="Kitchen Analogy to Understand PV and PVC" />
 </p>
 
 
@@ -57,7 +57,7 @@ To use a statically provisioned PV, an application needs to make a request for t
 Static Provisioning Flow:
 
 <p align="left">
-    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/static-provisioning-flow.png" alt="Static Provisioning of Persistent Volume" />
+    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/static-provisioning-flow.png" alt="Static Provisioning of Persistent Volume" loading="lazy" />
 </p>
 
 
@@ -82,7 +82,7 @@ To use dynamically provisioned PVs, an application needs to make a request for s
 Dynamic Provisioning Flow:
 
 <p align="left">
-    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/dynamic-provisioning-flow.png" alt="Dynamic Provisioning of Persistent Volume" />
+    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/dynamic-provisioning-flow.png" alt="Dynamic Provisioning of Persistent Volume" loading="lazy" />
 </p>
 
 
@@ -107,7 +107,7 @@ Static provisioning is useful when you know in advance how much storage you need
 
 
 <p align="left">
-    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/kitchen-analogy-for-static-and-dynamic-provisioning.png" alt="Kitchen Analogy to Understand Static and Dynamic Provisioning" />
+    <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/kitchen-analogy-for-static-and-dynamic-provisioning.png" alt="Kitchen Analogy to Understand Static and Dynamic Provisioning" loading="lazy" />
 </p>
 
 

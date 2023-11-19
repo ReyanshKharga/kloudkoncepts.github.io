@@ -34,7 +34,7 @@ Kubernetes exposes some basic metrics by default through an endpoint named `/met
 the `/metrics` endpoint is accessible on the kubernetes API server and provides valuable insights into the cluster's health and performance. These metrics can be utilized by monitoring tools like Prometheus to gather information and create visualizations for better cluster management.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/monitoring/prometheus-and-grafana.png" alt="Kubernetes Monitoring Using Prometheus and Grafana" width="600" />
+    <img src="../../../assets/eks-course-images/monitoring/prometheus-and-grafana.png" alt="Kubernetes Monitoring Using Prometheus and Grafana" loading="lazy" width="600" />
 </p>
 
 You can also set up custom exporters in kubernetes to capture custom metrics from your applications or services. These tailored tools expand monitoring capabilities, providing detailed insights beyond the standard metrics, addressing your specific monitoring needs.
@@ -75,7 +75,7 @@ helm install prometheus prometheus-community/prometheus --namespace prometheus -
 The output should look something like this:
 
 <p align="center">
-    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/prometheus-installation-output.png" alt="Output of Prometheus Installation" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/prometheus-installation-output.png" loading="lazy" alt="Output of Prometheus Installation" />
 </p>
 
 Make note of the prometheus endpoint in helm response (you will need this later). It should look similar to below:
@@ -257,7 +257,7 @@ helm install grafana grafana/grafana \
 The output should look something like this:
 
 <p align="center">
-    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/grafana-installation-output.png" alt="Output of Grafana Installation" />
+    <img class="shadowed-image" src="../../../assets/eks-course-images/monitoring/grafana-installation-output.png" alt="Output of Grafana Installation" loading="lazy" />
 </p>
 
 

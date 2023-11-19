@@ -11,7 +11,7 @@ Keep in mind the following:
 - If liveness probe fails, container is restarted.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/probes/liveness-probe.gif" alt="Liveness Probe" width="450" />
+    <img src="../../../../assets/eks-course-images/probes/liveness-probe.gif" alt="Liveness Probe" loading="lazy" width="450" />
 </p>
 
 Let's see this in action!

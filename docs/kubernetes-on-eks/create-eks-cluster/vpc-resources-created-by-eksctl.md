@@ -83,5 +83,5 @@ Based on the `ClusterConfig` we provided, Amazon EKS will create the following A
 Below is an architectural diagram illustrating the structure of the EKS cluster we've created:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/create-eks-cluster/resources-created-by-eksctl.png" alt="AWS Resources Created by eksctl" />
+    <img src="../../../assets/eks-course-images/create-eks-cluster/resources-created-by-eksctl.png" alt="AWS Resources Created by eksctl" loading="lazy" />
 </p>
