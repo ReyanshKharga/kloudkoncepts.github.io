@@ -16,7 +16,7 @@ Here are the `Service` types available in kubernetes:
 
 ## 1. ClusterIp Service
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service/clusterip-service.png" alt="ClusterIp Service Overview" loading="lazy" width="450" />
 </p>
 
@@ -28,7 +28,7 @@ Here are the `Service` types available in kubernetes:
 
 ## 2. NodePort Service
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service/nodeport-service.png" alt="NodePort Service Overview" loading="lazy" width="450" />
 </p>
 
@@ -38,7 +38,7 @@ Here are the `Service` types available in kubernetes:
 
 ## 3. LoadBalancer Service
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service/loadbalancer-service.png" alt="LoadBalancer Service Overview" loading="lazy" width="450" />
 </p>
 
@@ -49,7 +49,7 @@ Here are the `Service` types available in kubernetes:
 
 ## 4. ExternalName Service
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service/externalname-service.png" alt="ExternalName Service Overview" loading="lazy" width="450" />
 </p>
 

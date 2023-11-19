@@ -38,7 +38,7 @@ With `ReplicaSet`, you don't have an easy option. You must perform the following
 
 Here's a visual representation of the rolling update flow using `ReplicaSet`:
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/replicaset/rolling-update-using-replicaset.gif" alt="Rolling Update Using ReplicaSet" loading="lazy" width="500" />
 </p>
 
@@ -75,7 +75,7 @@ With `ReplicaSet`, you don't have an easy option. You must perform a manual roll
 
 Here's a visual representation of the rollback flow using `ReplicaSet`:
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/replicaset/rollback-using-replicaset.gif" alt="Rollback Using ReplicaSet" loading="lazy" width="500" />
 </p>
 

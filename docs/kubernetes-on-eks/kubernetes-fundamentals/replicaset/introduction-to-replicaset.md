@@ -19,7 +19,7 @@ Overall, a `ReplicaSet` is an important tool for managing and scaling containeri
 
 Here's a GIF showing how a `ReplicaSet` maintains a stable set of replica pods:
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/replicaset/replicaset.gif" alt="ReplicaSet Overview" loading="lazy" width="500" />
 </p>
 

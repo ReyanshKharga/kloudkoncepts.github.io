@@ -10,7 +10,7 @@ These service types differ in their exposure level, which refers to how accessib
 
 Here's a quick overview:
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service/exposure-level-of-service-types.png" alt="Exposure Level of Different Service Types" loading="lazy" width="500" />
 </p>
 

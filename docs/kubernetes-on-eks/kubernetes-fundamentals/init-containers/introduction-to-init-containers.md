@@ -26,7 +26,7 @@ Another example could be grinding spices, and you could have another assitant (`
 
 In this way, init containers help ensure that your main container has everything it needs to run properly and efficiently, just like how a well-prepared kitchen helps a chef create a delicious meal.
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/init-container/init-containers-kitchen-analogy.png" alt="Kitchen Analogy for Init Containers" loading="lazy" width="550" />
 </p>
 
@@ -42,7 +42,7 @@ Below are the kubernetes equivalent terms in the above analogy:
 
 Kubelet runs each init container sequentially. The main containers start in parallel once all init containers have completed successfully.
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/init-container/execution-flow-of-init-containers.png" alt="Execution Flow of Init Containers" loading="lazy" width="550" />
 </p>
 

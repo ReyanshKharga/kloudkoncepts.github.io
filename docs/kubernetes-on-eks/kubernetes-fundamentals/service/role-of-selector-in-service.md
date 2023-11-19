@@ -13,7 +13,7 @@ Important points to keep in mind:
 
 ## Example 1: Selector With Single Label
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service/role-of-selector-single-label.gif" alt="Role of Selector in Service - Single Label Example" loading="lazy" />
 </p>
 
@@ -22,7 +22,7 @@ In the above example you will notice that the service sends traffic only to pods
 
 ## Example 2: Selector With Multiple Labels
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service/role-of-selector-multiple-labels.gif" alt="Role of Selector in Service - Multiple Labels Example" loading="lazy" />
 </p>
 

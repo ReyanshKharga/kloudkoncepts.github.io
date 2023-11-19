@@ -435,7 +435,7 @@ This time you will get a response with status code `200`. This is because the `s
 
 Here's a pictorial representation of how pods use a service account to access kubernetes resources:
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/service-account/pod-with-service-account.png" alt="Liveness Probe" loading="lazy" width="550" />
 </p>
 

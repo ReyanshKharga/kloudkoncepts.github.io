@@ -8,7 +8,7 @@ A `hostPath` volume is a type of volume that allows a pod to mount a directory o
 
 This means that the contents of the host directory are exposed to the pod as if they were part of the pod's own filesystem.
 
-<p align="left">
+<p align="center">
     <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/hostpath-volume.png" alt="hostPath Volume" loading="lazy" width="550" />
 </p>
 

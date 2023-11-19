@@ -52,7 +52,7 @@ Here’s what happens when you apply the manifest to create the `ReplicaSet`:
 
 Here's a visual representation of the flow described above:
 
-<p align="left">
+<p align="center">
     <img src="../../../../assets/eks-course-images/replicaset/how-does-replicaset-manage-pods.gif" alt="How Does ReplicaSet Mange Pods?" loading="lazy" width="500" />
 </p>
 

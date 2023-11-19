@@ -10,7 +10,7 @@ As the name says, the `emptyDir` volume is initially empty.
 
 All containers in the pod can read and write the same files in the `emptyDir` volume, though that volume can be mounted at the same or different paths in each container.
 
-<p align="left">
+<p align="center">
     <img src="../../../../../assets/eks-course-images/storage-in-kubernetes/emptydir-volume.png" alt="emptyDir Volume" loading="lazy" width="550" />
 </p>
 
