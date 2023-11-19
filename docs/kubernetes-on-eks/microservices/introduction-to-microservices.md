@@ -10,6 +10,21 @@ Unlike traditional monolithic structures, where the entire application is tightl
 
 For example, consider an e-commerce platform. Instead of a monolithic structure, it comprises distinct services like orders, payments, delivery, and user management, each functioning as a separate entity, communicating via APIs.
 
+Typically, each microservice has its own database, but this can vary depending on your specific use case.
+
+``` mermaid
+graph LR
+  A[[Order]] --> B[[Payment]];
+  B --> C[[Delivery]];
+  B --> D[[User Management]];
+  A --> C;
+  C --> D;
+  A -.-> AD[(Database)];
+  B -.-> BD[(Database)];
+  C -.-> CD[(Database)];
+  D -.-> DD[(Database)];
+```
+
 
 ## Key Characteristics of Microservices
 
