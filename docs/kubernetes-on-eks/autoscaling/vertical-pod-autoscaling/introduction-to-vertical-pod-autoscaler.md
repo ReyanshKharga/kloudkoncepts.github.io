@@ -32,7 +32,7 @@ The VPA consists of 3 components:
 Here's how Vertical Pod Autoscaler (VPA) works in kubernetes:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/autoscaling/vpa-working.png" alt="Working of Vertical Pod Autoscaler" />
+    <img src="../../../../assets/eks-course-images/autoscaling/vpa-working.png" alt="Working of Vertical Pod Autoscaler" loading="lazy" />
 </p>
 
 1. VPA recommender uses metrics server to continuously monitor the current and past resource consumption of pods.

@@ -18,7 +18,7 @@ The primary goal of the `Cluster Autoscaler` is to ensure that there are enough 
 Here's how Cluster Autoscaler works in kubernetes:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/autoscaling/working-of-cluster-autoscaler.png" alt="Working of Cluster Autoscaler" width="550" />
+    <img src="../../../../assets/eks-course-images/autoscaling/working-of-cluster-autoscaler.png" alt="Working of Cluster Autoscaler" loading="lazy" width="550" />
 </p>
 
 1. Kubernetes Cluster Autoscaler detects pods in the `pending` state due to insufficient resources.
