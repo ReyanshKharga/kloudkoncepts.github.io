@@ -21,9 +21,9 @@ It consists of several key components, including the Kubernetes `API server`, `e
 
 Control Plane Components:
 
-1. **API server:** API server exposes the Kubernetes API which is used to interact with the cluster
-2. **Etcd:** The `etcd` is a distributed key-value store that stores the state and configuration data
-3. **Controller manager:** The controller manager monitors the state and of the cluster and makes changes
+1. **API server:** API server exposes the Kubernetes API which is used to interact with the cluster.
+2. **Etcd:** The `etcd` is a distributed key-value store that stores the state and configuration data.
+3. **Controller manager:** The controller manager monitors the state of the cluster and makes required changes.
 
     The Controller Manager includes several essential components:
 
@@ -37,8 +37,8 @@ Control Plane Components:
 
     These controllers work to ensure the cluster's resources align with the desired state specified in kubernetes configurations, aiding in self-healing and maintaining stability.
 
-4. **Scheduler:** The `scheduler` schedules the containers to run on the worker nodes
-5. **Cloud controller manager:** The `cloud controller manager` manages the underlying cloud infrastructure
+4. **Scheduler:** The `scheduler` schedules the containers to run on the worker nodes.
+5. **Cloud controller manager:** The `cloud controller manager` manages the underlying cloud infrastructure.
 
 
 ### 2. Nodes
