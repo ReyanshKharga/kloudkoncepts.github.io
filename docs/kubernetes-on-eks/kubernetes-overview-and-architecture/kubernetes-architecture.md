@@ -24,6 +24,19 @@ Control Plane Components:
 1. **API server:** API server exposes the Kubernetes API which is used to interact with the cluster
 2. **Etcd:** The `etcd` is a distributed key-value store that stores the state and configuration data
 3. **Controller manager:** The controller manager monitors the state and of the cluster and makes changes
+
+    The Controller Manager includes several essential components:
+
+    - `Node Controller`: Monitors and manages nodes' health and status.
+    - `Replication Controller`: Maintains the desired number of pod replicas.
+    - `Endpoint Controller`: Populates endpoint resources with pod IPs for services.
+    - `Service Account Controllers`: Manage service accounts and associated tokens.
+    - `Service Controller`: Manages services and their load-balanced endpoints.
+    - `Job Controller`: Manages batch jobs, ensuring they run to completion.
+    - `Namespace Controller`: Handles the lifecycle and policies related to namespaces within the cluster.
+
+    These controllers work to ensure the cluster's resources align with the desired state specified in kubernetes configurations, aiding in self-healing and maintaining stability.
+
 4. **Scheduler:** The `scheduler` schedules the containers to run on the worker nodes
 5. **Cloud controller manager:** The `cloud controller manager` manages the underlying cloud infrastructure
 
