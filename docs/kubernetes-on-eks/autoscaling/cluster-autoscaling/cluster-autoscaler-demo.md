@@ -131,6 +131,13 @@ You can view the autoscaling events in the `cluster-autoscaler` log:
 kubectl logs -f deployment.apps/cluster-autoscaler -n kube-system
 ```
 
+You can also use the following command to see kubernetes events:
+
+```
+kubectl events
+```
+
+
 ## Step 3: Delete the Deployment
 
 Let's delete the deployment:
