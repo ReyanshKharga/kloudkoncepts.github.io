@@ -137,6 +137,9 @@ You can also use the following command to see kubernetes events:
 kubectl events
 ```
 
+!!! note
+    When you run `kubectl events` command, it retrieves and displays a list of events from the cluster's Event API. These events can include information about pod scheduling, container lifecycle events, resource creation, deletion, errors, and much more.
+
 
 ## Step 3: Delete the Deployment
 
