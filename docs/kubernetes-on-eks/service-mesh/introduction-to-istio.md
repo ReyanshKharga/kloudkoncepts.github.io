@@ -82,12 +82,33 @@ The sidecars deployed within the services and acting as proxy form the service m
 </p>
 
 
+## What is Envoy?
+
+Envoy is a high-performance, open-source proxy designed for cloud-native applications. It's built to be a universal data plane and is commonly used in Service Mesh architectures. Envoy acts as an intermediary for all network communication between microservices within a system.
+
+It's highly configurable and excels at handling tasks like load balancing, routing, authentication, monitoring, and more. Envoy is known for its reliability, observability, and extensive features that help manage and secure communication between services in complex, distributed systems.
+
+
+## How Does Istio Work?
+
+Istio uses a proxy to intercept all your network traffic, allowing a broad set of application-aware features based on configuration you set.
+
+An Envoy proxy is deployed along with each service that you start in your cluster, or runs alongside services running on VMs.
+
+The control plane takes your desired configuration, and its view of the services, and dynamically programs the proxy servers, updating them as the rules or the environment changes.
+
+<p align="center">
+    <img src="../../../assets/eks-course-images/service-mesh/working-of-istio.png" alt="Working of Istio" loading="lazy" width="600" />
+</p>
+
 
 !!! quote "References:"
     !!! quote ""
+        * [What is Istio?]{:target="_blank"}
         * [Istio Architecture]{:target="_blank"}
 
 
 <!-- Hyperlinks -->
+[What is Istio?]: https://istio.io/latest/about/service-mesh/#what-is-istio
 [service mesh]: https://kloudkoncepts.com/kubernetes-on-eks/service-mesh/introduction-to-service-mesh/
 [Istio Architecture]: https://www.istioworkshop.io/03-servicemesh-overview/istio-architecture/
