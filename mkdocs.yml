@@ -208,6 +208,7 @@ nav:
       - Create Grafana Dashboards: ./kubernetes-on-eks/monitoring/create-grafana-dashboards.md
     - Service Mesh:
       - Introduction to Service Mesh: ./kubernetes-on-eks/service-mesh/introduction-to-service-mesh.md
+      - Introduction to Isito: ./kubernetes-on-eks/service-mesh/introduction-to-istio.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
