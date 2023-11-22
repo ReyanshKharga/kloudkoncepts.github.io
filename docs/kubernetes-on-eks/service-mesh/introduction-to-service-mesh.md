@@ -128,7 +128,56 @@ The sidecars deployed within the services and acting as proxy form the service m
 </p>
 
 
+| Component | Description | Mandatory | Group |
+|-----------|-------------|-----------|-------|
+| <a>`Pilot`</a> | Responsible for service discovery and configuring envoy sidecar proxies | :octicons-check-16: | Control plane |
+| <a>`Galley`</a> | Configuration ingestion for istio components | :octicons-x-16: | Control plane |
+| <a>`Sidecar injector`</a> | Inside envoy sidecar for enabled namespaces | :octicons-x-16: | Control plane |
+| <a>`Citadel`</a> | Automated key and certificate management | :octicons-x-16: | Control plane |
+| <a>`Policy`</a> | Policy enforcement | :octicons-x-16: | Control plane |
+| <a>`Telemetry`</a> | Gather telemetry data | :octicons-x-16: | Control plane |
+| <a>`Ingresss Gateway`</a> | Manage inbound connection to the service mesh | :octicons-x-16: | Control plane |
+| <a>`Egress Gateway`</a> | Manage outbound connection from the service mesh | :octicons-x-16: | Control plane |
+| <a>`Istio CNI`</a> | Network initialisation | :octicons-x-16: | Control plane |
+| <a>`Prometheus`</a> | Metrics collections | :octicons-x-16: | Control plane |
+| <a>`Core DNS`</a> | DNS resolution in a multicluster gateways deployment | :octicons-x-16: | Control plane |
+| <a>`Cert Manager`</a> | Issuance and renewal of TLS certificates | :octicons-x-16: | Control plane |
+| <a>`Grafana`</a> | Grafana	Monitoring dashboard | :octicons-x-16: | Dashboard |
+| <a>`Jaeger`</a> | Distributed tracing | :octicons-x-16: | Dashboard |
+| <a>`Kiali`</a> | Observability dashboard | :octicons-x-16: | Dashboard |
+| <a>`Envoy proxy`</a> | Proxy injected as a sidecar | :octicons-x-16: | Data plane |
+
+
+- The `ingress controller` is responsible for allowing and redirecting the inbound traffic to the services running inside the service mesh.
+
+- The `egress controller` is responsible for allowing outbound traffic from the service mesh. If an application should connect, for example, to an external database or service, such configuration should be explicitly defined for the egress controller.
+
+- `Pilot` and `Galley` are responsible for the mesh configuration. They pull data from Kubernetes API Server and mix it with the local configuration defined within the mesh then push the configuration to different proxies forming the mesh.
+
+- `Citadel` push tls certificate to services enabling mutual TLS.
+
+- `Mixer` has two roles: gather metrics from the different components and enforce policy by double checking each request. In a high level deployment scenario Telemetry and Policy check should be deployed separately.
+
+- `Dashboards` gather metrics from the telemetry service and display it in a user friendly format.
+
+
+## Upstream vs Downstream
+
+`Upstream` connections are the service Envoy is initiating the connection to while `Downstream` connections are the client that is initiating a request through Envoy.
+
+<p align="center">
+    <img src="../../../assets/eks-course-images/service-mesh/istio-upstream-downstream.png" alt="Istio Upstream vs Downstream" loading="lazy" width="450" />
+</p>
+
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [What is a Service Mesh?]{:target="_blank"}
+        * [Istio Architecture]{:target="_blank"}
 
 
 <!-- Hyperlinks -->
 [Code Oriented Pattern]: https://www.istioworkshop.io/03-servicemesh-overview/introduction-service-mesh/#code-oriented-pattern
+[What is a Service Mesh?]: https://istio.io/latest/about/service-mesh/#what-is-a-service-mesh
+[Istio Architecture]: https://www.istioworkshop.io/03-servicemesh-overview/istio-architecture/
