@@ -40,24 +40,24 @@ The sidecars deployed within the services and acting as proxy form the service m
 </p>
 
 
-| Component | Description | Mandatory | Group |
-|-----------|-------------|-----------|-------|
-| <a>`Pilot`</a> | Responsible for service discovery and configuring envoy sidecar proxies | :octicons-check-16: | Control plane |
-| <a>`Galley`</a> | Configuration ingestion for istio components | :octicons-x-16: | Control plane |
-| <a>`Sidecar injector`</a> | Inside envoy sidecar for enabled namespaces | :octicons-x-16: | Control plane |
-| <a>`Citadel`</a> | Automated key and certificate management | :octicons-x-16: | Control plane |
-| <a>`Policy`</a> | Policy enforcement | :octicons-x-16: | Control plane |
-| <a>`Telemetry`</a> | Gather telemetry data | :octicons-x-16: | Control plane |
-| <a>`Ingresss Gateway`</a> | Manage inbound connection to the service mesh | :octicons-x-16: | Control plane |
-| <a>`Egress Gateway`</a> | Manage outbound connection from the service mesh | :octicons-x-16: | Control plane |
-| <a>`Istio CNI`</a> | Network initialisation | :octicons-x-16: | Control plane |
-| <a>`Prometheus`</a> | Metrics collections | :octicons-x-16: | Control plane |
-| <a>`Core DNS`</a> | DNS resolution in a multicluster gateways deployment | :octicons-x-16: | Control plane |
-| <a>`Cert Manager`</a> | Issuance and renewal of TLS certificates | :octicons-x-16: | Control plane |
-| <a>`Grafana`</a> | Grafana	Monitoring dashboard | :octicons-x-16: | Dashboard |
-| <a>`Jaeger`</a> | Distributed tracing | :octicons-x-16: | Dashboard |
-| <a>`Kiali`</a> | Observability dashboard | :octicons-x-16: | Dashboard |
-| <a>`Envoy proxy`</a> | Proxy injected as a sidecar | :octicons-x-16: | Data plane |
+| Component | Description | Group |
+|-----------|-------------|-------|
+| <a>`Pilot`</a> | Responsible for service discovery and configuring envoy sidecar proxies | Control plane |
+| <a>`Galley`</a> | Configuration ingestion for istio components | Control plane |
+| <a>`Sidecar injector`</a> | Inside envoy sidecar for enabled namespaces | Control plane |
+| <a>`Citadel`</a> | Automated key and certificate management | Control plane |
+| <a>`Policy`</a> | Policy enforcement | Control plane |
+| <a>`Telemetry`</a> | Gather telemetry data | Control plane |
+| <a>`Ingresss Gateway`</a> | Manage inbound connection to the service mesh | Control plane |
+| <a>`Egress Gateway`</a> | Manage outbound connection from the service mesh | Control plane |
+| <a>`Istio CNI`</a> | Network initialisation | Control plane |
+| <a>`Prometheus`</a> | Metrics collections | Control plane |
+| <a>`Core DNS`</a> | DNS resolution in a multicluster gateways deployment | Control plane |
+| <a>`Cert Manager`</a> | Issuance and renewal of TLS certificates | Control plane |
+| <a>`Grafana`</a> | Grafana	Monitoring dashboard | Dashboard |
+| <a>`Jaeger`</a> | Distributed tracing | Dashboard |
+| <a>`Kiali`</a> | Observability dashboard | Dashboard |
+| <a>`Envoy proxy`</a> | Proxy injected as a sidecar | Data plane |
 
 
 - The `ingress controller` is responsible for allowing and redirecting the inbound traffic to the services running inside the service mesh.
