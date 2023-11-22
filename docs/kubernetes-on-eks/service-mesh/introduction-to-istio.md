@@ -75,7 +75,7 @@ The sidecars deployed within the services and acting as proxy form the service m
 
 ## Upstream vs Downstream
 
-`Upstream` connections are the service Envoy is initiating the connection to while `Downstream` connections are the client that is initiating a request through Envoy.
+`Upstream` connections are the service Envoy is initiating the connection to, while `Downstream` connections are the client that is initiating a request through Envoy.
 
 <p align="center">
     <img src="../../../assets/eks-course-images/service-mesh/istio-upstream-downstream.png" alt="Istio Upstream vs Downstream" loading="lazy" width="450" />
