@@ -20,7 +20,7 @@ EKS provides a highly-available and secure control plane for Kubernetes and auto
 Amazon EKS is a fully managed service, meaning that AWS manages the control plane of Kubernetes for you, which includes the API server, etcd, and scheduler. This frees you up from the operational overhead of managing a Kubernetes control plane, allowing you to focus on deploying and scaling your containerized applications.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/eks-overview-and-architecture/k8s-with-and-without-eks.png" alt="Kubernetes management with and without EKS" loading="lazy" />
+    <img src="../../../assets/eks-course-images/eks-overview-and-architecture/k8s-with-and-without-eks.png" alt="Kubernetes management with and without EKS" />
 </p>
 
 ### 2. Scalability

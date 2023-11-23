@@ -17,7 +17,7 @@ It allows third-party applications to access resources, such as user data, from 
 In simple terms, `OAuth 2.0` allows users to grant access to their data to third-party applications without giving away their usernames and passwords.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/irsa/oauth-overview.png" alt="OAuth 2.0 Overview" loading="lazy" />
+    <img src="../../../assets/eks-course-images/irsa/oauth-overview.png" alt="OAuth 2.0 Overview" />
 </p>
 
 `OAuth 2.0` is widely used by many popular web services, such as Facebook, Google, and Twitter, to allow third-party applications to access their users' data.
@@ -29,7 +29,7 @@ In simple terms, `OAuth 2.0` allows users to grant access to their data to third
 Here's a visual representation of how OAuth 2.0 works:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/irsa/oauth-flow.png" alt="OAuth 2.0 Flow" loading="lazy" />
+    <img src="../../../assets/eks-course-images/irsa/oauth-flow.png" alt="OAuth 2.0 Flow" />
 </p>
 
 1. The end-user (resource owner) expresses their intent to access protected resources (e.g., emails from Gmail) through the client application (e.g., [CRED]{:target="_blank"}).

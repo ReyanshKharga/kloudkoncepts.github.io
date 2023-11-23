@@ -23,7 +23,7 @@ You need to set `requests` and/or `limits` for containers in order to allow HPA 
 Here's how Horizontal Pod Autoscaler (HPA) works in kubernetes:
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/autoscaling/hpa-working.png" alt="Working of Horizontal Pod Autoscaler" loading="lazy" />
+    <img src="../../../../assets/eks-course-images/autoscaling/hpa-working.png" alt="Working of Horizontal Pod Autoscaler" />
 </p>
 
 1. HPA continuously monitors the metrics server for resource usage.

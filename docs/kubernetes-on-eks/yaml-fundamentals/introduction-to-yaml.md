@@ -11,7 +11,7 @@ YAML stands for "YAML Ain't Markup Language" (a playful name). It's a human-read
 Data serialization is like putting your data into a format that can be easily stored, transmitted, or used by different programming languages. Think of it as packing your information into a neat, transportable box.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/yaml-fundamentals/data-serialization.png" alt="Data Serialization" loading="lazy" />
+    <img src="../../../assets/eks-course-images/yaml-fundamentals/data-serialization.png" alt="Data Serialization" />
 </p>
 
 ## Data Serizlization Languages

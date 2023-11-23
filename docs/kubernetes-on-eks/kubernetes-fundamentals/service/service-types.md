@@ -17,7 +17,7 @@ Here are the `Service` types available in kubernetes:
 ## 1. ClusterIp Service
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/service/clusterip-service.png" alt="ClusterIp Service Overview" loading="lazy" width="450" />
+    <img src="../../../../assets/eks-course-images/service/clusterip-service.png" alt="ClusterIp Service Overview" width="450" />
 </p>
 
 - `ClusterIP` exposes the service on a cluster-internal IP.

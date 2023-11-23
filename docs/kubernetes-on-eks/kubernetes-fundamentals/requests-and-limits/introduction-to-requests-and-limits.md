@@ -18,7 +18,7 @@ The `kubelet` also reserves at least the request amount of that system resource 
 If the node where a pod is running has enough of a resource available, it's possible (and allowed) for a container to use more resource than its `request`. However, a container is not allowed to use more than its resource `limit`.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/requests-and-limits/requests-and-limits.png" alt="Requests and Limits in Kubernetes" loading="lazy" width="600" />
+    <img src="../../../../assets/eks-course-images/requests-and-limits/requests-and-limits.png" alt="Requests and Limits in Kubernetes" width="600" />
 </p>
 
 

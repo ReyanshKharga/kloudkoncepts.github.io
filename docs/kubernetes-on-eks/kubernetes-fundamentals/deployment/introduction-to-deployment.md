@@ -21,7 +21,7 @@ Using `Deployments` you can easily scale the number of replica pods, enable the 
 `Deployment` doesn't interact with pods directly. It manages pods using `ReplicaSets`.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/deployment/kubernetes-deployment.png" alt="Deployment Overview" loading="lazy" width="300" />
+    <img src="../../../../assets/eks-course-images/deployment/kubernetes-deployment.png" alt="Deployment Overview" width="300" />
 </p>
 
 `Deployment` does the rolling update automatically without any human interaction and increases the abstraction by one level.

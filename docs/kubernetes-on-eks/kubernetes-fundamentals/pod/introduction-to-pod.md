@@ -9,7 +9,7 @@ A Kubernetes pod (as in a pod of whales or pea pod) is the smallest deployable u
 It runs one or more closely related containers that share the same network and storage resources.
 
 <p align="center">
-    <img src="../../../../assets/eks-course-images/pod/pod.png" alt="Pod Overview" loading="lazy" />
+    <img src="../../../../assets/eks-course-images/pod/pod.png" alt="Pod Overview" />
 </p>
 
 Think of a pod like a small team of people working together on a project. Each person has a specific role to play, and they work together towards a common goal. In the same way, a Kubernetes pod consists of one or more containers that work together to provide a specific service or application.
