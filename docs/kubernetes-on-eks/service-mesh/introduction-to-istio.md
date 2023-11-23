@@ -14,7 +14,7 @@ It is an open source service mesh that layers transparently onto existing distri
 Istio is logically splitted into a `control plane` and a `data plane`.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/service-mesh/servicemesh-highlevel-architecture.png" alt="Architecture of Service Mesh" loading="lazy" width="450" />
+    <img src="../../../assets/eks-course-images/service-mesh/servicemesh-highlevel-architecture.png" alt="Architecture of Service Mesh" width="450" />
 </p>
 
 ### Control Plane
@@ -98,7 +98,7 @@ An Envoy proxy is deployed along with each service that you start in your cluste
 The control plane takes your desired configuration, and its view of the services, and dynamically programs the proxy servers, updating them as the rules or the environment changes.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/service-mesh/working-of-istio.png" alt="Working of Istio" width="600" />
+    <img src="../../../assets/eks-course-images/service-mesh/working-of-istio.png" alt="Working of Istio" loading="lazy" width="600" />
 </p>
 
 
