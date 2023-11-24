@@ -107,7 +107,7 @@ Also, view the pod definition using the following command:
 kubectl get pod nginx -n test -o yaml
 ```
 
-On inspection, you will find that a container called istio-proxy is running in the pod. This is the sidecar container that was injected by istio.
+On inspection, you will find that a container called `istio-proxy` is running in the pod. This is the sidecar container that was injected by istio.
 
 
 ### Step 5: Clean Up
