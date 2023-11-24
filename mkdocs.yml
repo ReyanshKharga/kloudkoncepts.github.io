@@ -210,7 +210,7 @@ nav:
       - Introduction to Service Mesh: ./kubernetes-on-eks/service-mesh/introduction-to-service-mesh.md
       - Introduction to Isito: ./kubernetes-on-eks/service-mesh/introduction-to-istio.md
       - Install Istio: ./kubernetes-on-eks/service-mesh/install-istio.md
-      - Using Istio For Service Mesh: ./kubernetes-on-eks/service-mesh/using-istio-for-service-mesh.md
+      - Using Istio for Service Mesh: ./kubernetes-on-eks/service-mesh/using-istio-for-service-mesh.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
