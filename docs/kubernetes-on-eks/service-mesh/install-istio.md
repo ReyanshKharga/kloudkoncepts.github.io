@@ -9,7 +9,7 @@ Now that we know what Istio is and how it works, let's install it in our EKS kub
 
 ## Step 1: Download Istio
 
-1. Download Installation File:
+1. Download installation file:
 
     ```
     curl -L https://istio.io/downloadIstio | sh -
@@ -34,7 +34,7 @@ Now that we know what Istio is and how it works, let's install it in our EKS kub
         `istioctl` is a command-line utility used to configure and manage Istio service mesh within kubernetes environments.
 
 
-3. Add `istioctl` Client to Your Path:
+3. Add `istioctl` client to your path:
 
     ```
     # Add to path temporarily
@@ -46,13 +46,13 @@ Now that we know what Istio is and how it works, let's install it in our EKS kub
     sudo cp bin/istioctl /usr/bin/
     ```
 
-4. Verfy `istioctl` Version:
+4. Verfy `istioctl` version:
 
     ```
     istioctl version --remote=false
     ```
 
-    If everything is fine it should print out the istio version.
+    If everything is fine it should print out the `istioctl` version.
 
 
 
@@ -104,7 +104,7 @@ Now that we know what Istio is and how it works, let's install it in our EKS kub
     ✔ Installation complete
     ```
 
-4. Verify Istio Installation:
+4. Verify Istio installation:
 
     Istio components are deployed in `istio-system` namespace. Let's list pods in `istio-system` namespace.
 
@@ -114,7 +114,8 @@ Now that we know what Istio is and how it works, let's install it in our EKS kub
 
     Verify if all the pods are running.
 
-    `Istiod` makes up the control plane and is responsible for injecting the sidecar proxies into our services that are part of the mesh.
+    !!! note
+        `Istiod` makes up the control plane and is responsible for injecting the sidecar proxies into our services that are part of the mesh.
 
 
 ## Uninstall Istio
