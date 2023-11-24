@@ -31,7 +31,7 @@ Istio uses an extended version of the Envoy proxy which is a high-performance pr
 
 Let's test it out!
 
-## Step 1: Create a Namespace
+### Step 1: Create a Namespace
 
 First, let's create a namespace as follows:
 
@@ -43,7 +43,7 @@ kubectl create ns test
 kubectl get ns test -o yaml
 ```
 
-## Step 2: Create Pod in the Namespace
+### Step 2: Create Pod in the Namespace
 
 Next, create a pod in the namespace we created above:
 
@@ -58,7 +58,7 @@ kubectl get pods -n test
 You'll notice that there is only one container running in the pod.
 
 
-## Step 3: Add Label to the Namespace
+### Step 3: Add Label to the Namespace
 
 Now, let's add `istio-injection=enabled` label to the namespace:
 
@@ -79,7 +79,7 @@ kubectl get pods -n test
 
 Since the label was applied after the pod was created, istio won't inject the sidecar in the existing pod.
 
-## Step 4: Delete and Recreate Pod
+### Step 4: Delete and Recreate Pod
 
 Delete the pod and recreate it to see if istio injects the sidecar proxies:
 
@@ -110,7 +110,7 @@ kubectl get pod nginx -n test -o yaml
 On inspection, you will find that a container called istio-proxy is running in the pod. This is the sidecar container that was injected by istio.
 
 
-## Step 5: Clean Up
+### Step 5: Clean Up
 
 Delete the resources we created:
 
