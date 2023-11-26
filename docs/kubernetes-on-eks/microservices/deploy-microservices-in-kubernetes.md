@@ -113,7 +113,7 @@ The following diagram illustrates the communication between microservices:
 
 ``` mermaid
 graph LR
-  A(Frontend) -..-> B(Backend);
+  A(Frontend) ---> B(Backend);
   B -..-> C[(Database)];
 ```
 
