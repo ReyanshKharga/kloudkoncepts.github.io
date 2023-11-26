@@ -479,7 +479,7 @@ show collections
 ```
 
 
-## Step 2: Deploy Book Genres Microservice
+## Step 3: Deploy Book Genres Microservice
 
 Let's create the kubernetes objects for our Book Genres microservice as follows:
 
@@ -636,7 +636,7 @@ https://book-genres.example.com
 ```
 
 
-## Step 3: Deploy Book Details Microservice
+## Step 4: Deploy Book Details Microservice
 
 Let's create the kubernetes objects for our Book Details microservice as follows:
 
@@ -795,7 +795,7 @@ https://book-details.example.com
 ```
 
 
-## Step 4: Deploy Book Web Microservice
+## Step 5: Deploy Book Web Microservice
 
 Let's create the kubernetes objects for our Book Web microservice as follows:
 
