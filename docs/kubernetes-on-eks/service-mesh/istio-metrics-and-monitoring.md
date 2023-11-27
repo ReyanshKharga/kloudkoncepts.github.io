@@ -75,7 +75,7 @@ Next, let's import Istio dashboards in our Grafana deployment. We'll use a scrip
     # The name of the Prometheus data source to use
     GRAFANA_DATASOURCE="Prometheus"
     # The version of Istio to deploy
-    VERSION=1.16.1
+    VERSION=1.20.0
     # Import all Istio dashboards
     for DASHBOARD in 7639 11829 7636 7630 7645; do
         REVISION="$(curl -s https://grafana.com/api/dashboards/${DASHBOARD}/revisions -s | jq ".items[] | select(.description | contains(\"${VERSION}\")) | .revision")"
@@ -153,3 +153,13 @@ python3 main.py
 ```
 
 Now, head to Grafana and check the Istio dashboards to confirm if you can view Istio metrics.
+
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [Import Istio Dashboards Script]{:target="_blank"}
+
+
+<!-- Hyperlinks -->
+[Import Istio Dashboards Script]: https://istio.io/latest/docs/ops/integrations/grafana/#option-2-import-from-grafanacom-into-an-existing-deployment

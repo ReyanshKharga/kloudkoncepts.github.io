@@ -115,7 +115,11 @@ Visit the Kiali host (`kiali.example.com`) to verify whether you can access the 
 !!! quote "References:"
     !!! quote ""
         * [Kiali]{:target="_blank"}
+        * [Kiali - Modify external_services ConfigMap]{:target="_blank"}
+        * [Kiali - Prometheus Configuration]{:target="_blank"}
 
 
 <!-- Hyperlinks -->
 [Kiali]: https://istio.io/latest/docs/ops/integrations/kiali/
+[Kiali - Modify external_services ConfigMap]: https://stackoverflow.com/a/63383291/10065458
+[Kiali - Prometheus Configuration]: https://kiali.io/docs/configuration/p8s-jaeger-grafana/prometheus/#prometheus-configuration
