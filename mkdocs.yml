@@ -215,6 +215,7 @@ nav:
       - Istio Metrics and Monitoring: ./kubernetes-on-eks/service-mesh/istio-metrics-and-monitoring.md
       - Install Kiali: ./kubernetes-on-eks/service-mesh/install-kiali.md
       - Install Jaegar: ./kubernetes-on-eks/service-mesh/install-jaegar.md
+      - Delete Istio: ./kubernetes-on-eks/service-mesh/delete-istio.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
