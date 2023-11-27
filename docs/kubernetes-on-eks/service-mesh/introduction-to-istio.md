@@ -43,7 +43,7 @@ The sidecars deployed within the services and acting as proxy form the service m
 | Component | Description | Group |
 |-----------|-------------|-------|
 | <a>`Pilot`</a> | Responsible for service discovery and configuring envoy sidecar proxies | Control plane |
-| <a>`Galley`</a> | Configuration ingestion for istio components | Control plane |
+| <a>`Galley`</a> | Configuration ingestion for Istio components | Control plane |
 | <a>`Sidecar injector`</a> | Inside envoy sidecar for enabled namespaces | Control plane |
 | <a>`Citadel`</a> | Automated key and certificate management | Control plane |
 | <a>`Policy`</a> | Policy enforcement | Control plane |

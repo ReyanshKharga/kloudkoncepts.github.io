@@ -4,7 +4,7 @@ description: Discover how services can opt-in to be part of the Istio service me
 
 # Using Istio for Service Mesh
 
-Services itself can't be part of the service mesh. They have to opt-in to become part of the istio service mesh.
+Services itself can't be part of the service mesh. They have to opt-in to become part of the Istio service mesh.
 
 There are two ways for the services to opt-in to become part of the service mesh:
 
@@ -80,11 +80,11 @@ See if sidecar was injected to existing pod:
 kubectl get pods -n test
 ```
 
-Since the label was applied after the pod was created, istio won't inject the sidecar in the existing pod.
+Since the label was applied after the pod was created, Istio won't inject the sidecar in the existing pod.
 
 ### Step 4: Delete and Recreate Pod
 
-Delete the pod and recreate it to see if istio injects the sidecar proxies:
+Delete the pod and recreate it to see if Istio injects the sidecar proxies:
 
 ```
 # Delete pod
@@ -103,7 +103,7 @@ Verify if sidecar was injected to the pod:
 kubectl get pods -n test
 ```
 
-This time you'll see two containers running in the nginx pod because istio injected a sidecar container to our pod.
+This time you'll see two containers running in the nginx pod because Istio injected a sidecar container to our pod.
 
 Also, view the pod definition using the following command:
 
@@ -112,7 +112,7 @@ Also, view the pod definition using the following command:
 kubectl get pod nginx -n test -o yaml
 ```
 
-On inspection, you will find that a container called `istio-proxy` is running in the pod. This is the sidecar container that was injected by istio.
+On inspection, you will find that a container called `istio-proxy` is running in the pod. This is the sidecar container that was injected by Istio.
 
 
 ### Step 5: Clean Up
@@ -187,7 +187,7 @@ Verify if sidecar was injected to the pods:
 kubectl get pods -n test
 ```
 
-This time you'll see two containers running in the nginx pod because istio injected a sidecar container to our pod.
+This time you'll see two containers running in the nginx pod because Istio injected a sidecar container to our pod.
 
 Also, view the pod definition using the following command:
 
@@ -196,7 +196,7 @@ Also, view the pod definition using the following command:
 kubectl get pod nginx -n test -o yaml
 ```
 
-On inspection, you will find that a container called `istio-proxy` is running in the pod. This is the sidecar container that was injected by istio.
+On inspection, you will find that a container called `istio-proxy` is running in the pod. This is the sidecar container that was injected by Istio.
 
 ### Step 5: Clean Up
 

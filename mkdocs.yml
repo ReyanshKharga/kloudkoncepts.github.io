@@ -212,6 +212,7 @@ nav:
       - Install Istio: ./kubernetes-on-eks/service-mesh/install-istio.md
       - Using Istio for Service Mesh: ./kubernetes-on-eks/service-mesh/using-istio-for-service-mesh.md
       - Deploy Microservices With Istio: ./kubernetes-on-eks/service-mesh/deploy-microservices-with-service-mesh.md
+      - Istio Metrics and Monitoring: ./kubernetes-on-eks/service-mesh/istio-metrics-and-monitoring.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
