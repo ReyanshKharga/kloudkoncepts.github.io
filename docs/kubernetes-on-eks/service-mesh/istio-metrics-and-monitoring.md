@@ -12,12 +12,58 @@ We can visualize these metrics using Prometheus, Grafana, Kiali, and Jaegar. Ist
 kubectl apply -f samples/addons/<tool-name>.yaml
 ```
 
-
-## Step 1: Import Istio Dashboards in Grafana
-
 Since we already have Prometheus and Grafana installed in our cluster, we are going to use that and not install it via Istio.
 
-First, we need to import the Istio dashboards in our Grafana deployment. We'll use a script to that.
+!!! note
+    If you don't already have prometheus and grafana installed in your cluster, you can install them from istio addons as follows:
+
+    ```
+    # Install grafana istio addon
+    kubectl apply -f samples/addons/prometheus.yaml
+
+    # Install grafana istio addon
+    kubectl apply -f samples/addons/grafana.yaml
+    ```
+
+    This will have the required dashboards pre-installed. You don't need to import them as we had to do in our existing grafana deployment.
+
+
+
+## Step 1: Update Prometheus
+
+In order for prometheus to pick istio metrics correctly, we need to make a small change to our prometheus deployment.
+
+Edit `prometheus-server` configmap as follows:
+
+```
+# Set kubectl editor to nano
+export KUBE_EDITOR=nano
+
+# Edit the configmap
+kubectl edit configmap prometheus-server -n prometheus
+```
+
+Make the following changes in `prometheus.yml` section:
+
+1. Replace all occurances of `(.+?)(?::\d+)?;(\d+)` with `([^:]+)(?::\d+)?;(\d+)`
+2. Change the `scrape_interval` to `15s`
+
+Now, restart the `prometheus-server` deployment:
+
+```
+kubectl rollout restart deploy/prometheus-server -n prometheus
+```
+
+Verify if the pods are running without error:
+
+```
+kubectl get pods -n prometheus
+```
+
+
+## Step 2: Import Istio Dashboards in Grafana
+
+Next, let's import Istio dashboards in our Grafana deployment. We'll use a script to that.
 
 === ":octicons-file-code-16: `import-istio-grafana-dashboards.sh`"
 
@@ -58,23 +104,10 @@ chmod +x import-istio-grafana-dashboards.sh
 ./import-istio-grafana-dashboards.sh
 ```
 
-Go to grafana console and verify if Istio related dashboards were imported successfully.
-
-!!! note
-    If you don't already have prometheus and grafana installed in your cluster, you can install them from istio addons as follows:
-
-    ```
-    # Install grafana istio addon
-    kubectl apply -f samples/addons/prometheus.yaml
-
-    # Install grafana istio addon
-    kubectl apply -f samples/addons/grafana.yaml
-    ```
-
-    This will have the required dashboards pre-installed. You don't need to import them as we had to do in our existing grafana deployment.
+Go to Grafana console and verify if Istio related dashboards were imported successfully.
 
 
-## Step 2: Generate Traffic to Gather Istio Metrics
+## Step 3: Generate Traffic to Gather Istio Metrics
 
 Let's generate traffic for our book management microservices to gather sufficient Istio metrics that we can visualize in Grafana. We'll use selenium to simulate and generate traffic.
 
