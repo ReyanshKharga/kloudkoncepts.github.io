@@ -8,6 +8,9 @@ Delete all the resources created by Istio since we'll be re-installing it in a w
 
 Remember, by default Istio creates an AWS classic load balancer. We can configure Istio to create application load balancer instead of classic load balancer. We'll see how in the next section.
 
+
+## Uninstall Istio
+
 ```
 # Uninstall istio
 istioctl uninstall --purge
