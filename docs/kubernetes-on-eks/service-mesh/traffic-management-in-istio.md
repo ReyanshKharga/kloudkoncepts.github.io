@@ -41,20 +41,6 @@ It's a Kubernetes Custom Resource Definition (CRD) used to define the rules and 
 
 It specifies the ports, protocols, and hosts (among other criteria) that traffic should be directed to within the service mesh.
 
-
-### Istio Gateway vs Kubernetes Ingress
-
-Istio `Gateway` provides more extensive customization and flexibility than Kubernetes Ingress, and allows Istio features such as monitoring and route rules to be applied to traffic entering the cluster.
-
-With Istio Gateway you can implement the following with ease:
-
-- Timeouts
-- Retries
-- Circuit brakers
-- Fault injection
-- Traffic splitting
-- Canary deployment
-
 Here's an example of a Gateway object:
 
 === ":octicons-file-code-16: `my-istio-gateway.yml`"
@@ -75,6 +61,20 @@ Here's an example of a Gateway object:
         hosts:
         - "nginx-app.example.com"
     ```
+
+
+### Istio Gateway vs Kubernetes Ingress
+
+Istio `Gateway` provides more extensive customization and flexibility than Kubernetes Ingress, and allows Istio features such as monitoring and route rules to be applied to traffic entering the cluster.
+
+With Istio Gateway you can implement the following with ease:
+
+- Timeouts
+- Retries
+- Circuit brakers
+- Fault injection
+- Traffic splitting
+- Canary deployment
 
 
 ## Istio Virtual Service
