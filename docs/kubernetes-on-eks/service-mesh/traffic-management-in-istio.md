@@ -157,7 +157,7 @@ Here's an example of a Destination that configures traffic policies for the `rev
 The figure below depicts the flow of control across configuration resources:
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/istio/istio-traffic.svg" alt="Istio Traffic Management" loading="lazy" />
+    <img src="../../../assets/eks-course-images/service-mesh/istio-traffic.svg" alt="Istio Traffic Management" loading="lazy" />
 </p>
 
 
