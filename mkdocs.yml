@@ -217,6 +217,7 @@ nav:
       - Install Jaegar: ./kubernetes-on-eks/service-mesh/install-jaegar.md
       - Delete Istio: ./kubernetes-on-eks/service-mesh/delete-istio.md
       - Traffic Management in Istio: ./kubernetes-on-eks/service-mesh/traffic-management-in-istio.md
+      - Install Istio With Application Load Balancer: ./kubernetes-on-eks/service-mesh/install-istio-with-application-load-balancer.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
