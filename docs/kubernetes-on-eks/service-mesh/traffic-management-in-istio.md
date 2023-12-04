@@ -33,7 +33,7 @@ Some of the important traffic management API resources include:
 In this section, we'll just have an overview of these concepts. We'll see examples later on in another section.
 
 
-## Istio Gateway
+### Istio Gateway
 
 The Gateway object in Istio defines the configuration for how traffic should be routed to services within the mesh based on specific criteria.
 
@@ -63,25 +63,53 @@ Here's an example of a Gateway object:
     ```
 
 
-### Istio Gateway vs Kubernetes Ingress
+!!! note "Istio Gateway vs Kubernetes Ingress"
 
-Istio `Gateway` provides more extensive customization and flexibility than Kubernetes Ingress, and allows Istio features such as monitoring and route rules to be applied to traffic entering the cluster.
+    Istio `Gateway` provides more extensive customization and flexibility than kubernetes Ingress, and allows Istio features such as monitoring and route rules to be applied to traffic entering the cluster.
 
-With Istio Gateway you can implement the following with ease:
+    With Istio Gateway you can implement the following with ease:
 
-- Timeouts
-- Retries
-- Circuit brakers
-- Fault injection
-- Traffic splitting
-- Canary deployment
+    - Timeouts
+    - Retries
+    - Circuit Breaker
+    - Fault Injection
+    - Traffic Splitting
+    - Canary Deployment
 
 
-## Istio Virtual Service
+### Istio Virtual Service
 
 Istio `VirtualService` works in conjunction with Istio Gateway. it defines the destination service.
 
-A Virtual Service defines the rules that control how requests for a service are routed within an Istio service mesh. For example, it can be configured to split traffic among two or more versions of a service.
+A Virtual Service defines the rules that control how requests for a service are routed within an Istio service mesh.
+
+For example, it can be configured to split traffic among two or more versions of a service as shown below:
+
+=== ":octicons-file-code-16: `my-istio-virtual-service.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+      name: review
+    spec:
+      hosts:
+        - reviews.example.com
+      http:
+      - route:
+        - destination:
+            host: reviews
+            subset: v1
+          weight: 80
+        - destination:
+            host: reviews
+            subset: v2
+          weight: 20
+      ...
+    ```
+
+!!! note
+    For the virtual service described above, you must define the subsets using Destination Rule.
 
 Another use case might involve routing traffic to a service based on the URI prefix as shown below:
 
@@ -94,7 +122,7 @@ Another use case might involve routing traffic to a service based on the URI pre
       name: bookinfo
     spec:
       hosts:
-        - bookinfo.com
+        - bookinfo.example.com
       http:
       - match:
         - uri:
@@ -114,7 +142,7 @@ Another use case might involve routing traffic to a service based on the URI pre
 Each virtual service consists of a set of routing rules that are evaluated in order, letting Istio match each given request to the virtual service to a specific real destination within the mesh.
 
 
-## Destination Rule
+### Istio Destination Rule
 
 Istio `DestinationRule` defines policies that apply to traffic intended for a service after routing has occurred. These rules specify configuration for load balancing, connection pool size from the sidecar, and outlier detection settings to detect and evict unhealthy hosts from the load balancing pool.
 
@@ -122,7 +150,19 @@ You can think of virtual services as how you route your traffic to a given desti
 
 In particular, you use destination rules to specify named service subsets, such as grouping all a given service’s instances by version. You can then use these service subsets in the routing rules of virtual services to control the traffic to different instances of your services.
 
+``` mermaid
+graph LR
+  A(Traffic) --> B(Virtual Service);
+  B -->|50%| C("Destination Rule
+  (subeset v1)");
+  B -->|50%| D("Destination Rule
+  (subeset v2)");
+  C --> E(Reviews - v1);
+  D --> F(Reviews - v2);
+```
+
 Here's an example of a Destination that configures traffic policies for the `reviews` service in Istio. It defines subsets labeled as `v1`, `v2`, and `v3`, each representing different versions. The `v1` subset uses a `RANDOM` load balancer strategy, `v2` utilizes `ROUND_ROBIN`, while `v3` likely relies on a default strategy as it's not explicitly defined.
+
 
 === ":octicons-file-code-16: `my-istio-destination-rule.yml`"
 
