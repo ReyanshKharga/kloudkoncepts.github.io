@@ -219,6 +219,7 @@ nav:
       - Traffic Management in Istio: ./kubernetes-on-eks/service-mesh/traffic-management-in-istio.md
       - Install Istio With Application Load Balancer: ./kubernetes-on-eks/service-mesh/install-istio-with-application-load-balancer.md
       - Deploy App With Istio Gateway and Virtual Service: ./kubernetes-on-eks/service-mesh/deploy-app-with-istio-gateway-and-virtual-service.md
+      - Configure ExternalDNS for Istio Integration: ./kubernetes-on-eks/service-mesh/configure-external-dns-for-istio.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
