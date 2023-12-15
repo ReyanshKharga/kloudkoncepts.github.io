@@ -130,9 +130,19 @@ Visit the Kiali host (`kiali.example.com`) to verify whether you can access the 
         <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-services.png" alt="Kiali Services" />
     </p>
 
-!!! note
-    At this moment, the Kiali graph might seem unclear because we're currently utilizing kubernetes ingress for our microservices instead of the native gateway and virtual service in Istio. Once we update our microservices to use the Istio gateway and virtual service, you'll see a more accurate graph illustrating the interactions between our microservices.
 
+At this moment, the Kiali graph might seem unclear because we're currently utilizing kubernetes ingress for our microservices instead of the native gateway and virtual service in Istio. Once we update our microservices to use the Istio gateway and virtual service, you'll see a more accurate graph illustrating the interactions between our microservices.
+
+Here's a glimpse of how kiali service graph will look like when we update our microservices:
+
+<p align="center">
+    <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-book-management.png" alt="Kiali Book Management" loading="lazy" />
+</p>
+
+
+Notice how `book-details-service` calls `book-genres-service` and both services independently calls their respective databases.
+
+You won't see `book-web` calling `book-details-service` in the graph because `book-web` uses the public API to call `book-details-service`.
 
 !!! quote "References:"
     !!! quote ""
