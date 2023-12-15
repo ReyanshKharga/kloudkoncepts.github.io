@@ -117,17 +117,17 @@ Visit the Kiali host (`kiali.example.com`) to verify whether you can access the 
 
 === ":octicons-image-16: `Kiali Graph`"
     <p align="center">
-        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-graph.png" alt="Kiali Graph" loading="lazy" />
+        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-graph.png" alt="Kiali Graph" />
     </p>
 
 === ":octicons-image-16: `Kiali Applications`"
     <p align="center">
-        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-applications.png" alt="Kiali Applications" loading="lazy" />
+        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-applications.png" alt="Kiali Applications" />
     </p>
 
 === ":octicons-image-16: `Kiali Services`"
     <p align="center">
-        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-services.png" alt="Kiali Services" loading="lazy" />
+        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-services.png" alt="Kiali Services" />
     </p>
 
 

@@ -604,22 +604,22 @@ Access the frontend service from your browser and perform some CRUD operations a
 
 === ":octicons-image-16: `Add Book`"
     <p align="center">
-        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/add-book.png" alt="Add Book" loading="lazy" />
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/add-book.png" alt="Add Book" />
     </p>
 
 === ":octicons-image-16: `Update Book`"
     <p align="center">
-        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/update-book.png" alt="Update Book" loading="lazy" />
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/update-book.png" alt="Update Book" />
     </p>
 
 === ":octicons-image-16: `Delete Book`"
     <p align="center">
-        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/delete-book.png" alt="Delete Book" loading="lazy" />
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/delete-book.png" alt="Delete Book" />
     </p>
 
 === ":octicons-image-16: `Check Health`"
     <p align="center">
-        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/check-health.png" alt="Check Health" loading="lazy" />
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/check-health.png" alt="Check Health" />
     </p>
 
 Verify if the records have been inserted into the MongoDB database:
