@@ -15,15 +15,15 @@ Edit the `kiali.yml` by adding grafana and prometheus url in the kiali configmap
 
 ```yaml
 external_services:
-    ...
-    grafana:
-        enabled: true
-        in_cluster_url: http://grafana.grafana:80
-        url: https://grafana.example.com
-    prometheus:
-        url: http://prometheus-server.prometheus:80
-    jaegar:
-        url: http://tracing.istio-system:80
+  ...
+  grafana:
+    enabled: true
+    in_cluster_url: http://grafana.grafana:80
+    url: https://grafana.example.com
+  prometheus:
+    url: http://prometheus-server.prometheus:80
+  jaegar:
+    url: http://tracing.istio-system:80
 ```
 
 
