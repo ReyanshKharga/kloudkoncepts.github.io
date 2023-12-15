@@ -142,7 +142,7 @@ Here's a glimpse of how kiali service graph will look like when we update our mi
 
 Notice how `book-details-service` calls `book-genres-service` and both services independently calls their respective databases.
 
-You won't see `book-web` calling `book-details-service` in the graph because `book-web` uses the public API to call `book-details-service`.
+You won't see `book-web-service` calling `book-details-service` in the graph because `book-web` uses the public API to call `book-details-service`.
 
 !!! quote "References:"
     !!! quote ""
