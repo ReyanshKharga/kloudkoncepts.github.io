@@ -130,6 +130,9 @@ Visit the Kiali host (`kiali.example.com`) to verify whether you can access the 
         <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-services.png" alt="Kiali Services" />
     </p>
 
+!!! note
+    At this moment, the Kiali graph might seem unclear because we're currently utilizing kubernetes ingress for our microservices instead of the native gateway and virtual service in Istio. Once we update our microservices to use the Istio gateway and virtual service, you'll see a more accurate graph illustrating the interactions between our microservices.
+
 
 !!! quote "References:"
     !!! quote ""
