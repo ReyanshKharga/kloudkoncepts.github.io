@@ -16,6 +16,14 @@ Note down the current proxy configuration:
 istioctl proxy-config routes svc/istio-ingressgateway -n istio-system
 ```
 
+It should look something like this:
+
+```
+NAME     VHOST NAME     DOMAINS     MATCH                  VIRTUAL SERVICE
+         backend        *           /stats/prometheus*     
+         backend        *           /healthz/ready*  
+```
+
 
 ## Step 2: Deploy the Application
 
@@ -168,6 +176,15 @@ View the updated proxy configuration:
 ```
 # Retrieve proxy configuration
 istioctl proxy-config routes svc/istio-ingressgateway -n istio-system
+```
+
+It should looks something like this:
+
+```
+NAME        VHOST NAME            DOMAINS            MATCH                 VIRTUAL SERVICE
+http.8080   test.example.com:80   test.example.com   /*                    test-virtualservice.test
+            backend               *                  /stats/prometheus*     
+            backend               *                  /healthz/ready*  
 ```
 
 
