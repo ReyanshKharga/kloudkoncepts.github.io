@@ -14,9 +14,6 @@ Remember, by default Istio creates an AWS classic load balancer. We can configur
 ```
 # Uninstall istio
 istioctl uninstall --purge
-
-# Delete istio-system namespace
-kubectl delete ns istio-system
 ```
 
 Also, make sure to delete all the ingress resources we created for prometheus, grafana, kiali and jaegar. We'll use Istio gateway this time instead of ingress.
