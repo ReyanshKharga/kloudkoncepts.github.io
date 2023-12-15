@@ -1,5 +1,5 @@
 ---
-description: 
+description: Learn how to effortlessly deploy applications using Istio and ExternalDNS with our comprehensive guide. Optimize your workflow, streamline deployment, and enhance your application management effortlessly.
 ---
 
 # Deploy Application With Istio and ExternalDNS
