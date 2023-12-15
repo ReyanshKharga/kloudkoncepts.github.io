@@ -949,6 +949,10 @@ Open any browser on your local host machine and hit the URL to access the book w
 https://book-web.example.com
 ```
 
+<p align="center">
+    <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/book-management-istio.png" alt="Book Management Microservice" loading="lazy" />
+</p>
+
 Verify if everything is properly and you can interact with book web frontend service and get the book and genre details.
 
 

@@ -94,6 +94,9 @@ kubectl apply -f jaegar-ingress.yml
 
 Visit the Jaegar host (`jaegar.example.com`) to verify whether you can access the Jaegar Dashboard and view traces.
 
+<p align="center">
+    <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/jaegar.png" alt="Jaegar" loading="lazy" />
+</p>
 
 
 !!! quote "References:"

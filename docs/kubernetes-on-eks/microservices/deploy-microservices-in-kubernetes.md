@@ -591,10 +591,36 @@ https://frontend.example.com
 
 Access the frontend service from your browser and perform some CRUD operations as follows:
 
-1. Add a Book
-2. Update a Book
-3. List Books
+1. Get Books
+2. Add a Book
+3. Update a Book
 4. Delete a Book
+5. Check Health
+
+=== ":octicons-image-16: `Get Books`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/get-books.png" alt="Get Books" loading="lazy" />
+    </p>
+
+=== ":octicons-image-16: `Add Book`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/add-book.png" alt="Add Book" loading="lazy" />
+    </p>
+
+=== ":octicons-image-16: `Update Book`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/update-book.png" alt="Update Book" loading="lazy" />
+    </p>
+
+=== ":octicons-image-16: `Delete Book`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/delete-book.png" alt="Delete Book" loading="lazy" />
+    </p>
+
+=== ":octicons-image-16: `Check Health`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/microservices/check-health.png" alt="Check Health" loading="lazy" />
+    </p>
 
 Verify if the records have been inserted into the MongoDB database:
 

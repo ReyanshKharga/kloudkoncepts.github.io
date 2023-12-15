@@ -110,6 +110,25 @@ kubectl apply -f kiali-ingress.yml
 
 Visit the Kiali host (`kiali.example.com`) to verify whether you can access the Kiali Dashboard and observe the interaction between microservices.
 
+=== ":octicons-image-16: `Kiali Overview`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-overview.png" alt="Kiali Overview" loading="lazy" />
+    </p>
+
+=== ":octicons-image-16: `Kiali Graph`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-graph.png" alt="Kiali Graph" loading="lazy" />
+    </p>
+
+=== ":octicons-image-16: `Kiali Applications`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-applications.png" alt="Kiali Applications" loading="lazy" />
+    </p>
+
+=== ":octicons-image-16: `Kiali Services`"
+    <p align="center">
+        <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-services.png" alt="Kiali Services" loading="lazy" />
+    </p>
 
 
 !!! quote "References:"
