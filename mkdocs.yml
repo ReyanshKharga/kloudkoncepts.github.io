@@ -211,7 +211,7 @@ nav:
       - Introduction to Isito: ./kubernetes-on-eks/service-mesh/introduction-to-istio.md
       - Install Istio: ./kubernetes-on-eks/service-mesh/install-istio.md
       - Using Istio for Service Mesh: ./kubernetes-on-eks/service-mesh/using-istio-for-service-mesh.md
-      - Deploy Microservices With Istio: ./kubernetes-on-eks/service-mesh/deploy-microservices-with-service-mesh.md
+      - Deploy Book Management Microservices With Istio: ./kubernetes-on-eks/service-mesh/deploy-book-management-microservices-with-service-mesh.md
       - Istio Metrics and Monitoring: ./kubernetes-on-eks/service-mesh/istio-metrics-and-monitoring.md
       - Install Kiali: ./kubernetes-on-eks/service-mesh/install-kiali.md
       - Install Jaegar: ./kubernetes-on-eks/service-mesh/install-jaegar.md
@@ -225,6 +225,8 @@ nav:
       - Deploy Istio Gateway for Grafana: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-grafana.md
       - Deploy Istio Gateway for Kiali: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-kiali.md
       - Deploy Istio Gateway for Jaegar: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-jaegar.md
+      - Update Book Management Microservices: ./kubernetes-on-eks/service-mesh/update-book-management-microservices-with-istio-gateway.md
+      - Delete Book Managment Microservices: ./kubernetes-on-eks/service-mesh/delete-book-management-microservice.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md

@@ -1,10 +1,11 @@
 ---
-description: Explore seamless microservices deployment with Istio service mesh incorporation. Discover how to optimize communication and scalability in your infrastructure effortlessly.
+description: Update the book management microservices application to use istio gateway instead of kubernetes ingress.
 ---
 
-# Deploy Microservices With Istio Service Mesh
+# Update Book Management Microservices With Istio Gateway
 
-Now that we understand how services can become part of the Istio service mesh, let's create a book management microservice application using Istio service mesh.
+Let's update book management microservices that we created earlier. We will remove all kubernetes ingress objects and use istio gateways and virtual services instead.
+
 
 
 ## Prerequisite
@@ -88,9 +89,6 @@ graph LR
   C -.-> CD[("Book Genres 
     Database")];
 ```
-
-!!! note
-    We will use the same load balancer for all microservices because using more load balancers will be expensive since load balancers are charged hourly. We can achieve this using [IngressGroup]{:target="_blank"}.
 
 
 ## Step 1: Deploy Book Genres Database Microservice
@@ -544,50 +542,55 @@ Let's create the kubernetes objects for our Book Genres microservice as follows:
           name: http
     ```
 
-=== ":octicons-file-code-16: `ingress.yml`"
+=== ":octicons-file-code-16: `gateway.yml`"
 
     ```yaml linenums="1"
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
+    apiVersion: networking.istio.io/v1alpha3
+    kind: Gateway
     metadata:
-      name: book-genres-ingress
+      name: book-genres-gateway
+      namespace: book-genres
+    spec: 
+      selector:
+        istio: ingressgateway # use Istio default gateway implementation
+      servers:
+      - port:
+          number: 80
+          name: http
+          protocol: HTTP
+        hosts:
+        - "book-genres.example.com"
+    ```
+
+=== ":octicons-file-code-16: `virtualservice.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+      name: book-genres-virtualservice
       namespace: book-genres
       annotations:
-        # Load Balancer Annotations
-        alb.ingress.kubernetes.io/scheme: internet-facing
-        alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer
-        alb.ingress.kubernetes.io/target-type: ip
-        # Health Check Annotations
-        alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-        alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-        alb.ingress.kubernetes.io/healthcheck-path: /health
-        alb.ingress.kubernetes.io/healthcheck-interval-seconds: '5'
-        alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '2'
-        alb.ingress.kubernetes.io/success-codes: '200'
-        alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-        alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-        # Listerner Ports Annotation
-        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-        # SSL Redicrect Annotation
-        alb.ingress.kubernetes.io/ssl-redirect: '443'
-        # IngressGroup
-        alb.ingress.kubernetes.io/group.name: my-group
-    spec:
-      ingressClassName: alb
-      rules:
-      - host: book-genres.example.com
-        http:
-          paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: book-genres-service
-                port:
-                  number: 80
+        external-dns.alpha.kubernetes.io/target: "istio-load-balancer-1556246780.ap-south-1.elb.amazonaws.com"
+    spec: 
+      hosts:
+      - "book-genres.example.com"
+      gateways:
+      - book-genres-gateway
+      http:
+      - match: 
+        - uri:   
+            prefix: /
+        route:
+        - destination:
+            host: book-genres-service
+            port:
+              number: 80
     ```
 
 Notice the `istio-injection: enabled` label in the namespace object. This will ensure all objects in the namespace are part of the Istio service mesh.
+
+Also, make sure to replace the value of external-dns.alpha.kubernetes.io/target with the load balancer DNS that was created by ingress we created for Istio.
 
 Assuming your folder structure looks like the one below:
 
@@ -596,7 +599,8 @@ Assuming your folder structure looks like the one below:
 |   |-- book-genres
 │   |   |-- 00-namespace.yml
 │   |   |-- deployment-and-service.yml
-│   |   |-- ingress.yml
+│   |   |-- gateway.yml
+│   |   |-- virtualservice.yml
 ```
 
 Let's apply the manifests to create the kubernetes objects for Book Genres microservice:
@@ -610,12 +614,16 @@ This will create the following kubernetes objects:
 1. A namespace named `book-genres`
 2. Book Genres deployment in the `book-genres` namespace
 3. Book Genres service in the `book-genres` namespace
-4. Ingress for Book Genres service
+4. Istio Gateway for Book Genres service
+5. Istio Virtual Service for Book Genres service
 
 
-The ingress creates an internet-facing load balancer and the SSL certificate is attached to the load balancer.
+View the updated proxy configuration:
 
-Note that the certificate is automatically discovered with hostnames from the ingress resource. Also, a Route 53 record is added for the host. This is all done by the [AWS Load Balancer Controller]{:target="_blank"} and [ExternalDNS]{:target="_blank"}.
+```
+# Retrieve proxy configuration
+istioctl proxy-config routes svc/istio-ingressgateway -n istio-system
+```
 
 Verify if the resources were created successfully:
 
@@ -623,11 +631,9 @@ Verify if the resources were created successfully:
 # List all resources in book-genres namespace
 kubectl get all -n book-genres
 
-# List ingress in book-genres namespace
-kubectl get ing -n book-genres
+# List gateways and virtual services
+kubectl get gateway,virtualservice -n book-genres
 ```
-
-Go to AWS console and verify if the load balancer was created and a record was added to Route 53 for the host specified in ingress.
 
 Open any browser on your local host machine and hit the URL to access the book genres service:
 
@@ -703,50 +709,55 @@ Let's create the kubernetes objects for our Book Details microservice as follows
           name: http
     ```
 
-=== ":octicons-file-code-16: `ingress.yml`"
+=== ":octicons-file-code-16: `gateway.yml`"
 
     ```yaml linenums="1"
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
+    apiVersion: networking.istio.io/v1alpha3
+    kind: Gateway
     metadata:
-      name: book-details-ingress
+      name: book-details-gateway
+      namespace: book-details
+    spec: 
+      selector:
+        istio: ingressgateway # use Istio default gateway implementation
+      servers:
+      - port:
+          number: 80
+          name: http
+          protocol: HTTP
+        hosts:
+        - "book-details.example.com"
+    ```
+
+=== ":octicons-file-code-16: `virtualservice.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+      name: book-details-virtualservice
       namespace: book-details
       annotations:
-        # Load Balancer Annotations
-        alb.ingress.kubernetes.io/scheme: internet-facing
-        alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer
-        alb.ingress.kubernetes.io/target-type: ip
-        # Health Check Annotations
-        alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-        alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-        alb.ingress.kubernetes.io/healthcheck-path: /health
-        alb.ingress.kubernetes.io/healthcheck-interval-seconds: '5'
-        alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '2'
-        alb.ingress.kubernetes.io/success-codes: '200'
-        alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-        alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-        # Listerner Ports Annotation
-        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-        # SSL Redicrect Annotation
-        alb.ingress.kubernetes.io/ssl-redirect: '443'
-        # IngressGroup
-        alb.ingress.kubernetes.io/group.name: my-group
-    spec:
-      ingressClassName: alb
-      rules:
-      - host: book-details.example.com
-        http:
-          paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: book-details-service
-                port:
-                  number: 80
+        external-dns.alpha.kubernetes.io/target: "istio-load-balancer-1556246780.ap-south-1.elb.amazonaws.com"
+    spec: 
+      hosts:
+      - "book-details.example.com"
+      gateways:
+      - book-details-gateway
+      http:
+      - match: 
+        - uri:   
+            prefix: /
+        route:
+        - destination:
+            host: book-details-service
+            port:
+              number: 80
     ```
 
 Notice the `istio-injection: enabled` label in the namespace object. This will ensure all objects in the namespace are part of the Istio service mesh.
+
+Also, make sure to replace the value of external-dns.alpha.kubernetes.io/target with the load balancer DNS that was created by ingress we created for Istio.
 
 Assuming your folder structure looks like the one below:
 
@@ -755,7 +766,8 @@ Assuming your folder structure looks like the one below:
 |   |-- book-details
 │   |   |-- 00-namespace.yml
 │   |   |-- deployment-and-service.yml
-│   |   |-- ingress.yml
+│   |   |-- gateway.yml
+│   |   |-- virtualservice.yml
 ```
 
 Let's apply the manifests to create the kubernetes objects for Book Details microservice:
@@ -769,12 +781,15 @@ This will create the following kubernetes objects:
 1. A namespace named `book-details`
 2. Book Details deployment in the `book-details` namespace
 3. Book Details service in the `book-details` namespace
-4. Ingress for Book Details service
+4. Istio Gateway for Book Details service
+5. Istio Virtual Service for Book Details service
 
+View the updated proxy configuration:
 
-The ingress creates an internet-facing load balancer and the SSL certificate is attached to the load balancer.
-
-Note that the certificate is automatically discovered with hostnames from the ingress resource. Also, a Route 53 record is added for the host. This is all done by the [AWS Load Balancer Controller]{:target="_blank"} and [ExternalDNS]{:target="_blank"}.
+```
+# Retrieve proxy configuration
+istioctl proxy-config routes svc/istio-ingressgateway -n istio-system
+```
 
 Verify if the resources were created successfully:
 
@@ -782,11 +797,9 @@ Verify if the resources were created successfully:
 # List all resources in book-details namespace
 kubectl get all -n book-details
 
-# List ingress in book-details namespace
-kubectl get ing -n book-details
+# List gateways and virtual services
+kubectl get gateway,virtualservice -n book-details
 ```
-
-Go to AWS console and verify if the existing load balancer was used and a record was added to Route 53 for the host specified in ingress.
 
 Open any browser on your local host machine and hit the URL to access the book details service:
 
@@ -858,50 +871,55 @@ Let's create the kubernetes objects for our Book Web microservice as follows:
           name: http
     ```
 
-=== ":octicons-file-code-16: `ingress.yml`"
+=== ":octicons-file-code-16: `gateway.yml`"
 
     ```yaml linenums="1"
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
+    apiVersion: networking.istio.io/v1alpha3
+    kind: Gateway
     metadata:
-      name: book-web-ingress
+      name: book-web-gateway
+      namespace: book-web
+    spec: 
+      selector:
+        istio: ingressgateway # use Istio default gateway implementation
+      servers:
+      - port:
+          number: 80
+          name: http
+          protocol: HTTP
+        hosts:
+        - "book-web.example.com"
+    ```
+
+=== ":octicons-file-code-16: `virtualservice.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+      name: book-web-virtualservice
       namespace: book-web
       annotations:
-        # Load Balancer Annotations
-        alb.ingress.kubernetes.io/scheme: internet-facing
-        alb.ingress.kubernetes.io/load-balancer-name: my-load-balancer
-        alb.ingress.kubernetes.io/target-type: ip
-        # Health Check Annotations
-        alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-        alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-        alb.ingress.kubernetes.io/healthcheck-path: /
-        alb.ingress.kubernetes.io/healthcheck-interval-seconds: '5'
-        alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '2'
-        alb.ingress.kubernetes.io/success-codes: '200'
-        alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-        alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-        # Listerner Ports Annotation
-        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-        # SSL Redicrect Annotation
-        alb.ingress.kubernetes.io/ssl-redirect: '443'
-        # IngressGroup
-        alb.ingress.kubernetes.io/group.name: my-group
-    spec:
-      ingressClassName: alb
-      rules:
-      - host: book-web.example.com
-        http:
-          paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: book-web-service
-                port:
-                  number: 80
+        external-dns.alpha.kubernetes.io/target: "istio-load-balancer-1556246780.ap-south-1.elb.amazonaws.com"
+    spec: 
+      hosts:
+      - "book-web.example.com"
+      gateways:
+      - book-web-gateway
+      http:
+      - match: 
+        - uri:   
+            prefix: /
+        route:
+        - destination:
+            host: book-web-service
+            port:
+              number: 80
     ```
 
 Notice the `istio-injection: enabled` label in the namespace object. This will ensure all objects in the namespace are part of the Istio service mesh.
+
+Also, make sure to replace the value of external-dns.alpha.kubernetes.io/target with the load balancer DNS that was created by ingress we created for Istio.
 
 Assuming your folder structure looks like the one below:
 
@@ -910,7 +928,8 @@ Assuming your folder structure looks like the one below:
 |   |-- book-web
 │   |   |-- 00-namespace.yml
 │   |   |-- deployment-and-service.yml
-│   |   |-- ingress.yml
+│   |   |-- gateway.yml
+│   |   |-- virtualservice.yml
 ```
 
 Let's apply the manifests to create the kubernetes objects for Book Web microservice:
@@ -924,12 +943,15 @@ This will create the following kubernetes objects:
 1. A namespace named `book-web`
 2. Book Web deployment in the `book-web` namespace
 3. Book Web service in the `book-web` namespace
-4. Ingress for Book Web service
+4. Istio Gateway for Book Web service
+5. Istio Virtual Service for Book Web service
 
+View the updated proxy configuration:
 
-The ingress creates an internet-facing load balancer and the SSL certificate is attached to the load balancer.
-
-Note that the certificate is automatically discovered with hostnames from the ingress resource. Also, a Route 53 record is added for the host. This is all done by the [AWS Load Balancer Controller]{:target="_blank"} and [ExternalDNS]{:target="_blank"}.
+```
+# Retrieve proxy configuration
+istioctl proxy-config routes svc/istio-ingressgateway -n istio-system
+```
 
 Verify if the resources were created successfully:
 
@@ -937,11 +959,9 @@ Verify if the resources were created successfully:
 # List all resources in book-web namespace
 kubectl get all -n book-web
 
-# List ingress in book-web namespace
-kubectl get ing -n book-web
+# List gateways and virtual services
+kubectl get gateway,virtualservice -n book-web
 ```
-
-Go to AWS console and verify if the existing load balancer was used and a record was added to Route 53 for the host specified in ingress.
 
 Open any browser on your local host machine and hit the URL to access the book web service:
 
@@ -956,14 +976,70 @@ https://book-web.example.com
 Verify if everything is properly and you can interact with book web frontend service and get the book and genre details.
 
 
+## Step 6: Generate Traffic to Gather Istio Metrics
+
+Let's generate traffic for our book management microservices to gather sufficient Istio metrics that we can visualize in Grafana. We'll use selenium to simulate and generate traffic.
+
+First, create a python script as follows:
+
+=== ":octicons-file-code-16: `main.py`"
+
+    ```python linenums="1"
+    from selenium import webdriver
+    import time
+
+    driver = webdriver.Chrome()
+    for i in range(1000):
+        driver.get("https://book-web.example.com/books")
+        time.sleep(0.5)
+        driver.get("https://book-web.example.com/books/genre/1")
+        time.sleep(0.5)
+        driver.get("https://book-web.example.com/books/genre/2")
+        time.sleep(0.5)
+        driver.get("https://book-web.example.com/books/genre/3")
+        time.sleep(0.5)
+
+    driver.close()
+    ```
+
+Next, create a virtual environment and install selenium using pip3:
+
+```
+# Create virtual environment
+virtualenv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install selenium
+pip3 install selenium
+```
+
+Now, run the traffic generator:
+
+```
+python3 main.py
+```
+
+Now, head to Grafana and check the Istio dashboards to confirm if you can view Istio metrics.
+
+Also, view the service graph in Kiali for the updated microservices. It should looks something like this:
+
+<p align="center">
+    <img class="shadowed-image" src="../../../assets/eks-course-images/service-mesh/kiali-book-management.png" alt="Kiali Book Management" loading="lazy" />
+</p>
+
+
+Notice how `book-details-service` calls `book-genres-service` and both services independently calls their respective databases.
+
+You won't see `book-web-service` calling `book-details-service` in the graph because `book-web-service` uses the public API to call `book-details-service`.
+
+
 
 <!-- Hyperlinks -->
 [reyanshkharga/book-management:book-details]: https://hub.docker.com/r/reyanshkharga/book-management/tags
 [reyanshkharga/book-management:book-genres]: https://hub.docker.com/r/reyanshkharga/book-management/tags
 [reyanshkharga/book-management:book-web]: https://hub.docker.com/r/reyanshkharga/book-management/tags
 [mongo:5.0.2]: https://hub.docker.com/_/mongo
-[IngressGroup]: https://kloudkoncepts.com/kubernetes-on-eks/ingress/ingress-with-ingressgroup/
 [dynamic provisioning]: https://kloudkoncepts.com/kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volume-using-amazon-ebs/dynamic-provisioning-of-pv-using-ebs/
 [persistent volume]: https://kloudkoncepts.com/kubernetes-on-eks/kubernetes-fundamentals/storage-in-kubernetes/persistent-volumes/introduction-to-persistent-volumes/
-[AWS Load Balancer Controller]: https://kloudkoncepts.com/kubernetes-on-eks/ingress/aws-load-balancer-controller/introduction-to-aws-load-balancer-controller/
-[ExternalDNS]: https://kloudkoncepts.com/kubernetes-on-eks/external-dns/introduction-to-external-dns/
