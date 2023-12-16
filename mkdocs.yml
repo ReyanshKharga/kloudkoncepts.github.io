@@ -224,6 +224,7 @@ nav:
       - Deploy Istio Gateway for Prometheus: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-prometheus.md
       - Deploy Istio Gateway for Grafana: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-grafana.md
       - Deploy Istio Gateway for Kiali: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-kiali.md
+      - Deploy Istio Gateway for Jaegar: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-jaegar.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
