@@ -839,7 +839,7 @@ Let's create the kubernetes objects for our Book Web microservice as follows:
               - containerPort: 3000
             env:
             - name: REACT_APP_API_ENDPOINT
-              value: https://book-details.rizle.link
+              value: https://book-details.example.com
     ---
     # Service
     apiVersion: v1
@@ -889,7 +889,7 @@ Let's create the kubernetes objects for our Book Web microservice as follows:
     spec:
       ingressClassName: alb
       rules:
-      - host: book-web.rizle.link
+      - host: book-web.example.com
         http:
           paths:
           - path: /

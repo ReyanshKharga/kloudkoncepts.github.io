@@ -222,6 +222,8 @@ nav:
       - Configure ExternalDNS for Istio Integration: ./kubernetes-on-eks/service-mesh/configure-external-dns-for-istio.md
       - Deploy App With Istio and ExternalDNS: ./kubernetes-on-eks/service-mesh/deploy-app-with-istio-and-external-dns.md
       - Deploy Istio Gateway for Prometheus: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-prometheus.md
+      - Deploy Istio Gateway for Grafana: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-grafana.md
+      - Deploy Istio Gateway for Kiali: ./kubernetes-on-eks/service-mesh/deploy-istio-gateway-for-kiali.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md

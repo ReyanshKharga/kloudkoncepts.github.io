@@ -122,7 +122,7 @@ Prepare the manifest files for our application as follows:
         external-dns.alpha.kubernetes.io/target: "istio-load-balancer-1556246780.ap-south-1.elb.amazonaws.com"
     spec: 
       hosts:
-      - "test.rizle.link"
+      - "test.example.com"
       gateways:
       - test-gateway
       http:
