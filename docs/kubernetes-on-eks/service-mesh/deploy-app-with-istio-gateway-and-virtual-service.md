@@ -83,7 +83,6 @@ Prepare the manifest files for our application as follows:
 === ":octicons-file-code-16: `gateway.yml`"
 
     ```yaml linenums="1"
-    ---
     apiVersion: networking.istio.io/v1alpha3
     kind: Gateway
     metadata:
@@ -104,7 +103,6 @@ Prepare the manifest files for our application as follows:
 === ":octicons-file-code-16: `virtualservice.yml`"
 
     ```yaml linenums="1"
-    ---
     apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService
     metadata:
