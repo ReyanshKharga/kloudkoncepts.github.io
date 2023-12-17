@@ -4,7 +4,7 @@ description: Delete the book management microservices application we created and
 
 # Delete Book Management Microservices
 
-Let's delete the resources created for book management microservices and clean up our environment.
+Let's delete the resources we created for book management microservices and clean up our environment.
 
 
 ## Clean Up
