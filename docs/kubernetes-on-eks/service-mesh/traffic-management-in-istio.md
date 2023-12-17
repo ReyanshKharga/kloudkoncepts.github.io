@@ -152,7 +152,8 @@ In particular, you use destination rules to specify named service subsets, such 
 
 ``` mermaid
 graph LR
-  A(Traffic) --> B(Virtual Service);
+  A(Traffic) --> G(Gateway);
+  G --> B(Virtual Service);
   B -->|50%| C("Destination Rule
   (subeset v1)");
   B -->|50%| D("Destination Rule
