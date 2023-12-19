@@ -228,6 +228,7 @@ nav:
       - Update Book Management Microservices: ./kubernetes-on-eks/service-mesh/update-book-management-microservices-with-istio-gateway.md
       - Delete Book Managment Microservices: ./kubernetes-on-eks/service-mesh/delete-book-management-microservice.md
       - Traffic Splitting Using Istio: ./kubernetes-on-eks/service-mesh/traffic-splitting-using-istio.md
+      - Canary Deployment Using Istio: ./kubernetes-on-eks/service-mesh/canary-deployment-using-istio.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md

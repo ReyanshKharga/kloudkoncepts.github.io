@@ -1,31 +1,32 @@
 ---
-description: Learn how to effectively manage web traffic using Istio with our comprehensive guide. Explore traffic splitting techniques to optimize performance and enhance user experience.
+description: Discover seamless Canary Deployment techniques with Istio. Learn how to split traffic between application versions effectively for optimal performance and user experience. 
 ---
 
-# Traffic Splitting Using Istio
+# Canary Deployment Using Istio
 
-Traffic splitting helps compare different versions of something (like a webpage or marketing campaign) to find the best-performing option, leading to better decisions, improved user experiences, and reduced risks before implementing changes widely.
 
-Suppose you have two versions of an application. Let's say `v1` and `v2`. You want to send only some traffic to `v2` before completely switching to `v2`. How do you do that?
+Canary deployment is a gradual release strategy in software development. It involves rolling out new application versions to a small subset of users before a full release, allowing developers to monitor performance and address issues before reaching the entire user base.
 
-Istio allows you to split traffic between different versions of an application.
+Suppose you have two versions of an application. Let's say `v1` and `v2`. You may want to serve version `v2` of the application only to a subset of users (like those with the cookie `version=v2` set in the header — often injected by developers for particular users). How do you do that?
+
+Istio makes canary deployment simple and straightforward.
 
 For that you first create a istio `DestinationRule` that defines the subsets of applications you have (`v1` and `v2` in this case).
 
-Once you have defined the subsets, you can configure istio `VirtualService` to split traffic between the subsets. You can mention the weight for each subsets. The weight is the percentage of traffic the subset receives.
+Once you have defined the subsets, you can configure Istio `VirtualService` to split traffic between them based on matching conditions. For instance, if the cookie `version=v2` is found in the header, you can route the traffic to `v2`; otherwise, direct it to `v1`.
 
-For example, imagine you have a service called `reviews`. Currently, it's running version `v1`. Now, you've made some updates (let's call this version `v2`). Initially, you only want 20% of the traffic to go to the new `v2` version of the service, while the rest continues to use the original `v1` version.
 
 ``` mermaid
 graph LR
   A(Traffic) --> G(Gateway);
   G --> B(Virtual Service);
-  B -->|80%| C("Destination Rule
-  (subeset v1)");
-  B -->|20%| D("Destination Rule
+  B -->|"If cookie 'version=v2' 
+  is set"| C("Destination Rule
   (subeset v2)");
-  C --> E(Reviews - v1);
-  D --> F(Reviews - v2);
+  B -->|"Else"| D("Destination Rule
+  (subeset v1)");
+  C --> E(Reviews - v2);
+  D --> F(Reviews - v1);
 ```
 
 
@@ -39,7 +40,7 @@ First, let's deploy two versions of the application: v1 and v2, along with other
     apiVersion: v1
     kind: Namespace
     metadata:
-      name: traffic-split
+      name: canary-deployment
       labels:
         istio-injection: enabled
     ```
@@ -51,7 +52,7 @@ First, let's deploy two versions of the application: v1 and v2, along with other
     kind: Deployment
     metadata:
       name: nginx-deployment-v1
-      namespace: traffic-split
+      namespace: canary-deployment
     spec:
       replicas: 1
       selector:
@@ -77,7 +78,7 @@ First, let's deploy two versions of the application: v1 and v2, along with other
     kind: Deployment
     metadata:
       name: nginx-deployment-v2
-      namespace: traffic-split
+      namespace: canary-deployment
     spec:
       replicas: 1
       selector:
@@ -103,7 +104,7 @@ First, let's deploy two versions of the application: v1 and v2, along with other
     kind: Service
     metadata:
       name: nginx-service
-      namespace: traffic-split
+      namespace: canary-deployment
     spec:
       type: ClusterIP
       selector:
@@ -121,7 +122,7 @@ First, let's deploy two versions of the application: v1 and v2, along with other
     kind: Gateway
     metadata:
       name: nginx-gateway
-      namespace: traffic-split
+      namespace: canary-deployment
     spec: 
       selector:
         istio: ingressgateway # use Istio default gateway implementation
@@ -141,7 +142,7 @@ First, let's deploy two versions of the application: v1 and v2, along with other
     kind: DestinationRule
     metadata:
       name: nginx-destinationrule
-      namespace: traffic-split
+      namespace: canary-deployment
     spec:
       host: nginx-service
       subsets:
@@ -160,7 +161,7 @@ First, let's deploy two versions of the application: v1 and v2, along with other
     kind: VirtualService
     metadata:
       name: nginx-virtualservice
-      namespace: traffic-split
+      namespace: canary-deployment
       annotations:
         external-dns.alpha.kubernetes.io/target: "istio-load-balancer-1556246780.ap-south-1.elb.amazonaws.com"
     spec: 
@@ -169,15 +170,18 @@ First, let's deploy two versions of the application: v1 and v2, along with other
       gateways:
       - nginx-gateway
       http:
+      - match:
+        - headers:
+            cookie:
+              regex: "^(.*?;)?(version=v2)(;.*)?$"
+        route:
+        - destination:
+            host: nginx-service
+            subset: v2
       - route:
         - destination:
             host: nginx-service
             subset: v1
-          weight: 80
-        - destination:
-            host: nginx-service
-            subset: v2
-          weight: 20
     ```
 
 Make sure to replace the value of `external-dns.alpha.kubernetes.io/target` annotation in virtual service with the istio load balancer DNS.
@@ -209,9 +213,29 @@ istioctl proxy-config routes svc/istio-ingressgateway -n istio-system
 ```
 
 
-## Step 2: Generate Load and Verify Traffic Distribution in Kiali
+## Step 2: Verify if Cookie is Working as Expected
 
-Let's generate some traffic and verify the traffic distribution in kiali.
+Usually developers can inject cookies for specific users but in this case we'll do it manually via the browser.
+
+hit the host url in the browser and then do the following:
+
+Go to inspect -> application -> cookies (expand it) -> click on your site url -> add a cookie
+
+```
+# Add cookie
+version=v2
+```
+
+Now open a new tab and hit the host url again. You'll see that only the `v2` version of the nginx app is served.
+
+
+## Step 3: Generate Load and Verify Traffic Distribution in Kiali
+
+First hit the host url without any cookie and view the traffic distrubution in kiali. You'll see that 100% of the traffic is sent to `v1` of the nginx app.
+
+After some time also hit the url with cookies and view the traffic distribution in kiali. With correct cookie, you will see that the traffic is also sent to `v2` version of the app.
+
+Let's also use a script to generate some traffic and verify the traffic distribution in kiali.
 
 First, let's write a script that generates traffic:
 
@@ -222,6 +246,9 @@ First, let's write a script that generates traffic:
     while true
     do
       curl -s -f -o /dev/null "https://nginx-app.example.com"
+      echo "sleeping for 0.5 seconds"
+      sleep 0.5
+      curl -s -f -o /dev/null "https://nginx-app.example.com" --cookie "version=v2"
       echo "sleeping for 0.5 seconds"
       sleep 0.5
     done
@@ -237,7 +264,7 @@ chmod +x generate-traffic.sh
 ./generate-traffic.sh
 ```
 
-Wait for about 5 minutes and then view trafic distribution graph in kiali. Verify that the traffic distribution closely matches the defined weights for each subsets: 80% to `v1` and 20% to `v2`.
+Wait for about 5 minutes and then view trafic distribution graph in kiali. Verify that the traffic is equally distributed between `v1` and `v2` versions of the app.
 
 
 ## Clean Up
