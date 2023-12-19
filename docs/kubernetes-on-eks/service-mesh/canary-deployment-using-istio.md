@@ -241,7 +241,7 @@ First, let's write a script that generates traffic:
 
 === ":octicons-file-code-16: `generate-traffic.sh`"
 
-    ```yaml linenums="1"
+    ```bash linenums="1"
     #!/bin/bash
     while true
     do
