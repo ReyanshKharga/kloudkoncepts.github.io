@@ -14,7 +14,7 @@ circuit breaking in Istio is handled by `DestinationRule`.
 A circuit breaker typically operates in three main states: `Closed`, `Open`, and `Half-Open`.
 
 <p align="center">
-    <img src="../../../assets/eks-course-images/service-mesh/circuit-breaking.png" alt="Circuit Breaking" width="550" loading="lazy" />
+    <img src="../../../assets/eks-course-images/service-mesh/circuit-breaking.png" alt="Circuit Breaking" width="550" />
 </p>
 
 1. **Closed**
