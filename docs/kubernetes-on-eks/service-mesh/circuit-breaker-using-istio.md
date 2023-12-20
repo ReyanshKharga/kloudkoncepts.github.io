@@ -114,7 +114,7 @@ First, let's deploy the application and other Istio components:
           name: http
           protocol: HTTP
         hosts:
-        - "nodeapp.rizle.link"
+        - "nodeapp.example.com"
     ```
 
 === ":octicons-file-code-16: `destination-rule.yml`"
@@ -152,7 +152,7 @@ First, let's deploy the application and other Istio components:
         external-dns.alpha.kubernetes.io/target: "istio-load-balancer-1556246780.ap-south-1.elb.amazonaws.com"
     spec: 
       hosts:
-      - "nodeapp.rizle.link"
+      - "nodeapp.example.com"
       gateways:
       - nodeapp-gateway
       http:
