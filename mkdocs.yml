@@ -229,6 +229,8 @@ nav:
       - Delete Book Managment Microservices: ./kubernetes-on-eks/service-mesh/delete-book-management-microservice.md
       - Traffic Splitting Using Istio: ./kubernetes-on-eks/service-mesh/traffic-splitting-using-istio.md
       - Canary Deployment Using Istio: ./kubernetes-on-eks/service-mesh/canary-deployment-using-istio.md
+      - Fault Injection Using Istio:
+        - Introduction to Fault Injection: ./kubernetes-on-eks/service-mesh/fault-injection/introduction-to-fault-injection.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
