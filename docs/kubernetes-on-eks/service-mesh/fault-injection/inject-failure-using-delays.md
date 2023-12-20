@@ -7,7 +7,7 @@ description: Discover the power of failure injection through deliberate delays! 
 Let's inject failure using delays for 100% of the traffic.
 
 
-## Step 1: Deploy Application With Multiple Versions
+## Step 1: Deploy Application
 
 First, let's deploy the application and other Istio components:
 
