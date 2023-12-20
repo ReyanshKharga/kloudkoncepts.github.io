@@ -13,6 +13,10 @@ circuit breaking in Istio is handled by `DestinationRule`.
 
 A circuit breaker typically operates in three main states: `Closed`, `Open`, and `Half-Open`.
 
+<p align="center">
+    <img src="../../../assets/eks-course-images/service-mesh/circuit-breaking.png" alt="Circuit Breaking" width="550" loading="lazy" />
+</p>
+
 1. **Closed**
 
     Normal operation, requests pass through, system monitors for issues.
@@ -29,10 +33,9 @@ A circuit breaker typically operates in three main states: `Closed`, `Open`, and
 
     Testing phase, allows limited requests to check if the issue is resolved before deciding to fully reopen or stay closed.
 
-    If requests are successful, it transitions to the `Closed` state; if unsuccessful, it transitions back to the `Open` state.
+    If the request is successful, it transitions to the `Closed` state; if unsuccessful, it transitions back to the `Open` state.
 
-
-Now, let's see circuit breaking in action!
+Let's see it in action!
 
 
 
