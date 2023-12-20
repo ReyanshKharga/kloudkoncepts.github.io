@@ -83,7 +83,7 @@ First, let's deploy the application and other Istio components:
           name: http
           protocol: HTTP
         hosts:
-        - "nginx-app.rizle.link"
+        - "nginx-app.example.com"
     ```
 
 === ":octicons-file-code-16: `virtual-service.yml`"
@@ -98,7 +98,7 @@ First, let's deploy the application and other Istio components:
         external-dns.alpha.kubernetes.io/target: "istio-load-balancer-1556246780.ap-south-1.elb.amazonaws.com"
     spec: 
       hosts:
-      - "nginx-app.rizle.link"
+      - "nginx-app.example.com"
       gateways:
       - nginx-gateway
       http:
@@ -153,7 +153,7 @@ Let's use a script to automate traffic generation and record the failure rate:
     #!/bin/bash
     while true
     do
-      curl -s -f -o /dev/null "https://nginx-app.rizle.link"
+      curl -s -f -o /dev/null "https://nginx-app.example.com"
       echo "sleeping for 0.5 seconds"
       sleep 0.5
     done
