@@ -114,6 +114,8 @@ First, let's deploy the application and other Istio components:
 
 Make sure to replace the value of `external-dns.alpha.kubernetes.io/target` annotation in virtual service with the istio load balancer DNS.
 
+Observe that we are injecting a delay of 5 seconds for 100% of the traffic.
+
 Assuming your folder structure looks like the one below:
 
 ```
