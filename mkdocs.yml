@@ -233,6 +233,7 @@ nav:
         - Introduction to Fault Injection: ./kubernetes-on-eks/service-mesh/fault-injection/introduction-to-fault-injection.md
         - Inject Failure Using Delays: ./kubernetes-on-eks/service-mesh/fault-injection/inject-failure-using-delays.md
         - Inject Failure Using Aborts: ./kubernetes-on-eks/service-mesh/fault-injection/inject-failure-using-aborts.md
+      - Circuit Breaker Using Istio: ./kubernetes-on-eks/service-mesh/circuit-breaker-using-istio.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
