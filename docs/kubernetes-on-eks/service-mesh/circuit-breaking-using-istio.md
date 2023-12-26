@@ -2,7 +2,7 @@
 description: Discover the power of Istio in optimizing your circuit breaker implementation. Explore our comprehensive guide to leveraging Istio for robust, efficient circuit breakers. 
 ---
 
-# Circuit Breaker Using Istio
+# Circuit Breaking Using Istio
 
 Circuit breaking is an important pattern for creating resilient microservice applications. Circuit breaking allows you to write applications that limit the impact of failures, latency spikes, and other undesirable effects of network peculiarities.
 
