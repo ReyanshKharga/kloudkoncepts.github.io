@@ -235,6 +235,9 @@ nav:
         - Inject Failure Using Aborts: ./kubernetes-on-eks/service-mesh/fault-injection/inject-failure-using-aborts.md
       - Circuit Breaking Using Istio: ./kubernetes-on-eks/service-mesh/circuit-breaking-using-istio.md
       - Retry Strategy Using Istio: ./kubernetes-on-eks/service-mesh/retry-strategy-using-istio.md
+    - Amazon ECR:
+      - Introduction to Amazon ECR: ./kubernetes-on-eks/amazon-ecr/introduction-to-amazon-ecr.md
+      - EKS With Amazon ECR: ./kubernetes-on-eks/amazon-ecr/eks-with-amazon-ecr.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
