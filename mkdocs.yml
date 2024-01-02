@@ -234,6 +234,7 @@ nav:
         - Inject Failure Using Delays: ./kubernetes-on-eks/service-mesh/fault-injection/inject-failure-using-delays.md
         - Inject Failure Using Aborts: ./kubernetes-on-eks/service-mesh/fault-injection/inject-failure-using-aborts.md
       - Circuit Breaking Using Istio: ./kubernetes-on-eks/service-mesh/circuit-breaking-using-istio.md
+      - Retry Strategy Using Istio: ./kubernetes-on-eks/service-mesh/retry-strategy-using-istio.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
