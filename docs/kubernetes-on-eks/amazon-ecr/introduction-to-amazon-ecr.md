@@ -55,3 +55,91 @@ docker run -it -p 3000:80 my-nginx-image
 
 Open any browser and hit `localhost:3000` to view the html page from nginx Docker container.
 
+
+
+## Step 2: Create Amazon ECR Repository
+
+Create a repository to which we will later push the `my-nginx-image:latest` image.
+
+```
+# Command template
+aws ecr create-repository \
+    --repository-name <repository-name> \
+    --image-scanning-configuration scanOnPush=true \
+    --region <region-name>
+
+# Actual command
+aws ecr create-repository \
+    --repository-name my-nginx-repository \
+    --image-scanning-configuration scanOnPush=true
+```
+
+
+## Step 3: Authenticate to your ECR
+
+Before we can push the images to Amazon ECR, we need to retrieve an authentication token and authenticate your Docker client to your registry. That way, the docker command can push and pull images with Amazon ECR.
+
+The AWS CLI provides a `get-login-password` command to simplify the authentication process.
+
+```
+aws ecr get-login-password --region <region-name> | docker login --username AWS --password-stdin <aws-account-id>.dkr.ecr.<region-name>.amazonaws.com
+```
+
+Make sure to replace the `region-name` and `aws-account-id` placeholders with the appropriate values.
+
+
+You can also get the `get-login-password` command from AWS Console by clicking View push commands.
+
+Here's the output you will see if the command succeeds:
+
+```
+Login Succeeded
+```
+
+
+## Step 4: Push the Docker image to Amazon ECR
+
+Prerequisites:
+
+- The minimum version of docker is installed: 1.7
+- The Amazon ECR authorization token has been configured with docker login.
+- The Amazon ECR repository exists and the user has access to push to the repository.
+
+
+List the images you have stored locally to identify the image to tag and push:
+
+```
+docker images
+```
+
+Tag the image to push to your repository:
+
+```
+docker tag my-nginx-image:latest <ecr-repository-uri>:<version>
+```
+
+Push the image to ECR:
+
+```
+docker push <ecr-repository-uri>:<version>
+```
+
+
+## Step 5: Pull an image from Amazon ECR
+
+After your image has been pushed to your Amazon ECR repository, you can pull it from other locations like your local machine.
+
+```
+docker pull <ecr-repository-uri>:<version>
+```
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [Amazon ECR]{:target="_blank"}
+        * [Using Amazon ECR with the AWS CLI]{:target="_blank"}
+
+
+<!-- Hyperlinks -->
+[Amazon ECR]: https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html
+[Using Amazon ECR with the AWS CLI]: https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html
