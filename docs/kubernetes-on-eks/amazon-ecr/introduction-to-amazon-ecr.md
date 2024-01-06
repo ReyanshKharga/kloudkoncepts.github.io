@@ -35,6 +35,20 @@ First, create a Dockerfile as follows:
     COPY ./index.html /usr/share/nginx/html/index.html
     ```
 
+=== ":octicons-file-code-16: `index.html`"
+
+    ```html linenums="1"
+    <!doctype html>
+    <html>
+        <head>
+            <title>Nginx</title>
+        </head>
+        <body>
+            <h2>Hello from Nginx container</h2>
+        </body>
+    </html>
+    ```
+
 Next, build the image from the Dockerfile above:
 
 ```
