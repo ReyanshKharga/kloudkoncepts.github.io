@@ -116,7 +116,7 @@ Or, visit these URLs in any browser.
 
 
 
-## Step 4: Containerize the App and Test
+## Step 4: Containerize the App and Test it Locally
 
 Let's create a `Dockerfile` and create a Docker image out of it. Also, add a `.dockerignore` file.
 
@@ -208,3 +208,154 @@ docker rm my-node-container
 ```
 
 
+## Step 5: Create Amazon ECR Repository
+
+Create ECR repository to which we will later push the `my-node-app:latest` image that we built.
+
+```
+aws ecr create-repository \
+    --repository-name my-node-app \
+    --image-scanning-configuration scanOnPush=true
+```
+
+
+## Step 6: Create Kubernetes Manifest Files
+
+Let's prepare kubernetes manifest files for our application.
+
+=== ":octicons-file-code-16: `00-namespace.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: nodeapp
+    ```
+
+=== ":octicons-file-code-16: `deployment.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: my-nodeapp
+      namespace: nodeapp
+    spec:
+      replicas: 2
+      selector:
+        matchLabels:
+          app: nodeapp
+      template:
+        metadata:
+          labels:
+            app: nodeapp
+        spec:
+          containers:
+          - name: nodeapp
+            image: CONTAINER_IMAGE
+            ports:
+              - containerPort: 5000
+    ```
+
+=== ":octicons-file-code-16: `service.yml`"
+
+    ```yaml linenums="1"
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: my-nodeapp-service
+      namespace: nodeapp
+    spec:
+      selector:
+        app: nodeapp
+      ports:
+        - port: 80
+          targetPort: 5000
+    ```
+
+Note that `CONTAINER_IMAGE` is a placeholder that will be replace with actual ECR image URI during deployment.
+
+
+## Step 7: Create Buildspec for AWS CodeBuild
+
+A buildspec is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build.
+
+=== ":octicons-file-code-16: `buildspec.yml`"
+
+    ```yaml linenums="1"
+    version: 0.2
+    run-as: root
+
+    phases:
+
+      install:
+        commands:
+          - echo Nothing to Install.
+          - echo AWS CodeBuild image already has the required tools we need.
+          - echo We will verify it in the next stage.
+    
+      pre_build:
+        commands:
+          # Check if kubectl is installed
+          - echo Checking if kubectl is installed...
+          - kubectl version --client
+          # Check if aws-cli is installed
+          - echo Checking if aws-cli is installed...
+          - aws --version
+          # Login to ECR
+          - echo Logging in to Amazon ECR...
+          - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+          # GitHub commit hash to tag the image
+          - COMMIT_HASH=$CODEBUILD_RESOLVED_SOURCE_VERSION
+          # Additional latest tag
+          - IMAGE_TAG='latest'
+
+      build:
+        commands:
+          # Build the Docker image and add an additional latest tag
+          - echo Building the Docker image...     
+          - docker build -t $REPOSITORY_URI:$COMMIT_HASH .
+          - docker tag $REPOSITORY_URI:$COMMIT_HASH $REPOSITORY_URI:$IMAGE_TAG
+
+      post_build:
+        commands:
+          # Push the Docker images to ECR
+          - echo Pushing the Docker image with commit hash as tag...
+          - docker push $REPOSITORY_URI:$COMMIT_HASH
+          - echo Pushing the Docker image with the latest image tag...
+          - docker push $REPOSITORY_URI:$IMAGE_TAG
+          - echo Pushed images to ECR.
+          # Update kube config. This requires the codebuild role to have eks:DescribeCluster permission
+          - aws eks update-kubeconfig --name $CLUSTER_NAME
+          # Replace the CONTAINER_IMAGE placeholder with actual image URI
+          - sed -i "s|CONTAINER_IMAGE|$REPOSITORY_URI:$COMMIT_HASH|g" k8s-manifests/deployment.yml
+          # Apply any manifest changes in k8s-manifest folder. 
+          - echo Applying kubernetes manifest changes...
+          - kubectl apply -f k8s-manifests
+    ```
+
+The script performs the following actions:
+
+1. Verifies whether the necessary dependencies, such as kubectl and aws-cli, are installed.
+2. Logs into Amazon ECR.
+3. Builds the Docker image.
+4. Pushes the image to ECR.
+5. Updates the deployment manifest by substituting the CONTAINER_IMAGE placeholder with the newly pushed image on ECR.
+6. Deploys the kubernetes manifests to EKS.
+
+
+At this point your folder structure should look like the following:
+
+```
+|-- nodeapp
+│   |-- Dockerfile
+│   |-- .dockerignore
+│   |-- server.js
+│   |-- package.json
+│   |-- package-lock.json
+│   |-- buildspec.yml
+│   |-- k8s-manifests
+        |-- 00-namespace.yml
+        |-- deployment.yml
+        |-- service.yml
+```
