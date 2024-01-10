@@ -86,6 +86,7 @@ Assuming your folder structure looks like the one below:
 
 ```
 |-- nodeapp
+│   |-- .gitignore
 │   |-- package.json
 │   |-- server.js
 ```
@@ -172,6 +173,7 @@ Assuming your folder structure looks like the one below:
 |-- nodeapp
 │   |-- Dockerfile
 │   |-- .dockerignore
+│   |-- .gitignore
 │   |-- server.js
 ```
 
@@ -344,18 +346,152 @@ The script performs the following actions:
 6. Deploys the kubernetes manifests to EKS.
 
 
-At this point your folder structure should look like the following:
+At this point your git repository folder structure should look like the following:
 
 ```
 |-- nodeapp
-│   |-- Dockerfile
-│   |-- .dockerignore
-│   |-- server.js
-│   |-- package.json
-│   |-- package-lock.json
-│   |-- buildspec.yml
 │   |-- k8s-manifests
-        |-- 00-namespace.yml
-        |-- deployment.yml
-        |-- service.yml
+|   |   |-- 00-namespace.yml
+|   |   |-- deployment.yml
+|   |   |-- service.yml
+│   |-- .dockerignore
+│   |-- .gitignore
+│   |-- Dockerfile
+│   |-- buildspec.yml
+│   |-- package-lock.json
+│   |-- package.json
+│   |-- server.js
 ```
+
+
+## Step 8: Create AWS CodeBuild Project
+
+AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy.
+
+Before we proceed, let's create an IAM role for CodeBuild project. It is important that you create role first otherwise a role will be created in `service-role` namespace and AWS EKS doesn't work with that role. This is a bug.
+
+Now, follow the instruction below to create a CodeBuild project:
+
+1. Go to AWS CodeBuild console
+2. Click on `Build projects` in the left navigation panel.
+3. Click on `Create build project` button on the top right corner.
+4. In the `Project configuration` section, provide the `Project name`. We'll name it `node-app`.
+5. In the `Source` section select `GitHub` as source provider.
+6. For Repository select `Repository in my GitHub account`.
+7. Select `Connect using OAuth` and click on `Connect to GitHub`.
+8. A new window will open for authorization.
+9. Click on `Authorize aws-codesuite` after you have selected the required permissions.
+10. In the `Source version` provide branch name. It should be `master` in our case.
+11. In the `Environment` section, select `Managed Image`.
+12. Select `Amazon Linux 2` as the `Operating system`.
+13. In the `Runtime` select `standard`.
+14. For `Image` select the latest version. `7.0` as of today.
+15. For `Image version` select `Always use the latest image for this runtime version`.
+16. Check the `Privileged` checkbox.
+17. In the `Service role` select `existing`.
+18. In the `Buildspec` section, select Use a `buildspec file`.
+19. In the `Buildspec name` provide the name of the buildspec file. It is `buildspec.yml` in our case.
+20. In the `Logs` section, check the `CloudWatch logs`.
+21. Leave the `Group name` empty. (Auto create).
+22. Leave the `Stream name` empty. (Auto create).
+
+We need to assign the required permissions to the role attached to the CodeBuild project. 
+
+Open the service role attached to the codebuild project and assign the following permissions:
+
+1. `AmazonEC2ContainerRegistryPowerUser`: Allows codebuild project to push image to the ECR repository.
+2. Add the following inline policy. This allows codebuild project to get required EKS permissions.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:DescribeCluster"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+!!! note
+    It is recommended to use granular permissions but for simplicity we are avoiding that.
+
+
+Also, edit the CodeBuild project and add the following environent variables:
+
+1. `REPOSITORY_URI`: ECR repository URI that we created
+2. `CLUSTER_NAME`: EKS cluster name
+
+
+Now, update the `aws-auth` ConfigMap to allow CodeBuild to apply k8s manifest files:
+
+```
+# View the current ConfigMap
+kubectl get configmap aws-auth -n kube-system -o yaml
+
+# Edit the aws-auth ConfigMap
+export KUBE_EDITOR=nano
+kubectl edit configmap aws-auth -n kube-system
+```
+
+Update the `aws-auth` ConfigMap by adding the following item in the `mapRoles` list as shown below:
+
+```yaml
+mapRoles: |
+   - groups:
+     - system:masters
+     rolearn: <codebuild-service-role-arn>
+     username: <codebuild-project-service-role-name>
+```
+
+Now, trigger the CodeBuild project manually to test if deployment is working as expected.
+
+
+
+## Step 9: Create AWS CodePipeline
+
+Create an AWS CodePipeline to trigger the build whenever a change is pushed to the repository in the `master` branch.
+
+Follow the instruction below to create the CodePipeline:
+
+1. Go to AWS CodePipeline console.
+2. Click on `Create pipeline`.
+3. Provide `Pipeline name`.
+4. In `Service role`, select `New service role`.
+5. Leave everything else as default.
+6. Click on `Next`.
+7. In Source provider, select `GitHub (Version 2)`.
+8. In `Connection`, click on `Connect to GitHub`.
+9. A new window will open to create a new connection.
+10. Provide connection name and authorize.
+11. In `GitHub Apps` click on `Install a new App`.
+12. Authorize and install app.
+13. In `Repository name` select the required repository.
+14. In `Branch name` select `master`.
+15. Check the box that says `Start the pipeline on source code change`.
+16. Leave everything else as default
+17. Click on `Next`.
+18. In `Build`, select `AWS CodeBuild` as `Build provider`.
+19. Select `Region`.
+20. Select `Project name`.
+21. Leave everything else as default.
+22. Click on `Next`.
+23. Skip deploy stage.
+24. Click on `Create pipeline`.
+
+
+Now, make some changes to your repository and you'll see that the pipeline gets triggered automatically. Change the version of the app to `v2` and verify if the changes are reflected in EKS cluster.
+
+
+
+!!! quote "References:"
+    !!! quote ""
+        * [CodeBuild Service Role Issue]{:target="_blank"}
+
+
+<!-- Hyperlinks -->
+[CodeBuild Service Role Issue]: https://stackoverflow.com/a/62764751/10065458
