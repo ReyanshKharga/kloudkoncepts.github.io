@@ -484,7 +484,12 @@ Follow the instruction below to create the CodePipeline:
 24. Click on `Create pipeline`.
 
 
-Now, make some changes to your repository and you'll see that the pipeline gets triggered automatically. Change the version of the app to `v2` and verify if the changes are reflected in EKS cluster.
+
+## Step 10: Verify the Working of CI/CD Pipeline
+
+Make some changes to your repository and verify that the pipeline gets triggered automatically. 
+
+Change the version of the app to `v2` and verify if the changes are reflected in EKS cluster.
 
 
 
