@@ -240,6 +240,8 @@ nav:
       - EKS With Amazon ECR: ./kubernetes-on-eks/amazon-ecr/eks-with-amazon-ecr.md
     - CI/CD for EKS:
       - CI/CD for EKS Using AWS CodePipeline: ./kubernetes-on-eks/ci-cd-with-eks/ci-cd-for-eks-using-aws-codepipeline.md
+    - Helm:
+      - Introduction to Helm: ./kubernetes-on-eks/helm/introduction-to-helm.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
