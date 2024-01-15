@@ -243,6 +243,7 @@ nav:
     - Helm:
       - Introduction to Helm: ./kubernetes-on-eks/helm/introduction-to-helm.md
       - Helm Upgrade and Rollback: ./kubernetes-on-eks/helm/helm-upgrade-and-rollback.md
+      - Create Your Own Helm Chart: ./kubernetes-on-eks/helm/create-your-own-helm-chart.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md

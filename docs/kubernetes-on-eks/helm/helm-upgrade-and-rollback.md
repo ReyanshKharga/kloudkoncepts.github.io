@@ -89,4 +89,3 @@ The above command will roll back the release to the state it was in at revision 
 You can also use the `--wait` flag with the `helm rollback` command to wait for the rollout to be complete before exiting, and the `--force` flag to force resource updates through a `delete/recreate` process rather than the default rolling upgrade process.
 
 Note that you also need to provide `-n` or `--namespace` argument if `myapp` is not in the `default` namespace.
-
