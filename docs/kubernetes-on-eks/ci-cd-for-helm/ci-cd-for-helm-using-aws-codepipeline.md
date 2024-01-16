@@ -224,7 +224,7 @@ At this point your git repository folder structure should look like the followin
 │   |-- helm-chart
 |   |   |-- templates
 |   |   |   |-- deployment.yaml
-|   |   |   |-- service.yml
+|   |   |   |-- service.yaml
 │   |-- k8s-manifests
 |   |   |-- 00-namespace.yml
 |   |   |-- deployment.yml
