@@ -251,6 +251,7 @@ nav:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
       - Linux: ./devops-and-sre-interview-questions/linux.md
+      - Thanos: ./devops-and-sre-interview-questions/thanos.md
 
 
 # Plugins
