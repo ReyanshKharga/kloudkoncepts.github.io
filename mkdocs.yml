@@ -250,6 +250,7 @@ nav:
     - Argo CD:
       - Introduction to Argo CD: ./kubernetes-on-eks/argo-cd/introduction-to-argo-cd.md
       - Install Argo CD: ./kubernetes-on-eks/argo-cd/install-argo-cd.md
+      - Create Argo CD Application: ./kubernetes-on-eks/argo-cd/create-argo-cd-application.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
