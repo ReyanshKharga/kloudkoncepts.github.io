@@ -247,6 +247,9 @@ nav:
       - Using Helm for Templating: ./kubernetes-on-eks/helm/using-helm-for-templating.md
     - CI/CD for Helm:
       - CI/CD for Helm Using AWS CodePipeline: ./kubernetes-on-eks/ci-cd-for-helm/ci-cd-for-helm-using-aws-codepipeline.md
+    - Argo CD:
+      - Introduction to Argo CD: ./kubernetes-on-eks/argo-cd/introduction-to-argo-cd.md
+      - Install Argo CD: ./kubernetes-on-eks/argo-cd/install-argo-cd.md
   - DevOps & SRE Interview Questions:
       - Introduction: ./devops-and-sre-interview-questions/index.md
       - Computer Networking: ./devops-and-sre-interview-questions/networking.md
