@@ -235,9 +235,10 @@ nav:
         - Inject Failure Using Aborts: ./kubernetes-on-eks/service-mesh/fault-injection/inject-failure-using-aborts.md
       - Circuit Breaking Using Istio: ./kubernetes-on-eks/service-mesh/circuit-breaking-using-istio.md
       - Retry Strategy Using Istio: ./kubernetes-on-eks/service-mesh/retry-strategy-using-istio.md
-    - EKS With Amazon ECR:
+    - Amazon ECR:
       - Introduction to Amazon ECR: ./kubernetes-on-eks/amazon-ecr/introduction-to-amazon-ecr.md
-      - EKS With Amazon ECR: ./kubernetes-on-eks/amazon-ecr/eks-with-amazon-ecr.md
+    - EKS With Amazon ECR:
+      - EKS With Amazon ECR: ./kubernetes-on-eks/eks-with-amazon-ecr/eks-with-amazon-ecr.md
     - CI/CD for EKS:
       - CI/CD for EKS Using AWS CodePipeline: ./kubernetes-on-eks/ci-cd-with-eks/ci-cd-for-eks-using-aws-codepipeline.md
     - Helm:
