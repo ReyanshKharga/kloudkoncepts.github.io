@@ -1,0 +1,98 @@
+/* Code Highlight Colour */
+:root > * {
+    --md-code-hl-color: #E4EAF6;
+    /* --md-default-fg-color: #E4EAF6; */
+}
+/* Code Highlight Colour */
+
+
+/* Twitter Icon Colour */
+.twitter {
+    color: #1DA1F2;
+}
+/* Twitter Icon Colour */
+
+
+/* Heart Animation */
+@keyframes heart {
+    0%, 40%, 80%, 100% {
+        transform: scale(1);
+    }
+    20%, 60% {
+        transform: scale(1.15);
+    }
+}
+
+.heart-red {
+    animation: heart 1000ms infinite;
+    color: red
+}
+
+.heart-black {
+    animation: heart 1000ms infinite;
+    color: black
+}
+/* Heart Animation */
+
+
+/* Tabbed Content Styling */
+.md-typeset .tabbed-labels>label code {
+    color: var(--md-typeset-a-color);
+}
+
+.md-typeset .tabbed-labels>label code:hover {
+    background-color: var(--md-accent-fg-color--transparent);
+    color: var(--md-accent-fg-color);
+}
+
+.js .md-typeset .tabbed-labels:before {
+    background:  var(--md-accent-fg-color);
+}
+/* Tabbed Content Styling */
+
+
+/* Restore Admonitions Style */
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+}
+/* Restore Admonitions Style */
+
+
+/* Custom Admonition for Note */
+:root {
+    --md-admonition-icon--note: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c-.34.34-.67.67-.68 1-.03.32.31.65.63.96.48.5.95.95.93 1.44-.02.49-.53 1-1.04 1.5l-4.13 4.14L15 14.66l4.25-4.24-.96-.96-1.42 1.41-3.75-3.75 3.84-3.83c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25l9.56-9.57 3.75 3.75L6.75 21H3v-3.75Z"/></svg>')
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+    border-color: rgb(0, 191, 165);
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+    background-color: rgba(0, 191, 165, 0.1);
+}
+
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before {
+    background-color: rgb(0, 191, 165);
+    -webkit-mask-image: var(--md-admonition-icon--note);
+            mask-image: var(--md-admonition-icon--note);
+}
+/* Custom Admonition for Note */
+
+
+/* Mermaid alignment */
+.mermaid {
+    text-align: center;
+}
+/* Mermaid alignment */
+
+
+/* Apply drop shadow to images on all sides */
+img.shadowed-image {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+/* Apply drop shadow to images on all sides */
