@@ -77,7 +77,7 @@ Here are some tips for understanding EKS pricing:
 
 This step is required only if you want to enable `SSH` for worker nodes in the EKS cluster.
 
-1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/)
 2. In the navigation pane, under Network & Security, choose Key Pairs.
 3. Choose Create key pair
 4. Enter the desired name for the key pair (For example, `my-eks-key`)
